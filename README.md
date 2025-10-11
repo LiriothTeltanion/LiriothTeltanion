@@ -1,9 +1,12 @@
 <div align="center">
 
-# Kevin "Lirioth" Cusnir
+# Kevin Cusnir" Lirioth"
 
 **Junior Full‑Stack Developer (Python • JavaScript)**
-I build small, real‑world apps with clean code and simple UX — CLIs, Tkinter GUIs, SQLite, and friendly docs. 🐧
+I build small, real‑world apps with clean code and simple UX — CLIs, Tkinter GUIs, SQLite, and friendly docs.
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kevin-cusnir/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/Lirioth)
 
 </div>
 
