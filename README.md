@@ -9,7 +9,10 @@
 
 <br />
 
-<img src="./assets/visuals/typing.svg" width="100%" alt="Animated professional focus: full-stack experiences, music technology, privacy-first data and accessible interfaces" />
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="./preview/typing.png" />
+  <img src="./assets/visuals/typing.svg" width="100%" alt="Animated professional focus: full-stack experiences, music technology, privacy-first data and accessible interfaces" />
+</picture>
 
 <h1>Kevin Cusnir · Lirioth Teltanion ✨</h1>
 
@@ -19,7 +22,7 @@
 
 <br /><br />
 
-<a href="https://www.linkedin.com/in/kevin-cusnir/">
+<a href="https://www.linkedin.com/in/kevin-cusnir-883173b4/">
   <img src="https://img.shields.io/badge/LinkedIn-Kevin%20Cusnir-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
 </a>
 <a href="mailto:kevincusnir@gmail.com">
@@ -46,79 +49,161 @@
 
 <br /><br />
 
-<a href="#dashboard">Dashboard</a> ·
-<a href="#summary">Summary</a> ·
-<a href="#identity">Identity</a> ·
+<a href="#snapshot">Recruiter Snapshot</a> ·
+<a href="#flagship">Flagship</a> ·
 <a href="#languages">Languages</a> ·
-<a href="#english">Full Profile</a> ·
-<a href="#experience">Experience</a> ·
-<a href="#stack">Stack</a> ·
-<a href="#projects">Projects</a> ·
-<a href="#principles">Principles</a> ·
-<a href="#creative">Creative Universe</a> ·
-<a href="#focus">Current Focus</a> ·
+<a href="#profiles">Full Profiles</a> ·
+<a href="#visual-portfolio">Visual Portfolio</a> ·
 <a href="#contact">Contact</a>
 
 </div>
 
 ---
 
-<a id="dashboard"></a>
+<a id="snapshot"></a>
 
-## 📊 Executive portfolio dashboard
+## ⚡ Recruiter snapshot
 
-<div align="center">
-  <img src="./assets/visuals/executive-dashboard.svg" width="100%" alt="Animated executive dashboard showing featured-project evidence and portfolio composition" />
-</div>
+**Kevin Cusnir** is a junior full-stack and frontend developer in **Beersheba, Israel**, building accessible, privacy-aware products with a distinctive creative identity as **Lirioth Teltanion**.
 
-> The bars show how many of the four featured public projects visibly demonstrate each capability. They are evidence counts—not arbitrary proficiency percentages.
+- **Strongest public evidence:** React, TypeScript, Python, data transformation, multilingual UX, automated testing and GitHub Actions.
+- **Flagship product:** Nova Music Lab, a local-first listening-history analytics application with a live demo, multiple import formats and reproducible quality checks.
+- **Team value:** persistent debugging, clear documentation, empathy for non-technical users and structured creative thinking.
+- **Communication:** English, Spanish and Hebrew, including experience designing both LTR and RTL interfaces.
+- **Actively strengthening:** production backend architecture, PostgreSQL, authentication, Docker, integration testing and deployment operations.
 
----
-
-<a id="summary"></a>
-
-## 💼 Professional summary
-
-<div align="center">
-  <img src="./assets/visuals/professional-summary.svg" width="100%" alt="Professional summary, target roles, strengths and contact information for Kevin Cusnir" />
-</div>
+> **Best fit:** a junior full-stack or frontend role with real users, respectful code review, mentorship and thoughtful product quality.
 
 <p align="center">
-  <a href="mailto:kevincusnir@gmail.com"><strong>✉️ kevincusnir@gmail.com</strong></a>
+  <a href="mailto:kevincusnir@gmail.com"><strong>✉️ Email Kevin</strong></a>
   &nbsp;·&nbsp;
-  <a href="https://www.linkedin.com/in/kevin-cusnir/"><strong>LinkedIn</strong></a>
+  <a href="https://www.linkedin.com/in/kevin-cusnir-883173b4/"><strong>LinkedIn</strong></a>
   &nbsp;·&nbsp;
   <a href="https://github.com/LiriothTeltanion"><strong>GitHub</strong></a>
 </p>
 
 ---
 
-<a id="identity"></a>
+<a id="flagship"></a>
 
-## ✦ Identity map
+## 🎧 Flagship product — Nova Music Lab
+
+**Nova Music Lab** transforms personal listening-history exports into understandable statistics, timelines, records, cultural context and a generative musical identity—while keeping imported files in the browser.
+
+- **User value:** explore a bundled demonstration immediately or privately import Last.fm, Spotify, Apple Music, ListenBrainz and YouTube history.
+- **Engineering evidence:** React and TypeScript architecture, source normalization, deterministic analytics, lazy-loaded views, multilingual RTL support and accessible interaction patterns.
+- **Quality evidence:** a substantial Vitest test suite, strict data audits, media-link validation, bundle budgets and CI/deployment workflows.
+- **Trust boundary:** observed facts, inference and missing metadata are separated; optional network or AI behavior is documented.
+- **Current status:** active public flagship; backend, authentication and PostgreSQL remain explicitly labeled as the next portfolio milestone rather than finished functionality.
+
+[🌐 Live demo](https://liriothteltanion.github.io/NovaMusicLab/) ·
+[💻 Source](https://github.com/LiriothTeltanion/NovaMusicLab) ·
+[✅ CI workflow](https://github.com/LiriothTeltanion/NovaMusicLab/blob/main/.github/workflows/ci.yml) ·
+[🧪 Representative parser tests](https://github.com/LiriothTeltanion/NovaMusicLab/blob/main/src/utils/parser.test.ts) ·
+[🔎 Data-quality audit](https://github.com/LiriothTeltanion/NovaMusicLab/blob/main/scripts/audit_data_quality.mjs)
+
+**Also featured:** [NovaFit](https://github.com/LiriothTeltanion/NovaFit) — Python, Tkinter and SQLite local desktop app · [Fullstack2026](https://github.com/LiriothTeltanion/Fullstack2026) — structured learning archive · [Christopher Portfolio](https://github.com/LiriothTeltanion/ChristopherRodriguezCVOnline) — accessible bilingual React and TypeScript case study.
+
+---
+
+<a id="dashboard"></a>
+
+<details>
+<summary><strong>📊 Executive portfolio dashboard — open the animated evidence view</strong></summary>
+
+<br />
 
 <div align="center">
-  <img src="./assets/visuals/about-me.svg" width="100%" alt="Identity map for Kevin Cusnir and Lirioth Teltanion" />
+  <a href="./preview/executive-dashboard.png" title="Open the static full-resolution view">
+    <picture>
+      <source media="(prefers-reduced-motion: reduce)" srcset="./preview/executive-dashboard.png" />
+      <img src="./assets/visuals/executive-dashboard.svg" width="100%" loading="lazy" alt="Animated executive dashboard: four featured projects; React or TypeScript appears in three, Python in two, data and analytics in two, accessible or multilingual UX in two, automated delivery in two, and desktop or CLI work in one" />
+    </picture>
+  </a>
 </div>
+
+**Text equivalent:** Across four featured public projects, React or TypeScript appears in **3**, Python in **2**, data and analytics in **2**, accessible or multilingual UX in **2**, automated delivery in **2**, and desktop or CLI work in **1**. These are evidence counts—not arbitrary proficiency percentages.
+
+</details>
+
+---
+
+<a id="summary"></a>
+
+<details>
+<summary><strong>💼 Professional summary — open the visual overview</strong></summary>
+
+<br />
+
+<div align="center">
+  <a href="./preview/professional-summary.png" title="Open the static full-resolution view">
+    <picture>
+      <source media="(prefers-reduced-motion: reduce)" srcset="./preview/professional-summary.png" />
+      <img src="./assets/visuals/professional-summary.svg" width="100%" loading="lazy" alt="Professional summary for Kevin Cusnir: junior full-stack and frontend target roles, persistent debugging, documentation, accessible privacy-aware UX, creative product thinking and multilingual communication" />
+    </picture>
+  </a>
+</div>
+
+<p align="center">
+  <a href="mailto:kevincusnir@gmail.com"><strong>✉️ kevincusnir@gmail.com</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://www.linkedin.com/in/kevin-cusnir-883173b4/"><strong>LinkedIn</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/LiriothTeltanion"><strong>GitHub</strong></a>
+</p>
+
+</details>
+
+---
+
+<a id="identity"></a>
+
+<details>
+<summary><strong>✦ Identity map — open Kevin and Lirioth's visual story</strong></summary>
+
+<br />
+
+<div align="center">
+  <a href="./preview/about-me.png" title="Open the static full-resolution view">
+    <picture>
+      <source media="(prefers-reduced-motion: reduce)" srcset="./preview/about-me.png" />
+      <img src="./assets/visuals/about-me.svg" width="100%" loading="lazy" alt="Identity map for Kevin Cusnir and Lirioth Teltanion: full-stack training, development foundations, accessibility, privacy, testing, music technology, visual storytelling, hardware and automation" />
+    </picture>
+  </a>
+</div>
+
+</details>
 
 ---
 
 <a id="languages"></a>
 
-## 🌍 Language and communication profile
+<details>
+<summary><strong>🌍 Language and communication profile — English, Spanish and Hebrew</strong></summary>
+
+<br />
 
 <div align="center">
-  <img src="./assets/visuals/language-profile.svg" width="100%" alt="Spanish, English and Hebrew communication profile for Kevin Cusnir" />
+  <a href="./preview/language-profile.png" title="Open the static full-resolution view">
+    <picture>
+      <source media="(prefers-reduced-motion: reduce)" srcset="./preview/language-profile.png" />
+      <img src="./assets/visuals/language-profile.svg" width="100%" loading="lazy" alt="Language profile: native Spanish, advanced professional English and working local Hebrew, including technical documentation and LTR or RTL product communication" />
+    </picture>
+  </a>
 </div>
+
+</details>
 
 ---
 
-## 🌐 Read my complete profile
+<a id="profiles"></a>
+
+## 🌐 Full profile and multilingual summaries
 
 <a id="english"></a>
 
-<details open>
-<summary><strong>🌐 English — open the complete professional profile</strong></summary>
+<details>
+<summary><strong>🌐 English — complete professional profile</strong></summary>
 
 <br />
 
@@ -194,6 +279,8 @@ Technical support and customer-facing work taught me patience, communication and
 
 **Nova Music Lab** is a privacy-first musical analytics experience that transforms listening-history exports into statistics, personal records, timelines, emotional maps, cultural insights, achievements and a generative artist identity.
 
+**Status:** active public flagship. Production backend architecture, authentication and PostgreSQL remain explicitly documented next milestones.
+
 #### Product highlights
 
 - Imports data from **Last.fm, Spotify, Apple Music, ListenBrainz and YouTube**.
@@ -229,6 +316,8 @@ Technical support and customer-facing work taught me patience, communication and
 
 **NovaFit** is an offline health tracker with command-line and desktop interfaces for recording activity, hydration, calories, mood, goals and trends.
 
+**Status:** public local application that requires installation; it is not presented as a hosted web product.
+
 #### Product highlights
 
 - Command-line interface and Tkinter desktop GUI.
@@ -260,6 +349,8 @@ Technical support and customer-facing work taught me patience, communication and
 
 **Fullstack2026** is a structured learning archive containing exercises, challenges and mini-projects across Python, object-oriented programming, JavaScript, DOM manipulation, asynchronous programming and TypeScript.
 
+**Status:** public learning archive, intentionally separated from production-ready portfolio products.
+
 It preserves the progression that built my technical foundation. It also shows how my documentation, naming, project structure and problem-solving approach evolved over time.
 
 #### What it demonstrates
@@ -280,6 +371,8 @@ It preserves the progression that built my technical foundation. It also shows h
 ### 👨‍🏫 Christopher Rodríguez — Portfolio and Online CV
 
 This project is a bilingual React and TypeScript portfolio built around a real professional profile.
+
+**Status:** public client-facing case study with an automated GitHub Pages deployment workflow.
 
 #### Product highlights
 
@@ -382,7 +475,7 @@ I want to grow inside a team that values:
 
 ## 🤝 Contact
 
-- 💼 [LinkedIn — Kevin Cusnir](https://www.linkedin.com/in/kevin-cusnir/)
+- 💼 [LinkedIn — Kevin Cusnir](https://www.linkedin.com/in/kevin-cusnir-883173b4/)
 - 🐙 [GitHub — LiriothTeltanion](https://github.com/LiriothTeltanion)
 - ✉️ [kevincusnir@gmail.com](mailto:kevincusnir@gmail.com)
 
@@ -393,7 +486,7 @@ I want to grow inside a team that values:
 <a id="spanish"></a>
 
 <details>
-<summary><strong>🌐 Español — abrir el perfil profesional completo</strong></summary>
+<summary><strong>🌐 Español — abrir el resumen profesional</strong></summary>
 
 <br />
 
@@ -453,6 +546,8 @@ Actualmente estoy fortaleciendo:
 
 Experiencia de análisis musical centrada en privacidad que transforma historiales de escucha en estadísticas, líneas de tiempo, mapas emocionales, perspectivas culturales, logros e identidad artística generativa.
 
+**Estado:** producto insignia público y activo. El backend de producción, la autenticación y PostgreSQL siguen identificados como próximos objetivos.
+
 **Características principales**
 
 - Importación desde Last.fm, Spotify, Apple Music, ListenBrainz y YouTube.
@@ -475,6 +570,8 @@ Experiencia de análisis musical centrada en privacidad que transforma historial
 
 Monitor de salud offline con interfaces de consola y escritorio para registrar actividad, hidratación, calorías, estado de ánimo, objetivos y tendencias.
 
+**Estado:** aplicación local pública que requiere instalación; no se presenta como producto web alojado.
+
 **Características principales**
 
 - CLI y GUI con Tkinter.
@@ -495,6 +592,8 @@ Monitor de salud offline con interfaces de consola y escritorio para registrar a
 
 Archivo estructurado de aprendizaje con ejercicios y mini-proyectos de Python, programación orientada a objetos, JavaScript, DOM, asincronía y TypeScript.
 
+**Estado:** archivo público de aprendizaje, separado intencionalmente de los productos listos para producción.
+
 Muestra la evolución de mi lógica, documentación, organización y práctica constante.
 
 [📂 Explorar](https://github.com/LiriothTeltanion/Fullstack2026)
@@ -504,6 +603,8 @@ Muestra la evolución de mi lógica, documentación, organización y práctica c
 ### 👨‍🏫 Portafolio de Christopher Rodríguez
 
 Portafolio bilingüe en React y TypeScript para un perfil profesional real.
+
+**Estado:** caso de estudio público orientado a clientes con un workflow automatizado de despliegue a GitHub Pages.
 
 Incluye contenido estructurado, accesibilidad, preferencias persistentes, temas, SEO, experiencia internacional y despliegue mediante GitHub Pages.
 
@@ -561,7 +662,7 @@ Construir y desplegar una aplicación full-stack que demuestre:
 
 ## 🤝 Contacto
 
-- 💼 [LinkedIn — Kevin Cusnir](https://www.linkedin.com/in/kevin-cusnir/)
+- 💼 [LinkedIn — Kevin Cusnir](https://www.linkedin.com/in/kevin-cusnir-883173b4/)
 - 🐙 [GitHub — LiriothTeltanion](https://github.com/LiriothTeltanion)
 - ✉️ [kevincusnir@gmail.com](mailto:kevincusnir@gmail.com)
 
@@ -572,7 +673,7 @@ Construir y desplegar una aplicación full-stack que demuestre:
 <a id="hebrew"></a>
 
 <details>
-<summary><strong>🌐 עברית — פתיחת הפרופיל המקצועי המלא</strong></summary>
+<summary><strong>🌐 עברית — פתיחת התקציר המקצועי</strong></summary>
 
 <br />
 
@@ -631,6 +732,8 @@ Construir y desplegar una aplicación full-stack que demuestre:
 
 <p>חוויית ניתוח מוזיקלי ממוקדת פרטיות שהופכת היסטוריית האזנה לסטטיסטיקות, צירי זמן, מפות רגשיות, תובנות תרבותיות, הישגים וזהות אמן גנרטיבית.</p>
 
+<p><strong>סטטוס:</strong> מוצר הדגל הציבורי והפעיל. Backend לייצור, authentication ו-PostgreSQL נשארים יעדים מתועדים לשלב הבא.</p>
+
 <ul>
   <li>ייבוא מ-Last.fm, Spotify, Apple Music, ListenBrainz ו-YouTube.</li>
   <li>עיבוד מקומי בדפדפן.</li>
@@ -654,6 +757,8 @@ Construir y desplegar una aplicación full-stack que demuestre:
 
 <p>מערכת מעקב בריאות לא מקוונת עם CLI וממשק שולחני.</p>
 
+<p><strong>סטטוס:</strong> יישום מקומי ציבורי שדורש התקנה; הוא אינו מוצג כמוצר ווב מתארח.</p>
+
 <ul>
   <li>Tkinter.</li>
   <li>SQLite.</li>
@@ -673,6 +778,8 @@ Construir y desplegar una aplicación full-stack que demuestre:
 
 <p>ארכיון למידה מסודר הכולל Python, OOP, JavaScript, DOM, async ו-TypeScript.</p>
 
+<p><strong>סטטוס:</strong> ארכיון למידה ציבורי, המופרד במכוון ממוצרים שמוצגים כמוכנים ל-production.</p>
+
 <p><a href="https://github.com/LiriothTeltanion/Fullstack2026">📂 פתיחת הארכיון</a></p>
 
 <hr />
@@ -680,6 +787,8 @@ Construir y desplegar una aplicación full-stack que demuestre:
 <h3>👨‍🏫 הפורטפוליו של Christopher Rodríguez</h3>
 
 <p>פורטפוליו דו-לשוני ב-React וב-TypeScript עם תוכן מובנה, נגישות, ערכות נושא, SEO ו-GitHub Pages.</p>
+
+<p><strong>סטטוס:</strong> מקרה בוחן ציבורי ללקוח עם workflow אוטומטי לפריסה ל-GitHub Pages.</p>
 
 <p><a href="https://github.com/LiriothTeltanion/ChristopherRodriguezCVOnline">💻 קוד</a></p>
 
@@ -710,7 +819,7 @@ Construir y desplegar una aplicación full-stack que demuestre:
 <h2>🤝 יצירת קשר</h2>
 
 <ul>
-  <li>💼 <a href="https://www.linkedin.com/in/kevin-cusnir/">LinkedIn — Kevin Cusnir</a></li>
+  <li>💼 <a href="https://www.linkedin.com/in/kevin-cusnir-883173b4/">LinkedIn — Kevin Cusnir</a></li>
   <li>🐙 <a href="https://github.com/LiriothTeltanion">GitHub — LiriothTeltanion</a></li>
   <li>✉️ <a href="mailto:kevincusnir@gmail.com">kevincusnir@gmail.com</a></li>
 </ul>
@@ -723,12 +832,24 @@ Construir y desplegar una aplicación full-stack que demuestre:
 
 ---
 
+<a id="visual-portfolio"></a>
+
+<details>
+<summary><strong>🎨 Open the complete animated visual portfolio</strong></summary>
+
+<br />
+
 <a id="experience"></a>
 
 ## 🌉 Transferable experience bridge
 
 <div align="center">
-  <img src="./assets/visuals/experience-bridge.svg" width="100%" alt="How technical support, service work, training and product development connect" />
+  <a href="./preview/experience-bridge.png" title="Open the static full-resolution view">
+    <picture>
+      <source media="(prefers-reduced-motion: reduce)" srcset="./preview/experience-bridge.png" />
+      <img src="./assets/visuals/experience-bridge.svg" width="100%" loading="lazy" alt="Transferable experience bridge connecting technical support, customer service, full-stack training and public product building" />
+    </picture>
+  </a>
 </div>
 
 ---
@@ -738,7 +859,12 @@ Construir y desplegar una aplicación full-stack que demuestre:
 ## 🧭 Developer journey
 
 <div align="center">
-  <img src="./assets/visuals/journey.svg" width="100%" alt="Developer journey from technical troubleshooting to full-stack product development" />
+  <a href="./preview/journey.png" title="Open the static full-resolution view">
+    <picture>
+      <source media="(prefers-reduced-motion: reduce)" srcset="./preview/journey.png" />
+      <img src="./assets/visuals/journey.svg" width="100%" loading="lazy" alt="Developer journey from hands-on technical troubleshooting through 2025 training and product building to the next production full-stack milestone" />
+    </picture>
+  </a>
 </div>
 
 ---
@@ -748,7 +874,12 @@ Construir y desplegar una aplicación full-stack que demuestre:
 ## 🧰 Technology constellation
 
 <div align="center">
-  <img src="./assets/visuals/tech-stack.svg" width="100%" alt="Technology stack across frontend, backend, data, quality and creative systems" />
+  <a href="./preview/tech-stack.png" title="Open the static full-resolution view">
+    <picture>
+      <source media="(prefers-reduced-motion: reduce)" srcset="./preview/tech-stack.png" />
+      <img src="./assets/visuals/tech-stack.svg" width="100%" loading="lazy" alt="Technology stack: React, TypeScript, JavaScript, HTML, CSS, Tailwind, Vite, Node.js, Python, REST, SQL, SQLite, testing, CI, accessibility, Tkinter, data visualization and automation" />
+    </picture>
+  </a>
 </div>
 
 ---
@@ -758,53 +889,66 @@ Construir y desplegar una aplicación full-stack que demuestre:
 ## 🧩 Project capability matrix
 
 <div align="center">
-  <img src="./assets/visuals/project-matrix.svg" width="100%" alt="Animated project matrix showing capabilities demonstrated by each featured repository" />
+  <a href="./preview/project-matrix.png" title="Open the static full-resolution view">
+    <picture>
+      <source media="(prefers-reduced-motion: reduce)" srcset="./preview/project-matrix.png" />
+      <img src="./assets/visuals/project-matrix.svg" width="100%" loading="lazy" alt="Project capability matrix: Nova Music Lab demonstrates frontend, data, testing, accessibility, deployment and local-first processing; NovaFit demonstrates Python, data and local-first work; Fullstack2026 demonstrates frontend and Python foundations; the client portfolio demonstrates frontend, accessibility and deployment" />
+    </picture>
+  </a>
 </div>
+
+**Text equivalent:** Nova Music Lab provides the broadest evidence across frontend, data, testing, accessibility, deployment and local-first processing. NovaFit demonstrates Python, local persistence and desktop or CLI design. Fullstack2026 documents frontend and Python foundations. The Christopher portfolio demonstrates frontend delivery, accessibility and deployment.
 
 ---
 
 ## 🌟 Project ecosystem
 
 <div align="center">
-  <img src="./assets/visuals/project-ecosystem.svg" width="100%" alt="Visual map connecting Kevin's featured projects and next full-stack milestone" />
+  <a href="./preview/project-ecosystem.png" title="Open the static full-resolution view">
+    <picture>
+      <source media="(prefers-reduced-motion: reduce)" srcset="./preview/project-ecosystem.png" />
+      <img src="./assets/visuals/project-ecosystem.svg" width="100%" loading="lazy" alt="Project ecosystem connecting Nova Music Lab, NovaFit, Fullstack2026 and the client portfolio to the next backend, PostgreSQL, authentication, Docker and deployment milestone" />
+    </picture>
+  </a>
 </div>
 
 <br />
 
-<table>
-<tr>
-<td width="50%" valign="top">
+### 🎧 Nova Music Lab
 
 <a href="https://github.com/LiriothTeltanion/NovaMusicLab">
-  <img width="100%" src="./assets/projects/nova-music-lab.svg" alt="Animated Nova Music Lab project card" />
+  <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="./preview/nova-music-lab.png" />
+    <img width="100%" loading="lazy" src="./assets/projects/nova-music-lab.svg" alt="Animated Nova Music Lab card: flagship privacy-first music analytics product built with React, TypeScript and Vitest" />
+  </picture>
 </a>
 
-</td>
-<td width="50%" valign="top">
+### 💙 NovaFit
 
 <a href="https://github.com/LiriothTeltanion/NovaFit">
-  <img width="100%" src="./assets/projects/novafit.svg" alt="Animated NovaFit project card" />
+  <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="./preview/novafit.png" />
+    <img width="100%" loading="lazy" src="./assets/projects/novafit.svg" alt="Animated NovaFit card: local-first Python, Tkinter and SQLite health-tracking application" />
+  </picture>
 </a>
 
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
+### 📚 Fullstack2026
 
 <a href="https://github.com/LiriothTeltanion/Fullstack2026">
-  <img width="100%" src="./assets/projects/fullstack2026.svg" alt="Animated Fullstack2026 project card" />
+  <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="./preview/fullstack2026.png" />
+    <img width="100%" loading="lazy" src="./assets/projects/fullstack2026.svg" alt="Animated Fullstack2026 card: structured Python, JavaScript and TypeScript learning archive" />
+  </picture>
 </a>
 
-</td>
-<td width="50%" valign="top">
+### 👨‍🏫 Christopher Rodríguez portfolio
 
 <a href="https://github.com/LiriothTeltanion/ChristopherRodriguezCVOnline">
-  <img width="100%" src="./assets/projects/christopher-portfolio.svg" alt="Animated Christopher portfolio project card" />
+  <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="./preview/christopher-portfolio.png" />
+    <img width="100%" loading="lazy" src="./assets/projects/christopher-portfolio.svg" alt="Animated Christopher Rodríguez portfolio card: accessible bilingual React and TypeScript client-facing case study" />
+  </picture>
 </a>
-
-</td>
-</tr>
-</table>
 
 ---
 
@@ -813,7 +957,12 @@ Construir y desplegar una aplicación full-stack que demuestre:
 ## 🧠 Engineering principles
 
 <div align="center">
-  <img src="./assets/visuals/principles.svg" width="100%" alt="Engineering principles: accessibility, privacy, honest data, testing, documentation and structured creativity" />
+  <a href="./preview/principles.png" title="Open the static full-resolution view">
+    <picture>
+      <source media="(prefers-reduced-motion: reduce)" srcset="./preview/principles.png" />
+      <img src="./assets/visuals/principles.svg" width="100%" loading="lazy" alt="Engineering principles: accessible by default, privacy as a feature, honest data only, test the critical path, document the why and combine creativity with structure" />
+    </picture>
+  </a>
 </div>
 
 ---
@@ -823,7 +972,12 @@ Construir y desplegar una aplicación full-stack que demuestre:
 ## 🎧 Creative universe
 
 <div align="center">
-  <img src="./assets/visuals/creative-universe.svg" width="100%" alt="Creative universe of Lirioth Teltanion: music, gaming, art, storytelling, languages, hardware, automation and AI" />
+  <a href="./preview/creative-universe.png" title="Open the static full-resolution view">
+    <picture>
+      <source media="(prefers-reduced-motion: reduce)" srcset="./preview/creative-universe.png" />
+      <img src="./assets/visuals/creative-universe.svg" width="100%" loading="lazy" alt="Creative universe of Lirioth Teltanion: music, gaming, art, storytelling, languages, hardware, automation and responsibly reviewed AI-assisted creation" />
+    </picture>
+  </a>
 </div>
 
 ---
@@ -833,73 +987,58 @@ Construir y desplegar una aplicación full-stack que demuestre:
 ## 🔭 Current focus
 
 <div align="center">
-  <img src="./assets/visuals/current-focus.svg" width="100%" alt="Current focus, next build and opportunities Kevin is open to" />
+  <a href="./preview/current-focus.png" title="Open the static full-resolution view">
+    <picture>
+      <source media="(prefers-reduced-motion: reduce)" srcset="./preview/current-focus.png" />
+      <img src="./assets/visuals/current-focus.svg" width="100%" loading="lazy" alt="Current focus: maintain Nova Music Lab, improve demos and learning repositories, build a production-style backend with PostgreSQL and authentication, and pursue junior roles or mentored teams" />
+    </picture>
+  </a>
 </div>
 
 ---
 
 ## 🧪 Lab notes
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
 ### 🏃‍♂️ Weather-aware tools
 
 Explorations combining hourly forecasts, local caching, SQLite sessions and health or workout decisions.
-
-</td>
-<td width="50%" valign="top">
 
 ### 🧬 Object-oriented simulations
 
 Exercises using genes, chromosomes, mutations and small simulations to strengthen domain modeling.
 
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
 ### 🐉 Retro game experiments
 
 Small Phaser prototypes focused on input loops, movement, visual style and the joy of building playable systems.
-
-</td>
-<td width="50%" valign="top">
 
 ### 🔐 Security learning lab
 
 PassKeep remains private while its threat model, secret handling, test strategy and user-facing claims are reviewed carefully.
 
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
 ### ⚙️ Automation and agent workflows
 
 Experiments using AI-assisted coding, structured prompts and repeatable development workflows—always with human review and final responsibility.
 
-</td>
-<td width="50%" valign="top">
-
 ### 🎹 Music and creative technology
 
 Ideas connecting musical identity, personal analytics, generative visuals, digital production and interactive storytelling.
-
-</td>
-</tr>
-</table>
 
 ---
 
 ## 📈 GitHub pulse
 
 <div align="center">
-  <img src="./assets/visuals/github-pulse.svg" width="100%" alt="Stable GitHub profile snapshot for LiriothTeltanion" />
+  <a href="./preview/github-pulse.png" title="Open the static full-resolution view">
+    <picture>
+      <source media="(prefers-reduced-motion: reduce)" srcset="./preview/github-pulse.png" />
+      <img src="./assets/visuals/github-pulse.svg" width="100%" loading="lazy" alt="Curated GitHub snapshot: seven public repositories, four featured builds, three profile languages and one Lirioth creative signature" />
+    </picture>
+  </a>
 </div>
 
 > This image is a curated snapshot, not a live score. Current contribution activity remains visible directly on the GitHub profile.
+
+</details>
 
 ---
 
@@ -909,7 +1048,7 @@ Ideas connecting musical identity, personal analytics, generative visuals, digit
 
 <div align="center">
 
-<a href="https://www.linkedin.com/in/kevin-cusnir/">
+<a href="https://www.linkedin.com/in/kevin-cusnir-883173b4/">
   <img src="https://img.shields.io/badge/LinkedIn-Let's%20Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="Connect on LinkedIn" />
 </a>
 <a href="mailto:kevincusnir@gmail.com">
@@ -924,7 +1063,10 @@ Ideas connecting musical identity, personal analytics, generative visuals, digit
 
 <br /><br />
 
-<img src="./assets/visuals/footer.svg" width="100%" alt="Let's build something meaningful — Kevin Cusnir and Lirioth Teltanion" />
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="./preview/footer.png" />
+  <img src="./assets/visuals/footer.svg" width="100%" loading="lazy" alt="Let's build something meaningful — Kevin Cusnir and Lirioth Teltanion" />
+</picture>
 
 <sub>Profile content © Kevin Cusnir. Individual repositories define their own licenses.</sub>
 

@@ -1,130 +1,89 @@
-# Ultimate animated GitHub profile — setup
+# GitHub profile repository setup
 
-## Required repository structure
+This repository powers the public GitHub profile for **Kevin Cusnir — Lirioth
+Teltanion**. GitHub renders the root `README.md` directly on the
+`LiriothTeltanion` account profile.
 
-```text
-LiriothTeltanion/
-├── README.md
-├── assets/
-│   ├── avatar.png
-│   ├── profile-banner.png
-│   ├── profile-banner-animated.svg
-│   ├── projects/
-│   │   ├── nova-music-lab.svg
-│   │   ├── novafit.svg
-│   │   ├── fullstack2026.svg
-│   │   └── christopher-portfolio.svg
-│   └── visuals/
-│       ├── typing.svg
-│       ├── executive-dashboard.svg
-│       ├── professional-summary.svg
-│       ├── about-me.svg
-│       ├── language-profile.svg
-│       ├── experience-bridge.svg
-│       ├── journey.svg
-│       ├── tech-stack.svg
-│       ├── project-matrix.svg
-│       ├── project-ecosystem.svg
-│       ├── principles.svg
-│       ├── creative-universe.svg
-│       ├── current-focus.svg
-│       ├── github-pulse.svg
-│       └── footer.svg
-└── extras/
-```
+## Prerequisites
 
-## Major improvements in this edition
+- Git.
+- PowerShell 7 or Windows PowerShell 5.1.
+- Write access to `LiriothTeltanion/LiriothTeltanion` only when publishing.
 
-- Animated executive graphs placed near the top.
-- Evidence-based capability bars rather than invented proficiency percentages.
-- Animated portfolio-composition donut.
-- Detailed language and communication profile.
-- Transferable-experience bridge connecting repair work, service, training and product development.
-- Animated project capability matrix.
-- Animated SVG project cards replacing static PNG cards.
-- Larger typography and safer spacing throughout.
-- Fuller English, Spanish and Hebrew profile content.
-- Beersheba, Israel added to the professional location.
-- Real clickable email: `kevincusnir@gmail.com`.
-- More detailed descriptions of technologies, projects, principles, strengths and roadmap.
-- Local SVG assets to avoid fragile third-party statistics cards.
+No package installation or build step is required. The public profile uses
+Markdown, HTML and repository-local image assets.
 
-## Publish with Git
+## Get a working copy
 
 ```powershell
-git add README.md assets/ extras/
-git commit -m "docs: publish ultimate animated multilingual profile"
+git clone https://github.com/LiriothTeltanion/LiriothTeltanion.git
+Set-Location .\LiriothTeltanion
+git status --short --branch
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\profile\verify-profile.ps1
+```
+
+Keep one editable clone as the source of truth. Use `git rev-parse --show-toplevel`
+whenever there is doubt about which copy is open.
+
+See [the folder map](docs/profile-maintenance/FOLDER_MAP.md) for the maintained
+repository structure.
+
+## Safe editing cycle
+
+1. Read `AGENTS.md` and check `git status`.
+2. Inspect the exact README section and every asset it references.
+3. Define the smallest coherent change.
+4. Before a major README restructure, create a local backup:
+
+   ```powershell
+   powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\profile\backup-readme.ps1
+   ```
+
+5. Make the targeted edit without replacing unrelated content.
+6. Follow the validation and visual-review steps in
+   [the maintenance workflow](docs/profile-maintenance/WORKFLOW.md).
+
+Backups are written to `.local-backups/`. The tracked `.gitignore` keeps that
+directory local in every clone.
+
+## Asset conventions
+
+- Keep README asset paths relative, with their existing case and directory.
+- Do not rename or delete files in `assets/` or `preview/` without an explicit
+  reference and retention audit.
+- Keep animated visuals paired with an appropriate static or reduced-motion
+  experience.
+- Preserve meaningful alt text and verify both desktop and narrow/mobile
+  rendering after a visual change.
+- Preserve the English, Spanish and Hebrew sections unless a task explicitly
+  updates all affected translations.
+
+`preview/` is a tracked review archive, not a disposable cache. Its retention
+rules are documented in the maintenance workflow.
+
+## Optional dynamic visuals
+
+The public profile intentionally favors stable local assets. The contribution
+snake is an opt-in workflow template and is not active while it remains under
+`extras/`. See
+[Optional dynamic contribution animation](extras/OPTIONAL-DYNAMIC-VISUALS.md)
+before enabling it.
+
+## Publish only after review
+
+Publishing is a deliberate manual step. Stage only the files that belong to the
+approved change:
+
+```powershell
+git status --short
+git diff --check
+git add -- SETUP.md docs/profile-maintenance/WORKFLOW.md
+git diff --cached
+git commit -m "docs: describe the focused profile change"
 git push
 ```
 
-## Upload through GitHub.com
-
-1. Open `LiriothTeltanion/LiriothTeltanion`.
-2. Select **Add file → Upload files**.
-3. Replace `README.md`.
-4. Upload the complete `assets` folder.
-5. Preserve every subfolder and exact filename.
-6. Commit with:
-
-   ```text
-   docs: publish ultimate animated multilingual profile
-   ```
-
-7. Refresh the public profile with `Ctrl + F5`.
-
-## Reduced motion
-
-The animated header has a PNG fallback for users who request reduced motion:
-
-```html
-<picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/profile-banner.png" />
-  <img src="./assets/profile-banner-animated.svg" />
-</picture>
-```
-
-## Important
-
-Do not rename the following folders:
-
-```text
-assets/visuals/
-assets/projects/
-```
-
-The README uses exact relative paths.
-
-
-## Final header polish
-
-The main animated header now uses:
-
-```text
-KEVIN CUSNIR
-(LIRIOTHTELTANION)
-```
-
-The name font was reduced and the underline shortened so the complete identity
-remains readable at GitHub's rendered profile width.
-
-
-## Definitive name-visibility correction
-
-The main animated banner now protects the full identity text permanently:
-
-```text
-KEVIN CUSNIR
-(LIRIOTHTELTANION)
-```
-
-Changes:
-
-- moving scan light clipped to the right side
-- darker protected title plate behind the name
-- strong dark SVG text outline
-- safer 53px name size
-- zero letter spacing on the main name
-- shorter underline
-- reduced username spacing
-
-No other profile section was changed.
+Replace the example paths with the exact files in the approved change. Do not
+commit or push from an automated editing session unless Kevin explicitly
+requests it. After publishing, open the public profile and inspect its desktop
+and mobile rendering.
