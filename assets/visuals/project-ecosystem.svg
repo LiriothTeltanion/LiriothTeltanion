@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+  width="1200" height="610" viewBox="0 0 1200 610"
+  role="img" aria-label="Project ecosystem of Kevin Cusnir">
+  <title>Project ecosystem of Kevin Cusnir</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07111f"/>
+      <stop offset="55%" stop-color="#0b1b31"/>
+      <stop offset="100%" stop-color="#15113a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <linearGradient id="accentGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="accentWarm" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity=".45"/>
+    </filter>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#75bfff" stroke-opacity=".045" stroke-width="1"/>
+    </pattern>
+    
+  </defs>
+  <rect width="1200" height="610" rx="28" fill="url(#bg)"/>
+  <rect width="1200" height="610" rx="28" fill="url(#grid)"/>
+  <rect x="2" y="2" width="1196" height="606" rx="26"
+        fill="none" stroke="url(#accent)" stroke-opacity=".38" stroke-width="2"/>
+  
+    <line x1="42" y1="56" x2="280" y2="56" stroke="url(#accent)" stroke-opacity=".55"/>
+    <line x1="920" y1="56" x2="1158" y2="56" stroke="url(#accent)" stroke-opacity=".55"/>
+    <text x="600.0" y="63" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="800" text-anchor="middle" letter-spacing="1.1">PROJECT ECOSYSTEM</text>
+    <text x="600.0" y="94" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" text-anchor="middle">Each project strengthens a different layer of my developer identity</text>
+      <path d="M600,290 Q402.5,199.5 205,185"
+            fill="none" stroke="#38bdf8" stroke-width="2" stroke-opacity=".55"
+            stroke-dasharray="8 8">
+        <animate attributeName="stroke-dashoffset" values="32;0" dur="3s" repeatCount="indefinite"/>
+      </path>
+    
+      <path d="M600,290 Q797.5,199.5 995,185"
+            fill="none" stroke="#34d399" stroke-width="2" stroke-opacity=".55"
+            stroke-dasharray="8 8">
+        <animate attributeName="stroke-dashoffset" values="32;0" dur="3s" repeatCount="indefinite"/>
+      </path>
+    
+      <path d="M600,290 Q402.5,304.5 205,395"
+            fill="none" stroke="#fbbf24" stroke-width="2" stroke-opacity=".55"
+            stroke-dasharray="8 8">
+        <animate attributeName="stroke-dashoffset" values="32;0" dur="3s" repeatCount="indefinite"/>
+      </path>
+    
+      <path d="M600,290 Q797.5,304.5 995,395"
+            fill="none" stroke="#8b5cf6" stroke-width="2" stroke-opacity=".55"
+            stroke-dasharray="8 8">
+        <animate attributeName="stroke-dashoffset" values="32;0" dur="3s" repeatCount="indefinite"/>
+      </path>
+    
+      <path d="M600,290 Q600.0,357.0 600,500"
+            fill="none" stroke="#fb7185" stroke-width="2" stroke-opacity=".55"
+            stroke-dasharray="8 8">
+        <animate attributeName="stroke-dashoffset" values="32;0" dur="3s" repeatCount="indefinite"/>
+      </path>
+    
+  <circle cx="600" cy="290" r="104" fill="#07101c" stroke="url(#accent)" stroke-width="4"
+          filter="url(#shadow)"/>
+  <circle cx="600" cy="290" r="89" fill="#101d31" stroke="#38bdf8" stroke-opacity=".25"/>
+  <text x="600" y="268" fill="#38bdf8" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="800" text-anchor="middle" letter-spacing="2">KEVIN'S</text>
+  <text x="600" y="300" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="900" text-anchor="middle" letter-spacing="1.4">BUILD LAB</text>
+  <text x="600" y="327" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle">products · learning · experiments</text>
+
+      <rect x="39" y="115" width="332" height="140" rx="20" fill="#101d31"
+            stroke="#38bdf8" stroke-opacity=".48" filter="url(#shadow)"/>
+      <rect x="39" y="115" width="6" height="140" rx="3" fill="#38bdf8"/>
+      <text x="205" y="158" fill="#38bdf8" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="850" text-anchor="middle">NOVA MUSIC LAB</text>
+      <text x="205" y="191" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="650" text-anchor="middle">Music · data · privacy</text>
+      <text x="205" y="216" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="500" text-anchor="middle">React / TypeScript flagship</text>
+    
+      <rect x="829" y="115" width="332" height="140" rx="20" fill="#101d31"
+            stroke="#34d399" stroke-opacity=".48" filter="url(#shadow)"/>
+      <rect x="829" y="115" width="6" height="140" rx="3" fill="#34d399"/>
+      <text x="995" y="158" fill="#34d399" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="850" text-anchor="middle">NOVAFIT</text>
+      <text x="995" y="191" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="650" text-anchor="middle">Health · local-first tools</text>
+      <text x="995" y="216" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="500" text-anchor="middle">Python / Tkinter / SQLite</text>
+    
+      <rect x="39" y="325" width="332" height="140" rx="20" fill="#101d31"
+            stroke="#fbbf24" stroke-opacity=".48" filter="url(#shadow)"/>
+      <rect x="39" y="325" width="6" height="140" rx="3" fill="#fbbf24"/>
+      <text x="205" y="368" fill="#fbbf24" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="850" text-anchor="middle">FULLSTACK2026</text>
+      <text x="205" y="401" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="650" text-anchor="middle">Foundations · exercises</text>
+      <text x="205" y="426" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="500" text-anchor="middle">A visible learning journey</text>
+    
+      <rect x="829" y="325" width="332" height="140" rx="20" fill="#101d31"
+            stroke="#8b5cf6" stroke-opacity=".48" filter="url(#shadow)"/>
+      <rect x="829" y="325" width="6" height="140" rx="3" fill="#8b5cf6"/>
+      <text x="995" y="368" fill="#8b5cf6" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="850" text-anchor="middle">CLIENT PORTFOLIO</text>
+      <text x="995" y="401" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="650" text-anchor="middle">Accessibility · bilingual UX</text>
+      <text x="995" y="426" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="500" text-anchor="middle">React / TypeScript case study</text>
+    
+      <rect x="434" y="440" width="332" height="140" rx="20" fill="#101d31"
+            stroke="#fb7185" stroke-opacity=".48" filter="url(#shadow)"/>
+      <rect x="434" y="440" width="6" height="140" rx="3" fill="#fb7185"/>
+      <text x="600" y="483" fill="#fb7185" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="850" text-anchor="middle">NEXT FULL-STACK BUILD</text>
+      <text x="600" y="516" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="650" text-anchor="middle">Backend · PostgreSQL · auth</text>
+      <text x="600" y="541" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="500" text-anchor="middle">Docker / deployment / production habits</text>
+    
+</svg>

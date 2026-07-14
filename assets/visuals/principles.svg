@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+  width="1200" height="410" viewBox="0 0 1200 410"
+  role="img" aria-label="Engineering principles of Kevin Cusnir">
+  <title>Engineering principles of Kevin Cusnir</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07111f"/>
+      <stop offset="55%" stop-color="#0b1b31"/>
+      <stop offset="100%" stop-color="#15113a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <linearGradient id="accentGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="accentWarm" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity=".45"/>
+    </filter>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#75bfff" stroke-opacity=".045" stroke-width="1"/>
+    </pattern>
+    
+  </defs>
+  <rect width="1200" height="410" rx="28" fill="url(#bg)"/>
+  <rect width="1200" height="410" rx="28" fill="url(#grid)"/>
+  <rect x="2" y="2" width="1196" height="406" rx="26"
+        fill="none" stroke="url(#accent)" stroke-opacity=".38" stroke-width="2"/>
+  
+    <line x1="42" y1="56" x2="280" y2="56" stroke="url(#accent)" stroke-opacity=".55"/>
+    <line x1="920" y1="56" x2="1158" y2="56" stroke="url(#accent)" stroke-opacity=".55"/>
+    <text x="600.0" y="63" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="800" text-anchor="middle" letter-spacing="1.1">ENGINEERING PRINCIPLES</text>
+    <text x="600.0" y="94" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" text-anchor="middle">The standards I want my work to communicate before anyone reads the implementation</text>
+      <rect x="42" y="122" width="360" height="122" rx="18" fill="#101d31"
+            stroke="#38bdf8" stroke-opacity=".40" filter="url(#shadow)"/>
+      <circle cx="78" cy="161" r="16" fill="#07101c" stroke="#38bdf8" stroke-width="3"/>
+      <circle cx="78" cy="161" r="6" fill="#38bdf8" filter="url(#softGlow)"/>
+      <text x="107" y="164" fill="#38bdf8" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="850" text-anchor="start" letter-spacing="0.55">ACCESSIBLE BY DEFAULT</text>
+      <text x="66" y="198" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start">Keyboard support, readable contrast, reduced</text>
+<text x="66" y="216" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start">motion and clear semantics.</text>
+    
+      <rect x="426" y="122" width="360" height="122" rx="18" fill="#101d31"
+            stroke="#34d399" stroke-opacity=".40" filter="url(#shadow)"/>
+      <circle cx="462" cy="161" r="16" fill="#07101c" stroke="#34d399" stroke-width="3"/>
+      <circle cx="462" cy="161" r="6" fill="#34d399" filter="url(#softGlow)"/>
+      <text x="491" y="164" fill="#34d399" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="850" text-anchor="start" letter-spacing="0.55">PRIVACY IS A FEATURE</text>
+      <text x="450" y="198" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start">Collect less, process locally when possible and</text>
+<text x="450" y="216" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start">explain network behavior.</text>
+    
+      <rect x="810" y="122" width="360" height="122" rx="18" fill="#101d31"
+            stroke="#8b5cf6" stroke-opacity=".40" filter="url(#shadow)"/>
+      <circle cx="846" cy="161" r="16" fill="#07101c" stroke="#8b5cf6" stroke-width="3"/>
+      <circle cx="846" cy="161" r="6" fill="#8b5cf6" filter="url(#softGlow)"/>
+      <text x="875" y="164" fill="#8b5cf6" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="850" text-anchor="start" letter-spacing="0.55">HONEST DATA ONLY</text>
+      <text x="834" y="198" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start">Show uncertainty and missing coverage instead</text>
+<text x="834" y="216" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start">of inventing confidence.</text>
+    
+      <rect x="42" y="266" width="360" height="122" rx="18" fill="#101d31"
+            stroke="#fbbf24" stroke-opacity=".40" filter="url(#shadow)"/>
+      <circle cx="78" cy="305" r="16" fill="#07101c" stroke="#fbbf24" stroke-width="3"/>
+      <circle cx="78" cy="305" r="6" fill="#fbbf24" filter="url(#softGlow)"/>
+      <text x="107" y="308" fill="#fbbf24" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="850" text-anchor="start" letter-spacing="0.55">TEST THE CRITICAL PATH</text>
+      <text x="66" y="342" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start">Protect imports, calculations, navigation and</text>
+<text x="66" y="360" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start">production builds.</text>
+    
+      <rect x="426" y="266" width="360" height="122" rx="18" fill="#101d31"
+            stroke="#22d3ee" stroke-opacity=".40" filter="url(#shadow)"/>
+      <circle cx="462" cy="305" r="16" fill="#07101c" stroke="#22d3ee" stroke-width="3"/>
+      <circle cx="462" cy="305" r="6" fill="#22d3ee" filter="url(#softGlow)"/>
+      <text x="491" y="308" fill="#22d3ee" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="850" text-anchor="start" letter-spacing="0.55">DOCUMENT THE WHY</text>
+      <text x="450" y="342" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start">A README should explain decisions, limitations</text>
+<text x="450" y="360" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start">and how to continue the work.</text>
+    
+      <rect x="810" y="266" width="360" height="122" rx="18" fill="#101d31"
+            stroke="#fb7185" stroke-opacity=".40" filter="url(#shadow)"/>
+      <circle cx="846" cy="305" r="16" fill="#07101c" stroke="#fb7185" stroke-width="3"/>
+      <circle cx="846" cy="305" r="6" fill="#fb7185" filter="url(#softGlow)"/>
+      <text x="875" y="308" fill="#fb7185" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="850" text-anchor="start" letter-spacing="0.55">CREATIVITY WITH STRUCTURE</text>
+      <text x="834" y="342" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start">Visual identity matters more when architecture</text>
+<text x="834" y="360" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start">and usability remain strong.</text>
+    
+</svg>

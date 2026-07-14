@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+  width="1200" height="120" viewBox="0 0 1200 120"
+  role="img" aria-label="Animated professional identity of Kevin Cusnir">
+  <title>Animated professional identity of Kevin Cusnir</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07111f"/>
+      <stop offset="55%" stop-color="#0b1b31"/>
+      <stop offset="100%" stop-color="#15113a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <linearGradient id="accentGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="accentWarm" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity=".45"/>
+    </filter>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#75bfff" stroke-opacity=".045" stroke-width="1"/>
+    </pattern>
+    
+  </defs>
+  <rect width="1200" height="120" rx="28" fill="url(#bg)"/>
+  <rect width="1200" height="120" rx="28" fill="url(#grid)"/>
+  <rect x="2" y="2" width="1196" height="116" rx="26"
+        fill="none" stroke="url(#accent)" stroke-opacity=".38" stroke-width="2"/>
+  
+  <circle cx="1050" cy="58" r="95" fill="#8b5cf6" opacity=".10">
+    <animate attributeName="opacity" values=".06;.16;.06" dur="5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="145" cy="74" r="80" fill="#38bdf8" opacity=".08">
+    <animate attributeName="opacity" values=".04;.13;.04" dur="7s" repeatCount="indefinite"/>
+  </circle>
+  <text x="80" y="72" fill="#38bdf8" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="800" text-anchor="start" letter-spacing="2.5">I BUILD</text>
+  <line x1="80" y1="87" x2="210" y2="87" stroke="url(#accent)" stroke-width="3" stroke-linecap="round"/>
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="31" font-weight="800" fill="#f4f8ff">
+    <text x="250" y="76" opacity="1">FULL-STACK EXPERIENCES
+      <animate attributeName="opacity" values="1;1;1;0;0" keyTimes="0;.04;.16;.20;1"
+               dur="20s" begin="0s" repeatCount="indefinite"/>
+    </text>
+    <text x="250" y="76" opacity="0">MUSIC-TECH PRODUCTS
+      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;.04;.16;.20;1"
+               dur="20s" begin="4s" repeatCount="indefinite"/>
+    </text>
+    <text x="250" y="76" opacity="0">PRIVACY-FIRST DATA STORIES
+      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;.04;.16;.20;1"
+               dur="20s" begin="8s" repeatCount="indefinite"/>
+    </text>
+    <text x="250" y="76" opacity="0">ACCESSIBLE HUMAN INTERFACES
+      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;.04;.16;.20;1"
+               dur="20s" begin="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="250" y="76" opacity="0">CREATIVE CODE WITH PURPOSE
+      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;.04;.16;.20;1"
+               dur="20s" begin="16s" repeatCount="indefinite"/>
+    </text>
+  </g>
+  <rect x="1092" y="46" width="4" height="38" rx="2" fill="#22d3ee">
+    <animate attributeName="opacity" values="1;0;1" dur=".9s" repeatCount="indefinite"/>
+  </rect>
+
+</svg>

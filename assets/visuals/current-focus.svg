@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+  width="1200" height="525" viewBox="0 0 1200 525"
+  role="img" aria-label="Current focus and career direction of Kevin Cusnir">
+  <title>Current focus and career direction of Kevin Cusnir</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07111f"/>
+      <stop offset="55%" stop-color="#0b1b31"/>
+      <stop offset="100%" stop-color="#15113a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <linearGradient id="accentGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="accentWarm" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity=".45"/>
+    </filter>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#75bfff" stroke-opacity=".045" stroke-width="1"/>
+    </pattern>
+    
+  </defs>
+  <rect width="1200" height="525" rx="28" fill="url(#bg)"/>
+  <rect width="1200" height="525" rx="28" fill="url(#grid)"/>
+  <rect x="2" y="2" width="1196" height="521" rx="26"
+        fill="none" stroke="url(#accent)" stroke-opacity=".38" stroke-width="2"/>
+  
+    <line x1="42" y1="56" x2="280" y2="56" stroke="url(#accent)" stroke-opacity=".55"/>
+    <line x1="920" y1="56" x2="1158" y2="56" stroke="url(#accent)" stroke-opacity=".55"/>
+    <text x="600.0" y="63" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="800" text-anchor="middle" letter-spacing="1.1">CURRENT FOCUS</text>
+    <text x="600.0" y="94" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" text-anchor="middle">What I am refining now, building next and actively looking for</text>
+      <rect x="42" y="126" width="358" height="280" rx="20" fill="#101d31"
+            stroke="#38bdf8" stroke-opacity=".44" filter="url(#shadow)"/>
+      <rect x="42" y="126" width="358" height="6" rx="3" fill="#38bdf8"/>
+      <text x="221" y="171" fill="#38bdf8" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="900" text-anchor="middle" letter-spacing="1.6">NOW</text>
+    
+          <circle cx="74" cy="211" r="6" fill="#38bdf8"/>
+          <text x="92" y="216" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="start">Polish the public GitHub portfolio</text>
+        
+          <circle cx="74" cy="259" r="6" fill="#38bdf8"/>
+          <text x="92" y="264" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="start">Keep Nova Music Lab stable and honest</text>
+        
+          <circle cx="74" cy="307" r="6" fill="#38bdf8"/>
+          <text x="92" y="312" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="start">Improve demos and project storytelling</text>
+        
+          <circle cx="74" cy="355" r="6" fill="#38bdf8"/>
+          <text x="92" y="360" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="start">Clean learning repos without erasing the journey</text>
+        
+      <rect x="421" y="126" width="358" height="280" rx="20" fill="#101d31"
+            stroke="#8b5cf6" stroke-opacity=".44" filter="url(#shadow)"/>
+      <rect x="421" y="126" width="358" height="6" rx="3" fill="#8b5cf6"/>
+      <text x="600" y="171" fill="#8b5cf6" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="900" text-anchor="middle" letter-spacing="1.6">BUILDING NEXT</text>
+    
+          <circle cx="453" cy="211" r="6" fill="#8b5cf6"/>
+          <text x="471" y="216" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="start">Production-style full-stack application</text>
+        
+          <circle cx="453" cy="259" r="6" fill="#8b5cf6"/>
+          <text x="471" y="264" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="start">PostgreSQL and real backend architecture</text>
+        
+          <circle cx="453" cy="307" r="6" fill="#8b5cf6"/>
+          <text x="471" y="312" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="start">Authentication, authorization and API design</text>
+        
+          <circle cx="453" cy="355" r="6" fill="#8b5cf6"/>
+          <text x="471" y="360" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="start">Docker, CI/CD and deployed environments</text>
+        
+      <rect x="800" y="126" width="358" height="280" rx="20" fill="#101d31"
+            stroke="#34d399" stroke-opacity=".44" filter="url(#shadow)"/>
+      <rect x="800" y="126" width="358" height="6" rx="3" fill="#34d399"/>
+      <text x="979" y="171" fill="#34d399" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="900" text-anchor="middle" letter-spacing="1.6">OPEN TO</text>
+    
+          <circle cx="832" cy="211" r="6" fill="#34d399"/>
+          <text x="850" y="216" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="start">Junior full-stack or frontend roles</text>
+        
+          <circle cx="832" cy="259" r="6" fill="#34d399"/>
+          <text x="850" y="264" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="start">Internships and mentored teams</text>
+        
+          <circle cx="832" cy="307" r="6" fill="#34d399"/>
+          <text x="850" y="312" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="start">Creative-technology collaborations</text>
+        
+          <circle cx="832" cy="355" r="6" fill="#34d399"/>
+          <text x="850" y="360" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" text-anchor="start">Projects where accessibility matters</text>
+        
+  <rect x="42" y="434" width="1116" height="56" rx="28" fill="#07101c"
+        stroke="url(#accent)" stroke-opacity=".50"/>
+  <text x="600" y="469" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="750" text-anchor="middle">Target: become the kind of junior developer a team can trust with real users, real data and real follow-through.</text>
+
+</svg>

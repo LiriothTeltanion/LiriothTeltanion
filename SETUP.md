@@ -1,32 +1,43 @@
-# Profile README setup — stable visual edition
+# Expanded visual GitHub profile — setup
 
-## Required repository structure
+## Repository structure
+
+Upload the complete package so your profile repository contains:
 
 ```text
 LiriothTeltanion/
 ├── README.md
-└── assets/
-    ├── profile-banner.png
-    ├── github-pulse.png
-    └── projects/
-        ├── nova-music-lab.png
-        ├── novafit.png
-        ├── fullstack2026.png
-        └── christopher-portfolio.png
+├── assets/
+│   ├── avatar.png
+│   ├── profile-banner.png
+│   ├── projects/
+│   │   ├── nova-music-lab.png
+│   │   ├── novafit.png
+│   │   ├── fullstack2026.png
+│   │   └── christopher-portfolio.png
+│   └── visuals/
+│       ├── typing.svg
+│       ├── about-me.svg
+│       ├── tech-stack.svg
+│       ├── journey.svg
+│       ├── project-ecosystem.svg
+│       ├── principles.svg
+│       ├── creative-universe.svg
+│       ├── current-focus.svg
+│       ├── github-pulse.svg
+│       └── footer.svg
+└── extras/
+    ├── snake.yml
+    └── OPTIONAL-DYNAMIC-VISUALS.md
 ```
 
-## Why the previous cards were missing
-
-The former cards depended on `github-readme-stats.vercel.app`.
-That external service failed to return the images, so GitHub showed their
-alternative text instead. These replacement cards are stored directly in
-your repository and do not depend on that service.
+The `extras` folder is optional. It does not run anything automatically.
 
 ## Publish with Git
 
 ```powershell
-git add README.md assets/
-git commit -m "fix(profile): replace broken external cards with local artwork"
+git add README.md assets/ extras/
+git commit -m "docs: expand profile with original visual storytelling"
 git push
 ```
 
@@ -35,15 +46,20 @@ git push
 1. Open `LiriothTeltanion/LiriothTeltanion`.
 2. Choose **Add file → Upload files**.
 3. Upload the new `README.md`.
-4. Drag the complete `assets` folder, including `assets/projects`.
-5. Commit with:
-   `fix(profile): replace broken external cards with local artwork`
-6. Refresh your public profile with `Ctrl + F5`.
+4. Upload the complete `assets` directory, preserving all subfolders.
+5. The `extras` directory is optional.
+6. Commit with:
 
-## Verify
+   ```text
+   docs: expand profile with original visual storytelling
+   ```
 
-- Four project cards appear in two rows.
-- Every card opens the correct repository.
-- The GitHub pulse image appears near the bottom.
-- English, Spanish and Hebrew remain collapsible.
-- No “repository card” text appears in place of an image.
+7. Refresh the public profile with `Ctrl + F5`.
+
+## Important
+
+The README uses relative paths. Folder names and capitalization must remain
+exactly as provided.
+
+The visual files are original and stored in your repository. They do not depend
+on GitHub Readme Stats, so they will not disappear when that service is down.
