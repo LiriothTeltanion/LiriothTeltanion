@@ -63,21 +63,29 @@
 <!-- NOVA-MULTILINGUAL-CV:START -->
 <a id="curriculum-vitae"></a>
 
-## 📄 Curriculum Vitae · Currículum · קורות חיים
+## 📄 Professional CV · Currículum profesional · קורות חיים מקצועיים
 
-My professional CV is maintained in one dedicated repository and available in
-the three languages I use:
+My CV is maintained in one canonical repository and presented in the three
+languages I use professionally. Each version includes a focused summary,
+technical stack, selected portfolio evidence, Developers Institute training,
+work experience, languages and direct contact details.
 
 <p align="center">
-  <a href="https://github.com/LiriothTeltanion/CV/blob/main/CV_EN.md"><strong>🇬🇧 English CV</strong></a>
+  <a href="https://github.com/LiriothTeltanion/CV/blob/main/CV_EN.md"><strong>🇬🇧 English — recruiter-ready CV</strong></a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/LiriothTeltanion/CV/blob/main/CV_ES.md"><strong>🇪🇸 Currículum en español</strong></a>
+  <a href="https://github.com/LiriothTeltanion/CV/blob/main/CV_ES.md"><strong>🇪🇸 Español — currículum completo</strong></a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/LiriothTeltanion/CV/blob/main/CV_HE.md"><strong>🇮🇱 קורות חיים בעברית</strong></a>
+  <a href="https://github.com/LiriothTeltanion/CV/blob/main/CV_HE.md"><strong>🇮🇱 עברית — קורות חיים</strong></a>
 </p>
 
-> One professional identity: **Kevin Cusnir**. One creative identity:
-> **Lirioth Teltanion**. One canonical personal CV repository.
+**What recruiters will find:** junior full-stack and frontend positioning,
+React/TypeScript and Python evidence, multilingual and accessible UX, practical
+Git/GitHub workflows, current course-completion work and a clear distinction
+between **Kevin Cusnir** as my professional identity and **Lirioth Teltanion**
+as my creative identity.
+
+> One personal CV repository for Kevin. Christopher's portfolio remains a
+> separate client/collaboration repository.
 
 ---
 <!-- NOVA-MULTILINGUAL-CV:END -->
