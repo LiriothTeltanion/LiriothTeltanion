@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+  width="1400" height="705" viewBox="0 0 1400 705"
+  role="img" aria-label="Transferable professional experience bridge of Kevin Cusnir">
+  <title>Transferable professional experience bridge of Kevin Cusnir</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050b16"/>
+      <stop offset="55%" stop-color="#09182c"/>
+      <stop offset="100%" stop-color="#18113a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="48%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <linearGradient id="greenAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="warmAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0V56" fill="none" stroke="#7dd3fc"
+            stroke-opacity=".035" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow" x="-35%" y="-35%" width="170%" height="170%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12"
+        flood-color="#000000" flood-opacity=".48"/>
+    </filter>
+    
+  </defs>
+  <rect width="1400" height="705" rx="32" fill="url(#bg)"/>
+  <rect width="1400" height="705" rx="32" fill="url(#grid)"/>
+  <rect x="2" y="2" width="1396" height="701" rx="30"
+        fill="none" stroke="url(#accent)" stroke-opacity=".48" stroke-width="2"/>
+  
+  <line x1="56" y1="70" x2="340" y2="70"
+        stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
+  <line x1="1060" y1="70" x2="1344" y2="70"
+        stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
+  <text x="700.0" y="79" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="850" text-anchor="middle" letter-spacing="0.7">TRANSFERABLE EXPERIENCE BRIDGE</text>
+  <text x="700.0" y="118" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="500" text-anchor="middle" letter-spacing="0">How technical support, customer-facing work and development combine into practical team value</text>
+  <path d="M145 300 H1255" fill="none" stroke="url(#accent)"
+        stroke-width="6" stroke-linecap="round" opacity=".55"/>
+
+  <circle cx="200" cy="300" r="25"
+          fill="#06101d" stroke="#38bdf8" stroke-width="5"/>
+  <circle cx="200" cy="300" r="9"
+          fill="#38bdf8" filter="url(#glow)"/>
+
+  <rect x="75" y="150" width="250" height="122" rx="20"
+        fill="#0f1d32" stroke="#38bdf8" stroke-opacity=".42"
+        filter="url(#shadow)"/>
+  <text x="200" y="190" fill="#38bdf8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="850" text-anchor="middle" letter-spacing="0.4">TECHNICAL SUPPORT</text>
+  <text x="101" y="224" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">Computer repair · diagnostics</text>
+<text x="101" y="246" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">· system setup</text>
+
+  <rect x="75" y="340" width="250" height="220" rx="20"
+        fill="#0f1d32" stroke="#38bdf8" stroke-opacity=".32"
+        filter="url(#shadow)"/>
+
+  <circle cx="103" cy="378" r="7" fill="#38bdf8"/>
+  <text x="123" y="385" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">Investigate unclear symptoms</text>
+
+  <circle cx="103" cy="436" r="7" fill="#38bdf8"/>
+  <text x="123" y="443" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">Explain fixes to non-</text>
+<text x="123" y="464" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">technical users</text>
+
+  <circle cx="103" cy="494" r="7" fill="#38bdf8"/>
+  <text x="123" y="501" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">Work patiently through</text>
+<text x="123" y="522" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">hardware and software</text>
+<text x="123" y="543" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">failures</text>
+
+  <circle cx="530" cy="300" r="25"
+          fill="#06101d" stroke="#34d399" stroke-width="5"/>
+  <circle cx="530" cy="300" r="9"
+          fill="#34d399" filter="url(#glow)"/>
+
+  <rect x="405" y="150" width="250" height="122" rx="20"
+        fill="#0f1d32" stroke="#34d399" stroke-opacity=".42"
+        filter="url(#shadow)"/>
+  <text x="530" y="190" fill="#34d399" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="850" text-anchor="middle" letter-spacing="0.4">SERVICE &amp; RESPONSIBILITY</text>
+  <text x="431" y="224" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">Care work · hospitality ·</text>
+<text x="431" y="246" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">customer interaction</text>
+
+  <rect x="405" y="340" width="250" height="220" rx="20"
+        fill="#0f1d32" stroke="#34d399" stroke-opacity=".32"
+        filter="url(#shadow)"/>
+
+  <circle cx="433" cy="378" r="7" fill="#34d399"/>
+  <text x="453" y="385" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">Communicate under pressure</text>
+
+  <circle cx="433" cy="436" r="7" fill="#34d399"/>
+  <text x="453" y="443" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">Notice practical user needs</text>
+
+  <circle cx="433" cy="494" r="7" fill="#34d399"/>
+  <text x="453" y="501" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">Follow through reliably on</text>
+<text x="453" y="522" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">operational tasks</text>
+
+  <circle cx="860" cy="300" r="25"
+          fill="#06101d" stroke="#8b5cf6" stroke-width="5"/>
+  <circle cx="860" cy="300" r="9"
+          fill="#8b5cf6" filter="url(#glow)"/>
+
+  <rect x="735" y="150" width="250" height="122" rx="20"
+        fill="#0f1d32" stroke="#8b5cf6" stroke-opacity=".42"
+        filter="url(#shadow)"/>
+  <text x="860" y="190" fill="#8b5cf6" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="850" text-anchor="middle" letter-spacing="0.4">FULL-STACK TRAINING</text>
+  <text x="761" y="224" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">Developers Institute ·</text>
+<text x="761" y="246" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">structured practice</text>
+
+  <rect x="735" y="340" width="250" height="220" rx="20"
+        fill="#0f1d32" stroke="#8b5cf6" stroke-opacity=".32"
+        filter="url(#shadow)"/>
+
+  <circle cx="763" cy="378" r="7" fill="#8b5cf6"/>
+  <text x="783" y="385" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">Python, JavaScript and</text>
+<text x="783" y="406" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">TypeScript foundations</text>
+
+  <circle cx="763" cy="436" r="7" fill="#8b5cf6"/>
+  <text x="783" y="443" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">Object-oriented design and</text>
+<text x="783" y="464" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">web interfaces</text>
+
+  <circle cx="763" cy="494" r="7" fill="#8b5cf6"/>
+  <text x="783" y="501" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">Git, documentation and</text>
+<text x="783" y="522" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">project organization</text>
+
+  <circle cx="1190" cy="300" r="25"
+          fill="#06101d" stroke="#fbbf24" stroke-width="5"/>
+  <circle cx="1190" cy="300" r="9"
+          fill="#fbbf24" filter="url(#glow)"/>
+
+  <rect x="1065" y="150" width="250" height="122" rx="20"
+        fill="#0f1d32" stroke="#fbbf24" stroke-opacity=".42"
+        filter="url(#shadow)"/>
+  <text x="1190" y="190" fill="#fbbf24" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="850" text-anchor="middle" letter-spacing="0.4">PRODUCT BUILDING</text>
+  <text x="1091" y="224" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">Public apps · tests ·</text>
+<text x="1091" y="246" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">deployment · storytelling</text>
+
+  <rect x="1065" y="340" width="250" height="220" rx="20"
+        fill="#0f1d32" stroke="#fbbf24" stroke-opacity=".32"
+        filter="url(#shadow)"/>
+
+  <circle cx="1093" cy="378" r="7" fill="#fbbf24"/>
+  <text x="1113" y="385" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">Turn personal problems into</text>
+<text x="1113" y="406" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">usable software</text>
+
+  <circle cx="1093" cy="436" r="7" fill="#fbbf24"/>
+  <text x="1113" y="443" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">Document trade-offs and</text>
+<text x="1113" y="464" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">limitations</text>
+
+  <circle cx="1093" cy="494" r="7" fill="#fbbf24"/>
+  <text x="1113" y="501" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">Combine engineering</text>
+<text x="1113" y="522" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">discipline with creative</text>
+<text x="1113" y="543" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" letter-spacing="0">presentation</text>
+
+  <circle cx="200" cy="300" r="11" fill="#22d3ee" filter="url(#glow)">
+    <animate attributeName="cx" values="200;1190"
+             dur="7s" repeatCount="indefinite"/>
+  </circle>
+
+  <rect x="75" y="595" width="1240" height="74" rx="28"
+        fill="#06101d" stroke="url(#accent)" stroke-opacity=".46"/>
+  <text x="695" y="642" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="750" text-anchor="middle" letter-spacing="0">Result: a developer profile shaped by real troubleshooting, human communication and a growing product-engineering practice.</text>
+
+</svg>

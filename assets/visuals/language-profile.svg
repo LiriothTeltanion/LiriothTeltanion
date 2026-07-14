@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+  width="1400" height="675" viewBox="0 0 1400 675"
+  role="img" aria-label="Language and communication profile of Kevin Cusnir">
+  <title>Language and communication profile of Kevin Cusnir</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050b16"/>
+      <stop offset="55%" stop-color="#09182c"/>
+      <stop offset="100%" stop-color="#18113a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="48%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <linearGradient id="greenAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="warmAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0V56" fill="none" stroke="#7dd3fc"
+            stroke-opacity=".035" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow" x="-35%" y="-35%" width="170%" height="170%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12"
+        flood-color="#000000" flood-opacity=".48"/>
+    </filter>
+    
+  </defs>
+  <rect width="1400" height="675" rx="32" fill="url(#bg)"/>
+  <rect width="1400" height="675" rx="32" fill="url(#grid)"/>
+  <rect x="2" y="2" width="1396" height="671" rx="30"
+        fill="none" stroke="url(#accent)" stroke-opacity=".48" stroke-width="2"/>
+  
+  <line x1="56" y1="70" x2="340" y2="70"
+        stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
+  <line x1="1060" y1="70" x2="1344" y2="70"
+        stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
+  <text x="700.0" y="79" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="850" text-anchor="middle" letter-spacing="0.7">LANGUAGE &amp; COMMUNICATION PROFILE</text>
+  <text x="700.0" y="118" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="500" text-anchor="middle" letter-spacing="0">Three languages serving different professional, personal and product contexts</text>
+  <rect x="55" y="160" width="410" height="360" rx="25"
+        fill="#0f1d32" stroke="#38bdf8" stroke-opacity=".45"
+        filter="url(#shadow)"/>
+  <rect x="55" y="160" width="410" height="8" rx="4" fill="#38bdf8"/>
+  <text x="260" y="220" fill="#38bdf8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="900" text-anchor="middle" letter-spacing="0.8">ESPAÑOL</text>
+  <text x="260" y="258" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="750" text-anchor="middle" letter-spacing="0">Native language</text>
+
+  <circle cx="93" cy="305" r="8" fill="#38bdf8"/>
+  <text x="119" y="312" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" text-anchor="start" letter-spacing="0">Personal and professional</text>
+<text x="119" y="335" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" text-anchor="start" letter-spacing="0">communication</text>
+
+  <circle cx="93" cy="369" r="8" fill="#38bdf8"/>
+  <text x="119" y="376" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" text-anchor="start" letter-spacing="0">Detailed documentation and</text>
+<text x="119" y="399" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" text-anchor="start" letter-spacing="0">explanation</text>
+
+  <circle cx="93" cy="433" r="8" fill="#38bdf8"/>
+  <text x="119" y="440" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" text-anchor="start" letter-spacing="0">Creative writing and user-facing</text>
+<text x="119" y="463" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" text-anchor="start" letter-spacing="0">content</text>
+
+  <line x1="90" y1="490" x2="90" y2="490"
+        stroke="#38bdf8" stroke-width="4" stroke-linecap="round">
+    <animate attributeName="x2" values="90;430;90"
+             dur="5s" repeatCount="indefinite"/>
+  </line>
+
+  <rect x="495" y="160" width="410" height="360" rx="25"
+        fill="#0f1d32" stroke="#8b5cf6" stroke-opacity=".45"
+        filter="url(#shadow)"/>
+  <rect x="495" y="160" width="410" height="8" rx="4" fill="#8b5cf6"/>
+  <text x="700" y="220" fill="#8b5cf6" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="900" text-anchor="middle" letter-spacing="0.8">ENGLISH</text>
+  <text x="700" y="258" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="750" text-anchor="middle" letter-spacing="0">Advanced professional communication</text>
+
+  <circle cx="533" cy="305" r="8" fill="#8b5cf6"/>
+  <text x="559" y="312" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" text-anchor="start" letter-spacing="0">Technical documentation and READMEs</text>
+
+  <circle cx="533" cy="369" r="8" fill="#8b5cf6"/>
+  <text x="559" y="376" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" text-anchor="start" letter-spacing="0">Code comments, tooling and</text>
+<text x="559" y="399" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" text-anchor="start" letter-spacing="0">international teams</text>
+
+  <circle cx="533" cy="433" r="8" fill="#8b5cf6"/>
+  <text x="559" y="440" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" text-anchor="start" letter-spacing="0">Product copy and software research</text>
+
+  <line x1="530" y1="490" x2="530" y2="490"
+        stroke="#8b5cf6" stroke-width="4" stroke-linecap="round">
+    <animate attributeName="x2" values="530;870;530"
+             dur="6s" repeatCount="indefinite"/>
+  </line>
+
+  <rect x="935" y="160" width="410" height="360" rx="25"
+        fill="#0f1d32" stroke="#34d399" stroke-opacity=".45"
+        filter="url(#shadow)"/>
+  <rect x="935" y="160" width="410" height="8" rx="4" fill="#34d399"/>
+  <text x="1140" y="220" fill="#34d399" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="900" text-anchor="middle" letter-spacing="0.8">עברית · HEBREW</text>
+  <text x="1140" y="258" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="750" text-anchor="middle" letter-spacing="0">Working local communication</text>
+
+  <circle cx="973" cy="305" r="8" fill="#34d399"/>
+  <text x="999" y="312" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" text-anchor="start" letter-spacing="0">Daily life and local professional</text>
+<text x="999" y="335" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" text-anchor="start" letter-spacing="0">contexts</text>
+
+  <circle cx="973" cy="369" r="8" fill="#34d399"/>
+  <text x="999" y="376" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" text-anchor="start" letter-spacing="0">Israeli services and workplace</text>
+<text x="999" y="399" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" text-anchor="start" letter-spacing="0">communication</text>
+
+  <circle cx="973" cy="433" r="8" fill="#34d399"/>
+  <text x="999" y="440" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" text-anchor="start" letter-spacing="0">RTL-aware product and interface</text>
+<text x="999" y="463" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" text-anchor="start" letter-spacing="0">thinking</text>
+
+  <line x1="970" y1="490" x2="970" y2="490"
+        stroke="#34d399" stroke-width="4" stroke-linecap="round">
+    <animate attributeName="x2" values="970;1310;970"
+             dur="7s" repeatCount="indefinite"/>
+  </line>
+
+  <rect x="55" y="555" width="1290" height="84" rx="28"
+        fill="#06101d" stroke="url(#accent)" stroke-opacity=".46"/>
+  <text x="700" y="607" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="750" text-anchor="middle" letter-spacing="0">Communication advantage: explain technical ideas across cultures while designing for both LTR and RTL experiences.</text>
+
+</svg>

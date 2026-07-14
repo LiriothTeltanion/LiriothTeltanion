@@ -40,82 +40,150 @@
   <rect x="2" y="2" width="1396" height="716" rx="30"
         fill="none" stroke="url(#accent)" stroke-opacity=".48" stroke-width="2"/>
   
-  <line x1="56" y1="70" x2="340" y2="70" stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
-  <line x1="1060" y1="70" x2="1344" y2="70" stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
+  <line x1="56" y1="70" x2="340" y2="70"
+        stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
+  <line x1="1060" y1="70" x2="1344" y2="70"
+        stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
   <text x="700.0" y="79" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="850" text-anchor="middle" letter-spacing="0.7">CREATIVE UNIVERSE</text>
   <text x="700.0" y="118" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="500" text-anchor="middle" letter-spacing="0">The interests that give Lirioth Teltanion a distinctive voice beyond conventional portfolio work</text>
   <g transform="translate(700 390)">
-    <circle r="210" fill="none" stroke="#38bdf8" stroke-opacity=".20"
-            stroke-width="3" stroke-dasharray="12 16">
+    <circle r="210" fill="none" stroke="#38bdf8"
+            stroke-opacity=".20" stroke-width="3"
+            stroke-dasharray="12 16">
       <animateTransform attributeName="transform" type="rotate"
         from="0" to="360" dur="40s" repeatCount="indefinite"/>
     </circle>
-    <circle r="150" fill="none" stroke="#8b5cf6" stroke-opacity=".26"
-            stroke-width="3" stroke-dasharray="7 13">
+    <circle r="150" fill="none" stroke="#8b5cf6"
+            stroke-opacity=".26" stroke-width="3"
+            stroke-dasharray="7 13">
       <animateTransform attributeName="transform" type="rotate"
         from="360" to="0" dur="28s" repeatCount="indefinite"/>
     </circle>
-    <circle r="102" fill="#0f1d32" stroke="url(#accent)" stroke-width="5"
-            filter="url(#shadow)"/>
+    <circle r="102" fill="#0f1d32" stroke="url(#accent)"
+            stroke-width="5" filter="url(#shadow)"/>
     <text x="0" y="-18" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="900" text-anchor="middle" letter-spacing="1.2">LIRIOTH</text>
     <text x="0" y="24" fill="#38bdf8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="850" text-anchor="middle" letter-spacing="1.2">TELTANION</text>
     <text x="0" y="60" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" text-anchor="middle" letter-spacing="0">creative identity</text>
   </g>
 
-  <circle cx="700" cy="170" r="78" fill="#06101d"
-          stroke="#38bdf8" stroke-width="4" filter="url(#shadow)"/>
-  <circle cx="700" cy="170" r="64" fill="#0f1d32"
-          stroke="#38bdf8" stroke-opacity=".18"/>
+  <circle cx="700" cy="170" r="78"
+          fill="#06101d" stroke="#38bdf8" stroke-width="4"
+          filter="url(#shadow)"/>
+  <circle cx="700" cy="170" r="64"
+          fill="#0f1d32" stroke="#38bdf8" stroke-opacity=".18"/>
   <text x="700" y="164" fill="#38bdf8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="middle" letter-spacing="0.6">MUSIC</text>
   <text x="700" y="200" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" text-anchor="middle" letter-spacing="0">guitar · keys · production</text>
 
-  <circle cx="970" cy="220" r="78" fill="#06101d"
-          stroke="#8b5cf6" stroke-width="4" filter="url(#shadow)"/>
-  <circle cx="970" cy="220" r="64" fill="#0f1d32"
-          stroke="#8b5cf6" stroke-opacity=".18"/>
+  <circle cx="700" cy="170" r="86"
+          fill="none" stroke="#38bdf8" stroke-opacity=".12"
+          stroke-width="2">
+    <animate attributeName="r" values="82;94;82"
+             dur="4.0s" repeatCount="indefinite"/>
+  </circle>
+
+  <circle cx="970" cy="220" r="78"
+          fill="#06101d" stroke="#8b5cf6" stroke-width="4"
+          filter="url(#shadow)"/>
+  <circle cx="970" cy="220" r="64"
+          fill="#0f1d32" stroke="#8b5cf6" stroke-opacity=".18"/>
   <text x="970" y="214" fill="#8b5cf6" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="middle" letter-spacing="0.6">GAMING</text>
   <text x="970" y="250" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" text-anchor="middle" letter-spacing="0">worlds · systems · retro</text>
 
-  <circle cx="1115" cy="390" r="78" fill="#06101d"
-          stroke="#c084fc" stroke-width="4" filter="url(#shadow)"/>
-  <circle cx="1115" cy="390" r="64" fill="#0f1d32"
-          stroke="#c084fc" stroke-opacity=".18"/>
+  <circle cx="970" cy="220" r="86"
+          fill="none" stroke="#8b5cf6" stroke-opacity=".12"
+          stroke-width="2">
+    <animate attributeName="r" values="82;94;82"
+             dur="4.3s" repeatCount="indefinite"/>
+  </circle>
+
+  <circle cx="1115" cy="390" r="78"
+          fill="#06101d" stroke="#c084fc" stroke-width="4"
+          filter="url(#shadow)"/>
+  <circle cx="1115" cy="390" r="64"
+          fill="#0f1d32" stroke="#c084fc" stroke-opacity=".18"/>
   <text x="1115" y="384" fill="#c084fc" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="middle" letter-spacing="0.6">ART</text>
   <text x="1115" y="420" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" text-anchor="middle" letter-spacing="0">visual identity · drawing</text>
 
-  <circle cx="970" cy="560" r="78" fill="#06101d"
-          stroke="#fb7185" stroke-width="4" filter="url(#shadow)"/>
-  <circle cx="970" cy="560" r="64" fill="#0f1d32"
-          stroke="#fb7185" stroke-opacity=".18"/>
+  <circle cx="1115" cy="390" r="86"
+          fill="none" stroke="#c084fc" stroke-opacity=".12"
+          stroke-width="2">
+    <animate attributeName="r" values="82;94;82"
+             dur="4.6s" repeatCount="indefinite"/>
+  </circle>
+
+  <circle cx="970" cy="560" r="78"
+          fill="#06101d" stroke="#fb7185" stroke-width="4"
+          filter="url(#shadow)"/>
+  <circle cx="970" cy="560" r="64"
+          fill="#0f1d32" stroke="#fb7185" stroke-opacity=".18"/>
   <text x="970" y="554" fill="#fb7185" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="middle" letter-spacing="0.6">STORYTELLING</text>
   <text x="970" y="590" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" text-anchor="middle" letter-spacing="0">characters · interactive ideas</text>
 
-  <circle cx="700" cy="615" r="78" fill="#06101d"
-          stroke="#fbbf24" stroke-width="4" filter="url(#shadow)"/>
-  <circle cx="700" cy="615" r="64" fill="#0f1d32"
-          stroke="#fbbf24" stroke-opacity=".18"/>
+  <circle cx="970" cy="560" r="86"
+          fill="none" stroke="#fb7185" stroke-opacity=".12"
+          stroke-width="2">
+    <animate attributeName="r" values="82;94;82"
+             dur="4.9s" repeatCount="indefinite"/>
+  </circle>
+
+  <circle cx="700" cy="615" r="78"
+          fill="#06101d" stroke="#fbbf24" stroke-width="4"
+          filter="url(#shadow)"/>
+  <circle cx="700" cy="615" r="64"
+          fill="#0f1d32" stroke="#fbbf24" stroke-opacity=".18"/>
   <text x="700" y="609" fill="#fbbf24" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="middle" letter-spacing="0.6">LANGUAGES</text>
   <text x="700" y="645" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" text-anchor="middle" letter-spacing="0">English · Spanish · Hebrew</text>
 
-  <circle cx="430" cy="560" r="78" fill="#06101d"
-          stroke="#34d399" stroke-width="4" filter="url(#shadow)"/>
-  <circle cx="430" cy="560" r="64" fill="#0f1d32"
-          stroke="#34d399" stroke-opacity=".18"/>
+  <circle cx="700" cy="615" r="86"
+          fill="none" stroke="#fbbf24" stroke-opacity=".12"
+          stroke-width="2">
+    <animate attributeName="r" values="82;94;82"
+             dur="5.2s" repeatCount="indefinite"/>
+  </circle>
+
+  <circle cx="430" cy="560" r="78"
+          fill="#06101d" stroke="#34d399" stroke-width="4"
+          filter="url(#shadow)"/>
+  <circle cx="430" cy="560" r="64"
+          fill="#0f1d32" stroke="#34d399" stroke-opacity=".18"/>
   <text x="430" y="554" fill="#34d399" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="middle" letter-spacing="0.6">HARDWARE</text>
   <text x="430" y="590" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" text-anchor="middle" letter-spacing="0">repair · diagnostics · setup</text>
 
-  <circle cx="285" cy="390" r="78" fill="#06101d"
-          stroke="#22d3ee" stroke-width="4" filter="url(#shadow)"/>
-  <circle cx="285" cy="390" r="64" fill="#0f1d32"
-          stroke="#22d3ee" stroke-opacity=".18"/>
+  <circle cx="430" cy="560" r="86"
+          fill="none" stroke="#34d399" stroke-opacity=".12"
+          stroke-width="2">
+    <animate attributeName="r" values="82;94;82"
+             dur="5.5s" repeatCount="indefinite"/>
+  </circle>
+
+  <circle cx="285" cy="390" r="78"
+          fill="#06101d" stroke="#22d3ee" stroke-width="4"
+          filter="url(#shadow)"/>
+  <circle cx="285" cy="390" r="64"
+          fill="#0f1d32" stroke="#22d3ee" stroke-opacity=".18"/>
   <text x="285" y="384" fill="#22d3ee" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="middle" letter-spacing="0.6">AUTOMATION</text>
   <text x="285" y="420" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" text-anchor="middle" letter-spacing="0">workflows · tools · efficiency</text>
 
-  <circle cx="430" cy="220" r="78" fill="#06101d"
-          stroke="#2563eb" stroke-width="4" filter="url(#shadow)"/>
-  <circle cx="430" cy="220" r="64" fill="#0f1d32"
-          stroke="#2563eb" stroke-opacity=".18"/>
-  <text x="430" y="214" fill="#2563eb" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="middle" letter-spacing="0.6">AI</text>
+  <circle cx="285" cy="390" r="86"
+          fill="none" stroke="#22d3ee" stroke-opacity=".12"
+          stroke-width="2">
+    <animate attributeName="r" values="82;94;82"
+             dur="5.8s" repeatCount="indefinite"/>
+  </circle>
+
+  <circle cx="430" cy="220" r="78"
+          fill="#06101d" stroke="#38bdf8" stroke-width="4"
+          filter="url(#shadow)"/>
+  <circle cx="430" cy="220" r="64"
+          fill="#0f1d32" stroke="#38bdf8" stroke-opacity=".18"/>
+  <text x="430" y="214" fill="#38bdf8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="middle" letter-spacing="0.6">AI</text>
   <text x="430" y="250" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" text-anchor="middle" letter-spacing="0">assistive creation · human judgment</text>
+
+  <circle cx="430" cy="220" r="86"
+          fill="none" stroke="#38bdf8" stroke-opacity=".12"
+          stroke-width="2">
+    <animate attributeName="r" values="82;94;82"
+             dur="6.1s" repeatCount="indefinite"/>
+  </circle>
 
 </svg>

@@ -1,4 +1,4 @@
-# Professional expanded GitHub profile — setup
+# Ultimate animated GitHub profile — setup
 
 ## Required repository structure
 
@@ -10,16 +10,20 @@ LiriothTeltanion/
 │   ├── profile-banner.png
 │   ├── profile-banner-animated.svg
 │   ├── projects/
-│   │   ├── nova-music-lab.png
-│   │   ├── novafit.png
-│   │   ├── fullstack2026.png
-│   │   └── christopher-portfolio.png
+│   │   ├── nova-music-lab.svg
+│   │   ├── novafit.svg
+│   │   ├── fullstack2026.svg
+│   │   └── christopher-portfolio.svg
 │   └── visuals/
 │       ├── typing.svg
-│       ├── about-me.svg
+│       ├── executive-dashboard.svg
 │       ├── professional-summary.svg
-│       ├── tech-stack.svg
+│       ├── about-me.svg
+│       ├── language-profile.svg
+│       ├── experience-bridge.svg
 │       ├── journey.svg
+│       ├── tech-stack.svg
+│       ├── project-matrix.svg
 │       ├── project-ecosystem.svg
 │       ├── principles.svg
 │       ├── creative-universe.svg
@@ -29,49 +33,63 @@ LiriothTeltanion/
 └── extras/
 ```
 
-## What changed in this edition
+## Major improvements in this edition
 
-- Larger SVG canvases and substantially larger body text.
-- Reduced decorative letter spacing to improve readability.
-- More room between headings, descriptions, badges and cards.
-- A recruiter-facing professional summary.
-- The real email address: `kevincusnir@gmail.com`.
-- Direct `mailto:` links in English, Spanish and Hebrew.
-- A real email badge at the top and bottom.
-- A more structured navigation line for the long profile.
-- Updated animation spacing and safer initial frames.
-- Matching animated and reduced-motion banner versions.
+- Animated executive graphs placed near the top.
+- Evidence-based capability bars rather than invented proficiency percentages.
+- Animated portfolio-composition donut.
+- Detailed language and communication profile.
+- Transferable-experience bridge connecting repair work, service, training and product development.
+- Animated project capability matrix.
+- Animated SVG project cards replacing static PNG cards.
+- Larger typography and safer spacing throughout.
+- Fuller English, Spanish and Hebrew profile content.
+- Beersheba, Israel added to the professional location.
+- Real clickable email: `kevincusnir@gmail.com`.
+- More detailed descriptions of technologies, projects, principles, strengths and roadmap.
+- Local SVG assets to avoid fragile third-party statistics cards.
 
 ## Publish with Git
 
 ```powershell
 git add README.md assets/ extras/
-git commit -m "docs: improve profile typography, contact and professional summary"
+git commit -m "docs: publish ultimate animated multilingual profile"
 git push
 ```
 
 ## Upload through GitHub.com
 
 1. Open `LiriothTeltanion/LiriothTeltanion`.
-2. Choose **Add file → Upload files**.
+2. Select **Add file → Upload files**.
 3. Replace `README.md`.
-4. Upload the complete `assets` directory and preserve every subfolder.
-5. Commit with:
+4. Upload the complete `assets` folder.
+5. Preserve every subfolder and exact filename.
+6. Commit with:
 
    ```text
-   docs: improve profile typography, contact and professional summary
+   docs: publish ultimate animated multilingual profile
    ```
 
-6. Refresh the profile with `Ctrl + F5`.
+7. Refresh the public profile with `Ctrl + F5`.
+
+## Reduced motion
+
+The animated header has a PNG fallback for users who request reduced motion:
+
+```html
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/profile-banner.png" />
+  <img src="./assets/profile-banner-animated.svg" />
+</picture>
+```
 
 ## Important
 
-Do not rename:
+Do not rename the following folders:
 
 ```text
 assets/visuals/
 assets/projects/
-profile-banner-animated.svg
 ```
 
-The README uses those exact relative paths.
+The README uses exact relative paths.

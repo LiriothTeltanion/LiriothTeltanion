@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+  width="1400" height="620" viewBox="0 0 1400 620"
+  role="img" aria-label="Executive dashboard of Kevin Cusnir's featured portfolio evidence">
+  <title>Executive dashboard of Kevin Cusnir's featured portfolio evidence</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050b16"/>
+      <stop offset="55%" stop-color="#09182c"/>
+      <stop offset="100%" stop-color="#18113a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="48%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <linearGradient id="greenAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="warmAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0V56" fill="none" stroke="#7dd3fc"
+            stroke-opacity=".035" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow" x="-35%" y="-35%" width="170%" height="170%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12"
+        flood-color="#000000" flood-opacity=".48"/>
+    </filter>
+    
+  </defs>
+  <rect width="1400" height="620" rx="32" fill="url(#bg)"/>
+  <rect width="1400" height="620" rx="32" fill="url(#grid)"/>
+  <rect x="2" y="2" width="1396" height="616" rx="30"
+        fill="none" stroke="url(#accent)" stroke-opacity=".48" stroke-width="2"/>
+  
+  <line x1="56" y1="70" x2="340" y2="70"
+        stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
+  <line x1="1060" y1="70" x2="1344" y2="70"
+        stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
+  <text x="700.0" y="79" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="850" text-anchor="middle" letter-spacing="0.7">EXECUTIVE PORTFOLIO DASHBOARD</text>
+  <text x="700.0" y="118" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="500" text-anchor="middle" letter-spacing="0">Evidence from the four featured public projects — counts describe project coverage, not self-rated proficiency</text>
+  <rect x="55" y="155" width="790" height="430" rx="25"
+        fill="#0f1d32" stroke="#38bdf8" stroke-opacity=".36"
+        filter="url(#shadow)"/>
+  <text x="90" y="202" fill="#38bdf8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="850" text-anchor="start" letter-spacing="0.7">FEATURED-PROJECT EVIDENCE</text>
+  <text x="90" y="235" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="550" text-anchor="start" letter-spacing="0">Number of featured projects demonstrating each capability</text>
+
+  <text x="90" y="280" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="650" text-anchor="start" letter-spacing="0">React / TypeScript</text>
+  <rect x="330" y="261" width="455" height="24"
+        rx="12" fill="#06101d"/>
+  <rect x="330" y="261" width="0" height="24"
+        rx="12" fill="#38bdf8">
+    <animate attributeName="width" values="0;341"
+             dur="1.4s" begin="0.00s"
+             fill="freeze"/>
+  </rect>
+  <text x="805" y="280" fill="#38bdf8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="end" letter-spacing="0">3</text>
+
+  <text x="90" y="334" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="650" text-anchor="start" letter-spacing="0">Python</text>
+  <rect x="330" y="315" width="455" height="24"
+        rx="12" fill="#06101d"/>
+  <rect x="330" y="315" width="0" height="24"
+        rx="12" fill="#34d399">
+    <animate attributeName="width" values="0;227"
+             dur="1.4s" begin="0.12s"
+             fill="freeze"/>
+  </rect>
+  <text x="805" y="334" fill="#34d399" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="end" letter-spacing="0">2</text>
+
+  <text x="90" y="388" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="650" text-anchor="start" letter-spacing="0">Data and analytics</text>
+  <rect x="330" y="369" width="455" height="24"
+        rx="12" fill="#06101d"/>
+  <rect x="330" y="369" width="0" height="24"
+        rx="12" fill="#8b5cf6">
+    <animate attributeName="width" values="0;227"
+             dur="1.4s" begin="0.24s"
+             fill="freeze"/>
+  </rect>
+  <text x="805" y="388" fill="#8b5cf6" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="end" letter-spacing="0">2</text>
+
+  <text x="90" y="442" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="650" text-anchor="start" letter-spacing="0">Accessible / multilingual UX</text>
+  <rect x="330" y="423" width="455" height="24"
+        rx="12" fill="#06101d"/>
+  <rect x="330" y="423" width="0" height="24"
+        rx="12" fill="#c084fc">
+    <animate attributeName="width" values="0;227"
+             dur="1.4s" begin="0.36s"
+             fill="freeze"/>
+  </rect>
+  <text x="805" y="442" fill="#c084fc" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="end" letter-spacing="0">2</text>
+
+  <text x="90" y="496" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="650" text-anchor="start" letter-spacing="0">Automated delivery</text>
+  <rect x="330" y="477" width="455" height="24"
+        rx="12" fill="#06101d"/>
+  <rect x="330" y="477" width="0" height="24"
+        rx="12" fill="#fbbf24">
+    <animate attributeName="width" values="0;227"
+             dur="1.4s" begin="0.48s"
+             fill="freeze"/>
+  </rect>
+  <text x="805" y="496" fill="#fbbf24" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="end" letter-spacing="0">2</text>
+
+  <text x="90" y="550" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="650" text-anchor="start" letter-spacing="0">Desktop / CLI</text>
+  <rect x="330" y="531" width="455" height="24"
+        rx="12" fill="#06101d"/>
+  <rect x="330" y="531" width="0" height="24"
+        rx="12" fill="#fb7185">
+    <animate attributeName="width" values="0;113"
+             dur="1.4s" begin="0.60s"
+             fill="freeze"/>
+  </rect>
+  <text x="805" y="550" fill="#fb7185" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="end" letter-spacing="0">1</text>
+
+  <rect x="875" y="155" width="470" height="190" rx="25"
+        fill="#0f1d32" stroke="#8b5cf6" stroke-opacity=".36"
+        filter="url(#shadow)"/>
+  <text x="910" y="202" fill="#8b5cf6" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="850" text-anchor="start" letter-spacing="0.7">PORTFOLIO AT A GLANCE</text>
+
+  <rect x="910" y="225" width="185" height="92" rx="18"
+        fill="#06101d" stroke="#38bdf8" stroke-opacity=".44"/>
+  <text x="1002.5" y="272" fill="#38bdf8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="900" text-anchor="middle" letter-spacing="0">4</text>
+  <text x="1002.5" y="300" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" text-anchor="middle" letter-spacing="0.3">FEATURED PROJECTS</text>
+
+  <rect x="1118" y="225" width="185" height="92" rx="18"
+        fill="#06101d" stroke="#34d399" stroke-opacity=".44"/>
+  <text x="1210.5" y="272" fill="#34d399" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="900" text-anchor="middle" letter-spacing="0">3</text>
+  <text x="1210.5" y="300" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" text-anchor="middle" letter-spacing="0.3">PROFILE LANGUAGES</text>
+
+  <rect x="875" y="375" width="470" height="210" rx="25"
+        fill="#0f1d32" stroke="#34d399" stroke-opacity=".36"
+        filter="url(#shadow)"/>
+  <text x="910" y="418" fill="#34d399" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="850" text-anchor="start" letter-spacing="0.7">PROJECT COMPOSITION</text>
+  <text x="910" y="448" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="550" text-anchor="start" letter-spacing="0">Four complementary portfolio roles</text>
+
+  <circle cx="1195" cy="490" r="60"
+          fill="none" stroke="#38bdf8" stroke-width="24"
+          stroke-dasharray="89.25 287.74"
+          stroke-dashoffset="0"
+          transform="rotate(-90 1195 490)"
+          opacity=".88">
+    <animate attributeName="stroke-dashoffset"
+             values="94.25;0" dur="1.5s" fill="freeze"/>
+  </circle>
+
+  <circle cx="1195" cy="490" r="60"
+          fill="none" stroke="#34d399" stroke-width="24"
+          stroke-dasharray="89.25 287.74"
+          stroke-dashoffset="0"
+          transform="rotate(0 1195 490)"
+          opacity=".88">
+    <animate attributeName="stroke-dashoffset"
+             values="94.25;0" dur="1.5s" fill="freeze"/>
+  </circle>
+
+  <circle cx="1195" cy="490" r="60"
+          fill="none" stroke="#fbbf24" stroke-width="24"
+          stroke-dasharray="89.25 287.74"
+          stroke-dashoffset="0"
+          transform="rotate(90 1195 490)"
+          opacity=".88">
+    <animate attributeName="stroke-dashoffset"
+             values="94.25;0" dur="1.5s" fill="freeze"/>
+  </circle>
+
+  <circle cx="1195" cy="490" r="60"
+          fill="none" stroke="#8b5cf6" stroke-width="24"
+          stroke-dasharray="89.25 287.74"
+          stroke-dashoffset="0"
+          transform="rotate(180 1195 490)"
+          opacity=".88">
+    <animate attributeName="stroke-dashoffset"
+             values="94.25;0" dur="1.5s" fill="freeze"/>
+  </circle>
+
+  <text x="1195" y="488" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900" text-anchor="middle" letter-spacing="0">4</text>
+  <text x="1195" y="513" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="800" text-anchor="middle" letter-spacing="0.4">PROJECTS</text>
+
+  <circle cx="910" cy="480" r="7" fill="#38bdf8"/>
+  <text x="928" y="486" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="650" text-anchor="start" letter-spacing="0">Data product</text>
+  <circle cx="910" cy="512" r="7" fill="#34d399"/>
+  <text x="928" y="518" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="650" text-anchor="start" letter-spacing="0">Desktop application</text>
+  <circle cx="910" cy="544" r="7" fill="#fbbf24"/>
+  <text x="928" y="550" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="650" text-anchor="start" letter-spacing="0">Learning archive</text>
+  <circle cx="910" cy="576" r="7" fill="#8b5cf6"/>
+  <text x="928" y="582" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="650" text-anchor="start" letter-spacing="0">Client portfolio</text>
+
+  
+  <rect x="-300" y="0" width="230" height="620"
+        fill="url(#accent)" opacity="0.018">
+    <animate attributeName="x" values="-300;1500"
+             dur="13s" repeatCount="indefinite"/>
+  </rect>
+
+</svg>

@@ -40,66 +40,99 @@
   <rect x="2" y="2" width="1396" height="546" rx="30"
         fill="none" stroke="url(#accent)" stroke-opacity=".48" stroke-width="2"/>
   
-  <line x1="56" y1="70" x2="340" y2="70" stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
-  <line x1="1060" y1="70" x2="1344" y2="70" stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
+  <line x1="56" y1="70" x2="340" y2="70"
+        stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
+  <line x1="1060" y1="70" x2="1344" y2="70"
+        stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
   <text x="700.0" y="79" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="850" text-anchor="middle" letter-spacing="0.7">ENGINEERING PRINCIPLES</text>
   <text x="700.0" y="118" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="500" text-anchor="middle" letter-spacing="0">Standards I want the work to communicate before anyone reads the implementation</text>
   <rect x="55" y="160" width="405" height="148" rx="22"
-        fill="#0f1d32" stroke="#38bdf8" stroke-opacity=".42" filter="url(#shadow)"/>
+        fill="#0f1d32" stroke="#38bdf8" stroke-opacity=".42"
+        filter="url(#shadow)"/>
   <circle cx="101" cy="208" r="20"
           fill="#06101d" stroke="#38bdf8" stroke-width="4"/>
-  <circle cx="101" cy="208" r="7" fill="#38bdf8" filter="url(#glow)"/>
+  <circle cx="101" cy="208" r="7"
+          fill="#38bdf8" filter="url(#glow)">
+    <animate attributeName="r" values="6;10;6"
+             dur="2.6s" repeatCount="indefinite"/>
+  </circle>
   <text x="137" y="212" fill="#38bdf8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="start" letter-spacing="0.4">ACCESSIBLE BY DEFAULT</text>
   <text x="83" y="253" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="550" text-anchor="start" letter-spacing="0">Keyboard support, readable contrast, reduced</text>
 <text x="83" y="277" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="550" text-anchor="start" letter-spacing="0">motion and clear semantics.</text>
 
   <rect x="500" y="160" width="405" height="148" rx="22"
-        fill="#0f1d32" stroke="#34d399" stroke-opacity=".42" filter="url(#shadow)"/>
+        fill="#0f1d32" stroke="#34d399" stroke-opacity=".42"
+        filter="url(#shadow)"/>
   <circle cx="546" cy="208" r="20"
           fill="#06101d" stroke="#34d399" stroke-width="4"/>
-  <circle cx="546" cy="208" r="7" fill="#34d399" filter="url(#glow)"/>
+  <circle cx="546" cy="208" r="7"
+          fill="#34d399" filter="url(#glow)">
+    <animate attributeName="r" values="6;10;6"
+             dur="2.8s" repeatCount="indefinite"/>
+  </circle>
   <text x="582" y="212" fill="#34d399" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="start" letter-spacing="0.4">PRIVACY IS A FEATURE</text>
   <text x="528" y="253" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="550" text-anchor="start" letter-spacing="0">Collect less, process locally when possible and</text>
 <text x="528" y="277" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="550" text-anchor="start" letter-spacing="0">explain network behavior.</text>
 
   <rect x="945" y="160" width="405" height="148" rx="22"
-        fill="#0f1d32" stroke="#8b5cf6" stroke-opacity=".42" filter="url(#shadow)"/>
+        fill="#0f1d32" stroke="#8b5cf6" stroke-opacity=".42"
+        filter="url(#shadow)"/>
   <circle cx="991" cy="208" r="20"
           fill="#06101d" stroke="#8b5cf6" stroke-width="4"/>
-  <circle cx="991" cy="208" r="7" fill="#8b5cf6" filter="url(#glow)"/>
+  <circle cx="991" cy="208" r="7"
+          fill="#8b5cf6" filter="url(#glow)">
+    <animate attributeName="r" values="6;10;6"
+             dur="3.0s" repeatCount="indefinite"/>
+  </circle>
   <text x="1027" y="212" fill="#8b5cf6" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="start" letter-spacing="0.4">HONEST DATA ONLY</text>
   <text x="973" y="253" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="550" text-anchor="start" letter-spacing="0">Show uncertainty and missing coverage instead of</text>
 <text x="973" y="277" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="550" text-anchor="start" letter-spacing="0">inventing confidence.</text>
 
   <rect x="55" y="335" width="405" height="148" rx="22"
-        fill="#0f1d32" stroke="#fbbf24" stroke-opacity=".42" filter="url(#shadow)"/>
+        fill="#0f1d32" stroke="#fbbf24" stroke-opacity=".42"
+        filter="url(#shadow)"/>
   <circle cx="101" cy="383" r="20"
           fill="#06101d" stroke="#fbbf24" stroke-width="4"/>
-  <circle cx="101" cy="383" r="7" fill="#fbbf24" filter="url(#glow)"/>
+  <circle cx="101" cy="383" r="7"
+          fill="#fbbf24" filter="url(#glow)">
+    <animate attributeName="r" values="6;10;6"
+             dur="3.2s" repeatCount="indefinite"/>
+  </circle>
   <text x="137" y="387" fill="#fbbf24" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="start" letter-spacing="0.4">TEST THE CRITICAL PATH</text>
   <text x="83" y="428" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="550" text-anchor="start" letter-spacing="0">Protect imports, calculations, navigation and</text>
 <text x="83" y="452" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="550" text-anchor="start" letter-spacing="0">production builds.</text>
 
   <rect x="500" y="335" width="405" height="148" rx="22"
-        fill="#0f1d32" stroke="#22d3ee" stroke-opacity=".42" filter="url(#shadow)"/>
+        fill="#0f1d32" stroke="#22d3ee" stroke-opacity=".42"
+        filter="url(#shadow)"/>
   <circle cx="546" cy="383" r="20"
           fill="#06101d" stroke="#22d3ee" stroke-width="4"/>
-  <circle cx="546" cy="383" r="7" fill="#22d3ee" filter="url(#glow)"/>
+  <circle cx="546" cy="383" r="7"
+          fill="#22d3ee" filter="url(#glow)">
+    <animate attributeName="r" values="6;10;6"
+             dur="3.4s" repeatCount="indefinite"/>
+  </circle>
   <text x="582" y="387" fill="#22d3ee" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="start" letter-spacing="0.4">DOCUMENT THE WHY</text>
   <text x="528" y="428" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="550" text-anchor="start" letter-spacing="0">Explain decisions, limitations and the path for</text>
 <text x="528" y="452" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="550" text-anchor="start" letter-spacing="0">continuing the work.</text>
 
   <rect x="945" y="335" width="405" height="148" rx="22"
-        fill="#0f1d32" stroke="#fb7185" stroke-opacity=".42" filter="url(#shadow)"/>
+        fill="#0f1d32" stroke="#fb7185" stroke-opacity=".42"
+        filter="url(#shadow)"/>
   <circle cx="991" cy="383" r="20"
           fill="#06101d" stroke="#fb7185" stroke-width="4"/>
-  <circle cx="991" cy="383" r="7" fill="#fb7185" filter="url(#glow)"/>
+  <circle cx="991" cy="383" r="7"
+          fill="#fb7185" filter="url(#glow)">
+    <animate attributeName="r" values="6;10;6"
+             dur="3.6s" repeatCount="indefinite"/>
+  </circle>
   <text x="1027" y="387" fill="#fb7185" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="start" letter-spacing="0.4">CREATIVITY WITH STRUCTURE</text>
   <text x="973" y="428" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="550" text-anchor="start" letter-spacing="0">Visual identity is strongest when architecture</text>
 <text x="973" y="452" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="550" text-anchor="start" letter-spacing="0">and usability remain solid.</text>
 
-  <rect x="-280" y="138" width="200" height="340" rx="30" fill="url(#accent)" opacity=".025">
-    <animate attributeName="x" values="-280;1480" dur="11s" repeatCount="indefinite"/>
+  <rect x="-300" y="0" width="230" height="550"
+        fill="url(#accent)" opacity="0.025">
+    <animate attributeName="x" values="-300;1500"
+             dur="11s" repeatCount="indefinite"/>
   </rect>
-
 </svg>

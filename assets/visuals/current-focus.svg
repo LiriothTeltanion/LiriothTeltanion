@@ -1,79 +1,123 @@
 <svg xmlns="http://www.w3.org/2000/svg"
- width="1400" height="760" viewBox="0 0 1400 760"
- role="img" aria-label="Current focus and career direction of Kevin Cusnir">
- <title>Current focus and career direction of Kevin Cusnir</title>
- <defs>
-  <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-   <stop offset="0%" stop-color="#050b16"/>
-   <stop offset="55%" stop-color="#09182c"/>
-   <stop offset="100%" stop-color="#18113a"/>
-  </linearGradient>
-  <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-   <stop offset="0%" stop-color="#38bdf8"/>
-   <stop offset="48%" stop-color="#8b5cf6"/>
-   <stop offset="100%" stop-color="#c084fc"/>
-  </linearGradient>
-  <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
-   <path d="M56 0H0V56" fill="none" stroke="#7dd3fc" stroke-opacity=".035" stroke-width="1"/>
-  </pattern>
-  <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
-   <feGaussianBlur stdDeviation="6" result="blur"/>
-   <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-  <filter id="shadow" x="-35%" y="-35%" width="170%" height="170%">
-   <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity=".48"/>
-  </filter>
+  width="1400" height="760" viewBox="0 0 1400 760"
+  role="img" aria-label="Current focus and career direction of Kevin Cusnir">
+  <title>Current focus and career direction of Kevin Cusnir</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050b16"/>
+      <stop offset="55%" stop-color="#09182c"/>
+      <stop offset="100%" stop-color="#18113a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="48%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <linearGradient id="greenAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="warmAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0V56" fill="none" stroke="#7dd3fc"
+            stroke-opacity=".035" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow" x="-35%" y="-35%" width="170%" height="170%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12"
+        flood-color="#000000" flood-opacity=".48"/>
+    </filter>
+    
+  </defs>
+  <rect width="1400" height="760" rx="32" fill="url(#bg)"/>
+  <rect width="1400" height="760" rx="32" fill="url(#grid)"/>
+  <rect x="2" y="2" width="1396" height="756" rx="30"
+        fill="none" stroke="url(#accent)" stroke-opacity=".48" stroke-width="2"/>
   
- </defs>
- <rect width="1400" height="760" rx="32" fill="url(#bg)"/>
- <rect width="1400" height="760" rx="32" fill="url(#grid)"/>
- <rect x="2" y="2" width="1396" height="756" rx="30"
-       fill="none" stroke="url(#accent)" stroke-opacity=".48" stroke-width="2"/>
- 
- <line x1="56" y1="70" x2="340" y2="70" stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
- <line x1="1060" y1="70" x2="1344" y2="70" stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
- <text x="700.0" y="79" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="850" text-anchor="middle" letter-spacing="0.7">CURRENT FOCUS</text>
- <text x="700.0" y="118" fill="#c5d6e8" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="500" text-anchor="middle" letter-spacing="0">What I am refining now, building next and actively looking for</text>
- <rect x="55" y="165" width="410" height="420" rx="25"
-       fill="#0f1d32" stroke="#38bdf8" stroke-opacity=".46" filter="url(#shadow)"/>
- <rect x="55" y="165" width="410" height="8" rx="4" fill="#38bdf8"/>
- <text x="260" y="225" fill="#38bdf8" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="900" text-anchor="middle" letter-spacing="1">NOW</text>
-<circle cx="95" cy="274" r="8" fill="#38bdf8"/>
-<text x="121" y="282" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Polish the public GitHub portfolio</text><circle cx="95" cy="352" r="8" fill="#38bdf8"/>
-<text x="121" y="360" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Keep Nova Music Lab stable and data-</text>
-<text x="121" y="384" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">honest</text><circle cx="95" cy="430" r="8" fill="#38bdf8"/>
-<text x="121" y="438" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Improve project demos and storytelling</text><circle cx="95" cy="508" r="8" fill="#38bdf8"/>
-<text x="121" y="516" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Curate learning repositories without</text>
-<text x="121" y="540" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">erasing progress</text>
- <rect x="495" y="165" width="410" height="420" rx="25"
-       fill="#0f1d32" stroke="#8b5cf6" stroke-opacity=".46" filter="url(#shadow)"/>
- <rect x="495" y="165" width="410" height="8" rx="4" fill="#8b5cf6"/>
- <text x="700" y="225" fill="#8b5cf6" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="900" text-anchor="middle" letter-spacing="1">BUILDING NEXT</text>
-<circle cx="535" cy="274" r="8" fill="#8b5cf6"/>
-<text x="561" y="282" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Production-style full-stack</text>
-<text x="561" y="306" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">application</text><circle cx="535" cy="352" r="8" fill="#8b5cf6"/>
-<text x="561" y="360" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">PostgreSQL and real backend</text>
-<text x="561" y="384" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">architecture</text><circle cx="535" cy="430" r="8" fill="#8b5cf6"/>
-<text x="561" y="438" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Authentication, authorization and API</text>
-<text x="561" y="462" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">design</text><circle cx="535" cy="508" r="8" fill="#8b5cf6"/>
-<text x="561" y="516" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Docker, CI/CD and deployed</text>
-<text x="561" y="540" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">environments</text>
- <rect x="935" y="165" width="410" height="420" rx="25"
-       fill="#0f1d32" stroke="#34d399" stroke-opacity=".46" filter="url(#shadow)"/>
- <rect x="935" y="165" width="410" height="8" rx="4" fill="#34d399"/>
- <text x="1140" y="225" fill="#34d399" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="900" text-anchor="middle" letter-spacing="1">OPEN TO</text>
-<circle cx="975" cy="274" r="8" fill="#34d399"/>
-<text x="1001" y="282" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Junior full-stack or frontend roles</text><circle cx="975" cy="352" r="8" fill="#34d399"/>
-<text x="1001" y="360" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Internships and mentored engineering</text>
-<text x="1001" y="384" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">teams</text><circle cx="975" cy="430" r="8" fill="#34d399"/>
-<text x="1001" y="438" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Creative-technology collaborations</text><circle cx="975" cy="508" r="8" fill="#34d399"/>
-<text x="1001" y="516" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Projects where accessibility and real</text>
-<text x="1001" y="540" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">users matter</text>
- <rect x="55" y="625" width="1290" height="82" rx="31" fill="#06101d"
-       stroke="url(#accent)" stroke-opacity=".52"/>
- <text x="700" y="677" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="760" text-anchor="middle" letter-spacing="0">Goal: become a junior developer a team can trust with real users, real data and real follow-through.</text>
- <line x1="55" y1="728" x2="55" y2="728" stroke="#38bdf8" stroke-width="4" stroke-linecap="round">
-  <animate attributeName="x2" values="55;1345;55" dur="9s" repeatCount="indefinite"/>
- </line>
+  <line x1="56" y1="70" x2="340" y2="70"
+        stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
+  <line x1="1060" y1="70" x2="1344" y2="70"
+        stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
+  <text x="700.0" y="79" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="850" text-anchor="middle" letter-spacing="0.7">CURRENT FOCUS</text>
+  <text x="700.0" y="118" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="500" text-anchor="middle" letter-spacing="0">What I am refining now, building next and actively looking for</text>
+  <rect x="55" y="165" width="410" height="420" rx="25"
+        fill="#0f1d32" stroke="#38bdf8" stroke-opacity=".46"
+        filter="url(#shadow)"/>
+  <rect x="55" y="165" width="410" height="8" rx="4"
+        fill="#38bdf8"/>
+  <text x="260" y="225" fill="#38bdf8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="900" text-anchor="middle" letter-spacing="1">NOW</text>
+
+  <circle cx="95" cy="274" r="8" fill="#38bdf8"/>
+  <text x="121" y="282" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Polish the public GitHub portfolio</text>
+
+  <circle cx="95" cy="352" r="8" fill="#38bdf8"/>
+  <text x="121" y="360" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Keep Nova Music Lab stable and data-</text>
+<text x="121" y="384" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">honest</text>
+
+  <circle cx="95" cy="430" r="8" fill="#38bdf8"/>
+  <text x="121" y="438" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Improve project demos and storytelling</text>
+
+  <circle cx="95" cy="508" r="8" fill="#38bdf8"/>
+  <text x="121" y="516" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Curate learning repositories without</text>
+<text x="121" y="540" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">erasing progress</text>
+
+  <rect x="495" y="165" width="410" height="420" rx="25"
+        fill="#0f1d32" stroke="#8b5cf6" stroke-opacity=".46"
+        filter="url(#shadow)"/>
+  <rect x="495" y="165" width="410" height="8" rx="4"
+        fill="#8b5cf6"/>
+  <text x="700" y="225" fill="#8b5cf6" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="900" text-anchor="middle" letter-spacing="1">BUILDING NEXT</text>
+
+  <circle cx="535" cy="274" r="8" fill="#8b5cf6"/>
+  <text x="561" y="282" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Production-style full-stack</text>
+<text x="561" y="306" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">application</text>
+
+  <circle cx="535" cy="352" r="8" fill="#8b5cf6"/>
+  <text x="561" y="360" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">PostgreSQL and real backend</text>
+<text x="561" y="384" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">architecture</text>
+
+  <circle cx="535" cy="430" r="8" fill="#8b5cf6"/>
+  <text x="561" y="438" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Authentication, authorization and API</text>
+<text x="561" y="462" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">design</text>
+
+  <circle cx="535" cy="508" r="8" fill="#8b5cf6"/>
+  <text x="561" y="516" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Docker, CI/CD and deployed</text>
+<text x="561" y="540" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">environments</text>
+
+  <rect x="935" y="165" width="410" height="420" rx="25"
+        fill="#0f1d32" stroke="#34d399" stroke-opacity=".46"
+        filter="url(#shadow)"/>
+  <rect x="935" y="165" width="410" height="8" rx="4"
+        fill="#34d399"/>
+  <text x="1140" y="225" fill="#34d399" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="900" text-anchor="middle" letter-spacing="1">OPEN TO</text>
+
+  <circle cx="975" cy="274" r="8" fill="#34d399"/>
+  <text x="1001" y="282" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Junior full-stack or frontend roles</text>
+
+  <circle cx="975" cy="352" r="8" fill="#34d399"/>
+  <text x="1001" y="360" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Internships and mentored engineering</text>
+<text x="1001" y="384" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">teams</text>
+
+  <circle cx="975" cy="430" r="8" fill="#34d399"/>
+  <text x="1001" y="438" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Creative-technology collaborations</text>
+
+  <circle cx="975" cy="508" r="8" fill="#34d399"/>
+  <text x="1001" y="516" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">Projects where accessibility and real</text>
+<text x="1001" y="540" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" text-anchor="start" letter-spacing="0">users matter</text>
+
+  <rect x="55" y="625" width="1290" height="82" rx="31"
+        fill="#06101d" stroke="url(#accent)" stroke-opacity=".52"/>
+  <text x="700" y="677" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="760" text-anchor="middle" letter-spacing="0">Goal: become a junior developer a team can trust with real users, real data and real follow-through.</text>
+  <line x1="55" y1="728" x2="55" y2="728"
+        stroke="#38bdf8" stroke-width="4" stroke-linecap="round">
+    <animate attributeName="x2" values="55;1345;55"
+             dur="9s" repeatCount="indefinite"/>
+  </line>
 
 </svg>

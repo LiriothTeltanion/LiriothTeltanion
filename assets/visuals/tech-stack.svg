@@ -1,161 +1,184 @@
 <svg xmlns="http://www.w3.org/2000/svg"
- width="1400" height="825" viewBox="0 0 1400 825"
- role="img" aria-label="Technology constellation of Kevin Cusnir">
- <title>Technology constellation of Kevin Cusnir</title>
- <defs>
-  <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-   <stop offset="0%" stop-color="#050b16"/>
-   <stop offset="55%" stop-color="#09182c"/>
-   <stop offset="100%" stop-color="#18113a"/>
-  </linearGradient>
-  <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-   <stop offset="0%" stop-color="#38bdf8"/>
-   <stop offset="48%" stop-color="#8b5cf6"/>
-   <stop offset="100%" stop-color="#c084fc"/>
-  </linearGradient>
-  <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
-   <path d="M56 0H0V56" fill="none" stroke="#7dd3fc" stroke-opacity=".035" stroke-width="1"/>
-  </pattern>
-  <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
-   <feGaussianBlur stdDeviation="6" result="blur"/>
-   <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-  <filter id="shadow" x="-35%" y="-35%" width="170%" height="170%">
-   <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity=".48"/>
-  </filter>
+  width="1400" height="825" viewBox="0 0 1400 825"
+  role="img" aria-label="Technology constellation of Kevin Cusnir">
+  <title>Technology constellation of Kevin Cusnir</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050b16"/>
+      <stop offset="55%" stop-color="#09182c"/>
+      <stop offset="100%" stop-color="#18113a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="48%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <linearGradient id="greenAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="warmAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0V56" fill="none" stroke="#7dd3fc"
+            stroke-opacity=".035" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow" x="-35%" y="-35%" width="170%" height="170%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12"
+        flood-color="#000000" flood-opacity=".48"/>
+    </filter>
+    
+  </defs>
+  <rect width="1400" height="825" rx="32" fill="url(#bg)"/>
+  <rect width="1400" height="825" rx="32" fill="url(#grid)"/>
+  <rect x="2" y="2" width="1396" height="821" rx="30"
+        fill="none" stroke="url(#accent)" stroke-opacity=".48" stroke-width="2"/>
   
- </defs>
- <rect width="1400" height="825" rx="32" fill="url(#bg)"/>
- <rect width="1400" height="825" rx="32" fill="url(#grid)"/>
- <rect x="2" y="2" width="1396" height="821" rx="30"
-       fill="none" stroke="url(#accent)" stroke-opacity=".48" stroke-width="2"/>
- 
- <line x1="56" y1="70" x2="340" y2="70" stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
- <line x1="1060" y1="70" x2="1344" y2="70" stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
- <text x="700.0" y="79" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="850" text-anchor="middle" letter-spacing="0.7">TECHNOLOGY CONSTELLATION</text>
- <text x="700.0" y="118" fill="#c5d6e8" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="500" text-anchor="middle" letter-spacing="0">Current tools, proven foundations and clearly labeled areas of active growth</text>
- <rect x="55" y="155" width="625" height="280" rx="24" fill="#0f1d32"
-       stroke="#38bdf8" stroke-opacity=".42" filter="url(#shadow)"/>
- <rect x="55" y="155" width="7" height="280" rx="3.5" fill="#38bdf8"/>
- <text x="93" y="203" fill="#38bdf8" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="850" text-anchor="start" letter-spacing="0.6">FRONTEND &amp; EXPERIENCE</text>
- <text x="93" y="237" fill="#c5d6e8" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="550" text-anchor="start" letter-spacing="0">Responsive, accessible and visually intentional interfaces</text>
+  <line x1="56" y1="70" x2="340" y2="70"
+        stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
+  <line x1="1060" y1="70" x2="1344" y2="70"
+        stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
+  <text x="700.0" y="79" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="850" text-anchor="middle" letter-spacing="0.7">TECHNOLOGY CONSTELLATION</text>
+  <text x="700.0" y="118" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="500" text-anchor="middle" letter-spacing="0">Current tools, proven foundations and clearly labeled areas of active growth</text>
+  <rect x="55" y="155" width="625" height="280" rx="24"
+        fill="#0f1d32" stroke="#38bdf8" stroke-opacity=".42"
+        filter="url(#shadow)"/>
+  <rect x="55" y="155" width="7" height="280" rx="3.5"
+        fill="#38bdf8"/>
+  <text x="93" y="203" fill="#38bdf8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="850" text-anchor="start" letter-spacing="0.6">FRONTEND &amp; EXPERIENCE</text>
+  <text x="93" y="237" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="550" text-anchor="start" letter-spacing="0">Responsive, accessible and visually intentional interfaces</text>
 
- <rect x="93" y="267" width="112" height="46" rx="23"
-       fill="#06101d" stroke="#38bdf8" stroke-opacity=".82"/>
- <text x="149.0" y="297" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">React</text>
- <rect x="218" y="267" width="134" height="46" rx="23"
-       fill="#06101d" stroke="#38bdf8" stroke-opacity=".82"/>
- <text x="285.0" y="297" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">TypeScript</text>
- <rect x="365" y="267" width="134" height="46" rx="23"
-       fill="#06101d" stroke="#38bdf8" stroke-opacity=".82"/>
- <text x="432.0" y="297" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">JavaScript</text>
- <rect x="512" y="267" width="112" height="46" rx="23"
-       fill="#06101d" stroke="#38bdf8" stroke-opacity=".82"/>
- <text x="568.0" y="297" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">HTML5</text>
- <rect x="93" y="325" width="112" height="46" rx="23"
-       fill="#06101d" stroke="#38bdf8" stroke-opacity=".82"/>
- <text x="149.0" y="355" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">CSS3</text>
- <rect x="218" y="325" width="154" height="46" rx="23"
-       fill="#06101d" stroke="#38bdf8" stroke-opacity=".82"/>
- <text x="295.0" y="355" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Tailwind CSS</text>
- <rect x="385" y="325" width="112" height="46" rx="23"
-       fill="#06101d" stroke="#38bdf8" stroke-opacity=".82"/>
- <text x="441.0" y="355" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Vite</text>
- <rect x="720" y="155" width="625" height="280" rx="24" fill="#0f1d32"
-       stroke="#34d399" stroke-opacity=".42" filter="url(#shadow)"/>
- <rect x="720" y="155" width="7" height="280" rx="3.5" fill="#34d399"/>
- <text x="758" y="203" fill="#34d399" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="850" text-anchor="start" letter-spacing="0.6">BACKEND &amp; DATA</text>
- <text x="758" y="237" fill="#c5d6e8" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="550" text-anchor="start" letter-spacing="0">Application logic, APIs and relational or local data</text>
+  <rect x="93" y="267" width="112" height="46" rx="23"
+        fill="#06101d" stroke="#38bdf8" stroke-opacity=".82"/>
+  <text x="149.0" y="297" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">React</text>
+  <rect x="218" y="267" width="134" height="46" rx="23"
+        fill="#06101d" stroke="#38bdf8" stroke-opacity=".82"/>
+  <text x="285.0" y="297" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">TypeScript</text>
+  <rect x="365" y="267" width="134" height="46" rx="23"
+        fill="#06101d" stroke="#38bdf8" stroke-opacity=".82"/>
+  <text x="432.0" y="297" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">JavaScript</text>
+  <rect x="512" y="267" width="112" height="46" rx="23"
+        fill="#06101d" stroke="#38bdf8" stroke-opacity=".82"/>
+  <text x="568.0" y="297" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">HTML5</text>
+  <rect x="93" y="325" width="112" height="46" rx="23"
+        fill="#06101d" stroke="#38bdf8" stroke-opacity=".82"/>
+  <text x="149.0" y="355" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">CSS3</text>
+  <rect x="218" y="325" width="154" height="46" rx="23"
+        fill="#06101d" stroke="#38bdf8" stroke-opacity=".82"/>
+  <text x="295.0" y="355" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Tailwind CSS</text>
+  <rect x="385" y="325" width="112" height="46" rx="23"
+        fill="#06101d" stroke="#38bdf8" stroke-opacity=".82"/>
+  <text x="441.0" y="355" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Vite</text>
+  <rect x="720" y="155" width="625" height="280" rx="24"
+        fill="#0f1d32" stroke="#34d399" stroke-opacity=".42"
+        filter="url(#shadow)"/>
+  <rect x="720" y="155" width="7" height="280" rx="3.5"
+        fill="#34d399"/>
+  <text x="758" y="203" fill="#34d399" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="850" text-anchor="start" letter-spacing="0.6">BACKEND &amp; DATA</text>
+  <text x="758" y="237" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="550" text-anchor="start" letter-spacing="0">Application logic, APIs and relational or local data</text>
 
- <rect x="758" y="267" width="112" height="46" rx="23"
-       fill="#06101d" stroke="#34d399" stroke-opacity=".82"/>
- <text x="814.0" y="297" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Node.js</text>
- <rect x="883" y="267" width="174" height="46" rx="23"
-       fill="#06101d" stroke="#34d399" stroke-opacity=".82"/>
- <text x="970.0" y="297" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Express basics</text>
- <rect x="1070" y="267" width="112" height="46" rx="23"
-       fill="#06101d" stroke="#34d399" stroke-opacity=".82"/>
- <text x="1126.0" y="297" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Python</text>
- <rect x="758" y="325" width="124" height="46" rx="23"
-       fill="#06101d" stroke="#34d399" stroke-opacity=".82"/>
- <text x="820.0" y="355" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">REST APIs</text>
- <rect x="895" y="325" width="112" height="46" rx="23"
-       fill="#06101d" stroke="#34d399" stroke-opacity=".82"/>
- <text x="951.0" y="355" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">SQL</text>
- <rect x="1020" y="325" width="112" height="46" rx="23"
-       fill="#06101d" stroke="#34d399" stroke-opacity=".82"/>
- <text x="1076.0" y="355" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">SQLite</text>
- <rect x="1145" y="325" width="134" height="46" rx="23"
-       fill="#06101d" stroke="#34d399" stroke-opacity=".82"/>
- <text x="1212.0" y="355" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">JSON / CSV</text>
- <rect x="758" y="383" width="244" height="46" rx="23"
-       fill="#06101d" stroke="#34d399" stroke-opacity=".82"/>
- <text x="880.0" y="413" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">PostgreSQL · learning</text>
- <rect x="55" y="475" width="625" height="280" rx="24" fill="#0f1d32"
-       stroke="#8b5cf6" stroke-opacity=".42" filter="url(#shadow)"/>
- <rect x="55" y="475" width="7" height="280" rx="3.5" fill="#8b5cf6"/>
- <text x="93" y="523" fill="#8b5cf6" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="850" text-anchor="start" letter-spacing="0.6">QUALITY &amp; DELIVERY</text>
- <text x="93" y="557" fill="#c5d6e8" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="550" text-anchor="start" letter-spacing="0">Reproducible checks and maintainable engineering habits</text>
+  <rect x="758" y="267" width="112" height="46" rx="23"
+        fill="#06101d" stroke="#34d399" stroke-opacity=".82"/>
+  <text x="814.0" y="297" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Node.js</text>
+  <rect x="883" y="267" width="174" height="46" rx="23"
+        fill="#06101d" stroke="#34d399" stroke-opacity=".82"/>
+  <text x="970.0" y="297" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Express basics</text>
+  <rect x="1070" y="267" width="112" height="46" rx="23"
+        fill="#06101d" stroke="#34d399" stroke-opacity=".82"/>
+  <text x="1126.0" y="297" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Python</text>
+  <rect x="758" y="325" width="124" height="46" rx="23"
+        fill="#06101d" stroke="#34d399" stroke-opacity=".82"/>
+  <text x="820.0" y="355" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">REST APIs</text>
+  <rect x="895" y="325" width="112" height="46" rx="23"
+        fill="#06101d" stroke="#34d399" stroke-opacity=".82"/>
+  <text x="951.0" y="355" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">SQL</text>
+  <rect x="1020" y="325" width="112" height="46" rx="23"
+        fill="#06101d" stroke="#34d399" stroke-opacity=".82"/>
+  <text x="1076.0" y="355" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">SQLite</text>
+  <rect x="1145" y="325" width="134" height="46" rx="23"
+        fill="#06101d" stroke="#34d399" stroke-opacity=".82"/>
+  <text x="1212.0" y="355" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">JSON / CSV</text>
+  <rect x="758" y="383" width="244" height="46" rx="23"
+        fill="#06101d" stroke="#34d399" stroke-opacity=".82"/>
+  <text x="880.0" y="413" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">PostgreSQL · learning</text>
+  <rect x="55" y="475" width="625" height="280" rx="24"
+        fill="#0f1d32" stroke="#8b5cf6" stroke-opacity=".42"
+        filter="url(#shadow)"/>
+  <rect x="55" y="475" width="7" height="280" rx="3.5"
+        fill="#8b5cf6"/>
+  <text x="93" y="523" fill="#8b5cf6" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="850" text-anchor="start" letter-spacing="0.6">QUALITY &amp; DELIVERY</text>
+  <text x="93" y="557" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="550" text-anchor="start" letter-spacing="0">Reproducible checks and maintainable engineering habits</text>
 
- <rect x="93" y="587" width="112" height="46" rx="23"
-       fill="#06101d" stroke="#8b5cf6" stroke-opacity=".82"/>
- <text x="149.0" y="617" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Vitest</text>
- <rect x="218" y="587" width="134" height="46" rx="23"
-       fill="#06101d" stroke="#8b5cf6" stroke-opacity=".82"/>
- <text x="285.0" y="617" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Unit tests</text>
- <rect x="365" y="587" width="174" height="46" rx="23"
-       fill="#06101d" stroke="#8b5cf6" stroke-opacity=".82"/>
- <text x="452.0" y="617" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">GitHub Actions</text>
- <rect x="93" y="645" width="112" height="46" rx="23"
-       fill="#06101d" stroke="#8b5cf6" stroke-opacity=".82"/>
- <text x="149.0" y="675" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Git</text>
- <rect x="218" y="645" width="112" height="46" rx="23"
-       fill="#06101d" stroke="#8b5cf6" stroke-opacity=".82"/>
- <text x="274.0" y="675" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Linting</text>
- <rect x="343" y="645" width="112" height="46" rx="23"
-       fill="#06101d" stroke="#8b5cf6" stroke-opacity=".82"/>
- <text x="399.0" y="675" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">CI / CD</text>
- <rect x="468" y="645" width="164" height="46" rx="23"
-       fill="#06101d" stroke="#8b5cf6" stroke-opacity=".82"/>
- <text x="550.0" y="675" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Accessibility</text>
- <rect x="93" y="703" width="164" height="46" rx="23"
-       fill="#06101d" stroke="#8b5cf6" stroke-opacity=".82"/>
- <text x="175.0" y="733" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Documentation</text>
- <rect x="720" y="475" width="625" height="280" rx="24" fill="#0f1d32"
-       stroke="#fbbf24" stroke-opacity=".42" filter="url(#shadow)"/>
- <rect x="720" y="475" width="7" height="280" rx="3.5" fill="#fbbf24"/>
- <text x="758" y="523" fill="#fbbf24" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="850" text-anchor="start" letter-spacing="0.6">CREATIVE &amp; SYSTEMS</text>
- <text x="758" y="557" fill="#c5d6e8" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="550" text-anchor="start" letter-spacing="0">Tools connecting data, motion, desktop software and automation</text>
+  <rect x="93" y="587" width="112" height="46" rx="23"
+        fill="#06101d" stroke="#8b5cf6" stroke-opacity=".82"/>
+  <text x="149.0" y="617" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Vitest</text>
+  <rect x="218" y="587" width="134" height="46" rx="23"
+        fill="#06101d" stroke="#8b5cf6" stroke-opacity=".82"/>
+  <text x="285.0" y="617" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Unit tests</text>
+  <rect x="365" y="587" width="174" height="46" rx="23"
+        fill="#06101d" stroke="#8b5cf6" stroke-opacity=".82"/>
+  <text x="452.0" y="617" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">GitHub Actions</text>
+  <rect x="93" y="645" width="112" height="46" rx="23"
+        fill="#06101d" stroke="#8b5cf6" stroke-opacity=".82"/>
+  <text x="149.0" y="675" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Git</text>
+  <rect x="218" y="645" width="112" height="46" rx="23"
+        fill="#06101d" stroke="#8b5cf6" stroke-opacity=".82"/>
+  <text x="274.0" y="675" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Linting</text>
+  <rect x="343" y="645" width="112" height="46" rx="23"
+        fill="#06101d" stroke="#8b5cf6" stroke-opacity=".82"/>
+  <text x="399.0" y="675" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">CI / CD</text>
+  <rect x="468" y="645" width="164" height="46" rx="23"
+        fill="#06101d" stroke="#8b5cf6" stroke-opacity=".82"/>
+  <text x="550.0" y="675" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Accessibility</text>
+  <rect x="93" y="703" width="164" height="46" rx="23"
+        fill="#06101d" stroke="#8b5cf6" stroke-opacity=".82"/>
+  <text x="175.0" y="733" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Documentation</text>
+  <rect x="720" y="475" width="625" height="280" rx="24"
+        fill="#0f1d32" stroke="#fbbf24" stroke-opacity=".42"
+        filter="url(#shadow)"/>
+  <rect x="720" y="475" width="7" height="280" rx="3.5"
+        fill="#fbbf24"/>
+  <text x="758" y="523" fill="#fbbf24" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="850" text-anchor="start" letter-spacing="0.6">CREATIVE &amp; SYSTEMS</text>
+  <text x="758" y="557" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="550" text-anchor="start" letter-spacing="0">Tools connecting data, motion, desktop software and automation</text>
 
- <rect x="758" y="587" width="112" height="46" rx="23"
-       fill="#06101d" stroke="#fbbf24" stroke-opacity=".82"/>
- <text x="814.0" y="617" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Tkinter</text>
- <rect x="883" y="587" width="114" height="46" rx="23"
-       fill="#06101d" stroke="#fbbf24" stroke-opacity=".82"/>
- <text x="940.0" y="617" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Recharts</text>
- <rect x="1010" y="587" width="164" height="46" rx="23"
-       fill="#06101d" stroke="#fbbf24" stroke-opacity=".82"/>
- <text x="1092.0" y="617" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Framer Motion</text>
- <rect x="758" y="645" width="134" height="46" rx="23"
-       fill="#06101d" stroke="#fbbf24" stroke-opacity=".82"/>
- <text x="825.0" y="675" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Matplotlib</text>
- <rect x="905" y="645" width="134" height="46" rx="23"
-       fill="#06101d" stroke="#fbbf24" stroke-opacity=".82"/>
- <text x="972.0" y="675" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">PowerShell</text>
- <rect x="1052" y="645" width="114" height="46" rx="23"
-       fill="#06101d" stroke="#fbbf24" stroke-opacity=".82"/>
- <text x="1109.0" y="675" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Hardware</text>
- <rect x="758" y="703" width="134" height="46" rx="23"
-       fill="#06101d" stroke="#fbbf24" stroke-opacity=".82"/>
- <text x="825.0" y="733" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Automation</text>
- <rect x="905" y="703" width="154" height="46" rx="23"
-       fill="#06101d" stroke="#fbbf24" stroke-opacity=".82"/>
- <text x="982.0" y="733" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">AI workflows</text>
- <path d="M55 790 H1345" stroke="#22d3ee" stroke-width="3" stroke-dasharray="22 26" opacity=".16">
-  <animate attributeName="stroke-dashoffset" values="96;0" dur="5s" repeatCount="indefinite"/>
- </path>
- <circle cx="55" cy="790" r="6" fill="#22d3ee" filter="url(#glow)">
-  <animate attributeName="cx" values="55;1345;55" dur="9s" repeatCount="indefinite"/>
- </circle>
+  <rect x="758" y="587" width="112" height="46" rx="23"
+        fill="#06101d" stroke="#fbbf24" stroke-opacity=".82"/>
+  <text x="814.0" y="617" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Tkinter</text>
+  <rect x="883" y="587" width="114" height="46" rx="23"
+        fill="#06101d" stroke="#fbbf24" stroke-opacity=".82"/>
+  <text x="940.0" y="617" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Recharts</text>
+  <rect x="1010" y="587" width="164" height="46" rx="23"
+        fill="#06101d" stroke="#fbbf24" stroke-opacity=".82"/>
+  <text x="1092.0" y="617" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Framer Motion</text>
+  <rect x="758" y="645" width="134" height="46" rx="23"
+        fill="#06101d" stroke="#fbbf24" stroke-opacity=".82"/>
+  <text x="825.0" y="675" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Matplotlib</text>
+  <rect x="905" y="645" width="134" height="46" rx="23"
+        fill="#06101d" stroke="#fbbf24" stroke-opacity=".82"/>
+  <text x="972.0" y="675" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">PowerShell</text>
+  <rect x="1052" y="645" width="114" height="46" rx="23"
+        fill="#06101d" stroke="#fbbf24" stroke-opacity=".82"/>
+  <text x="1109.0" y="675" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Hardware</text>
+  <rect x="758" y="703" width="134" height="46" rx="23"
+        fill="#06101d" stroke="#fbbf24" stroke-opacity=".82"/>
+  <text x="825.0" y="733" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Automation</text>
+  <rect x="905" y="703" width="154" height="46" rx="23"
+        fill="#06101d" stroke="#fbbf24" stroke-opacity=".82"/>
+  <text x="982.0" y="733" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">AI workflows</text>
+  <path d="M55 790 H1345" stroke="#22d3ee" stroke-width="3"
+        stroke-dasharray="22 26" opacity=".16">
+    <animate attributeName="stroke-dashoffset" values="96;0"
+             dur="5s" repeatCount="indefinite"/>
+  </path>
+  <circle cx="55" cy="790" r="6" fill="#22d3ee" filter="url(#glow)">
+    <animate attributeName="cx" values="55;1345;55"
+             dur="9s" repeatCount="indefinite"/>
+  </circle>
 
 </svg>

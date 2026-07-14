@@ -41,10 +41,12 @@
         fill="none" stroke="url(#accent)" stroke-opacity=".48" stroke-width="2"/>
   
   <circle cx="1240" cy="90" r="190" fill="#8b5cf6" opacity=".10">
-    <animate attributeName="opacity" values=".05;.16;.05" dur="7s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values=".05;.16;.05"
+             dur="7s" repeatCount="indefinite"/>
   </circle>
   <circle cx="150" cy="280" r="165" fill="#38bdf8" opacity=".08">
-    <animate attributeName="opacity" values=".04;.13;.04" dur="9s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values=".04;.13;.04"
+             dur="9s" repeatCount="indefinite"/>
   </circle>
 
   <text x="700" y="94" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="900" text-anchor="middle" letter-spacing="0.8">LET'S BUILD SOMETHING MEANINGFUL</text>
@@ -55,24 +57,29 @@
 
   <rect x="145" y="218" width="1110" height="105" rx="30"
         fill="#06101d" stroke="url(#accent)" stroke-opacity=".50"/>
+
   <text x="210" y="260" fill="#38bdf8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="850" text-anchor="start" letter-spacing="1">EMAIL</text>
   <text x="210" y="299" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="800" text-anchor="start" letter-spacing="0">kevincusnir@gmail.com</text>
+
   <text x="730" y="260" fill="#8b5cf6" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="850" text-anchor="start" letter-spacing="1">GITHUB</text>
   <text x="730" y="299" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" text-anchor="start" letter-spacing="0">@LiriothTeltanion</text>
 
   <text x="700" y="375" fill="#38bdf8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="850" text-anchor="middle" letter-spacing="1.1">Kevin Cusnir · Lirioth Teltanion</text>
   <text x="700" y="411" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="650" text-anchor="middle" letter-spacing="0">Keep building. Keep learning. Keep creating.</text>
-  <text x="700" y="444" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="550" text-anchor="middle" letter-spacing="0">Israel · English · Spanish · Hebrew</text>
+  <text x="700" y="444" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="550" text-anchor="middle" letter-spacing="0">Beersheba, Israel · English · Spanish · Hebrew</text>
 
   <g>
     <circle cx="1180" cy="290" r="6" fill="#22d3ee" filter="url(#glow)"/>
     <animateTransform attributeName="transform" type="rotate"
-      from="0 700 275" to="360 700 275" dur="16s" repeatCount="indefinite"/>
+      from="0 700 275" to="360 700 275"
+      dur="16s" repeatCount="indefinite"/>
   </g>
+
   <g>
     <circle cx="245" cy="180" r="5" fill="#c084fc" filter="url(#glow)"/>
     <animateTransform attributeName="transform" type="rotate"
-      from="360 700 275" to="0 700 275" dur="21s" repeatCount="indefinite"/>
+      from="360 700 275" to="0 700 275"
+      dur="21s" repeatCount="indefinite"/>
   </g>
 
 </svg>

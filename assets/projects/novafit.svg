@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+  width="660" height="300" viewBox="0 0 660 300"
+  role="img" aria-label="NovaFit">
+  <title>NovaFit</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050b16"/>
+      <stop offset="55%" stop-color="#09182c"/>
+      <stop offset="100%" stop-color="#18113a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="48%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <linearGradient id="greenAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="warmAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0V56" fill="none" stroke="#7dd3fc"
+            stroke-opacity=".035" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow" x="-35%" y="-35%" width="170%" height="170%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12"
+        flood-color="#000000" flood-opacity=".48"/>
+    </filter>
+    
+  </defs>
+  <rect width="660" height="300" rx="32" fill="url(#bg)"/>
+  <rect width="660" height="300" rx="32" fill="url(#grid)"/>
+  <rect x="2" y="2" width="656" height="296" rx="30"
+        fill="none" stroke="url(#accent)" stroke-opacity=".48" stroke-width="2"/>
+  
+  <circle cx="560" cy="60" r="120" fill="#22d3ee" opacity=".10">
+    <animate attributeName="r" values="105;135;105"
+             dur="6s" repeatCount="indefinite"/>
+  </circle>
+
+  <rect x="-180" y="0" width="150" height="300"
+        fill="url(#accent)" opacity=".035">
+    <animate attributeName="x" values="-180;720"
+             dur="8s" repeatCount="indefinite"/>
+  </rect>
+
+  <rect x="30" y="30" width="600" height="240" rx="24"
+        fill="#0f1d32" stroke="#34d399" stroke-opacity=".46"
+        filter="url(#shadow)"/>
+  <rect x="30" y="30" width="7" height="240" rx="3.5"
+        fill="#34d399"/>
+
+  <circle cx="92" cy="95" r="34" fill="#06101d"
+          stroke="#34d399" stroke-width="4"/>
+  <circle cx="92" cy="95" r="12" fill="#34d399" filter="url(#glow)">
+    <animate attributeName="r" values="10;15;10"
+             dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+
+  <text x="145" y="84" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900" text-anchor="start" letter-spacing="0">NovaFit</text>
+  <text x="145" y="115" fill="#34d399" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="850" text-anchor="start" letter-spacing="0.7">LOCAL-FIRST DESKTOP APP</text>
+
+  <text x="65" y="158" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" text-anchor="start" letter-spacing="0">Offline health tracking through a command-line interface and desktop GUI.</text>
+  <text x="65" y="185" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" text-anchor="start" letter-spacing="0">SQLite persistence, weather integration, validation and portable data exports.</text>
+
+  <rect x="65" y="210" width="92" height="46" rx="23"
+        fill="#06101d" stroke="#34d399" stroke-opacity=".82"/>
+  <text x="111.0" y="240" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Python</text>
+  <rect x="167" y="210" width="93" height="46" rx="23"
+        fill="#06101d" stroke="#34d399" stroke-opacity=".82"/>
+  <text x="213.5" y="240" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">Tkinter</text>
+  <rect x="270" y="210" width="92" height="46" rx="23"
+        fill="#06101d" stroke="#34d399" stroke-opacity=".82"/>
+  <text x="316.0" y="240" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0">SQLite</text>
+  <text x="590" y="255" fill="#34d399" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="850" text-anchor="end" letter-spacing="0.3">VIEW REPOSITORY →</text>
+
+  <path d="M50 282 H610" stroke="#34d399"
+        stroke-width="2" stroke-dasharray="18 20"
+        opacity=".25">
+    <animate attributeName="stroke-dashoffset" values="76;0"
+             dur="4s" repeatCount="indefinite"/>
+  </path>
+
+</svg>

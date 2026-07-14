@@ -40,78 +40,102 @@
   <rect x="2" y="2" width="1396" height="756" rx="30"
         fill="none" stroke="url(#accent)" stroke-opacity=".48" stroke-width="2"/>
   
-  <line x1="56" y1="70" x2="340" y2="70" stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
-  <line x1="1060" y1="70" x2="1344" y2="70" stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
+  <line x1="56" y1="70" x2="340" y2="70"
+        stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
+  <line x1="1060" y1="70" x2="1344" y2="70"
+        stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
   <text x="700.0" y="79" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="850" text-anchor="middle" letter-spacing="0.7">PROJECT ECOSYSTEM</text>
   <text x="700.0" y="118" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="500" text-anchor="middle" letter-spacing="0">Products, learning archives, client work and the next full-stack milestone</text>
   <path d="M700,350 Q475.0,250.5 250,235"
-        fill="none" stroke="#38bdf8" stroke-width="3" stroke-opacity=".58"
-        stroke-dasharray="12 12">
-    <animate attributeName="stroke-dashoffset" values="48;0" dur="3.5s" repeatCount="indefinite"/>
+        fill="none" stroke="#38bdf8" stroke-width="3"
+        stroke-opacity=".58" stroke-dasharray="12 12">
+    <animate attributeName="stroke-dashoffset" values="48;0"
+             dur="3.5s" repeatCount="indefinite"/>
   </path>
 
   <path d="M700,350 Q925.0,250.5 1150,235"
-        fill="none" stroke="#34d399" stroke-width="3" stroke-opacity=".58"
-        stroke-dasharray="12 12">
-    <animate attributeName="stroke-dashoffset" values="48;0" dur="3.5s" repeatCount="indefinite"/>
+        fill="none" stroke="#34d399" stroke-width="3"
+        stroke-opacity=".58" stroke-dasharray="12 12">
+    <animate attributeName="stroke-dashoffset" values="48;0"
+             dur="3.5s" repeatCount="indefinite"/>
   </path>
 
   <path d="M700,350 Q475.0,385.5 250,505"
-        fill="none" stroke="#fbbf24" stroke-width="3" stroke-opacity=".58"
-        stroke-dasharray="12 12">
-    <animate attributeName="stroke-dashoffset" values="48;0" dur="3.5s" repeatCount="indefinite"/>
+        fill="none" stroke="#fbbf24" stroke-width="3"
+        stroke-opacity=".58" stroke-dasharray="12 12">
+    <animate attributeName="stroke-dashoffset" values="48;0"
+             dur="3.5s" repeatCount="indefinite"/>
   </path>
 
   <path d="M700,350 Q925.0,385.5 1150,505"
-        fill="none" stroke="#8b5cf6" stroke-width="3" stroke-opacity=".58"
-        stroke-dasharray="12 12">
-    <animate attributeName="stroke-dashoffset" values="48;0" dur="3.5s" repeatCount="indefinite"/>
+        fill="none" stroke="#8b5cf6" stroke-width="3"
+        stroke-opacity=".58" stroke-dasharray="12 12">
+    <animate attributeName="stroke-dashoffset" values="48;0"
+             dur="3.5s" repeatCount="indefinite"/>
   </path>
 
-  <path d="M700,350 Q700.0,438.0 700,610"
-        fill="none" stroke="#fb7185" stroke-width="3" stroke-opacity=".58"
-        stroke-dasharray="12 12">
-    <animate attributeName="stroke-dashoffset" values="48;0" dur="3.5s" repeatCount="indefinite"/>
+  <path d="M700,350 Q700.0,448.0 700,630"
+        fill="none" stroke="#fb7185" stroke-width="3"
+        stroke-opacity=".58" stroke-dasharray="12 12">
+    <animate attributeName="stroke-dashoffset" values="48;0"
+             dur="3.5s" repeatCount="indefinite"/>
   </path>
 
   <circle cx="700" cy="350" r="128" fill="#06101d"
-          stroke="url(#accent)" stroke-width="5" filter="url(#shadow)"/>
-  <circle cx="700" cy="350" r="108" fill="#0f1d32" stroke="#38bdf8" stroke-opacity=".25"/>
+          stroke="url(#accent)" stroke-width="5"
+          filter="url(#shadow)"/>
+  <circle cx="700" cy="350" r="108" fill="#0f1d32"
+          stroke="#38bdf8" stroke-opacity=".25"/>
   <text x="700" y="324" fill="#38bdf8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="850" text-anchor="middle" letter-spacing="1.6">KEVIN'S</text>
   <text x="700" y="366" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="900" text-anchor="middle" letter-spacing="0.8">BUILD LAB</text>
   <text x="700" y="401" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" text-anchor="middle" letter-spacing="0">products · learning · experiments</text>
 
-  <rect x="55" y="149" width="390" height="172" rx="24"
-        fill="#0f1d32" stroke="#38bdf8" stroke-opacity=".48" filter="url(#shadow)"/>
-  <rect x="55" y="149" width="8" height="172" rx="4" fill="#38bdf8"/>
+  <rect x="55" y="149"
+        width="390" height="172" rx="24"
+        fill="#0f1d32" stroke="#38bdf8" stroke-opacity=".48"
+        filter="url(#shadow)"/>
+  <rect x="55" y="149"
+        width="8" height="172" rx="4" fill="#38bdf8"/>
   <text x="250" y="201" fill="#38bdf8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="850" text-anchor="middle" letter-spacing="0.5">NOVA MUSIC LAB</text>
   <text x="250" y="242" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" text-anchor="middle" letter-spacing="0">Music · data · privacy</text>
   <text x="250" y="278" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="550" text-anchor="middle" letter-spacing="0">React / TypeScript flagship</text>
 
-  <rect x="955" y="149" width="390" height="172" rx="24"
-        fill="#0f1d32" stroke="#34d399" stroke-opacity=".48" filter="url(#shadow)"/>
-  <rect x="955" y="149" width="8" height="172" rx="4" fill="#34d399"/>
+  <rect x="955" y="149"
+        width="390" height="172" rx="24"
+        fill="#0f1d32" stroke="#34d399" stroke-opacity=".48"
+        filter="url(#shadow)"/>
+  <rect x="955" y="149"
+        width="8" height="172" rx="4" fill="#34d399"/>
   <text x="1150" y="201" fill="#34d399" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="850" text-anchor="middle" letter-spacing="0.5">NOVAFIT</text>
   <text x="1150" y="242" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" text-anchor="middle" letter-spacing="0">Health · local-first tools</text>
   <text x="1150" y="278" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="550" text-anchor="middle" letter-spacing="0">Python / Tkinter / SQLite</text>
 
-  <rect x="55" y="419" width="390" height="172" rx="24"
-        fill="#0f1d32" stroke="#fbbf24" stroke-opacity=".48" filter="url(#shadow)"/>
-  <rect x="55" y="419" width="8" height="172" rx="4" fill="#fbbf24"/>
+  <rect x="55" y="419"
+        width="390" height="172" rx="24"
+        fill="#0f1d32" stroke="#fbbf24" stroke-opacity=".48"
+        filter="url(#shadow)"/>
+  <rect x="55" y="419"
+        width="8" height="172" rx="4" fill="#fbbf24"/>
   <text x="250" y="471" fill="#fbbf24" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="850" text-anchor="middle" letter-spacing="0.5">FULLSTACK2026</text>
   <text x="250" y="512" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" text-anchor="middle" letter-spacing="0">Foundations · exercises</text>
   <text x="250" y="548" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="550" text-anchor="middle" letter-spacing="0">A visible learning journey</text>
 
-  <rect x="955" y="419" width="390" height="172" rx="24"
-        fill="#0f1d32" stroke="#8b5cf6" stroke-opacity=".48" filter="url(#shadow)"/>
-  <rect x="955" y="419" width="8" height="172" rx="4" fill="#8b5cf6"/>
+  <rect x="955" y="419"
+        width="390" height="172" rx="24"
+        fill="#0f1d32" stroke="#8b5cf6" stroke-opacity=".48"
+        filter="url(#shadow)"/>
+  <rect x="955" y="419"
+        width="8" height="172" rx="4" fill="#8b5cf6"/>
   <text x="1150" y="471" fill="#8b5cf6" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="850" text-anchor="middle" letter-spacing="0.5">CLIENT PORTFOLIO</text>
   <text x="1150" y="512" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" text-anchor="middle" letter-spacing="0">Accessibility · bilingual UX</text>
   <text x="1150" y="548" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="550" text-anchor="middle" letter-spacing="0">React / TypeScript case study</text>
 
-  <rect x="505" y="544" width="390" height="172" rx="24"
-        fill="#0f1d32" stroke="#fb7185" stroke-opacity=".48" filter="url(#shadow)"/>
-  <rect x="505" y="544" width="8" height="172" rx="4" fill="#fb7185"/>
+  <rect x="505" y="544"
+        width="390" height="172" rx="24"
+        fill="#0f1d32" stroke="#fb7185" stroke-opacity=".48"
+        filter="url(#shadow)"/>
+  <rect x="505" y="544"
+        width="8" height="172" rx="4" fill="#fb7185"/>
   <text x="700" y="596" fill="#fb7185" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="850" text-anchor="middle" letter-spacing="0.5">NEXT FULL-STACK BUILD</text>
   <text x="700" y="637" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" text-anchor="middle" letter-spacing="0">Backend · PostgreSQL · authentication</text>
   <text x="700" y="673" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="550" text-anchor="middle" letter-spacing="0">Docker · deployment · production habits</text>
