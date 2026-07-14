@@ -106,3 +106,25 @@ KEVIN CUSNIR
 
 The name font was reduced and the underline shortened so the complete identity
 remains readable at GitHub's rendered profile width.
+
+
+## Definitive name-visibility correction
+
+The main animated banner now protects the full identity text permanently:
+
+```text
+KEVIN CUSNIR
+(LIRIOTHTELTANION)
+```
+
+Changes:
+
+- moving scan light clipped to the right side
+- darker protected title plate behind the name
+- strong dark SVG text outline
+- safer 53px name size
+- zero letter spacing on the main name
+- shorter underline
+- reduced username spacing
+
+No other profile section was changed.
