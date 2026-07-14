@@ -62,7 +62,7 @@
 
 <a id="snapshot"></a>
 
-## ⚡ Recruiter snapshot
+## ⚡ Recruiters snapshot
 
 **Kevin Cusnir** is a junior full-stack and frontend developer in **Beersheba, Israel**, building accessible, privacy-aware products with a distinctive creative identity as **Lirioth Teltanion**.
 
