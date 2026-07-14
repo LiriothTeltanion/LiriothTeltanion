@@ -1,4 +1,4 @@
-<a id="top"></a>
+﻿<a id="top"></a>
 
 <div align="center">
 
@@ -59,6 +59,29 @@
 </div>
 
 ---
+
+<!-- NOVA-MULTILINGUAL-CV:START -->
+<a id="curriculum-vitae"></a>
+
+## 📄 Curriculum Vitae · Currículum · קורות חיים
+
+My professional CV is maintained in one dedicated repository and available in
+the three languages I use:
+
+<p align="center">
+  <a href="https://github.com/LiriothTeltanion/CV/blob/main/CV_EN.md"><strong>🇬🇧 English CV</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/LiriothTeltanion/CV/blob/main/CV_ES.md"><strong>🇪🇸 Currículum en español</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/LiriothTeltanion/CV/blob/main/CV_HE.md"><strong>🇮🇱 קורות חיים בעברית</strong></a>
+</p>
+
+> One professional identity: **Kevin Cusnir**. One creative identity:
+> **Lirioth Teltanion**. One canonical personal CV repository.
+
+---
+<!-- NOVA-MULTILINGUAL-CV:END -->
+
 
 <a id="snapshot"></a>
 
