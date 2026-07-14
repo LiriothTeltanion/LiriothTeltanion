@@ -93,3 +93,16 @@ assets/projects/
 ```
 
 The README uses exact relative paths.
+
+
+## Final header polish
+
+The main animated header now uses:
+
+```text
+KEVIN CUSNIR
+(LIRIOTHTELTANION)
+```
+
+The name font was reduced and the underline shortened so the complete identity
+remains readable at GitHub's rendered profile width.

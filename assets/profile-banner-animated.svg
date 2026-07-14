@@ -72,13 +72,13 @@
   </g>
 
   <text x="82" y="104" fill="#38bdf8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" text-anchor="start" letter-spacing="1.0">FULL-STACK DEVELOPER  ·  CREATIVE BUILDER</text>
-  <text x="80" y="194" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="900" text-anchor="start" letter-spacing="0.5">KEVIN CUSNIR</text>
+  <text x="80" y="194" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="60" font-weight="900" text-anchor="start" letter-spacing="0.35">KEVIN CUSNIR</text>
 
-  <rect x="82" y="218" width="470" height="6" rx="3" fill="url(#accent)">
-    <animate attributeName="width" values="210;470;210" dur="7s" repeatCount="indefinite"/>
+  <rect x="82" y="218" width="410" height="6" rx="3" fill="url(#accent)">
+    <animate attributeName="width" values="190;410;190" dur="7s" repeatCount="indefinite"/>
   </rect>
 
-  <text x="82" y="276" fill="#38bdf8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="850" text-anchor="start" letter-spacing="1.0">LIRIOTH TELTANION</text>
+  <text x="82" y="276" fill="#38bdf8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="850" text-anchor="start" letter-spacing="0.65">(LIRIOTHTELTANION)</text>
   <text x="82" y="318" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="650" text-anchor="start" letter-spacing="0">Engineering with purpose. Design with identity.</text>
   <text x="82" y="350" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="650" text-anchor="start" letter-spacing="0">Data with honesty.</text>
 
