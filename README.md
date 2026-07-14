@@ -29,7 +29,9 @@
 </p>
 
 <p>
-  🇬🇧 English · 🇪🇸 Español · 🇮🇱 עברית
+  <a href="#english"><img src="https://img.shields.io/badge/EN-English-2563EB?style=flat-square" alt="English" /></a>
+  <a href="#spanish"><img src="https://img.shields.io/badge/ES-Español-F59E0B?style=flat-square" alt="Español" /></a>
+  <a href="#hebrew"><img src="https://img.shields.io/badge/HE-עברית-7C3AED?style=flat-square" alt="עברית" /></a>
 </p>
 
 </div>
@@ -67,17 +69,19 @@ Technology shaped by music, art, retro games, visual systems and human-centered 
 <div align="center">
 
 <a href="https://github.com/LiriothTeltanion/NovaMusicLab">
-  <img width="48%" src="https://github-readme-stats.vercel.app/api/pin/?username=LiriothTeltanion&repo=NovaMusicLab&theme=transparent&hide_border=true" alt="Nova Music Lab repository card" />
+  <img width="48%" src="./assets/projects/nova-music-lab.png" alt="Nova Music Lab — privacy-first multilingual music analytics" />
 </a>
 <a href="https://github.com/LiriothTeltanion/NovaFit">
-  <img width="48%" src="https://github-readme-stats.vercel.app/api/pin/?username=LiriothTeltanion&repo=NovaFit&theme=transparent&hide_border=true" alt="NovaFit repository card" />
+  <img width="48%" src="./assets/projects/novafit.png" alt="NovaFit — offline health tracker with Python, Tkinter and SQLite" />
 </a>
 
+<br />
+
 <a href="https://github.com/LiriothTeltanion/Fullstack2026">
-  <img width="48%" src="https://github-readme-stats.vercel.app/api/pin/?username=LiriothTeltanion&repo=Fullstack2026&theme=transparent&hide_border=true" alt="Fullstack2026 repository card" />
+  <img width="48%" src="./assets/projects/fullstack2026.png" alt="Fullstack2026 — full-stack learning archive" />
 </a>
 <a href="https://github.com/LiriothTeltanion/ChristopherRodriguezCVOnline">
-  <img width="48%" src="https://github-readme-stats.vercel.app/api/pin/?username=LiriothTeltanion&repo=ChristopherRodriguezCVOnline&theme=transparent&hide_border=true" alt="Christopher Rodriguez portfolio repository card" />
+  <img width="48%" src="./assets/projects/christopher-portfolio.png" alt="Christopher Rodríguez — bilingual accessible professional portfolio" />
 </a>
 
 </div>
@@ -86,8 +90,9 @@ Technology shaped by music, art, retro games, visual systems and human-centered 
 
 ## 🌐 Read my profile
 
+<a id="english"></a>
 <details open>
-<summary><strong>🇬🇧 English — open full profile</strong></summary>
+<summary><strong>🌐 English — open full profile</strong></summary>
 
 <br />
 
@@ -214,8 +219,9 @@ I am open to junior full-stack and frontend roles, collaborations and meaningful
 
 </details>
 
+<a id="spanish"></a>
 <details>
-<summary><strong>🇪🇸 Español — abrir el perfil completo</strong></summary>
+<summary><strong>🌐 Español — abrir el perfil completo</strong></summary>
 
 <br />
 
@@ -342,8 +348,9 @@ Estoy abierto a roles junior de full-stack y frontend, colaboraciones y proyecto
 
 </details>
 
+<a id="hebrew"></a>
 <details>
-<summary><strong>🇮🇱 עברית — פתיחת הפרופיל המלא</strong></summary>
+<summary><strong>🌐 עברית — פתיחת הפרופיל המלא</strong></summary>
 
 <br />
 
@@ -516,16 +523,11 @@ Estoy abierto a roles junior de full-stack y frontend, colaboraciones y proyecto
 
 <div align="center">
 
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=LiriothTeltanion&show_icons=true&include_all_commits=true&hide_border=true&theme=transparent" alt="Kevin Cusnir GitHub statistics" />
-<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=LiriothTeltanion&layout=compact&hide_border=true&theme=transparent&langs_count=8" alt="Most used public repository languages" />
-
-<br />
-
-<img src="https://streak-stats.demolab.com?user=LiriothTeltanion&theme=transparent&hide_border=true" alt="GitHub contribution streak" />
+<img width="100%" src="./assets/github-pulse.png" alt="GitHub profile snapshot for Kevin Cusnir, username LiriothTeltanion" />
 
 </div>
 
-> GitHub language cards reflect public repository file sizes, not a complete measure of professional skill.
+> This local snapshot is intentionally stable. Live contribution counts remain available directly on my GitHub profile.
 
 ---
 

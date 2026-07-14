@@ -1,42 +1,49 @@
-# Profile README setup
+# Profile README setup — stable visual edition
 
 ## Required repository structure
-
-Your public profile repository must be named exactly:
-
-```text
-LiriothTeltanion
-```
-
-Place the files like this:
 
 ```text
 LiriothTeltanion/
 ├── README.md
 └── assets/
-    └── profile-banner.png
+    ├── profile-banner.png
+    ├── github-pulse.png
+    └── projects/
+        ├── nova-music-lab.png
+        ├── novafit.png
+        ├── fullstack2026.png
+        └── christopher-portfolio.png
 ```
+
+## Why the previous cards were missing
+
+The former cards depended on `github-readme-stats.vercel.app`.
+That external service failed to return the images, so GitHub showed their
+alternative text instead. These replacement cards are stored directly in
+your repository and do not depend on that service.
 
 ## Publish with Git
 
 ```powershell
-git add README.md assets/profile-banner.png
-git commit -m "docs: redesign multilingual profile README"
+git add README.md assets/
+git commit -m "fix(profile): replace broken external cards with local artwork"
 git push
 ```
 
-## Verify after publishing
+## Upload through GitHub.com
 
-1. Open `https://github.com/LiriothTeltanion`.
-2. Confirm the banner loads.
-3. Expand English, Spanish and Hebrew.
-4. Confirm Hebrew reads right-to-left.
-5. Test the Nova Music Lab live-demo button.
-6. Confirm all four repository cards load.
-7. Check the layout on desktop and mobile.
+1. Open `LiriothTeltanion/LiriothTeltanion`.
+2. Choose **Add file → Upload files**.
+3. Upload the new `README.md`.
+4. Drag the complete `assets` folder, including `assets/projects`.
+5. Commit with:
+   `fix(profile): replace broken external cards with local artwork`
+6. Refresh your public profile with `Ctrl + F5`.
 
-## Optional adjustments
+## Verify
 
-- Remove the Christopher Rodríguez project card if the portfolio is not ready to be highlighted publicly.
-- Remove PostgreSQL from the technology icon row until you have a public project demonstrating it.
-- Third-party statistics services can occasionally be unavailable. The README remains useful even when those cards fail temporarily.
+- Four project cards appear in two rows.
+- Every card opens the correct repository.
+- The GitHub pulse image appears near the bottom.
+- English, Spanish and Hebrew remain collapsible.
+- No “repository card” text appears in place of an image.
