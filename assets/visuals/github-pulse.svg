@@ -1,83 +1,80 @@
 <svg xmlns="http://www.w3.org/2000/svg"
-  width="1200" height="465" viewBox="0 0 1200 465"
+  width="1400" height="550" viewBox="0 0 1400 550"
   role="img" aria-label="Stable GitHub profile snapshot for LiriothTeltanion">
   <title>Stable GitHub profile snapshot for LiriothTeltanion</title>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#07111f"/>
-      <stop offset="55%" stop-color="#0b1b31"/>
-      <stop offset="100%" stop-color="#15113a"/>
+      <stop offset="0%" stop-color="#050b16"/>
+      <stop offset="55%" stop-color="#09182c"/>
+      <stop offset="100%" stop-color="#18113a"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#38bdf8"/>
-      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="48%" stop-color="#8b5cf6"/>
       <stop offset="100%" stop-color="#c084fc"/>
     </linearGradient>
-    <linearGradient id="accentGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="greenAccent" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#34d399"/>
       <stop offset="100%" stop-color="#22d3ee"/>
     </linearGradient>
-    <linearGradient id="accentWarm" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="warmAccent" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#fbbf24"/>
       <stop offset="100%" stop-color="#fb7185"/>
     </linearGradient>
-    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="5" result="blur"/>
+    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0V56" fill="none" stroke="#7dd3fc"
+            stroke-opacity=".035" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity=".45"/>
+    <filter id="shadow" x="-35%" y="-35%" width="170%" height="170%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12"
+        flood-color="#000000" flood-opacity=".48"/>
     </filter>
-    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
-      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#75bfff" stroke-opacity=".045" stroke-width="1"/>
-    </pattern>
     
   </defs>
-  <rect width="1200" height="465" rx="28" fill="url(#bg)"/>
-  <rect width="1200" height="465" rx="28" fill="url(#grid)"/>
-  <rect x="2" y="2" width="1196" height="461" rx="26"
-        fill="none" stroke="url(#accent)" stroke-opacity=".38" stroke-width="2"/>
+  <rect width="1400" height="550" rx="32" fill="url(#bg)"/>
+  <rect width="1400" height="550" rx="32" fill="url(#grid)"/>
+  <rect x="2" y="2" width="1396" height="546" rx="30"
+        fill="none" stroke="url(#accent)" stroke-opacity=".48" stroke-width="2"/>
   
-    <line x1="42" y1="56" x2="280" y2="56" stroke="url(#accent)" stroke-opacity=".55"/>
-    <line x1="920" y1="56" x2="1158" y2="56" stroke="url(#accent)" stroke-opacity=".55"/>
-    <text x="600.0" y="63" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="800" text-anchor="middle" letter-spacing="1.1">GITHUB PULSE</text>
-    <text x="600.0" y="94" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" text-anchor="middle">A stable local snapshot — live contribution details remain visible on the profile itself</text>
-      <rect x="48" y="128" width="260" height="166" rx="22" fill="#101d31"
-            stroke="#38bdf8" stroke-opacity=".42" filter="url(#shadow)"/>
-      <text x="178" y="210" fill="#38bdf8" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="55" font-weight="900" text-anchor="middle">7</text>
-      <text x="178" y="253" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="middle" letter-spacing="0.8">PUBLIC REPOSITORIES</text>
-    
-      <rect x="334" y="128" width="260" height="166" rx="22" fill="#101d31"
-            stroke="#34d399" stroke-opacity=".42" filter="url(#shadow)"/>
-      <text x="464" y="210" fill="#34d399" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="55" font-weight="900" text-anchor="middle">4</text>
-      <text x="464" y="253" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="middle" letter-spacing="0.8">FEATURED BUILDS</text>
-    
-      <rect x="620" y="128" width="260" height="166" rx="22" fill="#101d31"
-            stroke="#8b5cf6" stroke-opacity=".42" filter="url(#shadow)"/>
-      <text x="750" y="210" fill="#8b5cf6" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="55" font-weight="900" text-anchor="middle">3</text>
-      <text x="750" y="253" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="middle" letter-spacing="0.8">PROFILE LANGUAGES</text>
-    
-      <rect x="906" y="128" width="260" height="166" rx="22" fill="#101d31"
-            stroke="#fbbf24" stroke-opacity=".42" filter="url(#shadow)"/>
-      <text x="1036" y="210" fill="#fbbf24" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="55" font-weight="900" text-anchor="middle">1</text>
-      <text x="1036" y="253" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="middle" letter-spacing="0.8">CREATIVE SIGNATURE</text>
-    
-  <rect x="48" y="326" width="1104" height="96" rx="22" fill="#07101c"
-        stroke="url(#accent)" stroke-opacity=".40"/>
-  <text x="75" y="360" fill="#38bdf8" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="start" letter-spacing="1.2">PUBLIC STORY</text>
-  <text x="75" y="391" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="750" text-anchor="start">Learning archive → local desktop tools → privacy-first data product → accessible client work</text>
-  <circle cx="1015" cy="374" r="34" fill="#38bdf8" opacity=".14">
-    <animate attributeName="r" values="30;40;30" dur="3s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="1015" cy="374" r="10" fill="#38bdf8" filter="url(#softGlow)"/>
-  <circle cx="1080" cy="374" r="34" fill="#8b5cf6" opacity=".14">
-    <animate attributeName="r" values="40;30;40" dur="3.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="1080" cy="374" r="10" fill="#8b5cf6" filter="url(#softGlow)"/>
+  <line x1="56" y1="70" x2="340" y2="70" stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
+  <line x1="1060" y1="70" x2="1344" y2="70" stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
+  <text x="700.0" y="79" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="850" text-anchor="middle" letter-spacing="0.7">GITHUB PULSE</text>
+  <text x="700.0" y="118" fill="#c5d6e8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="500" text-anchor="middle" letter-spacing="0">A stable visual snapshot — live contribution activity remains visible directly on the profile</text>
+  <rect x="55" y="165" width="300" height="205" rx="25"
+        fill="#0f1d32" stroke="#38bdf8" stroke-opacity=".44" filter="url(#shadow)"/>
+  <text x="205" y="275" fill="#38bdf8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="900" text-anchor="middle" letter-spacing="0">7</text>
+  <text x="205" y="330" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800" text-anchor="middle" letter-spacing="0.5">PUBLIC REPOSITORIES</text>
 
+  <rect x="385" y="165" width="300" height="205" rx="25"
+        fill="#0f1d32" stroke="#34d399" stroke-opacity=".44" filter="url(#shadow)"/>
+  <text x="535" y="275" fill="#34d399" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="900" text-anchor="middle" letter-spacing="0">4</text>
+  <text x="535" y="330" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800" text-anchor="middle" letter-spacing="0.5">FEATURED BUILDS</text>
 
-  <circle cx="1110" cy="92" r="18" fill="none" stroke="#8b5cf6" stroke-width="2" opacity=".45">
-    <animate attributeName="r" values="12;30;12" dur="3.2s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values=".75;.08;.75" dur="3.2s" repeatCount="indefinite"/>
+  <rect x="715" y="165" width="300" height="205" rx="25"
+        fill="#0f1d32" stroke="#8b5cf6" stroke-opacity=".44" filter="url(#shadow)"/>
+  <text x="865" y="275" fill="#8b5cf6" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="900" text-anchor="middle" letter-spacing="0">3</text>
+  <text x="865" y="330" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800" text-anchor="middle" letter-spacing="0.5">PROFILE LANGUAGES</text>
+
+  <rect x="1045" y="165" width="300" height="205" rx="25"
+        fill="#0f1d32" stroke="#fbbf24" stroke-opacity=".44" filter="url(#shadow)"/>
+  <text x="1195" y="275" fill="#fbbf24" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="900" text-anchor="middle" letter-spacing="0">1</text>
+  <text x="1195" y="330" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800" text-anchor="middle" letter-spacing="0.5">CREATIVE SIGNATURE</text>
+
+  <rect x="55" y="410" width="1290" height="105" rx="25"
+        fill="#06101d" stroke="url(#accent)" stroke-opacity=".45"/>
+  <text x="90" y="453" fill="#38bdf8" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="850" text-anchor="start" letter-spacing="0.8">PUBLIC STORY</text>
+  <text x="90" y="492" fill="#f7faff" fill-opacity="1.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="750" text-anchor="start" letter-spacing="0">Learning archive → local desktop tools → privacy-first data product → accessible client work</text>
+  <circle cx="1220" cy="462" r="32" fill="#38bdf8" opacity=".14">
+    <animate attributeName="r" values="27;42;27" dur="3.3s" repeatCount="indefinite"/>
   </circle>
+  <circle cx="1220" cy="462" r="10" fill="#38bdf8" filter="url(#glow)"/>
+  <circle cx="1290" cy="462" r="32" fill="#8b5cf6" opacity=".14">
+    <animate attributeName="r" values="42;27;42" dur="3.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1290" cy="462" r="10" fill="#8b5cf6" filter="url(#glow)"/>
+
 </svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+ width="1400" height="620" viewBox="0 0 1400 620"
+ role="img" aria-label="Professional summary and contact for Kevin Cusnir">
+ <title>Professional summary and contact for Kevin Cusnir</title>
+ <defs>
+  <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+   <stop offset="0%" stop-color="#050b16"/>
+   <stop offset="55%" stop-color="#09182c"/>
+   <stop offset="100%" stop-color="#18113a"/>
+  </linearGradient>
+  <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+   <stop offset="0%" stop-color="#38bdf8"/>
+   <stop offset="48%" stop-color="#8b5cf6"/>
+   <stop offset="100%" stop-color="#c084fc"/>
+  </linearGradient>
+  <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+   <path d="M56 0H0V56" fill="none" stroke="#7dd3fc" stroke-opacity=".035" stroke-width="1"/>
+  </pattern>
+  <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+   <feGaussianBlur stdDeviation="6" result="blur"/>
+   <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="shadow" x="-35%" y="-35%" width="170%" height="170%">
+   <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity=".48"/>
+  </filter>
+  
+ </defs>
+ <rect width="1400" height="620" rx="32" fill="url(#bg)"/>
+ <rect width="1400" height="620" rx="32" fill="url(#grid)"/>
+ <rect x="2" y="2" width="1396" height="616" rx="30"
+       fill="none" stroke="url(#accent)" stroke-opacity=".48" stroke-width="2"/>
+ 
+ <line x1="56" y1="70" x2="340" y2="70" stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
+ <line x1="1060" y1="70" x2="1344" y2="70" stroke="url(#accent)" stroke-opacity=".60" stroke-width="2"/>
+ <text x="700.0" y="79" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="850" text-anchor="middle" letter-spacing="0.7">PROFESSIONAL SUMMARY</text>
+ <text x="700.0" y="118" fill="#c5d6e8" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="500" text-anchor="middle" letter-spacing="0">A concise recruiter-facing overview of role fit, strengths, communication and contact</text>
+ <rect x="55" y="155" width="415" height="300" rx="24" fill="#0f1d32"
+       stroke="#38bdf8" stroke-opacity=".42" filter="url(#shadow)"/>
+ <text x="90" y="205" fill="#38bdf8" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="850" text-anchor="start" letter-spacing="0.8">TARGET ROLES</text>
+ <text x="90" y="250" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="750" text-anchor="start" letter-spacing="0">Junior Full-Stack Developer</text>
+ <text x="90" y="288" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="750" text-anchor="start" letter-spacing="0">Frontend Developer</text>
+ <text x="90" y="332" fill="#c5d6e8" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="650" text-anchor="start" letter-spacing="0">Internship or mentored</text>
+ <text x="90" y="360" fill="#c5d6e8" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="650" text-anchor="start" letter-spacing="0">engineering team</text>
+ <line x1="90" y1="385" x2="430" y2="385" stroke="#38bdf8" stroke-opacity=".35"/>
+ <text x="90" y="421" fill="#c5d6e8" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="start" letter-spacing="0">Based in Israel</text>
+ <text x="90" y="447" fill="#c5d6e8" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" text-anchor="start" letter-spacing="0">Open to meaningful opportunities</text>
+
+ <rect x="492" y="155" width="415" height="300" rx="24" fill="#0f1d32"
+       stroke="#8b5cf6" stroke-opacity=".42" filter="url(#shadow)"/>
+ <text x="527" y="205" fill="#8b5cf6" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="850" text-anchor="start" letter-spacing="0.8">CORE VALUE</text>
+ <text x="527" y="250" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" text-anchor="start" letter-spacing="0">Persistent debugging</text>
+ <text x="527" y="289" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" text-anchor="start" letter-spacing="0">Clear technical documentation</text>
+ <text x="527" y="328" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" text-anchor="start" letter-spacing="0">Accessible and privacy-aware UX</text>
+ <text x="527" y="367" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" text-anchor="start" letter-spacing="0">Creative product thinking</text>
+ <text x="527" y="406" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" text-anchor="start" letter-spacing="0">Multilingual communication</text>
+
+ <rect x="929" y="155" width="416" height="300" rx="24" fill="#0f1d32"
+       stroke="#34d399" stroke-opacity=".42" filter="url(#shadow)"/>
+ <text x="964" y="205" fill="#34d399" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="850" text-anchor="start" letter-spacing="0.8">CONTACT</text>
+ <text x="964" y="248" fill="#c5d6e8" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" text-anchor="start" letter-spacing="0">Email</text>
+ <text x="964" y="283" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="800" text-anchor="start" letter-spacing="0">kevincusnir@gmail.com</text>
+ <text x="964" y="331" fill="#c5d6e8" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" text-anchor="start" letter-spacing="0">GitHub</text>
+ <text x="964" y="366" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" text-anchor="start" letter-spacing="0">@LiriothTeltanion</text>
+ <text x="964" y="414" fill="#34d399" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="750" text-anchor="start" letter-spacing="0">English · Spanish · Hebrew</text>
+
+ <rect x="55" y="492" width="1290" height="86" rx="28" fill="#06101d"
+       stroke="url(#accent)" stroke-opacity=".48"/>
+ <circle cx="93" cy="535" r="9" fill="#34d399" filter="url(#glow)">
+  <animate attributeName="r" values="8;13;8" dur="2.2s" repeatCount="indefinite"/>
+ </circle>
+ <text x="125" y="542" fill="#f7faff" fill-opacity="1" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="750" text-anchor="start" letter-spacing="0">Best fit: a team that values real users, respectful code review, continuous learning and thoughtful product quality.</text>
+
+</svg>

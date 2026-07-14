@@ -1,8 +1,6 @@
-# Expanded visual GitHub profile — setup
+# Professional expanded GitHub profile — setup
 
-## Repository structure
-
-Upload the complete package so your profile repository contains:
+## Required repository structure
 
 ```text
 LiriothTeltanion/
@@ -19,6 +17,7 @@ LiriothTeltanion/
 │   └── visuals/
 │       ├── typing.svg
 │       ├── about-me.svg
+│       ├── professional-summary.svg
 │       ├── tech-stack.svg
 │       ├── journey.svg
 │       ├── project-ecosystem.svg
@@ -28,17 +27,26 @@ LiriothTeltanion/
 │       ├── github-pulse.svg
 │       └── footer.svg
 └── extras/
-    ├── snake.yml
-    └── OPTIONAL-DYNAMIC-VISUALS.md
 ```
 
-The `extras` folder is optional. It does not run anything automatically.
+## What changed in this edition
+
+- Larger SVG canvases and substantially larger body text.
+- Reduced decorative letter spacing to improve readability.
+- More room between headings, descriptions, badges and cards.
+- A recruiter-facing professional summary.
+- The real email address: `kevincusnir@gmail.com`.
+- Direct `mailto:` links in English, Spanish and Hebrew.
+- A real email badge at the top and bottom.
+- A more structured navigation line for the long profile.
+- Updated animation spacing and safer initial frames.
+- Matching animated and reduced-motion banner versions.
 
 ## Publish with Git
 
 ```powershell
 git add README.md assets/ extras/
-git commit -m "docs: expand profile with original visual storytelling"
+git commit -m "docs: improve profile typography, contact and professional summary"
 git push
 ```
 
@@ -46,45 +54,24 @@ git push
 
 1. Open `LiriothTeltanion/LiriothTeltanion`.
 2. Choose **Add file → Upload files**.
-3. Upload the new `README.md`.
-4. Upload the complete `assets` directory, preserving all subfolders.
-5. The `extras` directory is optional.
-6. Commit with:
+3. Replace `README.md`.
+4. Upload the complete `assets` directory and preserve every subfolder.
+5. Commit with:
 
    ```text
-   docs: expand profile with original visual storytelling
+   docs: improve profile typography, contact and professional summary
    ```
 
-7. Refresh the public profile with `Ctrl + F5`.
+6. Refresh the profile with `Ctrl + F5`.
 
 ## Important
 
-The README uses relative paths. Folder names and capitalization must remain
-exactly as provided.
-
-The visual files are original and stored in your repository. They do not depend
-on GitHub Readme Stats, so they will not disappear when that service is down.
-
-
-## Animated header
-
-The profile now uses:
+Do not rename:
 
 ```text
-assets/profile-banner-animated.svg
+assets/visuals/
+assets/projects/
+profile-banner-animated.svg
 ```
 
-The original PNG remains as a reduced-motion fallback. Upload both files.
-
-The SVG includes:
-
-- animated gradients and scanning light
-- floating particles
-- alternating professional focus labels
-- a blinking code cursor
-- moving waveforms
-- rotating avatar rings and orbiting stack tags
-- an animated opportunity-status indicator
-
-Several existing panels also received subtle motion overlays while preserving
-their original content and layout.
+The README uses those exact relative paths.

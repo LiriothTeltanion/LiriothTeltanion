@@ -22,6 +22,9 @@
 <a href="https://www.linkedin.com/in/kevin-cusnir/">
   <img src="https://img.shields.io/badge/LinkedIn-Kevin%20Cusnir-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
 </a>
+<a href="mailto:kevincusnir@gmail.com">
+  <img src="https://img.shields.io/badge/Email-kevincusnir%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email Kevin Cusnir" />
+</a>
 <a href="https://github.com/LiriothTeltanion">
   <img src="https://img.shields.io/badge/GitHub-LiriothTeltanion-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub profile" />
 </a>
@@ -41,6 +44,18 @@
 <a href="#spanish"><img src="https://img.shields.io/badge/ES-Español-F59E0B?style=flat-square" alt="Español" /></a>
 <a href="#hebrew"><img src="https://img.shields.io/badge/HE-עברית-7C3AED?style=flat-square" alt="עברית" /></a>
 
+<br /><br />
+
+<a href="#identity">Identity</a> ·
+<a href="#english">Profile</a> ·
+<a href="#journey">Journey</a> ·
+<a href="#stack">Stack</a> ·
+<a href="#projects">Projects</a> ·
+<a href="#principles">Principles</a> ·
+<a href="#creative">Creative Universe</a> ·
+<a href="#focus">Current Focus</a> ·
+<a href="#contact">Contact</a>
+
 </div>
 
 ---
@@ -52,6 +67,22 @@
 <div align="center">
   <img src="./assets/visuals/about-me.svg" width="100%" alt="Identity map for Kevin Cusnir and Lirioth Teltanion" />
 </div>
+
+---
+
+## 💼 Professional summary
+
+<div align="center">
+  <img src="./assets/visuals/professional-summary.svg" width="100%" alt="Professional summary, target roles, strengths and contact information for Kevin Cusnir" />
+</div>
+
+<p align="center">
+  <a href="mailto:kevincusnir@gmail.com"><strong>✉️ kevincusnir@gmail.com</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://www.linkedin.com/in/kevin-cusnir/"><strong>LinkedIn</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/LiriothTeltanion"><strong>GitHub</strong></a>
+</p>
 
 ---
 
@@ -241,7 +272,7 @@ The environment that fits me best values:
 
 - 💼 [LinkedIn — Kevin Cusnir](https://www.linkedin.com/in/kevin-cusnir/)
 - 🐙 [GitHub — LiriothTeltanion](https://github.com/LiriothTeltanion)
-- ✉️ `kevincusnir [at] gmail [dot] com`
+- ✉️ [kevincusnir@gmail.com](mailto:kevincusnir@gmail.com)
 
 <p align="right"><a href="#top">⬆️ Back to top</a></p>
 
@@ -431,7 +462,7 @@ El entorno que mejor encaja conmigo valora:
 
 - 💼 [LinkedIn — Kevin Cusnir](https://www.linkedin.com/in/kevin-cusnir/)
 - 🐙 [GitHub — LiriothTeltanion](https://github.com/LiriothTeltanion)
-- ✉️ `kevincusnir [at] gmail [dot] com`
+- ✉️ [kevincusnir@gmail.com](mailto:kevincusnir@gmail.com)
 
 <p align="right"><a href="#top">⬆️ Volver arriba</a></p>
 
@@ -644,7 +675,7 @@ El entorno que mejor encaja conmigo valora:
 <ul>
   <li>💼 <a href="https://www.linkedin.com/in/kevin-cusnir/">LinkedIn — Kevin Cusnir</a></li>
   <li>🐙 <a href="https://github.com/LiriothTeltanion">GitHub — LiriothTeltanion</a></li>
-  <li>✉️ <code>kevincusnir [at] gmail [dot] com</code></li>
+  <li>✉️ <a href="mailto:kevincusnir@gmail.com">kevincusnir@gmail.com</a></li>
 </ul>
 
 <p align="left"><a href="#top">⬆️ חזרה למעלה</a></p>
@@ -785,6 +816,8 @@ PassKeep remains private while its threat model, secret handling, test strategy 
 > This image is a curated snapshot, not a live score. Current contribution activity remains visible directly on the GitHub profile.
 
 ---
+
+<a id="contact"></a>
 
 ## 📬 Let’s connect
 
