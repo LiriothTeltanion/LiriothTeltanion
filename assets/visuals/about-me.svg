@@ -94,4 +94,8 @@
   <circle cx="772" cy="446" r="6" fill="#fb7185"/>
   <text x="791" y="451" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="650" text-anchor="start">A memorable creative identity, grounded in real work</text>
 
+
+  <rect x="-260" y="0" width="220" height="510" fill="url(#accent)" opacity=".035">
+    <animate attributeName="x" values="-260;1240" dur="10s" repeatCount="indefinite"/>
+  </rect>
 </svg>

@@ -51,4 +51,15 @@
   <text x="600" y="228" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" text-anchor="middle">Keep building. Keep learning. Keep creating.</text>
   <text x="600" y="258" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="500" text-anchor="middle">Israel · English · Spanish · Hebrew</text>
 
+
+  <g>
+    <circle cx="1010" cy="205" r="5" fill="#22d3ee" filter="url(#softGlow)"/>
+    <animateTransform attributeName="transform" type="rotate"
+      from="0 600 160" to="360 600 160" dur="14s" repeatCount="indefinite"/>
+  </g>
+  <g>
+    <circle cx="250" cy="120" r="4" fill="#c084fc" filter="url(#softGlow)"/>
+    <animateTransform attributeName="transform" type="rotate"
+      from="360 600 160" to="0 600 160" dur="18s" repeatCount="indefinite"/>
+  </g>
 </svg>

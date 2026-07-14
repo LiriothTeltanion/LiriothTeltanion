@@ -97,4 +97,9 @@
         stroke="url(#accent)" stroke-opacity=".50"/>
   <text x="600" y="469" fill="#f4f8ff" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="750" text-anchor="middle">Target: become the kind of junior developer a team can trust with real users, real data and real follow-through.</text>
 
+
+  <line x1="42" y1="505" x2="42" y2="505" stroke="#38bdf8" stroke-width="3"
+        stroke-linecap="round" opacity=".75">
+    <animate attributeName="x2" values="42;1158;42" dur="8s" repeatCount="indefinite"/>
+  </line>
 </svg>

@@ -10,6 +10,7 @@ LiriothTeltanion/
 ├── assets/
 │   ├── avatar.png
 │   ├── profile-banner.png
+│   ├── profile-banner-animated.svg
 │   ├── projects/
 │   │   ├── nova-music-lab.png
 │   │   ├── novafit.png
@@ -63,3 +64,27 @@ exactly as provided.
 
 The visual files are original and stored in your repository. They do not depend
 on GitHub Readme Stats, so they will not disappear when that service is down.
+
+
+## Animated header
+
+The profile now uses:
+
+```text
+assets/profile-banner-animated.svg
+```
+
+The original PNG remains as a reduced-motion fallback. Upload both files.
+
+The SVG includes:
+
+- animated gradients and scanning light
+- floating particles
+- alternating professional focus labels
+- a blinking code cursor
+- moving waveforms
+- rotating avatar rings and orbiting stack tags
+- an animated opportunity-status indicator
+
+Several existing panels also received subtle motion overlays while preserving
+their original content and layout.

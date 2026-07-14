@@ -100,4 +100,9 @@
 <text x="1004" y="217" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start">authentication, Docker and a</text>
 <text x="1004" y="234" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start">real backend.</text>
     
+
+  <circle cx="110" cy="250" r="8" fill="#22d3ee" filter="url(#softGlow)">
+    <animate attributeName="cx" values="110;1090" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values=".2;1;.2" dur="6s" repeatCount="indefinite"/>
+  </circle>
 </svg>

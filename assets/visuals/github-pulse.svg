@@ -75,4 +75,9 @@
   </circle>
   <circle cx="1080" cy="374" r="10" fill="#8b5cf6" filter="url(#softGlow)"/>
 
+
+  <circle cx="1110" cy="92" r="18" fill="none" stroke="#8b5cf6" stroke-width="2" opacity=".45">
+    <animate attributeName="r" values="12;30;12" dur="3.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values=".75;.08;.75" dur="3.2s" repeatCount="indefinite"/>
+  </circle>
 </svg>

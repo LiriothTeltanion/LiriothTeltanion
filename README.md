@@ -2,7 +2,10 @@
 
 <div align="center">
 
-<img src="./assets/profile-banner.png" width="100%" alt="Kevin Cusnir — Lirioth Teltanion, Full-Stack Developer" />
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/profile-banner.png" />
+  <img src="./assets/profile-banner-animated.svg" width="100%" alt="Animated banner for Kevin Cusnir — Lirioth Teltanion, Full-Stack Developer" />
+</picture>
 
 <br />
 

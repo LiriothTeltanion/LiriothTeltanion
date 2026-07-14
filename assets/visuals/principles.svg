@@ -90,4 +90,8 @@
       <text x="834" y="342" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start">Visual identity matters more when architecture</text>
 <text x="834" y="360" fill="#b8cee5" fill-opacity="1.0" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start">and usability remain strong.</text>
     
+
+  <rect x="-240" y="108" width="180" height="270" rx="28" fill="url(#accent)" opacity=".035">
+    <animate attributeName="x" values="-240;1240" dur="9s" repeatCount="indefinite"/>
+  </rect>
 </svg>
