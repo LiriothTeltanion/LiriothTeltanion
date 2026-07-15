@@ -17,7 +17,7 @@
 
 [💼 LinkedIn](https://www.linkedin.com/in/kevin-cusnir-883173b4/) · [📄 CV EN](https://github.com/LiriothTeltanion/CV/blob/main/CV_EN.md) · [CV ES](https://github.com/LiriothTeltanion/CV/blob/main/CV_ES.md) · [CV HE](https://github.com/LiriothTeltanion/CV/blob/main/CV_HE.md) · [✉️ Email](mailto:kevincusnir@gmail.com) · [🎧 Nova Music Lab live](https://liriothteltanion.github.io/NovaMusicLab/)
 
-**Open to:** Junior Frontend & Full-Stack roles · **Based in:** Beersheba, Israel · **Languages:** ES · EN · HE
+**Open to:** Junior Frontend & Full-Stack roles · **Born in:** San Cristóbal, Venezuela · **Based in:** Beersheba, Israel · **Languages:** ES · EN · HE
 
 [Read in English](./README.md) · [Leer en español](./PROFILE_ES.md) · [עברית](./PROFILE_HE.md)
 
@@ -29,7 +29,7 @@
 
 ## ⚡ Recruiter snapshot
 
-I’m **Kevin Cusnir**, a junior frontend and full-stack developer in **Beersheba, Israel**. I build React, TypeScript, Python and SQL products with accessible multilingual UX, data honesty and practical automation.
+I’m **Kevin Cusnir**, born in **San Cristóbal, Venezuela** and now based in **Beersheba, Israel**. I build React, TypeScript, Python and SQL products with accessible multilingual UX, data honesty and practical automation.
 
 > **Availability:** Open to junior frontend, full-stack and creative-technology opportunities.
 
@@ -191,10 +191,15 @@ The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, 
 
 ## 🌍 Global communication
 
+**Life route:** San Cristóbal, Venezuela → Beersheba, Israel
+
+Country outlines worldwide frame a personal journey from Venezuelan roots to an Israeli home, supported by Spanish, English and Hebrew communication.
+
 <picture>
+  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/world-globe-mobile-static.svg" />
   <source media="(max-width: 640px)" srcset="./assets/world-globe-mobile.svg" />
   <source media="(prefers-reduced-motion: reduce)" srcset="./assets/world-globe-static.svg" />
-  <img src="./assets/world-globe-animated.svg" width="100%" alt="Beersheba connects to Spanish, English and Hebrew product communication and localization" />
+  <img src="./assets/world-globe-animated.svg" width="100%" alt="World map with country boundaries marking Kevin Cusnir’s birthplace in San Cristóbal, Venezuela and current base in Beersheba, Israel" />
 </picture>
 
 | Language | Level | Product value |

@@ -28,6 +28,7 @@ LiriothTeltanion/
 ├── tools/
 │   └── profile/
 │       ├── backup-readme.ps1       # Local README snapshot
+│       ├── generate_world_globe.py # Natural Earth journey-atlas generator
 │       └── verify-profile.ps1      # Repository/profile validator
 ├── .gitattributes
 ├── .gitignore                      # Portable local-only exclusions

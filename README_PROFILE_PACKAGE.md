@@ -4,7 +4,7 @@ This folder is a complete, generated replacement for the GitHub profile reposito
 
 ## Included
 
-- recruiter-first `README.md` — 285 lines;
+- recruiter-first `README.md` — 290 lines;
 - optional expanded README;
 - Spanish and Hebrew summaries;
 - canonical `profile.json`;
@@ -16,7 +16,7 @@ This folder is a complete, generated replacement for the GitHub profile reposito
 - Nova Music Lab museum-journey spotlight;
 - animated project constellation;
 - animated engineering orbit;
-- detailed Beersheba-centered globe plus static fallback;
+- responsive country-boundary atlas tracing San Cristóbal to Beersheba, with animated and reduced-motion variants;
 - animated learning roadmap;
 - responsive NovaFit motivation and trust-system diagrams with reduced-motion behavior;
 - profile-independent Training Atlas and anonymized seeded-demo theme evidence;

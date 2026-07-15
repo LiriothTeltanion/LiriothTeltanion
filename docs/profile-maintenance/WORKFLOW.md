@@ -80,6 +80,14 @@ For a visual change, also render or open the affected section at desktop and
 narrow/mobile widths. Confirm that names are not clipped, text remains readable,
 links are usable and the reduced-motion experience is complete.
 
+The global journey atlas is generated from pinned Natural Earth 1:110m public-
+domain country data. Rebuild its desktop, mobile and reduced-motion variants
+from the repository root with:
+
+```powershell
+python tools/profile/generate_world_globe.py
+```
+
 ## Preview retention policy
 
 `preview/` is a tracked archive of rendering proofs and historical visual

@@ -4,7 +4,7 @@
 
 ## Desarrollador Frontend y Full-Stack Junior · Tecnólogo Creativo
 
-Soy desarrollador radicado en **Beersheba, Israel**, con evidencia práctica en React, TypeScript, JavaScript, Python, SQL, SQLite, visualización de datos, pruebas automatizadas, accesibilidad y experiencias multilingües.
+Nací en **San Cristóbal, Venezuela**, y actualmente vivo en **Beersheba, Israel**. Soy desarrollador con evidencia práctica en React, TypeScript, JavaScript, Python, SQL, SQLite, visualización de datos, pruebas automatizadas, accesibilidad y experiencias multilingües.
 
 **Lirioth Teltanion** es mi firma creativa para productos donde la ingeniería se conecta con música, narrativa visual, datos y sistemas generativos.
 

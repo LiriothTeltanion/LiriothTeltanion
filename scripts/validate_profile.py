@@ -86,6 +86,8 @@ def validate_profile(readme: Path, max_lines: int = 300) -> list[str]:
         "assets/profile-banner-animated.svg",
         "assets/profile-banner-static.svg",
         "assets/world-globe-animated.svg",
+        "assets/world-globe-mobile.svg",
+        "assets/world-globe-mobile-static.svg",
         "assets/world-globe-static.svg",
     )
     for relative in required_assets:

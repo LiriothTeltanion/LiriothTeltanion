@@ -8,7 +8,8 @@ This is the special public GitHub profile repository for:
 - Creative identity: Lirioth Teltanion
 - GitHub username: `LiriothTeltanion`
 - Contact email: `kevincusnir@gmail.com`
-- Location: Beersheba, Israel
+- Birthplace: San Cristóbal, Venezuela
+- Current location: Beersheba, Israel
 - Target roles: Junior Full-Stack Developer and Frontend Developer
 
 The root `README.md` is rendered publicly on Kevin's GitHub profile.

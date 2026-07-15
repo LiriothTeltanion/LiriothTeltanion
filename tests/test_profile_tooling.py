@@ -5,6 +5,7 @@ from __future__ import annotations
 import copy
 import io
 import json
+import re
 import sys
 import tempfile
 import unittest
@@ -43,6 +44,13 @@ class ProfileDataValidationTests(unittest.TestCase):
         del data["identity"]["alias"]
 
         with self.assertRaisesRegex(ValueError, r"profile\.identity: alias"):
+            self.load(data)
+
+    def test_missing_birthplace_is_actionable(self) -> None:
+        data = copy.deepcopy(self.valid_data)
+        del data["identity"]["birthplace"]
+
+        with self.assertRaisesRegex(ValueError, r"profile\.identity: birthplace"):
             self.load(data)
 
     def test_empty_projects_fail_before_rendering(self) -> None:
@@ -100,6 +108,8 @@ class Cp1252OutputTests(unittest.TestCase):
                 "profile-banner-animated.svg",
                 "profile-banner-static.svg",
                 "world-globe-animated.svg",
+                "world-globe-mobile.svg",
+                "world-globe-mobile-static.svg",
                 "world-globe-static.svg",
             ):
                 (assets / name).write_text("<svg></svg>", encoding="utf-8")
@@ -135,6 +145,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
             "motivation-center-mobile.svg",
             "novafit-trust-system-mobile.svg",
             "world-globe-mobile.svg",
+            "world-globe-mobile-static.svg",
             "learning-roadmap-mobile.svg",
             "seeded demonstration records",
             "Nova Music Lab source",
@@ -150,6 +161,38 @@ class GeneratedProfileContractTests(unittest.TestCase):
             "img.shields.io",
         ):
             self.assertNotIn(forbidden, content)
+        self.assertIn("San Cristóbal, Venezuela", content)
+        self.assertIn("Beersheba, Israel", content)
+        self.assertIn("Country outlines worldwide", content)
+
+    def test_globe_assets_cover_the_world_and_personal_route(self) -> None:
+        filenames = (
+            "world-globe-animated.svg",
+            "world-globe-static.svg",
+            "world-globe-mobile.svg",
+            "world-globe-mobile-static.svg",
+        )
+        for filename in filenames:
+            content = (ROOT / "assets" / filename).read_text(encoding="utf-8")
+            for expected in (
+                "San Cristóbal",
+                "Venezuela",
+                "Beersheba",
+                "Israel",
+                "Natural Earth",
+                'data-iso="VEN"',
+                'data-iso="ISR"',
+            ):
+                self.assertIn(expected, content, filename)
+
+        desktop = (ROOT / "assets" / "world-globe-animated.svg").read_text(
+            encoding="utf-8"
+        )
+        country_codes = set(
+            re.findall(r'data-layer="country"[^>]+data-iso="([^"]+)"', desktop)
+        )
+        self.assertGreaterEqual(len(country_codes), 175)
+        self.assertGreaterEqual(desktop.count('data-layer="tiny-country"'), 35)
 
     def test_generated_readmes_match_the_builder(self) -> None:
         compact = (ROOT / "README.md").read_text(encoding="utf-8")
