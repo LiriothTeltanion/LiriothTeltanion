@@ -15,6 +15,8 @@ if not defined PYTHON_CMD (
 if errorlevel 1 goto :failed
 %PYTHON_CMD% scripts\validate_profile.py --readme README.md --max-lines 300
 if errorlevel 1 goto :failed
+powershell -NoProfile -ExecutionPolicy Bypass -File tools\profile\verify-profile.ps1
+if errorlevel 1 goto :failed
 
 echo.
 echo Profile README generated and validated. READY

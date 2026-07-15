@@ -1,5 +1,7 @@
 # Kevin Cusnir · Lirioth Teltanion ✨
 
+[English](./README.md) · **Español** · [עברית](./PROFILE_HE.md)
+
 ## Desarrollador Frontend y Full-Stack Junior · Tecnólogo Creativo
 
 Soy desarrollador radicado en **Beersheba, Israel**, con evidencia práctica en React, TypeScript, JavaScript, Python, SQL, SQLite, visualización de datos, pruebas automatizadas, accesibilidad y experiencias multilingües.
@@ -17,7 +19,7 @@ Aplicación React/TypeScript local-first que transforma exportaciones de Spotify
 
 ### 💙 NovaFit
 
-NovaFit Ultimate 4.0 es una aplicación local de escritorio y terminal con Python, Tkinter y SQLite. Incluye Command Center, Trend Lab y Consistency Map, 50 pruebas automatizadas, rachas y metas transparentes, gráficos dark/light, reportes HTML autocontenidos, backups JSON/CSV, clima opcional, migración segura y launchers de Windows.
+NovaFit Ultimate 4.0 es una aplicación local de escritorio y terminal con Python, Tkinter y SQLite. Incluye cuatro espacios de analítica —Command Center, Trend Lab, Consistency Map y Training Atlas—, 74 pruebas automatizadas, perfiles aislados, interfaz EN/ES/HE con RTL en hebreo, doce temas, Sport & Data Coach, reportes portátiles, migración segura y distribución para Windows. Las capturas públicas usan datos de demostración sembrados; no muestran registros personales.
 
 - [Código fuente](https://github.com/LiriothTeltanion/NovaFit)
 

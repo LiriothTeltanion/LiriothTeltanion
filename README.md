@@ -3,24 +3,23 @@
 <div align="center">
 
 <picture>
+  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/profile-banner-mobile-static.svg" />
+  <source media="(max-width: 640px)" srcset="./assets/profile-banner-mobile-animated.svg" />
   <source media="(prefers-reduced-motion: reduce)" srcset="./assets/profile-banner-static.svg" />
-  <img src="./assets/profile-banner-animated.svg" width="100%" alt="Kevin Cusnir — frontend and full-stack developer profile banner" />
+  <img src="./assets/profile-banner-animated.svg" width="100%" alt="Kevin Cusnir and Lirioth Teltanion — frontend, full-stack and creative engineering profile" />
 </picture>
 
 # Kevin Cusnir · Lirioth Teltanion ✨
 
-### Junior Frontend & Full-Stack Developer · Creative Technologist
+<p><strong>Junior Frontend & Full-Stack Developer · Creative Technologist</strong></p>
 
-**React, TypeScript, Python and SQL products with accessible multilingual UX, data honesty and practical automation.**
+**I build React, TypeScript, Python and SQL products with accessible multilingual UX, data honesty and practical automation.**
 
-<a href="https://www.linkedin.com/in/kevin-cusnir-883173b4/"><img src="https://img.shields.io/badge/LinkedIn-Kevin%20Cusnir-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn: Kevin Cusnir" /></a>
-<a href="https://github.com/LiriothTeltanion/CV/blob/main/CV_EN.md"><img src="https://img.shields.io/badge/CV-English-2563EB?style=for-the-badge&logo=readme&logoColor=white" alt="CV: English" /></a>
-<a href="mailto:kevincusnir@gmail.com"><img src="https://img.shields.io/badge/Email-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email: Contact" /></a>
-<a href="https://liriothteltanion.github.io/NovaMusicLab/"><img src="https://img.shields.io/badge/Live-Nova%20Music%20Lab-7C3AED?style=for-the-badge&logo=githubpages&logoColor=white" alt="Live: Nova Music Lab" /></a>
+[💼 LinkedIn](https://www.linkedin.com/in/kevin-cusnir-883173b4/) · [📄 CV EN](https://github.com/LiriothTeltanion/CV/blob/main/CV_EN.md) · [CV ES](https://github.com/LiriothTeltanion/CV/blob/main/CV_ES.md) · [CV HE](https://github.com/LiriothTeltanion/CV/blob/main/CV_HE.md) · [✉️ Email](mailto:kevincusnir@gmail.com) · [🎧 Nova Music Lab live](https://liriothteltanion.github.io/NovaMusicLab/)
 
-<img src="https://img.shields.io/badge/Open%20to-Junior%20Frontend%20%26%20Full--Stack%20Roles-2EA44F?style=flat-square" alt="Open to: Junior Frontend & Full-Stack Roles" />
-<img src="https://img.shields.io/badge/Based%20in-Beersheba%2C%20Israel-1F6FEB?style=flat-square" alt="Based in: Beersheba, Israel" />
-<img src="https://img.shields.io/badge/Languages-Spanish%20%C2%B7%20English%20%C2%B7%20Hebrew-F59E0B?style=flat-square" alt="Languages: Spanish · English · Hebrew" />
+**Open to:** Junior Frontend & Full-Stack roles · **Based in:** Beersheba, Israel · **Languages:** ES · EN · HE
+
+[Read in English](./README.md) · [Leer en español](./PROFILE_ES.md) · [עברית](./PROFILE_HE.md)
 
 [Snapshot](#-recruiter-snapshot) · [Projects](#-featured-projects) · [Evidence](#-engineering-evidence) · [Global](#-global-communication) · [Contact](#-contact)
 
@@ -30,7 +29,7 @@
 
 ## ⚡ Recruiter snapshot
 
-**Kevin Cusnir** is a junior frontend and full-stack developer in **Beersheba, Israel**. React, TypeScript, Python and SQL products with accessible multilingual UX, data honesty and practical automation.
+I’m **Kevin Cusnir**, a junior frontend and full-stack developer in **Beersheba, Israel**. I build React, TypeScript, Python and SQL products with accessible multilingual UX, data honesty and practical automation.
 
 > **Availability:** Open to junior frontend, full-stack and creative-technology opportunities.
 
@@ -44,7 +43,12 @@
 
 **Best fit:** a junior role with real users, respectful code review, mentorship, product quality and room for structured creativity.
 
-<img src="./assets/portfolio-command-center-animated.svg" width="100%" alt="Animated command center for four featured portfolio projects" />
+<picture>
+  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/portfolio-command-center-mobile-static.svg" />
+  <source media="(max-width: 640px)" srcset="./assets/portfolio-command-center-mobile.svg" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/portfolio-command-center-static.svg" />
+  <img src="./assets/portfolio-command-center-animated.svg" width="100%" alt="Four featured projects with their scope, stack, accessibility and delivery evidence" />
+</picture>
 
 ### A reviewer-friendly path
 
@@ -59,7 +63,7 @@
 
 ## 🚀 Featured projects
 
-<img src="./assets/project-constellation-animated.svg" width="100%" alt="Animated constellation of Kevin Cusnir featured projects" />
+<img src="./assets/project-constellation-animated.svg" width="100%" alt="Four featured projects connected to Kevin Cusnir and the Lirioth Teltanion creative engineering identity" />
 
 ### 🎧 Nova Music Lab
 
@@ -70,7 +74,21 @@
 **Evidence:** Source normalization, deduplication, tests, bundle budgets, CI and GitHub Pages  
 **Role signal:** Frontend engineering · data visualization · privacy-aware product thinking  
 **Highlights:** Five import families normalized into one model · Lazy-loaded museum rooms and bundle budgets · Multilingual UX, accessibility checks, tests and CI  
-[Live demo](https://liriothteltanion.github.io/NovaMusicLab/) · [Source](https://github.com/LiriothTeltanion/NovaMusicLab)
+[Open Nova Music Lab live demo](https://liriothteltanion.github.io/NovaMusicLab/) · [Nova Music Lab source](https://github.com/LiriothTeltanion/NovaMusicLab)
+
+<details>
+<summary><strong>🎧 Open the Nova Music Lab data journey</strong></summary>
+
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/nova-music-journey-static.svg" />
+  <img src="./assets/nova-music-journey-animated.svg" width="100%" alt="Private listening files move through normalization, analytics, emotion mapping and identity into an exportable museum report" />
+</picture>
+
+Five import families become one deduplicated, source-aware listening history. Missing fields remain visible as gaps, and raw exports stay in the browser.
+
+[Explore the live music museum](https://liriothteltanion.github.io/NovaMusicLab/) · [Inspect the Nova Music Lab source](https://github.com/LiriothTeltanion/NovaMusicLab)
+
+</details>
 
 ### 💙 NovaFit
 
@@ -78,10 +96,61 @@
 **Problem:** Daily wellness data should remain portable, understandable and private.  
 **Solution:** A multi-user Python CLI and Tkinter wellness intelligence studio with profile-isolated SQLite, EN/ES/HE, Hebrew RTL, twelve themes, four analytics workspaces, explainable Sport & Data recommendations, motivation, portable reports and self-healing Windows delivery.  
 **Stack:** Python · Tkinter · SQLite · Requests · Faker · Matplotlib  
-**Evidence:** 74 automated tests, twelve-theme gallery, real trilingual GUI captures, profile-isolated schema v4, Training Atlas, workspace-safe audit and strict clean release staging  
+**Evidence:** 74 automated tests, twelve-theme gallery, trilingual seeded-demo GUI captures, profile-isolated schema v4, Training Atlas, workspace-safe audit and strict clean release staging  
 **Role signal:** Python application architecture · desktop UX · SQLite migrations · i18n/RTL · analytics · release engineering  
 **Highlights:** Multi-user profiles with isolated records, goals, language and theme · EN/ES/HE interface with true Hebrew RTL shell behavior · Command Center, Trend Lab, Consistency Map, Training Atlas and Sport & Data Coach · Workspace-safe checker preserves user DB; release staging excludes private runtime files  
-[Source](https://github.com/LiriothTeltanion/NovaFit)
+[NovaFit source](https://github.com/LiriothTeltanion/NovaFit)
+
+<details>
+<summary><strong>💙 Open the NovaFit product, analytics and visual system</strong></summary>
+
+> **Demo-data note:** every NovaFit capture in this profile uses seeded demonstration records; no personal wellness history is displayed.
+
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/novafit-ultimate-gui.png" />
+  <img src="./assets/novafit-analytics-tour.gif" width="100%" alt="NovaFit analytics tour with seeded demonstration data across movement, hydration, mood and consistency views" />
+</picture>
+
+**Why this project matters:** NovaFit brings multi-user data isolation, a complete Tkinter interface, trilingual UX, automation-friendly CLI workflows, safe migrations, explainable suggestions, analytics, portable reports and Windows delivery into one local-first product.
+
+<a href="./assets/novafit-ultimate-gui.png"><img src="./assets/novafit-ultimate-gui.png" width="100%" alt="NovaFit Ultimate 4.0 Wellness Command Center showing seeded demonstration metrics and local profile controls" /></a>
+
+<a href="./assets/analytics-training-atlas.png"><img src="./assets/analytics-training-atlas.png" width="100%" alt="NovaFit Training Atlas workspace showing seeded analytical charts" /></a>
+
+<img src="./assets/motivation-center-animated.svg" width="100%" alt="NovaFit Motivation Center connects purpose, small actions, evidence, celebration and recovery" />
+
+<a href="./assets/motivation-center-ultimate.png"><img src="./assets/motivation-center-ultimate.png" width="100%" alt="NovaFit Motivation Center interface using seeded demonstration data" /></a>
+
+<a href="./assets/theme-spectrum.png"><img src="./assets/theme-spectrum.png" width="100%" alt="NovaFit twelve-theme interface contact sheet" /></a>
+
+**Twelve themes:** Midnight Neon · Aurora Borealis · Negev Sunrise · Ocean Depth · Forest Focus · Rose Quartz · Cloud Day · Solar Paper · High Contrast · Royal Sapphire · Cyber Lime · Sunset Arcade.
+
+[Inspect the NovaFit source](https://github.com/LiriothTeltanion/NovaFit)
+
+</details>
+
+<details>
+<summary><strong>🌍 Open NovaFit profiles, EN/ES/HE, coach and safe delivery</strong></summary>
+
+> All profile names and health signals shown below are seeded demonstration data.
+
+<img src="./assets/multi-profile-i18n-animated.svg" width="100%" alt="Seeded demo profiles keep records, goals, language and theme settings isolated, including Hebrew right-to-left layout" />
+
+<a href="./assets/multi-profile-language-center.png"><img src="./assets/multi-profile-language-center.png" width="100%" alt="NovaFit local profile manager with seeded English, Spanish and Hebrew demonstration profiles" /></a>
+
+<img src="./assets/sport-data-engine-animated.svg" width="100%" alt="Local records pass through quality checks into conservative suggestions with explicit reasons and confidence boundaries" />
+
+<a href="./assets/sport-data-coach-real.png"><img src="./assets/sport-data-coach-real.png" width="100%" alt="NovaFit Sport and Data Coach showing seeded suggestions, data confidence and safety boundaries" /></a>
+
+Each profile owns isolated records, goals, language, theme and activity preferences. English and Spanish use LTR; Hebrew moves the shell to RTL. Suggestions expose data confidence and reasons while avoiding medical claims.
+
+<img src="./assets/self-healing-verification-animated.svg" width="100%" alt="Windows setup checks Python, repairs a local environment, installs dependencies and runs verification" />
+
+<img src="./assets/distribution-safety-animated.svg" width="100%" alt="Workspace verification preserves local data while clean release staging excludes private runtime files" />
+
+The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, runs 74 tests, preserves an existing user database in workspace mode, and uses strict clean staging for downloadable releases.
+
+</details>
 
 ### 👨‍🏫 Christopher Rodríguez Portfolio
 
@@ -92,7 +161,7 @@
 **Evidence:** EN/ES content architecture, keyboard UX, reduced motion, SEO and automated deployment  
 **Role signal:** Client communication · accessible frontend · maintainable content architecture  
 **Highlights:** Content separated from presentation · Bilingual EN/ES experience and persistent preferences · Verification states for professional claims  
-[Source](https://github.com/LiriothTeltanion/ChristopherRodriguezCVOnline)
+[Christopher Rodríguez Portfolio source](https://github.com/LiriothTeltanion/ChristopherRodriguezCVOnline)
 
 ### 📚 Fullstack2026
 
@@ -103,67 +172,15 @@
 **Evidence:** Progressive exercises, focused PRs, documentation, repository audit and CI  
 **Role signal:** Learning progression · problem solving · Git/PR discipline  
 **Highlights:** Python and OOP foundations · DOM, asynchronous JavaScript, TypeScript, Node and SQL · Repository-wide documentation and quality workflow  
-[Source](https://github.com/LiriothTeltanion/Fullstack2026)
-
-<details>
-<summary><strong>💙 Open the NovaFit Ultimate 4.0 product tour</strong></summary>
-
-<img src="./assets/novafit-ultimate-tour.gif" width="100%" alt="Animated tour of NovaFit Ultimate analytics, recommendations, profiles and motivation" />
-
-**Why this project matters:** it turns a formerly broken public repository into a complete Python product with multi-user data isolation, a real Tkinter interface, trilingual UX, an automation-friendly CLI, safe migrations, explainable recommendations, ambitious analytics, portable reports and Windows launchers.
-
-<img src="./assets/novafit-ultimate-gui.png" width="100%" alt="Real NovaFit Ultimate 4.0 Tkinter Wellness Command Center" />
-
-<img src="./assets/analytics-training-atlas.png" width="100%" alt="NovaFit Training Atlas analytical workspace" />
-
-[Explore the NovaFit source](https://github.com/LiriothTeltanion/NovaFit)
-
-</details>
-
-<details>
-<summary><strong>🌍 Open profiles, EN/ES/HE, RTL and Sport & Data Coach</strong></summary>
-
-<img src="./assets/multi-profile-i18n-animated.svg" width="100%" alt="Animated NovaFit multi-profile and trilingual architecture" />
-
-<img src="./assets/multi-profile-language-center.png" width="100%" alt="Real NovaFit local profile manager" />
-
-<img src="./assets/sport-data-engine-animated.svg" width="100%" alt="Animated explainable Sport and Data Coach pipeline" />
-
-<img src="./assets/sport-data-coach-real.png" width="100%" alt="Real NovaFit Sport and Data Coach" />
-
-Each profile owns isolated records, goals, language, theme and activity preferences. English and Spanish use LTR; Hebrew moves the shell to RTL. Suggestions expose data confidence and reasons while avoiding medical claims.
-
-</details>
-
-<details>
-<summary><strong>🎨 Open Motivation Center and twelve-theme system</strong></summary>
-
-<img src="./assets/motivation-center-ultimate.png" width="100%" alt="Real NovaFit Ultimate Motivation Center" />
-
-<img src="./assets/theme-spectrum.png" width="100%" alt="Twelve-theme NovaFit analytics contact sheet" />
-
-**Twelve themes:** Midnight Neon · Aurora Borealis · Negev Sunrise · Ocean Depth · Forest Focus · Rose Quartz · Cloud Day · Solar Paper · High Contrast · Royal Sapphire · Cyber Lime · Sunset Arcade.
-
-</details>
-
-<details>
-<summary><strong>🪟 Open self-healing verification and distribution safety</strong></summary>
-
-<img src="./assets/self-healing-verification-animated.svg" width="100%" alt="Animated self-healing Windows setup and verification pipeline" />
-
-<img src="./assets/distribution-safety-animated.svg" width="100%" alt="Animated workspace-safe audit and clean release staging" />
-
-The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, runs 74 tests, preserves an existing user database in workspace mode, and uses strict clean staging for downloadable releases.
-
-</details>
+[Fullstack2026 source](https://github.com/LiriothTeltanion/Fullstack2026)
 
 ---
 
 ## 🧪 Engineering evidence
 
-<img src="./assets/engineering-orbit-animated.svg" width="100%" alt="Animated engineering orbit connecting frontend, Python, data, accessibility and delivery" />
+<img src="./assets/engineering-orbit-animated.svg" width="100%" alt="Product engineering connects frontend, Python, data, accessibility, privacy, testing and delivery" />
 
-> These are project evidence counts, not invented proficiency percentages.
+> Evidence counts come from the featured public projects and their documented quality pipelines.
 
 | Evidence across featured work | Count |
 |---|---:|
@@ -187,7 +204,7 @@ The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, 
 
 <picture>
   <source media="(prefers-reduced-motion: reduce)" srcset="./assets/world-globe-static.svg" />
-  <img src="./assets/world-globe-animated.svg" width="100%" alt="Animated globe showing Beersheba roots and Spanish, English and Hebrew collaboration" />
+  <img src="./assets/world-globe-animated.svg" width="100%" alt="Beersheba connects to Spanish, English and Hebrew product communication and localization" />
 </picture>
 
 | Language | Level | Product value |
@@ -200,7 +217,7 @@ The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, 
 
 ## 🌱 Current growth focus
 
-<img src="./assets/learning-roadmap-animated.svg" width="100%" alt="Animated roadmap from frontend evidence to production full-stack delivery" />
+<img src="./assets/learning-roadmap-animated.svg" width="100%" alt="Roadmap from proven frontend work through data and application trust to production full-stack delivery" />
 
 - Production backend architecture
 - PostgreSQL relational modeling and migrations
@@ -253,7 +270,7 @@ The public learning archive remains separate from production-ready projects so r
 
 **Lirioth Teltanion** is the creative signature: music technology, visual language, narrative systems, experimental interfaces and generative art.
 
-The goal is not to decorate weak engineering. It is to make technically sound products easier to understand, remember and enjoy.
+Together, these identities make technically sound products easier to understand, remember and enjoy.
 
 </details>
 

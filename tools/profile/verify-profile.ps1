@@ -150,6 +150,7 @@ else {
 $readmePath = Join-Path $RepositoryPath "README.md"
 $readme = $null
 $tagMatches = @()
+$uniqueLocalPaths = @{}
 
 if (-not (Test-Path -LiteralPath $readmePath -PathType Leaf)) {
     Fail "README.md is missing."
@@ -367,9 +368,9 @@ if ($null -ne $readme) {
         Pass "All $($uniqueLocalPaths.Count) unique local README assets exist ($srcAttributeCount src, $srcsetAttributeCount srcset and $localLinkTargetCount local link targets inspected)."
     }
 
-    # Every animated local SVG shown in README must provide a reduced-motion source.
+    # Every animated local SVG or GIF shown in README must provide reduced motion.
     $reducedMotionFailureCountBefore = $script:failureCount
-    $animatedSvgImageCount = 0
+    $animatedImageCount = 0
     $pictureMatches = @([regex]::Matches($readme, '(?is)<picture\b[^>]*>.*?</picture>'))
     $srcOnlyPattern = '(?is)(?:^|\s)src\s*=\s*(?:"(?<double>[^"]*)"|''(?<single>[^'']*)''|(?<bare>[^\s>]+))'
     $srcsetOnlyPattern = '(?is)(?:^|\s)srcset\s*=\s*(?:"(?<double>[^"]*)"|''(?<single>[^'']*)''|(?<bare>[^\s>]+))'
@@ -390,36 +391,47 @@ if ($null -ne $readme) {
             continue
         }
 
-        $svgReferencePath = ($srcValue -split '[?#]', 2)[0]
+        $imageReferencePath = ($srcValue -split '[?#]', 2)[0]
         try {
-            $svgReferencePath = [System.Uri]::UnescapeDataString($svgReferencePath)
-            $normalizedSvgPath = $svgReferencePath.Replace('/', [System.IO.Path]::DirectorySeparatorChar).Replace('\', [System.IO.Path]::DirectorySeparatorChar)
-            $fullSvgPath = [System.IO.Path]::GetFullPath((Join-Path $RepositoryPath $normalizedSvgPath))
+            $imageReferencePath = [System.Uri]::UnescapeDataString($imageReferencePath)
+            $normalizedImagePath = $imageReferencePath.Replace('/', [System.IO.Path]::DirectorySeparatorChar).Replace('\', [System.IO.Path]::DirectorySeparatorChar)
+            $fullImagePath = [System.IO.Path]::GetFullPath((Join-Path $RepositoryPath $normalizedImagePath))
         }
         catch {
             # The local-reference validation above already reports malformed paths.
             continue
         }
 
-        if (-not $fullSvgPath.StartsWith($repositoryPrefix, [System.StringComparison]::OrdinalIgnoreCase) -or
-            -not (Test-Path -LiteralPath $fullSvgPath -PathType Leaf) -or
-            [System.IO.Path]::GetExtension($fullSvgPath) -ine ".svg") {
+        if (-not $fullImagePath.StartsWith($repositoryPrefix, [System.StringComparison]::OrdinalIgnoreCase) -or
+            -not (Test-Path -LiteralPath $fullImagePath -PathType Leaf)) {
             continue
         }
 
-        try {
-            $svgContent = Get-Content -LiteralPath $fullSvgPath -Raw -Encoding UTF8
+        $extension = [System.IO.Path]::GetExtension($fullImagePath).ToLowerInvariant()
+        $isAnimated = $extension -eq ".gif"
+        $hasInternalReducedMotion = $false
+        if ($extension -eq ".svg") {
+            try {
+                $svgContent = Get-Content -LiteralPath $fullImagePath -Raw -Encoding UTF8
+                $hasSmilAnimation = $svgContent -match '(?is)<animate(?:Motion|Transform)?\b'
+                $hasCssAnimation = $svgContent -match '(?is)@keyframes\b' -and $svgContent -match '(?is)animation\s*:'
+                $isAnimated = $hasSmilAnimation -or $hasCssAnimation
+                $hasInternalReducedMotion = (
+                    $svgContent -match '(?is)@media\s*\([^)]*prefers-reduced-motion\s*:\s*reduce[^)]*\)' -and
+                    $svgContent -match '(?is)animation\s*:\s*none\s*!important'
+                )
+            }
+            catch {
+                # SVG parsing below reports unreadable assets.
+                continue
+            }
         }
-        catch {
-            # SVG parsing below reports unreadable assets.
+
+        if (-not $isAnimated) {
             continue
         }
 
-        if ($svgContent -notmatch '(?is)<animate(?:Motion|Transform)?\b') {
-            continue
-        }
-
-        $animatedSvgImageCount++
+        $animatedImageCount++
         $containingPicture = $null
         foreach ($pictureMatch in $pictureMatches) {
             if ($pictureMatch.Index -le $tagMatch.Index -and
@@ -450,17 +462,17 @@ if ($null -ne $readme) {
             }
         }
 
-        if (-not $hasReducedMotionSource) {
+        if (-not $hasReducedMotionSource -and -not $hasInternalReducedMotion) {
             $line = Get-LineNumber -Content $readme -Index $tagMatch.Index
-            Fail "Animated SVG '$srcValue' on README.md line $line requires a <picture> source for prefers-reduced-motion: reduce."
+            Fail "Animated image '$srcValue' on README.md line $line requires a reduced-motion <picture> source or an internal prefers-reduced-motion rule."
         }
     }
 
-    if ($animatedSvgImageCount -eq 0) {
-        Warn "No animated local SVG images were detected in README.md."
+    if ($animatedImageCount -eq 0) {
+        Warn "No animated local SVG or GIF images were detected in README.md."
     }
     elseif ($script:failureCount -eq $reducedMotionFailureCountBefore) {
-        Pass "All $animatedSvgImageCount animated local SVG images provide reduced-motion fallbacks."
+        Pass "All $animatedImageCount animated local SVG or GIF images provide reduced-motion fallbacks."
     }
 
     # Register explicit HTML anchors and GitHub-style Markdown heading anchors.
@@ -612,6 +624,56 @@ try {
                     $relativeSvgPath = $svgFile.FullName.Substring($repositoryPrefix.Length).Replace('\', '/')
                     Fail "SVG asset '$relativeSvgPath' does not have an <svg> root element."
                 }
+                else {
+                    $relativeSvgPath = $svgFile.FullName.Substring($repositoryPrefix.Length).Replace('\', '/')
+                    $pathKey = $svgFile.FullName.ToLowerInvariant()
+                    if ($uniqueLocalPaths.ContainsKey($pathKey)) {
+                        $root = $document.DocumentElement
+                        $titleNode = $root.SelectSingleNode("./*[local-name()='title']")
+                        $descNode = $root.SelectSingleNode("./*[local-name()='desc']")
+                        $ariaLabelledBy = $root.GetAttribute("aria-labelledby")
+                        if ($root.GetAttribute("role") -ine "img" -or
+                            $null -eq $titleNode -or
+                            $null -eq $descNode -or
+                            [string]::IsNullOrWhiteSpace($ariaLabelledBy)) {
+                            Fail "Referenced SVG asset '$relativeSvgPath' requires role='img', aria-labelledby, <title> and <desc>."
+                        }
+                    }
+
+                    # CSS transform animations override SVG placement transforms in browsers.
+                    # Animated classes must live on a nested element, not on the positioned element.
+                    $svgContent = Get-Content -LiteralPath $svgFile.FullName -Raw -Encoding UTF8
+                    $animatedClasses = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::Ordinal)
+                    $styleBlocks = @([regex]::Matches($svgContent, '(?is)(?<selector>[^{}]+)\{(?<body>[^{}]*animation\s*:[^{}]*)\}'))
+                    foreach ($styleBlock in $styleBlocks) {
+                        foreach ($classMatch in @([regex]::Matches($styleBlock.Groups["selector"].Value, '\.(?<name>[A-Za-z_][A-Za-z0-9_-]*)'))) {
+                            [void]$animatedClasses.Add($classMatch.Groups["name"].Value)
+                        }
+                    }
+
+                    if ($animatedClasses.Count -gt 0) {
+                        $elementMatches = @([regex]::Matches($svgContent, '(?is)<[A-Za-z][A-Za-z0-9:-]*\b(?<attributes>[^>]*)>'))
+                        foreach ($elementMatch in $elementMatches) {
+                            $attributes = $elementMatch.Groups["attributes"].Value
+                            if ($attributes -notmatch '(?is)(?:^|\s)transform\s*=') {
+                                continue
+                            }
+
+                            $classAttribute = [regex]::Match($attributes, '(?is)(?:^|\s)class\s*=\s*(?:"(?<double>[^"]*)"|''(?<single>[^'']*)''|(?<bare>[^\s>]+))')
+                            if (-not $classAttribute.Success) {
+                                continue
+                            }
+
+                            $classValue = [string](Get-AttributeValue -Match $classAttribute)
+                            foreach ($className in @($classValue -split '\s+')) {
+                                if ($animatedClasses.Contains($className)) {
+                                    Fail "SVG asset '$relativeSvgPath' applies animated class '$className' to an element with a placement transform; use a nested animation wrapper."
+                                    break
+                                }
+                            }
+                        }
+                    }
+                }
             }
             catch {
                 $relativeSvgPath = $svgFile.FullName
@@ -634,6 +696,67 @@ try {
 }
 catch {
     Fail "SVG validation could not be completed: $($_.Exception.Message)"
+}
+
+# Decode referenced raster images and enforce a lightweight public-profile payload budget.
+$rasterFailureCountBefore = $script:failureCount
+try {
+    Add-Type -AssemblyName System.Drawing
+    $referencedVisualBytes = [int64]0
+    $referencedVisualCount = 0
+    $decodedRasterCount = 0
+    foreach ($fullPathKey in @($uniqueLocalPaths.Keys)) {
+        $extension = [System.IO.Path]::GetExtension($fullPathKey).ToLowerInvariant()
+        if ($extension -notin @(".svg", ".png", ".gif")) {
+            continue
+        }
+
+        if (-not (Test-Path -LiteralPath $fullPathKey -PathType Leaf)) {
+            continue
+        }
+
+        $fileInfo = Get-Item -LiteralPath $fullPathKey
+        $referencedVisualBytes += $fileInfo.Length
+        $referencedVisualCount++
+
+        $perFileLimit = if ($extension -eq ".gif") { 5MB } elseif ($extension -eq ".png") { 2MB } else { 512KB }
+        if ($fileInfo.Length -gt $perFileLimit) {
+            $relativePath = $fileInfo.FullName.Substring($repositoryPrefix.Length).Replace('\', '/')
+            Fail "Referenced visual '$relativePath' is $([math]::Round($fileInfo.Length / 1MB, 2)) MiB; limit is $([math]::Round($perFileLimit / 1MB, 2)) MiB."
+        }
+
+        if ($extension -notin @(".png", ".gif")) {
+            continue
+        }
+
+        $image = $null
+        try {
+            $image = [System.Drawing.Image]::FromFile($fileInfo.FullName)
+            if ($image.Width -le 0 -or $image.Height -le 0) {
+                throw "Image dimensions are invalid."
+            }
+            $decodedRasterCount++
+        }
+        catch {
+            $relativePath = $fileInfo.FullName.Substring($repositoryPrefix.Length).Replace('\', '/')
+            Fail "Referenced raster '$relativePath' could not be decoded: $($_.Exception.Message)"
+        }
+        finally {
+            if ($null -ne $image) {
+                $image.Dispose()
+            }
+        }
+    }
+
+    if ($referencedVisualBytes -gt 8MB) {
+        Fail "Referenced local visuals total $([math]::Round($referencedVisualBytes / 1MB, 2)) MiB; public-profile budget is 8 MiB."
+    }
+    elseif ($script:failureCount -eq $rasterFailureCountBefore) {
+        Pass "Referenced visual payload is $([math]::Round($referencedVisualBytes / 1MB, 2)) MiB across $referencedVisualCount files; $decodedRasterCount raster images decoded."
+    }
+}
+catch {
+    Fail "Raster and payload validation could not be completed: $($_.Exception.Message)"
 }
 
 if (Test-Path -LiteralPath (Join-Path $RepositoryPath "AGENTS.md") -PathType Leaf) {

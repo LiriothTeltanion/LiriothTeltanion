@@ -10,13 +10,50 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 from typing import Any, Mapping, Sequence
-from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_DATA = ROOT / "profile.json"
 DEFAULT_OUTPUT = ROOT / "README.md"
+
+REQUIRED_PROFILE_SECTIONS = {
+    "education",
+    "evidence_counts",
+    "growth",
+    "identity",
+    "languages",
+    "links",
+    "projects",
+    "skills",
+    "strengths",
+}
+IDENTITY_FIELDS = (
+    "alias",
+    "availability",
+    "headline",
+    "location",
+    "name",
+    "positioning",
+)
+LINK_FIELDS = ("cv_en", "cv_es", "cv_he", "email", "github", "linkedin")
+PROJECT_FIELDS = (
+    "demo",
+    "evidence",
+    "icon",
+    "name",
+    "problem",
+    "solution",
+    "source",
+    "stack",
+    "status",
+)
+SKILL_FIELDS = ("backend_data", "frontend", "languages", "quality", "workflow")
+LANGUAGE_FIELDS = ("level", "name", "product_value")
+EVIDENCE_FIELDS = ("label", "value")
+EDUCATION_FIELDS = ("coverage", "current", "period", "program")
+REVIEW_PATH_FIELDS = ("action", "evidence", "time")
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -48,7 +85,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def load_profile(path: Path) -> dict[str, Any]:
-    """Load and minimally validate profile JSON.
+    """Load and validate profile JSON before rendering.
 
     Args:
         path: JSON source path.
@@ -59,7 +96,7 @@ def load_profile(path: Path) -> dict[str, Any]:
     Raises:
         FileNotFoundError: If the source does not exist.
         json.JSONDecodeError: If the source is not valid JSON.
-        ValueError: If required sections are absent.
+        ValueError: If required profile data is absent or malformed.
 
     Example:
         >>> 'identity' in load_profile(DEFAULT_DATA)
@@ -68,11 +105,115 @@ def load_profile(path: Path) -> dict[str, Any]:
     data = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(data, dict):
         raise ValueError("Profile JSON root must be an object.")
-    required = {"identity", "links", "projects", "skills", "languages"}
-    missing = sorted(required - data.keys())
+    missing = sorted(REQUIRED_PROFILE_SECTIONS - data.keys())
     if missing:
         raise ValueError(f"Missing profile sections: {', '.join(missing)}")
+    _validate_profile_data(data)
     return data
+
+
+def _validate_profile_data(data: Mapping[str, Any]) -> None:
+    """Validate every required field consumed by the renderer."""
+    identity = _require_mapping(data["identity"], "profile.identity", IDENTITY_FIELDS)
+    for field in IDENTITY_FIELDS:
+        _require_text(identity[field], f"profile.identity.{field}")
+
+    links = _require_mapping(data["links"], "profile.links", LINK_FIELDS)
+    for field in LINK_FIELDS:
+        _require_text(links[field], f"profile.links.{field}")
+
+    projects = _require_list(data["projects"], "profile.projects")
+    for index, raw_project in enumerate(projects):
+        path = f"profile.projects[{index}]"
+        project = _require_mapping(raw_project, path, PROJECT_FIELDS)
+        for field in PROJECT_FIELDS:
+            if field == "demo" and project[field] is None:
+                continue
+            _require_text(project[field], f"{path}.{field}")
+        if "role_signal" in project:
+            _require_text(project["role_signal"], f"{path}.role_signal")
+        if "highlights" in project:
+            _require_text_list(project["highlights"], f"{path}.highlights", allow_empty=True)
+
+    flagship = projects[0]
+    if flagship["name"] != "Nova Music Lab":
+        raise ValueError(
+            "profile.projects must list 'Nova Music Lab' first because the header Live badge "
+            "uses the first project's demo URL."
+        )
+    _require_text(flagship["demo"], "profile.projects[0].demo")
+
+    skills = _require_mapping(data["skills"], "profile.skills", SKILL_FIELDS)
+    for field in SKILL_FIELDS:
+        _require_text_list(skills[field], f"profile.skills.{field}")
+
+    languages = _require_list(data["languages"], "profile.languages")
+    for index, raw_language in enumerate(languages):
+        path = f"profile.languages[{index}]"
+        language = _require_mapping(raw_language, path, LANGUAGE_FIELDS)
+        for field in LANGUAGE_FIELDS:
+            _require_text(language[field], f"{path}.{field}")
+
+    evidence_counts = _require_list(data["evidence_counts"], "profile.evidence_counts")
+    for index, raw_item in enumerate(evidence_counts):
+        path = f"profile.evidence_counts[{index}]"
+        item = _require_mapping(raw_item, path, EVIDENCE_FIELDS)
+        _require_text(item["label"], f"{path}.label")
+        if item["value"] is None or (isinstance(item["value"], str) and not item["value"].strip()):
+            raise ValueError(f"{path}.value must not be empty.")
+
+    _require_text_list(data["strengths"], "profile.strengths")
+    _require_text_list(data["growth"], "profile.growth")
+
+    education = _require_mapping(data["education"], "profile.education", EDUCATION_FIELDS)
+    for field in EDUCATION_FIELDS:
+        _require_text(education[field], f"profile.education.{field}")
+
+    if "review_path" in data:
+        review_path = _require_list(data["review_path"], "profile.review_path", allow_empty=True)
+        for index, raw_item in enumerate(review_path):
+            path = f"profile.review_path[{index}]"
+            item = _require_mapping(raw_item, path, REVIEW_PATH_FIELDS)
+            for field in REVIEW_PATH_FIELDS:
+                _require_text(item[field], f"{path}.{field}")
+
+
+def _require_mapping(
+    value: Any,
+    path: str,
+    required_fields: Sequence[str],
+) -> Mapping[str, Any]:
+    """Return an object after checking its type and required keys."""
+    if not isinstance(value, Mapping):
+        raise ValueError(f"{path} must be an object.")
+    missing = sorted(field for field in required_fields if field not in value)
+    if missing:
+        raise ValueError(f"Missing required fields in {path}: {', '.join(missing)}")
+    return value
+
+
+def _require_list(value: Any, path: str, *, allow_empty: bool = False) -> list[Any]:
+    """Return a JSON array after checking its type and minimum size."""
+    if not isinstance(value, list):
+        raise ValueError(f"{path} must be an array.")
+    if not value and not allow_empty:
+        raise ValueError(f"{path} must contain at least one item.")
+    return value
+
+
+def _require_text(value: Any, path: str) -> str:
+    """Return non-empty text or raise an actionable validation error."""
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError(f"{path} must be a non-empty string.")
+    return value
+
+
+def _require_text_list(value: Any, path: str, *, allow_empty: bool = False) -> list[Any]:
+    """Validate an array containing only non-empty strings."""
+    items = _require_list(value, path, allow_empty=allow_empty)
+    for index, item in enumerate(items):
+        _require_text(item, f"{path}[{index}]")
+    return items
 
 
 def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
@@ -106,24 +247,23 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
         '<div align="center">',
         "",
         '<picture>',
+        '  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/profile-banner-mobile-static.svg" />',
+        '  <source media="(max-width: 640px)" srcset="./assets/profile-banner-mobile-animated.svg" />',
         '  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/profile-banner-static.svg" />',
-        '  <img src="./assets/profile-banner-animated.svg" width="100%" alt="Kevin Cusnir — frontend and full-stack developer profile banner" />',
+        '  <img src="./assets/profile-banner-animated.svg" width="100%" alt="Kevin Cusnir and Lirioth Teltanion — frontend, full-stack and creative engineering profile" />',
         "</picture>",
         "",
         f"# {identity['name']} · {identity['alias']} ✨",
         "",
-        f"### {identity['headline']}",
+        f"<p><strong>{identity['headline']}</strong></p>",
         "",
         f"**{identity['positioning']}**",
         "",
-        _badge("LinkedIn", "Kevin Cusnir", "0A66C2", "linkedin", links["linkedin"]),
-        _badge("CV", "English", "2563EB", "readme", links["cv_en"]),
-        _badge("Email", "Contact", "EA4335", "gmail", links["email"]),
-        _badge("Live", "Nova Music Lab", "7C3AED", "githubpages", projects[0]["demo"]),
+        f"[💼 LinkedIn]({links['linkedin']}) · [📄 CV EN]({links['cv_en']}) · [CV ES]({links['cv_es']}) · [CV HE]({links['cv_he']}) · [✉️ Email]({links['email']}) · [🎧 Nova Music Lab live]({projects[0]['demo']})",
         "",
-        _small_badge("Open to", "Junior Frontend & Full-Stack Roles", "2EA44F"),
-        _small_badge("Based in", identity["location"], "1F6FEB"),
-        _small_badge("Languages", "Spanish · English · Hebrew", "F59E0B"),
+        f"**Open to:** Junior Frontend & Full-Stack roles · **Based in:** {identity['location']} · **Languages:** ES · EN · HE",
+        "",
+        "[Read in English](./README.md) · [Leer en español](./PROFILE_ES.md) · [עברית](./PROFILE_HE.md)",
         "",
         "[Snapshot](#-recruiter-snapshot) · [Projects](#-featured-projects) · [Evidence](#-engineering-evidence) · [Global](#-global-communication) · [Contact](#-contact)",
         "",
@@ -133,7 +273,7 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
         "",
         "## ⚡ Recruiter snapshot",
         "",
-        f"**{identity['name']}** is a junior frontend and full-stack developer in **{identity['location']}**. {identity['positioning']}",
+        f"I’m **{identity['name']}**, a junior frontend and full-stack developer in **{identity['location']}**. {identity['positioning']}",
         "",
         f"> **Availability:** {identity['availability']}.",
         "",
@@ -147,7 +287,12 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
         "",
         "**Best fit:** a junior role with real users, respectful code review, mentorship, product quality and room for structured creativity.",
         "",
-        '<img src="./assets/portfolio-command-center-animated.svg" width="100%" alt="Animated command center for four featured portfolio projects" />',
+        '<picture>',
+        '  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/portfolio-command-center-mobile-static.svg" />',
+        '  <source media="(max-width: 640px)" srcset="./assets/portfolio-command-center-mobile.svg" />',
+        '  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/portfolio-command-center-static.svg" />',
+        '  <img src="./assets/portfolio-command-center-animated.svg" width="100%" alt="Four featured projects with their scope, stack, accessibility and delivery evidence" />',
+        '</picture>',
         "",
         "### A reviewer-friendly path",
         "",
@@ -162,74 +307,26 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
         "",
         "## 🚀 Featured projects",
         "",
-        '<img src="./assets/project-constellation-animated.svg" width="100%" alt="Animated constellation of Kevin Cusnir featured projects" />',
+        '<img src="./assets/project-constellation-animated.svg" width="100%" alt="Four featured projects connected to Kevin Cusnir and the Lirioth Teltanion creative engineering identity" />',
         "",
     ]
 
     for project in projects:
         lines.extend(_render_project(project))
+        if project["name"] == "Nova Music Lab":
+            lines.extend(_render_nova_music_spotlight(project))
+        elif project["name"] == "NovaFit":
+            lines.extend(_render_novafit_spotlights(project))
 
     lines.extend(
         [
-            "<details>",
-            '<summary><strong>💙 Open the NovaFit Ultimate 4.0 product tour</strong></summary>',
-            "",
-            '<img src="./assets/novafit-ultimate-tour.gif" width="100%" alt="Animated tour of NovaFit Ultimate analytics, recommendations, profiles and motivation" />',
-            "",
-            "**Why this project matters:** it turns a formerly broken public repository into a complete Python product with multi-user data isolation, a real Tkinter interface, trilingual UX, an automation-friendly CLI, safe migrations, explainable recommendations, ambitious analytics, portable reports and Windows launchers.",
-            "",
-            '<img src="./assets/novafit-ultimate-gui.png" width="100%" alt="Real NovaFit Ultimate 4.0 Tkinter Wellness Command Center" />',
-            "",
-            '<img src="./assets/analytics-training-atlas.png" width="100%" alt="NovaFit Training Atlas analytical workspace" />',
-            "",
-            "[Explore the NovaFit source](https://github.com/LiriothTeltanion/NovaFit)",
-            "",
-            "</details>",
-            "",
-            "<details>",
-            '<summary><strong>🌍 Open profiles, EN/ES/HE, RTL and Sport & Data Coach</strong></summary>',
-            "",
-            '<img src="./assets/multi-profile-i18n-animated.svg" width="100%" alt="Animated NovaFit multi-profile and trilingual architecture" />',
-            "",
-            '<img src="./assets/multi-profile-language-center.png" width="100%" alt="Real NovaFit local profile manager" />',
-            "",
-            '<img src="./assets/sport-data-engine-animated.svg" width="100%" alt="Animated explainable Sport and Data Coach pipeline" />',
-            "",
-            '<img src="./assets/sport-data-coach-real.png" width="100%" alt="Real NovaFit Sport and Data Coach" />',
-            "",
-            "Each profile owns isolated records, goals, language, theme and activity preferences. English and Spanish use LTR; Hebrew moves the shell to RTL. Suggestions expose data confidence and reasons while avoiding medical claims.",
-            "",
-            "</details>",
-            "",
-            "<details>",
-            '<summary><strong>🎨 Open Motivation Center and twelve-theme system</strong></summary>',
-            "",
-            '<img src="./assets/motivation-center-ultimate.png" width="100%" alt="Real NovaFit Ultimate Motivation Center" />',
-            "",
-            '<img src="./assets/theme-spectrum.png" width="100%" alt="Twelve-theme NovaFit analytics contact sheet" />',
-            "",
-            "**Twelve themes:** Midnight Neon · Aurora Borealis · Negev Sunrise · Ocean Depth · Forest Focus · Rose Quartz · Cloud Day · Solar Paper · High Contrast · Royal Sapphire · Cyber Lime · Sunset Arcade.",
-            "",
-            "</details>",
-            "",
-            "<details>",
-            '<summary><strong>🪟 Open self-healing verification and distribution safety</strong></summary>',
-            "",
-            '<img src="./assets/self-healing-verification-animated.svg" width="100%" alt="Animated self-healing Windows setup and verification pipeline" />',
-            "",
-            '<img src="./assets/distribution-safety-animated.svg" width="100%" alt="Animated workspace-safe audit and clean release staging" />',
-            "",
-            "The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, runs 74 tests, preserves an existing user database in workspace mode, and uses strict clean staging for downloadable releases.",
-            "",
-            "</details>",
-            "",
             "---",
             "",
             "## 🧪 Engineering evidence",
             "",
-            '<img src="./assets/engineering-orbit-animated.svg" width="100%" alt="Animated engineering orbit connecting frontend, Python, data, accessibility and delivery" />',
+            '<img src="./assets/engineering-orbit-animated.svg" width="100%" alt="Product engineering connects frontend, Python, data, accessibility, privacy, testing and delivery" />',
             "",
-            "> These are project evidence counts, not invented proficiency percentages.",
+            "> Evidence counts come from the featured public projects and their documented quality pipelines.",
             "",
             "| Evidence across featured work | Count |",
             "|---|---:|",
@@ -255,7 +352,7 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
             "",
             '<picture>',
             '  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/world-globe-static.svg" />',
-            '  <img src="./assets/world-globe-animated.svg" width="100%" alt="Animated globe showing Beersheba roots and Spanish, English and Hebrew collaboration" />',
+            '  <img src="./assets/world-globe-animated.svg" width="100%" alt="Beersheba connects to Spanish, English and Hebrew product communication and localization" />',
             "</picture>",
             "",
             "| Language | Level | Product value |",
@@ -274,7 +371,7 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
             "",
             "## 🌱 Current growth focus",
             "",
-            '<img src="./assets/learning-roadmap-animated.svg" width="100%" alt="Animated roadmap from frontend evidence to production full-stack delivery" />',
+            '<img src="./assets/learning-roadmap-animated.svg" width="100%" alt="Roadmap from proven frontend work through data and application trust to production full-stack delivery" />',
             "",
         ]
     )
@@ -386,9 +483,10 @@ def write_profile(data_path: Path, output_path: Path, mode: str) -> Path:
 
 
 def _render_project(project: Mapping[str, Any]) -> list[str]:
-    links = [f"[Source]({project['source']})"]
+    project_name = project["name"]
+    links = [f"[{project_name} source]({project['source']})"]
     if project.get("demo"):
-        links.insert(0, f"[Live demo]({project['demo']})")
+        links.insert(0, f"[Open {project_name} live demo]({project['demo']})")
     return [
         f"### {project['icon']} {project['name']}",
         "",
@@ -400,6 +498,83 @@ def _render_project(project: Mapping[str, Any]) -> list[str]:
         f"**Role signal:** {project.get('role_signal', 'Product engineering')}  ",
         f"**Highlights:** {' · '.join(project.get('highlights', []))}  " if project.get("highlights") else "",
         " · ".join(links),
+        "",
+    ]
+
+
+def _render_nova_music_spotlight(project: Mapping[str, Any]) -> list[str]:
+    """Render the flagship product journey directly after Nova Music Lab."""
+    return [
+        "<details>",
+        '<summary><strong>🎧 Open the Nova Music Lab data journey</strong></summary>',
+        "",
+        '<picture>',
+        '  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/nova-music-journey-static.svg" />',
+        '  <img src="./assets/nova-music-journey-animated.svg" width="100%" alt="Private listening files move through normalization, analytics, emotion mapping and identity into an exportable museum report" />',
+        "</picture>",
+        "",
+        "Five import families become one deduplicated, source-aware listening history. Missing fields remain visible as gaps, and raw exports stay in the browser.",
+        "",
+        f"[Explore the live music museum]({project['demo']}) · [Inspect the Nova Music Lab source]({project['source']})",
+        "",
+        "</details>",
+        "",
+    ]
+
+
+def _render_novafit_spotlights(project: Mapping[str, Any]) -> list[str]:
+    """Render two focused NovaFit tours while keeping the main project list scannable."""
+    return [
+        "<details>",
+        '<summary><strong>💙 Open the NovaFit product, analytics and visual system</strong></summary>',
+        "",
+        "> **Demo-data note:** every NovaFit capture in this profile uses seeded demonstration records; no personal wellness history is displayed.",
+        "",
+        '<picture>',
+        '  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/novafit-ultimate-gui.png" />',
+        '  <img src="./assets/novafit-analytics-tour.gif" width="100%" alt="NovaFit analytics tour with seeded demonstration data across movement, hydration, mood and consistency views" />',
+        "</picture>",
+        "",
+        "**Why this project matters:** NovaFit brings multi-user data isolation, a complete Tkinter interface, trilingual UX, automation-friendly CLI workflows, safe migrations, explainable suggestions, analytics, portable reports and Windows delivery into one local-first product.",
+        "",
+        '<a href="./assets/novafit-ultimate-gui.png"><img src="./assets/novafit-ultimate-gui.png" width="100%" alt="NovaFit Ultimate 4.0 Wellness Command Center showing seeded demonstration metrics and local profile controls" /></a>',
+        "",
+        '<a href="./assets/analytics-training-atlas.png"><img src="./assets/analytics-training-atlas.png" width="100%" alt="NovaFit Training Atlas workspace showing seeded analytical charts" /></a>',
+        "",
+        '<img src="./assets/motivation-center-animated.svg" width="100%" alt="NovaFit Motivation Center connects purpose, small actions, evidence, celebration and recovery" />',
+        "",
+        '<a href="./assets/motivation-center-ultimate.png"><img src="./assets/motivation-center-ultimate.png" width="100%" alt="NovaFit Motivation Center interface using seeded demonstration data" /></a>',
+        "",
+        '<a href="./assets/theme-spectrum.png"><img src="./assets/theme-spectrum.png" width="100%" alt="NovaFit twelve-theme interface contact sheet" /></a>',
+        "",
+        "**Twelve themes:** Midnight Neon · Aurora Borealis · Negev Sunrise · Ocean Depth · Forest Focus · Rose Quartz · Cloud Day · Solar Paper · High Contrast · Royal Sapphire · Cyber Lime · Sunset Arcade.",
+        "",
+        f"[Inspect the NovaFit source]({project['source']})",
+        "",
+        "</details>",
+        "",
+        "<details>",
+        '<summary><strong>🌍 Open NovaFit profiles, EN/ES/HE, coach and safe delivery</strong></summary>',
+        "",
+        "> All profile names and health signals shown below are seeded demonstration data.",
+        "",
+        '<img src="./assets/multi-profile-i18n-animated.svg" width="100%" alt="Seeded demo profiles keep records, goals, language and theme settings isolated, including Hebrew right-to-left layout" />',
+        "",
+        '<a href="./assets/multi-profile-language-center.png"><img src="./assets/multi-profile-language-center.png" width="100%" alt="NovaFit local profile manager with seeded English, Spanish and Hebrew demonstration profiles" /></a>',
+        "",
+        '<img src="./assets/sport-data-engine-animated.svg" width="100%" alt="Local records pass through quality checks into conservative suggestions with explicit reasons and confidence boundaries" />',
+        "",
+        '<a href="./assets/sport-data-coach-real.png"><img src="./assets/sport-data-coach-real.png" width="100%" alt="NovaFit Sport and Data Coach showing seeded suggestions, data confidence and safety boundaries" /></a>',
+        "",
+        "Each profile owns isolated records, goals, language, theme and activity preferences. English and Spanish use LTR; Hebrew moves the shell to RTL. Suggestions expose data confidence and reasons while avoiding medical claims.",
+        "",
+        '<img src="./assets/self-healing-verification-animated.svg" width="100%" alt="Windows setup checks Python, repairs a local environment, installs dependencies and runs verification" />',
+        "",
+        '<img src="./assets/distribution-safety-animated.svg" width="100%" alt="Workspace verification preserves local data while clean release staging excludes private runtime files" />',
+        "",
+        "The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, runs 74 tests, preserves an existing user database in workspace mode, and uses strict clean staging for downloadable releases.",
+        "",
+        "</details>",
         "",
     ]
 
@@ -432,34 +607,13 @@ def _render_secondary(data: Mapping[str, Any]) -> dict[str, list[str]]:
         "",
         "**Lirioth Teltanion** is the creative signature: music technology, visual language, narrative systems, experimental interfaces and generative art.",
         "",
-        "The goal is not to decorate weak engineering. It is to make technically sound products easier to understand, remember and enjoy.",
+        "Together, these identities make technically sound products easier to understand, remember and enjoy.",
     ]
     return {"approach": approach, "education": education_lines, "identity": identity_lines}
 
 
 def _join(values: Sequence[str]) -> str:
     return " · ".join(values)
-
-
-def _badge(label: str, value: str, color: str, logo: str, url: str | None) -> str:
-    if not url:
-        return ""
-    safe_label = quote(label.replace("-", "--"), safe="")
-    safe_value = quote(value.replace("-", "--"), safe="")
-    return (
-        f'<a href="{url}"><img src="https://img.shields.io/badge/'
-        f'{safe_label}-{safe_value}-{color}?style=for-the-badge&logo={logo}&logoColor=white" '
-        f'alt="{label}: {value}" /></a>'
-    )
-
-
-def _small_badge(label: str, value: str, color: str) -> str:
-    safe_label = quote(label.replace("-", "--"), safe="")
-    safe_value = quote(value.replace("-", "--"), safe="")
-    return (
-        f'<img src="https://img.shields.io/badge/{safe_label}-{safe_value}-{color}?style=flat-square" '
-        f'alt="{label}: {value}" />'
-    )
 
 
 def main() -> int:
@@ -478,8 +632,20 @@ def main() -> int:
     args = build_parser().parse_args()
     output = write_profile(args.data, args.output, args.mode)
     line_count = len(output.read_text(encoding="utf-8").splitlines())
-    print(f"Generated {output} with {line_count} lines ✅")
+    _print_success(f"Generated {output} with {line_count} lines")
     return 0
+
+
+def _print_success(message: str) -> None:
+    """Print a Unicode success marker with an encoding-safe fallback."""
+    decorated = f"{message} ✅"
+    fallback = f"{message} [OK]"
+    encoding = getattr(sys.stdout, "encoding", None) or "utf-8"
+    try:
+        decorated.encode(encoding)
+    except (LookupError, UnicodeEncodeError):
+        decorated = fallback.encode(encoding, errors="backslashreplace").decode(encoding)
+    print(decorated)
 
 
 if __name__ == "__main__":

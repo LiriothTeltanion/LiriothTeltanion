@@ -4,7 +4,7 @@
     "alias": "Lirioth Teltanion",
     "headline": "Junior Frontend & Full-Stack Developer · Creative Technologist",
     "location": "Beersheba, Israel",
-    "positioning": "React, TypeScript, Python and SQL products with accessible multilingual UX, data honesty and practical automation.",
+    "positioning": "I build React, TypeScript, Python and SQL products with accessible multilingual UX, data honesty and practical automation.",
     "availability": "Open to junior frontend, full-stack and creative-technology opportunities"
   },
   "links": {
@@ -57,7 +57,7 @@
       "problem": "Daily wellness data should remain portable, understandable and private.",
       "solution": "A multi-user Python CLI and Tkinter wellness intelligence studio with profile-isolated SQLite, EN/ES/HE, Hebrew RTL, twelve themes, four analytics workspaces, explainable Sport & Data recommendations, motivation, portable reports and self-healing Windows delivery.",
       "stack": "Python · Tkinter · SQLite · Requests · Faker · Matplotlib",
-      "evidence": "74 automated tests, twelve-theme gallery, real trilingual GUI captures, profile-isolated schema v4, Training Atlas, workspace-safe audit and strict clean release staging",
+      "evidence": "74 automated tests, twelve-theme gallery, trilingual seeded-demo GUI captures, profile-isolated schema v4, Training Atlas, workspace-safe audit and strict clean release staging",
       "source": "https://github.com/LiriothTeltanion/NovaFit",
       "demo": null,
       "role_signal": "Python application architecture · desktop UX · SQLite migrations · i18n/RTL · analytics · release engineering",

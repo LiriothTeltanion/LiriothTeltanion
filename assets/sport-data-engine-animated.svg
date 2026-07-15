@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 500" role="img" aria-labelledby="title desc">
+<title id="title">NovaFit explainable Sport and Data Coach pipeline</title>
+<desc id="desc">Seeded local records pass through data-quality checks into conservative, reasoned general-wellness suggestions with explicit confidence boundaries.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#04171c"/><stop offset=".52" stop-color="#071f2d"/><stop offset="1" stop-color="#15133b"/></linearGradient>
+  <linearGradient id="aurora" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#2dd4bf"/><stop offset=".5" stop-color="#60a5fa"/><stop offset="1" stop-color="#c084fc"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+
+<style>
+  .bg{fill:url(#bg)} .grid{stroke:#1f5261;stroke-width:1;opacity:.45}
+  .title{font:700 45px 'Segoe UI',Arial;fill:#f2fbff;letter-spacing:1px}
+  .subtitle{font:500 18px 'Segoe UI',Arial;fill:#9cc6d2}
+  .label{font:700 16px 'Segoe UI',Arial;fill:#e8fbff}
+  .small{font:500 13px 'Segoe UI',Arial;fill:#8db6c2}
+  .card{fill:#0a2830;stroke:#2dd4bf;stroke-width:2}
+  .card2{fill:#101d42;stroke:#60a5fa;stroke-width:2}
+  .line{fill:none;stroke:#2dd4bf;stroke-width:3;stroke-linecap:round}
+  .line2{fill:none;stroke:#c084fc;stroke-width:3;stroke-linecap:round}
+  .pulse{animation:pulse 2.7s ease-in-out infinite;transform-origin:center}
+  .float{animation:float 4.8s ease-in-out infinite;transform-origin:center}
+  .spin{animation:spin 13s linear infinite;transform-origin:center}
+  .dash{stroke-dasharray:12 14;animation:dash 5s linear infinite}
+  .glow{filter:url(#glow)}
+  .delay1{animation-delay:-.7s}.delay2{animation-delay:-1.4s}.delay3{animation-delay:-2.1s}
+  @keyframes pulse{0%,100%{opacity:.58;transform:scale(.96)}50%{opacity:1;transform:scale(1.04)}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes dash{to{stroke-dashoffset:-104}}
+  @media (prefers-reduced-motion:reduce){.pulse,.float,.spin,.dash{animation:none!important}}
+</style>
+<rect width="1400" height="500" class="bg"/><path d="M0 0V500 M70 0V500 M140 0V500 M210 0V500 M280 0V500 M350 0V500 M420 0V500 M490 0V500 M560 0V500 M630 0V500 M700 0V500 M770 0V500 M840 0V500 M910 0V500 M980 0V500 M1050 0V500 M1120 0V500 M1190 0V500 M1260 0V500 M1330 0V500 M1400 0V500 M0 0H1400 M0 70H1400 M0 140H1400 M0 210H1400 M0 280H1400 M0 350H1400 M0 420H1400 M0 490H1400" class="grid"/><text x="55" y="68" class="title">Sport &amp; Data Coach</text><text x="55" y="102" class="subtitle">Explainable general wellness guidance — never diagnosis, treatment or pressure.</text><g class="float delay0"><rect x="80" y="180" width="250" height="150" rx="25" class="card"/><text x="205" y="235" class="label" text-anchor="middle">LOCAL RECORDS</text><text x="205" y="270" class="small" text-anchor="middle">steps · water · mood</text><circle cx="205" cy="305" r="10" fill="#2dd4bf" class="pulse"/></g><g class="float delay1"><rect x="385" y="180" width="250" height="150" rx="25" class="card2"/><text x="510" y="235" class="label" text-anchor="middle">DATA QUALITY</text><text x="510" y="270" class="small" text-anchor="middle">coverage · gaps · recency</text><circle cx="510" cy="305" r="10" fill="#c084fc" class="pulse"/></g><g class="float delay2"><rect x="690" y="180" width="250" height="150" rx="25" class="card"/><text x="815" y="235" class="label" text-anchor="middle">CONSERVATIVE PLAN</text><text x="815" y="270" class="small" text-anchor="middle">movement · hydration · recovery</text><circle cx="815" cy="305" r="10" fill="#2dd4bf" class="pulse"/></g><g class="float delay3"><rect x="995" y="180" width="250" height="150" rx="25" class="card2"/><text x="1120" y="235" class="label" text-anchor="middle">WEEKLY RHYTHM</text><text x="1120" y="270" class="small" text-anchor="middle">small actions · explicit reasons</text><circle cx="1120" cy="305" r="10" fill="#c084fc" class="pulse"/></g><path d="M330 255H385" class="line dash"/><path d="M375 243l20 12-20 12" fill="#2dd4bf"/><path d="M635 255H690" class="line dash"/><path d="M680 243l20 12-20 12" fill="#2dd4bf"/><path d="M940 255H995" class="line dash"/><path d="M985 243l20 12-20 12" fill="#2dd4bf"/><rect x="120" y="385" width="1160" height="64" rx="22" fill="#081f2b" stroke="#fbbf24"/><text x="700" y="424" class="label" text-anchor="middle">Confidence changes with your real tracking coverage · every suggestion includes “why this” and a safety boundary</text></svg>

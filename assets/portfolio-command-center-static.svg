@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
   <title id="title">Kevin Cusnir portfolio command center</title>
-  <desc id="desc">Four project cards summarize a live music data product, a local Python application, an accessible client portfolio and a full-stack learning archive.</desc>
+  <desc id="desc">Static reduced-motion project cards summarize a live music data product, a local Python application, an accessible client portfolio and a full-stack learning archive.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06101e"/><stop offset="1" stop-color="#1d1038"/></linearGradient>
     <style>
@@ -49,4 +49,5 @@
     <rect x="22" y="178" width="55" height="24" rx="12" fill="#392b1d"/><text x="49" y="194" text-anchor="middle" class="chip">OOP</text><rect x="84" y="178" width="52" height="24" rx="12" fill="#392b1d"/><text x="110" y="194" text-anchor="middle" class="chip">NODE</text><rect x="143" y="178" width="41" height="24" rx="12" fill="#392b1d"/><text x="163" y="194" text-anchor="middle" class="chip">SQL</text>
     <text x="22" y="226" class="copy" fill="#fde68a">Exercises · focused PRs · CI</text>
   </g></g>
+  <style>*{animation:none!important}</style>
 </svg>

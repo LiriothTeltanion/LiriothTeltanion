@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 500" role="img" aria-labelledby="title desc">
+<title id="title">NovaFit profile isolation and multilingual interface</title>
+<desc id="desc">Three seeded demo profiles keep records, goals, language and theme choices isolated in a local SQLite profile vault, including Hebrew right-to-left layout.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#04171c"/><stop offset=".52" stop-color="#071f2d"/><stop offset="1" stop-color="#15133b"/></linearGradient>
+  <linearGradient id="aurora" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#2dd4bf"/><stop offset=".5" stop-color="#60a5fa"/><stop offset="1" stop-color="#c084fc"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+
+<style>
+  .bg{fill:url(#bg)} .grid{stroke:#1f5261;stroke-width:1;opacity:.45}
+  .title{font:700 45px 'Segoe UI',Arial;fill:#f2fbff;letter-spacing:1px}
+  .subtitle{font:500 18px 'Segoe UI',Arial;fill:#9cc6d2}
+  .label{font:700 16px 'Segoe UI',Arial;fill:#e8fbff}
+  .small{font:500 13px 'Segoe UI',Arial;fill:#8db6c2}
+  .card{fill:#0a2830;stroke:#2dd4bf;stroke-width:2}
+  .card2{fill:#101d42;stroke:#60a5fa;stroke-width:2}
+  .line{fill:none;stroke:#2dd4bf;stroke-width:3;stroke-linecap:round}
+  .line2{fill:none;stroke:#c084fc;stroke-width:3;stroke-linecap:round}
+  .pulse{animation:pulse 2.7s ease-in-out infinite;transform-origin:center}
+  .float{animation:float 4.8s ease-in-out infinite;transform-origin:center}
+  .spin{animation:spin 13s linear infinite;transform-origin:center}
+  .dash{stroke-dasharray:12 14;animation:dash 5s linear infinite}
+  .glow{filter:url(#glow)}
+  .delay1{animation-delay:-.7s}.delay2{animation-delay:-1.4s}.delay3{animation-delay:-2.1s}
+  @keyframes pulse{0%,100%{opacity:.58;transform:scale(.96)}50%{opacity:1;transform:scale(1.04)}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes dash{to{stroke-dashoffset:-104}}
+  @media (prefers-reduced-motion:reduce){.pulse,.float,.spin,.dash{animation:none!important}}
+</style>
+<rect width="1400" height="500" class="bg"/><path d="M0 0V500 M70 0V500 M140 0V500 M210 0V500 M280 0V500 M350 0V500 M420 0V500 M490 0V500 M560 0V500 M630 0V500 M700 0V500 M770 0V500 M840 0V500 M910 0V500 M980 0V500 M1050 0V500 M1120 0V500 M1190 0V500 M1260 0V500 M1330 0V500 M1400 0V500 M0 0H1400 M0 70H1400 M0 140H1400 M0 210H1400 M0 280H1400 M0 350H1400 M0 420H1400 M0 490H1400" class="grid"/>
+    <text x="55" y="65" class="title">Profiles, languages and private data boundaries</text>
+    <text x="55" y="99" class="subtitle">Each profile owns its records, goals, theme, activity focus and interface language.</text>
+    <g class="float"><rect x="70" y="155" width="280" height="230" rx="28" class="card"/><circle cx="140" cy="225" r="38" fill="#2dd4bf"/><text x="200" y="216" class="label">Primary Demo</text><text x="200" y="246" class="small">English · Aurora · Mixed</text><text x="105" y="315" class="subtitle">seeded local records</text></g>
+    <g class="float delay1"><rect x="405" y="155" width="280" height="230" rx="28" class="card2"/><circle cx="475" cy="225" r="38" fill="#fb7185"/><text x="535" y="216" class="label">Lucía Demo</text><text x="535" y="246" class="small">Español · Arcade · Walking</text><text x="440" y="315" class="subtitle">isolated demo records</text></g>
+    <g class="float delay2"><rect x="740" y="155" width="280" height="230" rx="28" class="card"/><circle cx="810" cy="225" r="38" fill="#60a5fa"/><text x="970" y="216" class="label" text-anchor="end" direction="rtl" lang="he">נועה · הדגמה</text><text x="970" y="246" class="small" text-anchor="end" direction="rtl" lang="he">עברית · ספיר · ניידות</text><text x="970" y="315" class="subtitle" text-anchor="end" direction="rtl" lang="he">רשומות הדגמה מבודדות</text></g>
+    <path d="M1040 240H1260" class="line dash"/><path d="M1245 226l25 14-25 14" fill="#2dd4bf"/><rect x="1080" y="300" width="260" height="95" rx="24" class="card2"/><text x="1210" y="339" class="label" text-anchor="middle">SQLite profile vault</text><text x="1210" y="368" class="small" text-anchor="middle">UNIQUE(user_id, date)</text>
+    <text x="1120" y="175" class="label">LTR →</text><text x="1285" y="175" class="label" text-anchor="end">← RTL</text></svg>

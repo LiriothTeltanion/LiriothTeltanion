@@ -27,3 +27,21 @@ jobs:
       - name: Run profile verifier
         shell: pwsh
         run: ./tools/profile/verify-profile.ps1
+
+      - name: Run profile tooling tests
+        shell: pwsh
+        run: python -m unittest discover -s tests -v
+
+      - name: Verify generated profiles are current
+        shell: pwsh
+        run: |
+          $compact = Join-Path $env:RUNNER_TEMP "README.generated.md"
+          $expanded = Join-Path $env:RUNNER_TEMP "README_EXPANDED.generated.md"
+          python scripts/build_profile.py --mode compact --output $compact
+          python scripts/build_profile.py --mode expanded --output $expanded
+          if ((Get-Content -LiteralPath README.md -Raw) -cne (Get-Content -LiteralPath $compact -Raw)) {
+            throw "README.md is not synchronized with profile.json and scripts/build_profile.py."
+          }
+          if ((Get-Content -LiteralPath README_EXPANDED.md -Raw) -cne (Get-Content -LiteralPath $expanded -Raw)) {
+            throw "README_EXPANDED.md is not synchronized with profile.json and scripts/build_profile.py."
+          }

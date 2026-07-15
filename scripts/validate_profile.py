@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -115,8 +116,20 @@ def main() -> int:
             print(f"- {problem}")
         return 1
     line_count = len(args.readme.read_text(encoding="utf-8").splitlines())
-    print(f"Profile validation passed: {line_count} lines ✅")
+    _print_success(f"Profile validation passed: {line_count} lines")
     return 0
+
+
+def _print_success(message: str) -> None:
+    """Print a Unicode success marker with an encoding-safe fallback."""
+    decorated = f"{message} ✅"
+    fallback = f"{message} [OK]"
+    encoding = getattr(sys.stdout, "encoding", None) or "utf-8"
+    try:
+        decorated.encode(encoding)
+    except (LookupError, UnicodeEncodeError):
+        decorated = fallback.encode(encoding, errors="backslashreplace").decode(encoding)
+    print(decorated)
 
 
 if __name__ == "__main__":
