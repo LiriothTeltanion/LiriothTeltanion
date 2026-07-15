@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="330" viewBox="0 0 1200 330" role="img" aria-labelledby="title desc">
+  <title id="title">Kevin Cusnir featured project constellation</title>
+  <desc id="desc">Four project nodes connected to a central engineering identity.</desc>
+  <defs>
+    <linearGradient id="bg"><stop stop-color="#07111f"/><stop offset="1" stop-color="#17113a"/></linearGradient>
+    <linearGradient id="line"><stop stop-color="#22d3ee"/><stop offset=".5" stop-color="#34d399"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>
+    <style>.dash{stroke-dasharray:7 11;animation:move 5s linear infinite}.node{animation:pulse 3.8s ease-in-out infinite}@keyframes move{to{stroke-dashoffset:-72}}@keyframes pulse{0%,100%{opacity:.82}50%{opacity:1}}@media(prefers-reduced-motion:reduce){*{animation:none!important}}</style>
+  </defs>
+  <rect width="1200" height="330" rx="28" fill="url(#bg)"/>
+  <g fill="none" stroke="url(#line)" stroke-width="2.5" class="dash"><path d="M600 165L235 82"/><path d="M600 165L965 82"/><path d="M600 165L235 250"/><path d="M600 165L965 250"/></g>
+  <g font-family="Segoe UI,Arial" text-anchor="middle">
+    <g class="node"><circle cx="600" cy="165" r="76" fill="#102a43" stroke="#67e8f9" stroke-width="3"/><text x="600" y="153" fill="#f4fbff" font-size="20" font-weight="800">KEVIN × LIRIOTH</text><text x="600" y="180" fill="#6ee7b7" font-size="14">Engineering + creative systems</text></g>
+    <g class="node"><rect x="115" y="42" width="240" height="80" rx="20" fill="#102a43" stroke="#22d3ee"/><text x="235" y="75" fill="#67e8f9" font-size="18" font-weight="800">🎧 Nova Music Lab</text><text x="235" y="100" fill="#a4b9c9" font-size="13">React · TypeScript · Data</text></g>
+    <g class="node"><rect x="845" y="42" width="240" height="80" rx="20" fill="#102f34" stroke="#34d399"/><text x="965" y="75" fill="#6ee7b7" font-size="18" font-weight="800">💙 NovaFit</text><text x="965" y="100" fill="#a4b9c9" font-size="13">Python · SQLite · Tkinter</text></g>
+    <g class="node"><rect x="105" y="210" width="260" height="80" rx="20" fill="#211b3e" stroke="#8b5cf6"/><text x="235" y="243" fill="#c4b5fd" font-size="18" font-weight="800">👨‍🏫 Client Portfolio</text><text x="235" y="268" fill="#a4b9c9" font-size="13">Bilingual · Accessible · React</text></g>
+    <g class="node"><rect x="835" y="210" width="260" height="80" rx="20" fill="#261d2c" stroke="#fbbf24"/><text x="965" y="243" fill="#fde68a" font-size="18" font-weight="800">📚 Fullstack2026</text><text x="965" y="268" fill="#a4b9c9" font-size="13">Learning evidence · CI · SQL</text></g>
+  </g>
+</svg>

@@ -213,8 +213,7 @@ The next portfolio milestone is a deployed full-stack product with PostgreSQL, a
 
 ---
 
-<details>
-<summary><strong>🧠 Engineering approach and transferable strengths</strong></summary>
+## 🧠 Engineering approach and strengths
 
 ### What I bring to a team
 
@@ -232,10 +231,7 @@ The next portfolio milestone is a deployed full-stack product with PostgreSQL, a
 - Prefer small reversible changes, focused commits and reproducible checks.
 - Use AI to accelerate review and exploration without outsourcing understanding.
 
-</details>
-
-<details>
-<summary><strong>🎓 Education and structured learning</strong></summary>
+## 🎓 Education and structured learning
 
 **Full-Stack Development — Developers Institute, Israel**  
 2025–2026  
@@ -244,18 +240,13 @@ The next portfolio milestone is a deployed full-stack product with PostgreSQL, a
 
 The public learning archive remains separate from production-ready projects so recruiters can distinguish progression from finished product evidence.
 
-</details>
-
-<details>
-<summary><strong>🧙‍♂️ Kevin and Lirioth — professional structure and creative signature</strong></summary>
+## 🧙‍♂️ Kevin and Lirioth
 
 **Kevin** is the professional engineering identity: implementation, debugging, documentation, responsibility and collaboration.
 
 **Lirioth Teltanion** is the creative signature: music technology, visual language, narrative systems, experimental interfaces and generative art.
 
 The goal is not to decorate weak engineering. It is to make technically sound products easier to understand, remember and enjoy.
-
-</details>
 
 ---
 

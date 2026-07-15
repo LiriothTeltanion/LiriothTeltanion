@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-labelledby="title desc">
+  <title id="title">Kevin Cusnir — Lirioth Teltanion developer banner</title>
+  <desc id="desc">Static reduced-motion banner for a frontend and full-stack developer in Beersheba.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#050b18"/><stop offset=".5" stop-color="#0d2034"/><stop offset="1" stop-color="#211141"/></linearGradient>
+    <linearGradient id="fg" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#67e8f9"/><stop offset=".55" stop-color="#34d399"/><stop offset="1" stop-color="#c4b5fd"/></linearGradient>
+  </defs>
+  <rect width="1200" height="320" rx="30" fill="url(#bg)"/>
+  <g transform="translate(78 57)">
+    <circle cx="96" cy="103" r="91" fill="#0d1b2a" stroke="#22d3ee" stroke-opacity=".58" stroke-width="2"/>
+    <path d="M42 112c24-58 86-68 111-14 13 29-1 67-55 91-54-24-68-62-56-77Z" fill="#101f34" stroke="url(#fg)" stroke-width="3"/>
+    <path d="M65 112h21l9-25 16 54 13-39 9 17h20" fill="none" stroke="url(#fg)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(300 74)" font-family="Segoe UI,Arial,sans-serif">
+    <text x="0" y="56" fill="url(#fg)" font-size="54" font-weight="800">Kevin Cusnir</text>
+    <text x="2" y="96" fill="#c4b5fd" font-size="24" font-weight="700">Lirioth Teltanion ✦ Creative engineering signature</text>
+    <text x="2" y="138" fill="#f3f9fc" font-size="20" font-weight="600">Junior Frontend &amp; Full-Stack Developer</text>
+    <text x="2" y="171" fill="#8faabd" font-size="16">React · TypeScript · Python · SQL · Accessible multilingual UX · Data honesty</text>
+    <text x="2" y="225" fill="#6ee7b7" font-family="Consolas,monospace" font-size="15">code.withPurpose() · design.withPersonality() · data.withHonesty()</text>
+  </g>
+  <g font-family="Segoe UI,Arial" text-anchor="middle"><rect x="1010" y="82" width="132" height="64" rx="17" fill="#11273a" stroke="#34d399"/><text x="1076" y="109" fill="#8faabd" font-size="11">BASE</text><text x="1076" y="130" fill="#6ee7b7" font-size="15" font-weight="800">BEERSHEBA</text><rect x="1002" y="177" width="140" height="64" rx="17" fill="#1b1735" stroke="#8b5cf6"/><text x="1072" y="204" fill="#aaa2d2" font-size="11">LANGUAGES</text><text x="1072" y="225" fill="#c4b5fd" font-size="15" font-weight="800">ES · EN · HE</text></g>
+</svg>

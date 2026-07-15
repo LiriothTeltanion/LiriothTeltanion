@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Global communication from Beersheba</title>
+  <desc id="desc">Static reduced-motion globe showing Spanish, English and Hebrew collaboration.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06101e"/><stop offset=".56" stop-color="#0d2135"/><stop offset="1" stop-color="#211241"/></linearGradient>
+    <radialGradient id="ocean" cx="35%" cy="28%" r="75%"><stop stop-color="#174b66"/><stop offset=".55" stop-color="#0b2a45"/><stop offset="1" stop-color="#071727"/></radialGradient>
+    <linearGradient id="land"><stop stop-color="#34d399"/><stop offset="1" stop-color="#1597a8"/></linearGradient>
+    <clipPath id="sphere"><circle cx="315" cy="250" r="178"/></clipPath>
+  </defs>
+  <rect width="1200" height="500" rx="30" fill="url(#bg)"/>
+  <circle cx="315" cy="250" r="178" fill="url(#ocean)" stroke="#67e8f9" stroke-opacity=".7" stroke-width="2.5"/>
+  <g clip-path="url(#sphere)" fill="none" stroke="#7dd3fc" stroke-opacity=".22"><ellipse cx="315" cy="250" rx="150" ry="178"/><ellipse cx="315" cy="250" rx="92" ry="178"/><ellipse cx="315" cy="250" rx="37" ry="178"/><ellipse cx="315" cy="250" rx="178" ry="134"/><ellipse cx="315" cy="250" rx="178" ry="77"/><path d="M137 250H493"/></g>
+  <g clip-path="url(#sphere)" fill="url(#land)" stroke="#8ff3ce" stroke-opacity=".35"><path d="M192 145c26-25 59-29 83-18l26 3 12 21-21 15-8 26-31 6-15 26-36-5-24-31 14-43Z"/><path d="M245 228l35 8 17 25-12 42-20 34-13 40-21-18 5-37-18-37 9-39 18-18Z"/><path d="M330 139l42-14 51 13 31 25-14 24-42 7-24 28-31-7-17-28-22-14 26-34Z"/><path d="M360 216l45 5 20 35-10 52-29 45-35-16-19-48 7-43 21-30Z"/><path d="M425 310l35-5 26 22-14 30-39 1-18-24 10-24Z"/></g>
+  <circle cx="342" cy="219" r="8" fill="#fbbf24"/><rect x="210" y="415" width="210" height="45" rx="15" fill="#10283b" stroke="#fbbf24"/><text x="315" y="443" text-anchor="middle" fill="#fde68a" font-family="Segoe UI,Arial" font-size="15" font-weight="800">BEERSHEBA · LOCAL ROOTS</text>
+  <g font-family="Segoe UI,Arial"><text x="575" y="78" fill="#f2fbff" font-size="32" font-weight="800">Global communication from Beersheba</text><text x="578" y="112" fill="#91a9bc" font-size="16">Spanish, English and Hebrew support clearer products and broader collaboration.</text>
+  <rect x="575" y="145" width="530" height="78" rx="20" fill="#102a43" stroke="#22d3ee"/><text x="658" y="177" fill="#67e8f9" font-size="17" font-weight="800">Spanish · Native</text><text x="658" y="201" fill="#a4b9c9" font-size="14">Clear communication and Spanish localization</text>
+  <rect x="610" y="248" width="495" height="78" rx="20" fill="#102f34" stroke="#34d399"/><text x="693" y="280" fill="#6ee7b7" font-size="17" font-weight="800">English · Advanced professional</text><text x="693" y="304" fill="#a4b9c9" font-size="14">Technical documentation and international collaboration</text>
+  <rect x="565" y="351" width="540" height="78" rx="20" fill="#211b3e" stroke="#8b5cf6"/><text x="648" y="383" fill="#c4b5fd" font-size="17" font-weight="800">Hebrew · Working local proficiency</text><text x="648" y="407" fill="#a4b9c9" font-size="14">Israeli workplace communication and RTL product testing</text></g>
+</svg>

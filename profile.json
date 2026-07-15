@@ -1,0 +1,212 @@
+{
+  "identity": {
+    "name": "Kevin Cusnir",
+    "alias": "Lirioth Teltanion",
+    "headline": "Junior Frontend & Full-Stack Developer · Creative Technologist",
+    "location": "Beersheba, Israel",
+    "positioning": "React, TypeScript, Python and SQL products with accessible multilingual UX, data honesty and practical automation.",
+    "availability": "Open to junior frontend, full-stack and creative-technology opportunities"
+  },
+  "links": {
+    "github": "https://github.com/LiriothTeltanion",
+    "linkedin": "https://www.linkedin.com/in/kevin-cusnir-883173b4/",
+    "email": "mailto:kevincusnir@gmail.com",
+    "cv_en": "https://github.com/LiriothTeltanion/CV/blob/main/CV_EN.md",
+    "cv_es": "https://github.com/LiriothTeltanion/CV/blob/main/CV_ES.md",
+    "cv_he": "https://github.com/LiriothTeltanion/CV/blob/main/CV_HE.md"
+  },
+  "languages": [
+    {
+      "name": "Spanish",
+      "level": "Native",
+      "product_value": "Clear communication and Spanish localization"
+    },
+    {
+      "name": "English",
+      "level": "Advanced professional",
+      "product_value": "Technical documentation and international collaboration"
+    },
+    {
+      "name": "Hebrew",
+      "level": "Working local proficiency",
+      "product_value": "Israeli workplace communication and RTL product testing"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Nova Music Lab",
+      "icon": "🎧",
+      "status": "Live flagship",
+      "problem": "Listening exports are fragmented, hard to compare and easy to misrepresent.",
+      "solution": "A local-first personal music museum with multi-source imports, honest analytics, multilingual UX, generative identity and quality gates.",
+      "stack": "React · TypeScript · Vite · Vitest · Recharts · GitHub Actions",
+      "evidence": "Source normalization, deduplication, tests, bundle budgets, CI and GitHub Pages",
+      "source": "https://github.com/LiriothTeltanion/NovaMusicLab",
+      "demo": "https://liriothteltanion.github.io/NovaMusicLab/",
+      "role_signal": "Frontend engineering · data visualization · privacy-aware product thinking",
+      "highlights": [
+        "Five import families normalized into one model",
+        "Lazy-loaded museum rooms and bundle budgets",
+        "Multilingual UX, accessibility checks, tests and CI"
+      ]
+    },
+    {
+      "name": "NovaFit",
+      "icon": "💙",
+      "status": "Ultimate 4.0 local-first desktop product",
+      "problem": "Daily wellness data should remain portable, understandable and private.",
+      "solution": "A multi-user Python CLI and Tkinter wellness intelligence studio with profile-isolated SQLite, EN/ES/HE, Hebrew RTL, twelve themes, four analytics workspaces, explainable Sport & Data recommendations, motivation, portable reports and self-healing Windows delivery.",
+      "stack": "Python · Tkinter · SQLite · Requests · Faker · Matplotlib",
+      "evidence": "74 automated tests, twelve-theme gallery, real trilingual GUI captures, profile-isolated schema v4, Training Atlas, workspace-safe audit and strict clean release staging",
+      "source": "https://github.com/LiriothTeltanion/NovaFit",
+      "demo": null,
+      "role_signal": "Python application architecture · desktop UX · SQLite migrations · i18n/RTL · analytics · release engineering",
+      "highlights": [
+        "Multi-user profiles with isolated records, goals, language and theme",
+        "EN/ES/HE interface with true Hebrew RTL shell behavior",
+        "Command Center, Trend Lab, Consistency Map, Training Atlas and Sport & Data Coach",
+        "Workspace-safe checker preserves user DB; release staging excludes private runtime files"
+      ]
+    },
+    {
+      "name": "Christopher Rodríguez Portfolio",
+      "icon": "👨‍🏫",
+      "status": "Client/collaboration case study",
+      "problem": "A real educator needed a maintainable bilingual professional presence.",
+      "solution": "An accessible React and TypeScript portfolio with structured content, verification states, persistent themes and GitHub Pages delivery.",
+      "stack": "React · TypeScript · Vite · Tailwind CSS · Framer Motion",
+      "evidence": "EN/ES content architecture, keyboard UX, reduced motion, SEO and automated deployment",
+      "source": "https://github.com/LiriothTeltanion/ChristopherRodriguezCVOnline",
+      "demo": null,
+      "role_signal": "Client communication · accessible frontend · maintainable content architecture",
+      "highlights": [
+        "Content separated from presentation",
+        "Bilingual EN/ES experience and persistent preferences",
+        "Verification states for professional claims"
+      ]
+    },
+    {
+      "name": "Fullstack2026",
+      "icon": "📚",
+      "status": "Learning evidence archive",
+      "problem": "Course exercises need context, progression and reproducible quality checks.",
+      "solution": "A structured archive from Python and OOP through JavaScript, DOM, async workflows, TypeScript, Node and databases.",
+      "stack": "Python · JavaScript · TypeScript · Node.js · SQL",
+      "evidence": "Progressive exercises, focused PRs, documentation, repository audit and CI",
+      "source": "https://github.com/LiriothTeltanion/Fullstack2026",
+      "demo": null,
+      "role_signal": "Learning progression · problem solving · Git/PR discipline",
+      "highlights": [
+        "Python and OOP foundations",
+        "DOM, asynchronous JavaScript, TypeScript, Node and SQL",
+        "Repository-wide documentation and quality workflow"
+      ]
+    }
+  ],
+  "skills": {
+    "languages": [
+      "TypeScript",
+      "JavaScript",
+      "Python",
+      "SQL"
+    ],
+    "frontend": [
+      "React",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+      "Vite",
+      "Accessibility",
+      "i18n / RTL"
+    ],
+    "backend_data": [
+      "Node.js",
+      "Express fundamentals",
+      "REST APIs",
+      "SQLite",
+      "PostgreSQL learning",
+      "JSON / CSV"
+    ],
+    "quality": [
+      "Vitest",
+      "Testing Library",
+      "unittest",
+      "GitHub Actions",
+      "linting",
+      "data audits",
+      "bundle budgets"
+    ],
+    "workflow": [
+      "Git",
+      "GitHub",
+      "Conventional Commits",
+      "README-first documentation",
+      "AI-assisted review with explicit verification"
+    ]
+  },
+  "evidence_counts": [
+    {
+      "label": "Featured products/case studies",
+      "value": 4
+    },
+    {
+      "label": "React or TypeScript projects",
+      "value": 3
+    },
+    {
+      "label": "Python evidence areas",
+      "value": 2
+    },
+    {
+      "label": "Multilingual/accessibility projects (including RTL)",
+      "value": 3
+    },
+    {
+      "label": "Automated quality pipelines",
+      "value": 3
+    }
+  ],
+  "strengths": [
+    "Persistent debugging and practical troubleshooting",
+    "Accessible multilingual product design, including RTL behavior",
+    "Data transformation, validation and honest handling of uncertainty",
+    "Clear technical documentation and visual product storytelling",
+    "Local-first privacy decisions and proportional security claims"
+  ],
+  "growth": [
+    "Production backend architecture",
+    "PostgreSQL relational modeling and migrations",
+    "Authentication and role-based authorization",
+    "Docker-based development and deployment operations",
+    "Integration and end-to-end testing",
+    "Structured logging, monitoring and incident-ready thinking"
+  ],
+  "education": {
+    "program": "Full-Stack Development — Developers Institute, Israel",
+    "period": "2025–2026",
+    "coverage": "Python, OOP, SQL, JavaScript, React, Redux, Node.js, Express, JWT, TypeScript, Git/GitHub and deployment.",
+    "current": "Completing and converting remaining coursework into tested, deployable portfolio evidence."
+  },
+  "review_path": [
+    {
+      "time": "30 seconds",
+      "action": "Read the snapshot and role positioning",
+      "evidence": "Target role, stack and strongest differentiators"
+    },
+    {
+      "time": "2 minutes",
+      "action": "Open Nova Music Lab and NovaFit",
+      "evidence": "Frontend/data flagship plus complete Python desktop product"
+    },
+    {
+      "time": "5 minutes",
+      "action": "Inspect tests, CI, README architecture and recent commits",
+      "evidence": "Implementation depth, verification and delivery discipline"
+    },
+    {
+      "time": "15 minutes",
+      "action": "Run NovaFit or explore the live music museum",
+      "evidence": "Real product behavior beyond screenshots"
+    }
+  ]
+}
