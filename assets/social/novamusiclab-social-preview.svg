@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">Nova Music Lab social preview</title>
+  <desc id="desc">Navy, cyan and magenta project card for Nova Music Lab, a local-first music museum built with React and TypeScript.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#060817"/>
+      <stop offset="0.55" stop-color="#0b1230"/>
+      <stop offset="1" stop-color="#17214a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="96" y1="120" x2="1170" y2="540" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22d3ee"/>
+      <stop offset="0.5" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#f472b6"/>
+    </linearGradient>
+    <radialGradient id="disc" cx="0" cy="0" r="1" gradientTransform="translate(1010 314) rotate(90) scale(246)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3b1d62"/>
+      <stop offset="0.5" stop-color="#121b3f"/>
+      <stop offset="1" stop-color="#070a1a"/>
+    </radialGradient>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" fill="none" stroke="#22d3ee" stroke-opacity="0.05"/>
+    </pattern>
+    <filter id="glow" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="640" rx="30" fill="url(#bg)"/>
+  <rect width="1280" height="640" rx="30" fill="url(#grid)"/>
+  <path d="M0 548C235 486 421 587 650 525C853 470 1062 397 1280 458V640H0Z" fill="#251341" opacity="0.42"/>
+  <rect x="34" y="34" width="1212" height="572" rx="24" fill="none" stroke="#a78bfa" stroke-opacity="0.24"/>
+  <rect x="34" y="34" width="8" height="572" rx="4" fill="url(#accent)"/>
+
+  <g font-family="Segoe UI, Inter, Arial, sans-serif">
+    <g transform="translate(92 82)">
+      <rect width="190" height="38" rx="19" fill="#121d3e" stroke="#22d3ee" stroke-opacity="0.46"/>
+      <circle cx="22" cy="19" r="5" fill="#f472b6" filter="url(#glow)"/>
+      <text x="40" y="25" fill="#c8f7ff" font-size="15" font-weight="700" letter-spacing="2">FEATURED PROJECT</text>
+    </g>
+    <text x="92" y="226" fill="#fbfaff" font-size="68" font-weight="760" letter-spacing="-2">Nova Music Lab</text>
+    <text x="94" y="287" fill="#e9d5ff" font-size="32" font-weight="650">Local-first music museum</text>
+    <rect x="94" y="323" width="514" height="2" fill="url(#accent)"/>
+    <text x="94" y="382" fill="#c4e8ff" font-size="25" font-weight="600">Turn listening exports into source-aware stories.</text>
+
+    <g transform="translate(94 452)">
+      <rect width="212" height="50" rx="25" fill="#101b3c" stroke="#22d3ee" stroke-opacity="0.6"/>
+      <text x="28" y="32" fill="#cffafe" font-size="18" font-weight="700">React + TypeScript</text>
+      <rect x="228" width="168" height="50" rx="25" fill="#24153c" stroke="#f472b6" stroke-opacity="0.58"/>
+      <text x="260" y="32" fill="#fce7f3" font-size="18" font-weight="650">Local-first</text>
+    </g>
+    <text x="95" y="560" fill="#779ab9" font-size="15" letter-spacing="1.8">LIRIOTHTELTANION / NOVAMUSICLAB</text>
+  </g>
+
+  <g>
+    <circle cx="1010" cy="314" r="252" fill="url(#disc)" stroke="#a78bfa" stroke-opacity="0.32" stroke-width="2"/>
+    <circle cx="1010" cy="314" r="211" fill="none" stroke="#22d3ee" stroke-opacity="0.22" stroke-width="2"/>
+    <circle cx="1010" cy="314" r="172" fill="none" stroke="#f472b6" stroke-opacity="0.2" stroke-width="2"/>
+    <circle cx="1010" cy="314" r="126" fill="#0d1732" stroke="#8b5cf6" stroke-opacity="0.5" stroke-width="2"/>
+    <circle cx="1010" cy="314" r="48" fill="url(#accent)" opacity="0.86" filter="url(#glow)"/>
+    <circle cx="1010" cy="314" r="12" fill="#071022"/>
+    <path d="M785 312C810 291 828 360 850 313C870 267 890 373 912 314C934 255 958 379 981 313C1003 251 1027 383 1049 313C1070 251 1093 368 1117 313C1138 266 1162 354 1186 313C1204 282 1220 328 1234 313" fill="none" stroke="url(#accent)" stroke-width="5" stroke-linecap="round" filter="url(#glow)"/>
+    <g fill="#22d3ee">
+      <circle cx="848" cy="184" r="5"/><circle cx="1180" cy="244" r="5"/><circle cx="890" cy="468" r="4"/>
+    </g>
+  </g>
+
+  <g transform="translate(1054 458) scale(.42)" fill="none" stroke="url(#accent)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.78">
+    <path d="M24 74C44 63 59 48 80 29C69 61 56 103 43 151M60 83C80 68 95 51 107 34M61 85C77 107 93 126 116 134"/>
+    <path d="M159 62C148 44 123 48 111 68C94 95 107 126 130 130C146 132 160 122 169 109"/>
+    <path d="M198 31C190 65 178 104 171 136C194 138 217 132 236 116C222 121 209 139 225 148C241 157 258 143 268 128"/>
+    <path d="M226 59C257 44 291 44 326 53M282 47C272 75 260 109 254 140"/>
+    <path d="M27 169C96 151 164 153 220 158C268 162 311 153 337 134"/>
+  </g>
+</svg>

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">Kevin Cusnir GitHub profile social preview</title>
+  <desc id="desc">Navy and electric-blue portfolio card for Kevin Cusnir, also known as Lirioth Teltanion, a junior frontend and full-stack developer.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#040a18"/>
+      <stop offset="0.52" stop-color="#07172e"/>
+      <stop offset="1" stop-color="#0a2744"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="96" y1="116" x2="1120" y2="548" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563eb"/>
+      <stop offset="0.55" stop-color="#0ea5e9"/>
+      <stop offset="1" stop-color="#67e8f9"/>
+    </linearGradient>
+    <radialGradient id="orb" cx="0" cy="0" r="1" gradientTransform="translate(1018 318) rotate(132) scale(254)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#164e63" stop-opacity="0.82"/>
+      <stop offset="0.62" stop-color="#0b2f5e" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#07172e" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#67e8f9" stroke-opacity="0.055"/>
+    </pattern>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="640" rx="30" fill="url(#bg)"/>
+  <rect width="1280" height="640" rx="30" fill="url(#grid)"/>
+  <path d="M0 568C278 470 474 622 726 532C936 457 1068 407 1280 466V640H0Z" fill="#0b2c4b" opacity="0.38"/>
+  <rect x="34" y="34" width="1212" height="572" rx="24" fill="none" stroke="#38bdf8" stroke-opacity="0.22"/>
+  <rect x="34" y="34" width="8" height="572" rx="4" fill="url(#accent)"/>
+
+  <g font-family="Segoe UI, Inter, Arial, sans-serif">
+    <g transform="translate(92 82)">
+      <rect width="214" height="38" rx="19" fill="#0c2747" stroke="#38bdf8" stroke-opacity="0.45"/>
+      <circle cx="22" cy="19" r="5" fill="#67e8f9" filter="url(#glow)"/>
+      <text x="40" y="25" fill="#bae6fd" font-size="15" font-weight="700" letter-spacing="2.1">GITHUB PROFILE</text>
+    </g>
+
+    <text x="92" y="228" fill="#f8fbff" font-size="72" font-weight="760" letter-spacing="-2.4">Kevin Cusnir</text>
+    <text x="94" y="281" fill="#67e8f9" font-size="32" font-weight="650" letter-spacing="1.2">Lirioth Teltanion</text>
+    <rect x="94" y="316" width="520" height="2" fill="url(#accent)"/>
+    <text x="94" y="374" fill="#dceeff" font-size="29" font-weight="600">Junior Frontend &amp; Full-Stack Developer</text>
+    <text x="94" y="421" fill="#93b7d7" font-size="20" letter-spacing="0.4">Accessible interfaces  •  local-first products  •  creative technology</text>
+
+    <g transform="translate(94 482)">
+      <rect width="256" height="48" rx="24" fill="#0a2341" stroke="#2563eb" stroke-opacity="0.7"/>
+      <text x="24" y="31" fill="#dbeafe" font-size="17" font-weight="650">San Cristóbal  →  Beersheba</text>
+    </g>
+  </g>
+
+  <g>
+    <circle cx="1018" cy="318" r="258" fill="url(#orb)"/>
+    <circle cx="1018" cy="318" r="204" fill="none" stroke="#38bdf8" stroke-opacity="0.26" stroke-width="2"/>
+    <circle cx="1018" cy="318" r="156" fill="#06142a" fill-opacity="0.5" stroke="#67e8f9" stroke-opacity="0.33"/>
+    <path d="M794 318H1242M1018 94V542" stroke="#38bdf8" stroke-opacity="0.12"/>
+    <path d="M831 196C943 261 1098 264 1205 196M831 440C943 375 1098 372 1205 440" fill="none" stroke="#38bdf8" stroke-opacity="0.16"/>
+    <circle cx="1212" cy="250" r="6" fill="#67e8f9" filter="url(#glow)"/>
+    <circle cx="864" cy="442" r="5" fill="#2563eb" filter="url(#glow)"/>
+  </g>
+
+  <g transform="translate(898 232) scale(.67)" fill="none" stroke="url(#accent)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+    <path d="M24 74C44 63 59 48 80 29C69 61 56 103 43 151M60 83C80 68 95 51 107 34M61 85C77 107 93 126 116 134"/>
+    <path d="M159 62C148 44 123 48 111 68C94 95 107 126 130 130C146 132 160 122 169 109"/>
+    <path d="M198 31C190 65 178 104 171 136C194 138 217 132 236 116C222 121 209 139 225 148C241 157 258 143 268 128"/>
+    <path d="M226 59C257 44 291 44 326 53M282 47C272 75 260 109 254 140"/>
+    <path d="M27 169C96 151 164 153 220 158C268 162 311 153 337 134"/>
+  </g>
+  <text x="984" y="470" fill="#9bdff7" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="3.2">KC × LT</text>
+</svg>

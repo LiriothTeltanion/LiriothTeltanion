@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">NovaFit social preview</title>
+  <desc id="desc">Navy, cyan and emerald project card for NovaFit, a local-first wellness intelligence application built with Python and SQLite and covered by 74 tests.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#040d17"/><stop offset="0.56" stop-color="#071b2c"/><stop offset="1" stop-color="#0b343c"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="96" y1="112" x2="1160" y2="548" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22d3ee"/><stop offset="0.52" stop-color="#10b981"/><stop offset="1" stop-color="#a3e635"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientTransform="translate(1018 315) rotate(90) scale(266)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#064e3b" stop-opacity="0.75"/><stop offset="0.62" stop-color="#0d3b3c" stop-opacity="0.36"/><stop offset="1" stop-color="#071b2c" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#5eead4" stroke-opacity="0.055"/>
+    </pattern>
+    <filter id="glow" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="640" rx="30" fill="url(#bg)"/>
+  <rect width="1280" height="640" rx="30" fill="url(#grid)"/>
+  <path d="M0 550C240 484 416 601 664 522C889 451 1056 412 1280 467V640H0Z" fill="#064e3b" opacity="0.28"/>
+  <rect x="34" y="34" width="1212" height="572" rx="24" fill="none" stroke="#34d399" stroke-opacity="0.24"/>
+  <rect x="34" y="34" width="8" height="572" rx="4" fill="url(#accent)"/>
+
+  <g font-family="Segoe UI, Inter, Arial, sans-serif">
+    <g transform="translate(92 82)">
+      <rect width="190" height="38" rx="19" fill="#0a2b32" stroke="#34d399" stroke-opacity="0.48"/>
+      <circle cx="22" cy="19" r="5" fill="#a3e635" filter="url(#glow)"/>
+      <text x="40" y="25" fill="#d1fae5" font-size="15" font-weight="700" letter-spacing="2">FEATURED PROJECT</text>
+    </g>
+    <text x="92" y="226" fill="#f7fffc" font-size="72" font-weight="760" letter-spacing="-2">NovaFit</text>
+    <text x="94" y="287" fill="#a7f3d0" font-size="32" font-weight="650">Local-first wellness intelligence</text>
+    <rect x="94" y="323" width="536" height="2" fill="url(#accent)"/>
+    <text x="94" y="382" fill="#cfebed" font-size="25" font-weight="600">Private profiles, explainable analytics, multilingual UX.</text>
+
+    <g transform="translate(94 452)">
+      <rect width="210" height="50" rx="25" fill="#082834" stroke="#22d3ee" stroke-opacity="0.56"/>
+      <text x="29" y="32" fill="#cffafe" font-size="18" font-weight="700">Python + SQLite</text>
+      <rect x="226" width="132" height="50" rx="25" fill="#123526" stroke="#a3e635" stroke-opacity="0.56"/>
+      <text x="258" y="32" fill="#ecfccb" font-size="18" font-weight="700">74 tests</text>
+    </g>
+    <text x="95" y="560" fill="#72a7a5" font-size="15" letter-spacing="1.8">LIRIOTHTELTANION / NOVAFIT</text>
+  </g>
+
+  <g>
+    <circle cx="1018" cy="315" r="270" fill="url(#halo)"/>
+    <circle cx="1018" cy="315" r="214" fill="none" stroke="#34d399" stroke-opacity="0.25" stroke-width="2"/>
+    <circle cx="1018" cy="315" r="165" fill="#071e29" fill-opacity="0.74" stroke="#22d3ee" stroke-opacity="0.26"/>
+    <path d="M786 321H861L891 321L916 261L956 401L1002 190L1047 380L1080 290L1108 321H1237" fill="none" stroke="url(#accent)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+    <circle cx="1018" cy="315" r="26" fill="#071e29" stroke="#a3e635" stroke-width="4"/>
+    <path d="M1006 313L1016 323L1033 302" fill="none" stroke="#d9f99d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="1187" cy="204" r="6" fill="#a3e635" filter="url(#glow)"/>
+    <circle cx="846" cy="446" r="5" fill="#22d3ee" filter="url(#glow)"/>
+  </g>
+
+  <g transform="translate(1050 457) scale(.42)" fill="none" stroke="url(#accent)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.78">
+    <path d="M24 74C44 63 59 48 80 29C69 61 56 103 43 151M60 83C80 68 95 51 107 34M61 85C77 107 93 126 116 134"/>
+    <path d="M159 62C148 44 123 48 111 68C94 95 107 126 130 130C146 132 160 122 169 109"/>
+    <path d="M198 31C190 65 178 104 171 136C194 138 217 132 236 116C222 121 209 139 225 148C241 157 258 143 268 128"/>
+    <path d="M226 59C257 44 291 44 326 53M282 47C272 75 260 109 254 140"/>
+    <path d="M27 169C96 151 164 153 220 158C268 162 311 153 337 134"/>
+  </g>
+</svg>

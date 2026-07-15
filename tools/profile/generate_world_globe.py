@@ -9,6 +9,7 @@ result remains self-contained and suitable for a GitHub profile README.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
 import json
 import math
@@ -23,6 +24,7 @@ from typing import Any, Iterable, Mapping, Sequence
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_OUTPUT = ROOT / "assets"
 VERSION = "v5.1.1"
+DEFAULT_CACHE = ROOT / ".cache" / "profile" / f"natural-earth-{VERSION}"
 SOURCE_ROOT = (
     "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/"
     f"{VERSION}/geojson"
@@ -90,6 +92,15 @@ class MapBox:
 
 
 @dataclass(frozen=True)
+class SourceSpec:
+    """Pinned Natural Earth source and its verified byte checksum."""
+
+    filename: str
+    url: str
+    sha256: str
+
+
+@dataclass(frozen=True)
 class MapMarkup:
     """Pre-rendered geometry and route coordinates for one layout."""
 
@@ -104,6 +115,18 @@ class MapMarkup:
     tiny_count: int
 
 
+COUNTRIES_SOURCE = SourceSpec(
+    filename="ne_110m_admin_0_countries.geojson",
+    url=COUNTRIES_URL,
+    sha256="6866c877d39cba9c357620878839b336d569f8c662d3cfab4cb1dbe2d39c977f",
+)
+TINY_COUNTRIES_SOURCE = SourceSpec(
+    filename="ne_110m_admin_0_tiny_countries.geojson",
+    url=TINY_COUNTRIES_URL,
+    sha256="753c4b167361f0f1223091d52f98aaddfb9101529eef263cc094057e43228c40",
+)
+
+
 def build_parser() -> argparse.ArgumentParser:
     """Return the command-line parser."""
     parser = argparse.ArgumentParser(
@@ -115,17 +138,77 @@ def build_parser() -> argparse.ArgumentParser:
         default=DEFAULT_OUTPUT,
         help="Destination directory for the four SVG assets.",
     )
+    parser.add_argument(
+        "--cache-dir",
+        type=Path,
+        default=DEFAULT_CACHE,
+        help="Verified local cache for the pinned Natural Earth GeoJSON files.",
+    )
+    parser.add_argument(
+        "--offline",
+        action="store_true",
+        help="Require verified cached sources and make no network request.",
+    )
+    parser.add_argument(
+        "--refresh-cache",
+        action="store_true",
+        help="Download and re-verify pinned sources even when the cache is valid.",
+    )
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="Compare generated SVG text with existing outputs without writing assets.",
+    )
     return parser
 
 
-def fetch_geojson(url: str) -> dict[str, Any]:
-    """Fetch one pinned Natural Earth GeoJSON document."""
-    request = urllib.request.Request(url, headers={"User-Agent": "Lirioth-profile-map/1.0"})
-    with urllib.request.urlopen(request, timeout=30) as response:
-        payload = response.read().decode("utf-8")
-    data = json.loads(payload)
+def _decode_verified_geojson(payload: bytes, source: SourceSpec) -> dict[str, Any]:
+    """Validate source bytes against provenance before decoding GeoJSON."""
+    digest = hashlib.sha256(payload).hexdigest()
+    if digest != source.sha256:
+        raise ValueError(
+            f"Checksum mismatch for {source.filename}: expected {source.sha256}, got {digest}."
+        )
+    data = json.loads(payload.decode("utf-8"))
     if data.get("type") != "FeatureCollection" or not data.get("features"):
-        raise ValueError(f"Unexpected GeoJSON payload from {url}")
+        raise ValueError(f"Unexpected GeoJSON payload from {source.url}")
+    return data
+
+
+def fetch_geojson(
+    source: SourceSpec,
+    cache_dir: Path = DEFAULT_CACHE,
+    *,
+    offline: bool = False,
+    refresh_cache: bool = False,
+) -> dict[str, Any]:
+    """Load a checksum-verified pinned source from cache or the network."""
+    cache_path = cache_dir / source.filename
+    if cache_path.exists() and not refresh_cache:
+        try:
+            return _decode_verified_geojson(cache_path.read_bytes(), source)
+        except (OSError, UnicodeError, ValueError):
+            if offline:
+                raise
+            print(f"Ignoring invalid cache entry: {cache_path}")
+
+    if offline:
+        raise FileNotFoundError(
+            f"Verified offline source unavailable: {cache_path}. Run once without --offline."
+        )
+
+    request = urllib.request.Request(
+        source.url,
+        headers={"User-Agent": "Lirioth-profile-map/1.0"},
+    )
+    with urllib.request.urlopen(request, timeout=30) as response:
+        payload = response.read()
+    data = _decode_verified_geojson(payload, source)
+
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    temporary = cache_path.with_suffix(cache_path.suffix + ".tmp")
+    temporary.write_bytes(payload)
+    temporary.replace(cache_path)
     return data
 
 
@@ -430,8 +513,21 @@ def _write_svg(path: Path, content: str) -> None:
 def main() -> int:
     """Generate and validate all responsive globe assets."""
     args = build_parser().parse_args()
-    countries = fetch_geojson(COUNTRIES_URL)
-    tiny_countries = fetch_geojson(TINY_COUNTRIES_URL)
+    print(f"Natural Earth provenance: {VERSION}")
+    for source in (COUNTRIES_SOURCE, TINY_COUNTRIES_SOURCE):
+        print(f"- {source.filename}: sha256:{source.sha256}")
+    countries = fetch_geojson(
+        COUNTRIES_SOURCE,
+        args.cache_dir,
+        offline=args.offline,
+        refresh_cache=args.refresh_cache,
+    )
+    tiny_countries = fetch_geojson(
+        TINY_COUNTRIES_SOURCE,
+        args.cache_dir,
+        offline=args.offline,
+        refresh_cache=args.refresh_cache,
+    )
     desktop_map = build_map_markup(
         countries, tiny_countries, MapBox(x=48, y=166, width=700, height=350)
     )
@@ -444,16 +540,35 @@ def main() -> int:
         "world-globe-mobile.svg": render_mobile(mobile_map, animated=True),
         "world-globe-mobile-static.svg": render_mobile(mobile_map, animated=False),
     }
-    args.output_dir.mkdir(parents=True, exist_ok=True)
+    if not args.check:
+        args.output_dir.mkdir(parents=True, exist_ok=True)
+    failures = 0
     for filename, content in outputs.items():
         path = args.output_dir / filename
-        _write_svg(path, content)
-        print(f"Generated {filename}: {path.stat().st_size} bytes")
+        if args.check:
+            if not path.exists():
+                print(f"Missing generated globe asset: {path}")
+                failures += 1
+                continue
+            existing = path.read_text(encoding="utf-8")
+            if existing != content:
+                print(f"Generated globe asset is stale: {path}")
+                failures += 1
+            else:
+                print(f"Current {filename}: {path.stat().st_size} bytes")
+        else:
+            _write_svg(path, content)
+            print(f"Generated {filename}: {path.stat().st_size} bytes")
     print(
         "Coverage: "
         f"{desktop_map.country_count} country features + "
         f"{desktop_map.tiny_count} tiny-country markers [OK]"
     )
+    if failures:
+        print(f"Globe generation check failed: {failures} stale or missing asset(s).")
+        return 1
+    if args.check:
+        print("Globe generation check passed without modifying assets.")
     return 0
 
 

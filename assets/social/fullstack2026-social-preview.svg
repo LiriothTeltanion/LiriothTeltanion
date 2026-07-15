@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">Fullstack2026 social preview</title>
+  <desc id="desc">Navy, cyan and violet project card for Fullstack2026, an audited six-week learning archive covering Python, JavaScript, TypeScript and SQL.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#060a19"/><stop offset="0.56" stop-color="#0c1732"/><stop offset="1" stop-color="#24204a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="94" y1="110" x2="1170" y2="548" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22d3ee"/><stop offset="0.5" stop-color="#6366f1"/><stop offset="1" stop-color="#c084fc"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientTransform="translate(1018 315) rotate(90) scale(270)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4c1d95" stop-opacity="0.45"/><stop offset="0.6" stop-color="#172554" stop-opacity="0.39"/><stop offset="1" stop-color="#060a19" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#7dd3fc" stroke-opacity="0.05"/>
+    </pattern>
+    <filter id="glow" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="640" rx="30" fill="url(#bg)"/>
+  <rect width="1280" height="640" rx="30" fill="url(#grid)"/>
+  <path d="M0 550C243 477 433 599 675 521C882 455 1060 412 1280 463V640H0Z" fill="#312255" opacity="0.38"/>
+  <rect x="34" y="34" width="1212" height="572" rx="24" fill="none" stroke="#818cf8" stroke-opacity="0.25"/>
+  <rect x="34" y="34" width="8" height="572" rx="4" fill="url(#accent)"/>
+
+  <g font-family="Segoe UI, Inter, Arial, sans-serif">
+    <g transform="translate(92 82)">
+      <rect width="206" height="38" rx="19" fill="#121d3e" stroke="#a78bfa" stroke-opacity="0.48"/>
+      <circle cx="22" cy="19" r="5" fill="#c084fc" filter="url(#glow)"/>
+      <text x="40" y="25" fill="#ede9fe" font-size="15" font-weight="700" letter-spacing="2">LEARNING ARCHIVE</text>
+    </g>
+    <text x="92" y="226" fill="#fbfbff" font-size="68" font-weight="760" letter-spacing="-2">Fullstack2026</text>
+    <text x="94" y="287" fill="#ddd6fe" font-size="32" font-weight="650">Audited six-week learning archive</text>
+    <rect x="94" y="323" width="536" height="2" fill="url(#accent)"/>
+    <text x="94" y="382" fill="#d5e7ff" font-size="25" font-weight="600">Documented practice, tests, CI, and transparent quality gates.</text>
+
+    <g transform="translate(94 452)">
+      <rect width="294" height="50" rx="25" fill="#111d3c" stroke="#22d3ee" stroke-opacity="0.56"/>
+      <text x="27" y="32" fill="#e0f2fe" font-size="18" font-weight="700">Python + JS + TS + SQL</text>
+      <rect x="310" width="148" height="50" rx="25" fill="#281d48" stroke="#c084fc" stroke-opacity="0.56"/>
+      <text x="340" y="32" fill="#f3e8ff" font-size="18" font-weight="650">6 weeks</text>
+    </g>
+    <text x="95" y="560" fill="#7f9ab9" font-size="15" letter-spacing="1.8">LIRIOTHTELTANION / FULLSTACK2026</text>
+  </g>
+
+  <g>
+    <circle cx="1018" cy="315" r="270" fill="url(#halo)"/>
+    <circle cx="1018" cy="315" r="214" fill="none" stroke="#818cf8" stroke-opacity="0.25" stroke-width="2"/>
+    <path d="M874 190H1158V440H874Z" fill="#07142c" fill-opacity="0.82" stroke="#6366f1" stroke-opacity="0.45" stroke-width="3"/>
+    <path d="M874 242H1158" stroke="#818cf8" stroke-opacity="0.36" stroke-width="2"/>
+    <circle cx="904" cy="216" r="6" fill="#22d3ee"/><circle cx="928" cy="216" r="6" fill="#818cf8"/><circle cx="952" cy="216" r="6" fill="#c084fc"/>
+    <g font-family="Consolas, Menlo, monospace" font-size="23" font-weight="700">
+      <text x="910" y="296" fill="#67e8f9">01</text><text x="964" y="296" fill="#dbeafe">PYTHON</text>
+      <text x="910" y="339" fill="#818cf8">02</text><text x="964" y="339" fill="#e0e7ff">JS / TS</text>
+      <text x="910" y="382" fill="#c084fc">03</text><text x="964" y="382" fill="#f3e8ff">SQL</text>
+    </g>
+    <path d="M1094 287L1112 305L1144 271M1094 330L1112 348L1144 314M1094 373L1112 391L1144 357" fill="none" stroke="url(#accent)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="1177" cy="188" r="6" fill="#c084fc" filter="url(#glow)"/>
+    <circle cx="846" cy="455" r="5" fill="#22d3ee" filter="url(#glow)"/>
+  </g>
+
+  <g transform="translate(1051 457) scale(.42)" fill="none" stroke="url(#accent)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.75">
+    <path d="M24 74C44 63 59 48 80 29C69 61 56 103 43 151M60 83C80 68 95 51 107 34M61 85C77 107 93 126 116 134"/>
+    <path d="M159 62C148 44 123 48 111 68C94 95 107 126 130 130C146 132 160 122 169 109"/>
+    <path d="M198 31C190 65 178 104 171 136C194 138 217 132 236 116C222 121 209 139 225 148C241 157 258 143 268 128"/>
+    <path d="M226 59C257 44 291 44 326 53M282 47C272 75 260 109 254 140"/>
+    <path d="M27 169C96 151 164 153 220 158C268 162 311 153 337 134"/>
+  </g>
+</svg>

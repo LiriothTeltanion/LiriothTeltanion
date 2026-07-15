@@ -24,7 +24,26 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Run profile verifier
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: "3.13"
+
+      - name: Compile Python tooling
+        shell: pwsh
+        run: python -m compileall -q scripts tests tools/profile
+
+      - name: Run Python doctests
+        shell: pwsh
+        run: python -m doctest scripts/build_profile.py scripts/validate_profile.py tools/profile/generate_world_globe.py
+
+      - name: Validate compact, expanded and localized profiles
+        shell: pwsh
+        run: |
+          python scripts/validate_profile.py --readme README.md --max-lines 300 --mode compact --check-localized
+          python scripts/validate_profile.py --readme README_EXPANDED.md --max-lines 300 --mode expanded
+
+      - name: Run PowerShell profile verifier
         shell: pwsh
         run: ./tools/profile/verify-profile.ps1
 
@@ -35,16 +54,5 @@ jobs:
       - name: Verify generated profiles are current
         shell: pwsh
         run: |
-          function Get-NormalizedContent([string] $Path) {
-            return (Get-Content -LiteralPath $Path -Raw).Replace("`r`n", "`n").Replace("`r", "`n")
-          }
-          $compact = Join-Path $env:RUNNER_TEMP "README.generated.md"
-          $expanded = Join-Path $env:RUNNER_TEMP "README_EXPANDED.generated.md"
-          python scripts/build_profile.py --mode compact --output $compact
-          python scripts/build_profile.py --mode expanded --output $expanded
-          if ((Get-NormalizedContent README.md) -cne (Get-NormalizedContent $compact)) {
-            throw "README.md is not synchronized with profile.json and scripts/build_profile.py."
-          }
-          if ((Get-NormalizedContent README_EXPANDED.md) -cne (Get-NormalizedContent $expanded)) {
-            throw "README_EXPANDED.md is not synchronized with profile.json and scripts/build_profile.py."
-          }
+          python scripts/build_profile.py --mode compact --output README.md --check
+          python scripts/build_profile.py --mode expanded --output README_EXPANDED.md --check

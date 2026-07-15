@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="200" viewBox="0 0 360 200" role="img" aria-labelledby="title desc">
+  <title id="title">KC LT compact signature mark</title>
+  <desc id="desc">A compact transparent blue handwritten monogram combining the initials K, C, L and T.</desc>
+  <defs>
+    <linearGradient id="ink" x1="25" y1="178" x2="330" y2="30" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#155eef"/><stop offset="0.58" stop-color="#0b8ff5"/><stop offset="1" stop-color="#67e8f9"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#ink)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M24 74C44 63 59 48 80 29C69 61 56 103 43 151M60 83C80 68 95 51 107 34M61 85C77 107 93 126 116 134"/>
+    <path d="M159 62C148 44 123 48 111 68C94 95 107 126 130 130C146 132 160 122 169 109"/>
+    <path d="M198 31C190 65 178 104 171 136C194 138 217 132 236 116C222 121 209 139 225 148C241 157 258 143 268 128"/>
+    <path d="M226 59C257 44 291 44 326 53M282 47C272 75 260 109 254 140"/>
+    <path d="M27 169C96 151 164 153 220 158C268 162 311 153 337 134"/>
+  </g>
+</svg>

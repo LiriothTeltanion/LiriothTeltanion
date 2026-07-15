@@ -6,7 +6,7 @@
   <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/profile-banner-mobile-static.svg" />
   <source media="(max-width: 640px)" srcset="./assets/profile-banner-mobile-animated.svg" />
   <source media="(prefers-reduced-motion: reduce)" srcset="./assets/profile-banner-static.svg" />
-  <img src="./assets/profile-banner-animated.svg" width="100%" alt="Kevin Cusnir and Lirioth Teltanion — frontend, full-stack and creative engineering profile" />
+  <img src="./assets/profile-banner-animated.svg" width="100%" alt="Portrait of Kevin Cusnir with the Lirioth Teltanion creative identity, KC LT signature and frontend, full-stack and creative engineering focus" />
 </picture>
 
 # Kevin Cusnir · Lirioth Teltanion ✨
@@ -31,33 +31,16 @@
 
 I’m **Kevin Cusnir**, born in **San Cristóbal, Venezuela** and now based in **Beersheba, Israel**. I build React, TypeScript, Python and SQL products with accessible multilingual UX, data honesty and practical automation.
 
-> **Availability:** Open to junior frontend, full-stack and creative-technology opportunities.
+> **Open to junior frontend, full-stack and creative-technology opportunities.** Best fit: a junior team with mentorship, real users, thoughtful review and room for structured creativity.
 
 | What I can prove publicly | Strongest evidence |
 |---|---|
 | React and TypeScript product work | Nova Music Lab and Christopher Rodríguez Portfolio |
-| Python, SQLite and desktop workflows | NovaFit Ultimate 4.0 and Fullstack2026 |
-| Data transformation and honesty | Multi-source music import, deduplication, validation and coverage labels |
-| Accessibility and multilingual UX | EN/ES/HE, RTL behavior, keyboard use and reduced-motion support |
-| Delivery discipline | Automated tests, CI, GitHub Pages, bundle budgets and release checklists |
+| Python, SQLite and desktop workflows | NovaFit Ultimate 4.0; Fullstack2026 shows the learning path |
+| Data, accessibility and multilingual UX | Honest source-aware analytics; EN/ES/HE, RTL, keyboard and reduced-motion work |
+| Delivery discipline | Automated tests, CI, live Pages builds, bundle budgets and release checks |
 
-**Best fit:** a junior role with real users, respectful code review, mentorship, product quality and room for structured creativity.
-
-<picture>
-  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/portfolio-command-center-mobile-static.svg" />
-  <source media="(max-width: 640px)" srcset="./assets/portfolio-command-center-mobile.svg" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/portfolio-command-center-static.svg" />
-  <img src="./assets/portfolio-command-center-animated.svg" width="100%" alt="Four featured projects with their scope, stack, accessibility and delivery evidence" />
-</picture>
-
-### A reviewer-friendly path
-
-| Time | What to inspect | What it proves |
-|---:|---|---|
-| **30 seconds** | Read the snapshot and role positioning | Target role, stack and strongest differentiators |
-| **2 minutes** | Open Nova Music Lab and NovaFit | Frontend/data flagship plus complete Python desktop product |
-| **5 minutes** | Inspect tests, CI, README architecture and recent commits | Implementation depth, verification and delivery discipline |
-| **15 minutes** | Run NovaFit or explore the live music museum | Real product behavior beyond screenshots |
+**Review path:** **30 seconds**: Read the snapshot and role positioning · **2 minutes**: Open Nova Music Lab and NovaFit · **5 minutes**: Inspect tests, CI, README architecture and recent commits · **15 minutes**: Run NovaFit or explore the live music museum.
 
 ---
 
@@ -65,14 +48,23 @@ I’m **Kevin Cusnir**, born in **San Cristóbal, Venezuela** and now based in *
 
 ### 🎧 Nova Music Lab
 
-**Status:** Live flagship<br>
+**Status:** Live local-first flagship<br>
 **Problem:** Listening exports are fragmented, hard to compare and easy to misrepresent.<br>
-**Solution:** A local-first personal music museum with multi-source imports, honest analytics, multilingual UX, generative identity and quality gates.<br>
+**Solution:** A local-first music museum that turns exports from five listening ecosystems into source-aware analytics, visual stories and a portable personal archive.<br>
 **Stack:** React · TypeScript · Vite · Vitest · Recharts · GitHub Actions<br>
-**Evidence:** Source normalization, deduplication, tests, bundle budgets, CI and GitHub Pages<br>
+**Evidence:** Five import families, source normalization, deduplication, automated tests, bundle budgets, CI and a live GitHub Pages build<br>
 **Role signal:** Frontend engineering · data visualization · privacy-aware product thinking<br>
-**Highlights:** Five import families normalized into one model · Lazy-loaded museum rooms and bundle budgets · Multilingual UX, accessibility checks, tests and CI<br>
+**Highlights:** Five import families normalized into one model · Lazy-loaded museum rooms and bundle budgets · Fourteen themes, EN/ES UX, reduced-motion support and Hebrew resource tooling<br>
 [Open Nova Music Lab live demo](https://liriothteltanion.github.io/NovaMusicLab/) · [Nova Music Lab source](https://github.com/LiriothTeltanion/NovaMusicLab)
+
+<a href="https://liriothteltanion.github.io/NovaMusicLab/">
+<picture>
+  <source media="(max-width: 640px)" srcset="./assets/nova-music-live-preview-mobile.jpg" />
+  <img src="./assets/nova-music-live-preview.jpg" width="100%" alt="Current Nova Music Lab hero showing the bundled demonstration museum, navigation and live product calls to action" />
+</picture>
+</a>
+
+**Live product preview:** responsive React interface, bundled demonstration museum and a direct path to the working deployment.
 
 <details>
 <summary><strong>🎧 Open the Nova Music Lab data journey</strong></summary>
@@ -150,24 +142,28 @@ The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, 
 **Evidence:** EN/ES content architecture, keyboard UX, reduced motion, SEO and automated deployment<br>
 **Role signal:** Client communication · accessible frontend · maintainable content architecture<br>
 **Highlights:** Content separated from presentation · Bilingual EN/ES experience and persistent preferences · Verification states for professional claims<br>
-[Christopher Rodríguez Portfolio source](https://github.com/LiriothTeltanion/ChristopherRodriguezCVOnline)
+[Open Christopher Rodríguez Portfolio live demo](https://liriothteltanion.github.io/ChristopherRodriguezCVOnline/) · [Christopher Rodríguez Portfolio source](https://github.com/LiriothTeltanion/ChristopherRodriguezCVOnline)
 
 ### 📚 Fullstack2026
 
-**Status:** Learning evidence archive<br>
+**Status:** Audited six-week learning archive<br>
 **Problem:** Course exercises need context, progression and reproducible quality checks.<br>
 **Solution:** A structured archive from Python and OOP through JavaScript, DOM, async workflows, TypeScript, Node and databases.<br>
 **Stack:** Python · JavaScript · TypeScript · Node.js · SQL<br>
-**Evidence:** Progressive exercises, focused PRs, documentation, repository audit and CI<br>
+**Evidence:** Six curriculum weeks, 14 discoverable test files, CI, generated audits and transparently documented remaining quality gates<br>
 **Role signal:** Learning progression · problem solving · Git/PR discipline<br>
-**Highlights:** Python and OOP foundations · DOM, asynchronous JavaScript, TypeScript, Node and SQL · Repository-wide documentation and quality workflow<br>
+**Highlights:** Python and OOP foundations · DOM, asynchronous JavaScript, TypeScript, Node and SQL · Repository-wide documentation, audit reports and visible unresolved gates<br>
 [Fullstack2026 source](https://github.com/LiriothTeltanion/Fullstack2026)
 
 ---
 
 ## 🧪 Engineering evidence
 
-<img src="./assets/engineering-orbit-animated.svg" width="100%" alt="Product engineering connects frontend, Python, data, accessibility, privacy, testing and delivery" />
+<picture>
+  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/engineering-orbit-mobile-static.svg" />
+  <source media="(max-width: 640px)" srcset="./assets/engineering-orbit-mobile.svg" />
+  <img src="./assets/engineering-orbit-animated.svg" width="100%" alt="Product engineering connects frontend, Python, data, accessibility, privacy, testing and delivery" />
+</picture>
 
 > Evidence counts come from the featured public projects and their documented quality pipelines.
 
@@ -284,6 +280,11 @@ Together, these identities make technically sound products easier to understand,
 <p align="right"><a href="#top">⬆️ Back to top</a></p>
 
 <div align="center">
+
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/brand/kc-lt-signature.svg" />
+  <img src="./assets/brand/kc-lt-signature-animated.svg" width="360" alt="KC LT handwritten blue signature, the personal mark of Kevin Cusnir and Lirioth Teltanion" />
+</picture>
 
 **Code with purpose. Design with personality. Data with honesty.** 💙
 

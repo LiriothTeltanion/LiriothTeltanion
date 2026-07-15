@@ -13,6 +13,7 @@ import json
 import sys
 from pathlib import Path
 from typing import Any, Mapping, Sequence
+from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_DATA = ROOT / "profile.json"
@@ -26,6 +27,7 @@ REQUIRED_PROFILE_SECTIONS = {
     "languages",
     "links",
     "projects",
+    "review_path",
     "skills",
     "strengths",
 }
@@ -82,6 +84,11 @@ def build_parser() -> argparse.ArgumentParser:
         default="compact",
         help="Compact keeps secondary content inside details blocks.",
     )
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="Verify that the output already matches the generated profile without writing it.",
+    )
     return parser
 
 
@@ -121,20 +128,38 @@ def _validate_profile_data(data: Mapping[str, Any]) -> None:
 
     links = _require_mapping(data["links"], "profile.links", LINK_FIELDS)
     for field in LINK_FIELDS:
-        _require_text(links[field], f"profile.links.{field}")
+        path = f"profile.links.{field}"
+        if field == "email":
+            _require_mailto_url(links[field], path)
+        else:
+            _require_https_url(links[field], path)
 
     projects = _require_list(data["projects"], "profile.projects")
+    project_names: list[str] = []
+    project_urls: list[str] = []
     for index, raw_project in enumerate(projects):
         path = f"profile.projects[{index}]"
         project = _require_mapping(raw_project, path, PROJECT_FIELDS)
         for field in PROJECT_FIELDS:
             if field == "demo" and project[field] is None:
                 continue
-            _require_text(project[field], f"{path}.{field}")
+            field_path = f"{path}.{field}"
+            if field in {"source", "demo"}:
+                _require_https_url(project[field], field_path)
+                project_urls.append(project[field])
+            else:
+                _require_text(project[field], field_path)
+        project_names.append(project["name"])
         if "role_signal" in project:
             _require_text(project["role_signal"], f"{path}.role_signal")
         if "highlights" in project:
-            _require_text_list(project["highlights"], f"{path}.highlights", allow_empty=True)
+            highlights = _require_text_list(
+                project["highlights"], f"{path}.highlights", allow_empty=True
+            )
+            _require_unique(highlights, f"{path}.highlights")
+
+    _require_unique(project_names, "profile.projects names")
+    _require_unique(project_urls, "profile.projects source/demo URLs", normalize_url=True)
 
     flagship = projects[0]
     if flagship["name"] != "Nova Music Lab":
@@ -145,38 +170,56 @@ def _validate_profile_data(data: Mapping[str, Any]) -> None:
     _require_text(flagship["demo"], "profile.projects[0].demo")
 
     skills = _require_mapping(data["skills"], "profile.skills", SKILL_FIELDS)
+    all_skills: list[str] = []
     for field in SKILL_FIELDS:
-        _require_text_list(skills[field], f"profile.skills.{field}")
+        items = _require_text_list(skills[field], f"profile.skills.{field}")
+        _require_unique(items, f"profile.skills.{field}")
+        all_skills.extend(items)
+    _require_unique(all_skills, "profile.skills across categories")
 
     languages = _require_list(data["languages"], "profile.languages")
+    language_names: list[str] = []
     for index, raw_language in enumerate(languages):
         path = f"profile.languages[{index}]"
         language = _require_mapping(raw_language, path, LANGUAGE_FIELDS)
         for field in LANGUAGE_FIELDS:
             _require_text(language[field], f"{path}.{field}")
+        language_names.append(language["name"])
+    _require_unique(language_names, "profile.languages names")
 
     evidence_counts = _require_list(data["evidence_counts"], "profile.evidence_counts")
+    evidence_labels: list[str] = []
     for index, raw_item in enumerate(evidence_counts):
         path = f"profile.evidence_counts[{index}]"
         item = _require_mapping(raw_item, path, EVIDENCE_FIELDS)
         _require_text(item["label"], f"{path}.label")
-        if item["value"] is None or (isinstance(item["value"], str) and not item["value"].strip()):
-            raise ValueError(f"{path}.value must not be empty.")
+        if (
+            not isinstance(item["value"], int)
+            or isinstance(item["value"], bool)
+            or item["value"] < 0
+        ):
+            raise ValueError(f"{path}.value must be a non-negative integer.")
+        evidence_labels.append(item["label"])
+    _require_unique(evidence_labels, "profile.evidence_counts labels")
 
-    _require_text_list(data["strengths"], "profile.strengths")
-    _require_text_list(data["growth"], "profile.growth")
+    strengths = _require_text_list(data["strengths"], "profile.strengths")
+    growth = _require_text_list(data["growth"], "profile.growth")
+    _require_unique(strengths, "profile.strengths")
+    _require_unique(growth, "profile.growth")
 
     education = _require_mapping(data["education"], "profile.education", EDUCATION_FIELDS)
     for field in EDUCATION_FIELDS:
         _require_text(education[field], f"profile.education.{field}")
 
-    if "review_path" in data:
-        review_path = _require_list(data["review_path"], "profile.review_path", allow_empty=True)
-        for index, raw_item in enumerate(review_path):
-            path = f"profile.review_path[{index}]"
-            item = _require_mapping(raw_item, path, REVIEW_PATH_FIELDS)
-            for field in REVIEW_PATH_FIELDS:
-                _require_text(item[field], f"{path}.{field}")
+    review_path = _require_list(data["review_path"], "profile.review_path")
+    review_times: list[str] = []
+    for index, raw_item in enumerate(review_path):
+        path = f"profile.review_path[{index}]"
+        item = _require_mapping(raw_item, path, REVIEW_PATH_FIELDS)
+        for field in REVIEW_PATH_FIELDS:
+            _require_text(item[field], f"{path}.{field}")
+        review_times.append(item["time"])
+    _require_unique(review_times, "profile.review_path times")
 
 
 def _require_mapping(
@@ -217,6 +260,63 @@ def _require_text_list(value: Any, path: str, *, allow_empty: bool = False) -> l
     return items
 
 
+def _require_https_url(value: Any, path: str) -> str:
+    """Validate a public HTTPS URL without embedded credentials."""
+    url = _require_text(value, path)
+    parsed = urlsplit(url)
+    if (
+        parsed.scheme != "https"
+        or not parsed.netloc
+        or parsed.username is not None
+        or parsed.password is not None
+        or any(character.isspace() for character in url)
+    ):
+        raise ValueError(f"{path} must be an absolute HTTPS URL without credentials.")
+    return url
+
+
+def _require_mailto_url(value: Any, path: str) -> str:
+    """Validate the public contact email as a simple mailto URL."""
+    url = _require_text(value, path)
+    parsed = urlsplit(url)
+    address = parsed.path
+    if (
+        parsed.scheme != "mailto"
+        or parsed.netloc
+        or parsed.query
+        or parsed.fragment
+        or address.count("@") != 1
+        or address.startswith("@")
+        or address.endswith("@")
+        or any(character.isspace() for character in address)
+    ):
+        raise ValueError(f"{path} must be a simple mailto URL.")
+    return url
+
+
+def _require_unique(
+    values: Sequence[str],
+    path: str,
+    *,
+    normalize_url: bool = False,
+) -> None:
+    """Reject case-insensitive duplicate labels or equivalent URLs."""
+    seen: dict[str, str] = {}
+    for value in values:
+        if normalize_url:
+            parsed = urlsplit(value)
+            key = parsed._replace(
+                scheme=parsed.scheme.lower(),
+                netloc=parsed.netloc.lower(),
+                path=parsed.path.rstrip("/"),
+            ).geturl()
+        else:
+            key = value.strip().casefold()
+        if key in seen:
+            raise ValueError(f"{path} contains duplicate values: {seen[key]!r} and {value!r}.")
+        seen[key] = value
+
+
 def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
     """Render the complete recruiter-facing Markdown profile.
 
@@ -240,7 +340,11 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
     identity = data["identity"]
     links = data["links"]
     projects = data["projects"]
+    review_path = data["review_path"]
     skills = data["skills"]
+    fast_review = " · ".join(
+        f"**{item['time']}**: {item['action']}" for item in review_path
+    )
 
     lines: list[str] = [
         '<a id="top"></a>',
@@ -251,7 +355,7 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
         '  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/profile-banner-mobile-static.svg" />',
         '  <source media="(max-width: 640px)" srcset="./assets/profile-banner-mobile-animated.svg" />',
         '  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/profile-banner-static.svg" />',
-        '  <img src="./assets/profile-banner-animated.svg" width="100%" alt="Kevin Cusnir and Lirioth Teltanion — frontend, full-stack and creative engineering profile" />',
+        '  <img src="./assets/profile-banner-animated.svg" width="100%" alt="Portrait of Kevin Cusnir with the Lirioth Teltanion creative identity, KC LT signature and frontend, full-stack and creative engineering focus" />',
         "</picture>",
         "",
         f"# {identity['name']} · {identity['alias']} ✨",
@@ -276,33 +380,16 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
         "",
         f"I’m **{identity['name']}**, born in **{identity['birthplace']}** and now based in **{identity['location']}**. {identity['positioning']}",
         "",
-        f"> **Availability:** {identity['availability']}.",
+        f"> **{identity['availability']}.** Best fit: a junior team with mentorship, real users, thoughtful review and room for structured creativity.",
         "",
         "| What I can prove publicly | Strongest evidence |",
         "|---|---|",
         "| React and TypeScript product work | Nova Music Lab and Christopher Rodríguez Portfolio |",
-        "| Python, SQLite and desktop workflows | NovaFit Ultimate 4.0 and Fullstack2026 |",
-        "| Data transformation and honesty | Multi-source music import, deduplication, validation and coverage labels |",
-        "| Accessibility and multilingual UX | EN/ES/HE, RTL behavior, keyboard use and reduced-motion support |",
-        "| Delivery discipline | Automated tests, CI, GitHub Pages, bundle budgets and release checklists |",
+        "| Python, SQLite and desktop workflows | NovaFit Ultimate 4.0; Fullstack2026 shows the learning path |",
+        "| Data, accessibility and multilingual UX | Honest source-aware analytics; EN/ES/HE, RTL, keyboard and reduced-motion work |",
+        "| Delivery discipline | Automated tests, CI, live Pages builds, bundle budgets and release checks |",
         "",
-        "**Best fit:** a junior role with real users, respectful code review, mentorship, product quality and room for structured creativity.",
-        "",
-        '<picture>',
-        '  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/portfolio-command-center-mobile-static.svg" />',
-        '  <source media="(max-width: 640px)" srcset="./assets/portfolio-command-center-mobile.svg" />',
-        '  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/portfolio-command-center-static.svg" />',
-        '  <img src="./assets/portfolio-command-center-animated.svg" width="100%" alt="Four featured projects with their scope, stack, accessibility and delivery evidence" />',
-        '</picture>',
-        "",
-        "### A reviewer-friendly path",
-        "",
-        "| Time | What to inspect | What it proves |",
-        "|---:|---|---|",
-        *[
-            f"| **{item['time']}** | {item['action']} | {item['evidence']} |"
-            for item in data.get("review_path", [])
-        ],
+        f"**Review path:** {fast_review}.",
         "",
         "---",
         "",
@@ -323,7 +410,11 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
             "",
             "## 🧪 Engineering evidence",
             "",
-            '<img src="./assets/engineering-orbit-animated.svg" width="100%" alt="Product engineering connects frontend, Python, data, accessibility, privacy, testing and delivery" />',
+            '<picture>',
+            '  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/engineering-orbit-mobile-static.svg" />',
+            '  <source media="(max-width: 640px)" srcset="./assets/engineering-orbit-mobile.svg" />',
+            '  <img src="./assets/engineering-orbit-animated.svg" width="100%" alt="Product engineering connects frontend, Python, data, accessibility, privacy, testing and delivery" />',
+            '</picture>',
             "",
             "> Evidence counts come from the featured public projects and their documented quality pipelines.",
             "",
@@ -455,6 +546,11 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
             "",
             '<div align="center">',
             "",
+            '<picture>',
+            '  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/brand/kc-lt-signature.svg" />',
+            '  <img src="./assets/brand/kc-lt-signature-animated.svg" width="360" alt="KC LT handwritten blue signature, the personal mark of Kevin Cusnir and Lirioth Teltanion" />',
+            '</picture>',
+            "",
             "**Code with purpose. Design with personality. Data with honesty.** 💙",
             "",
             "</div>",
@@ -513,8 +609,17 @@ def _render_project(project: Mapping[str, Any]) -> list[str]:
 
 
 def _render_nova_music_spotlight(project: Mapping[str, Any]) -> list[str]:
-    """Render the flagship product journey directly after Nova Music Lab."""
+    """Render the live flagship preview and its data journey."""
     return [
+        f'<a href="{project["demo"]}">',
+        '<picture>',
+        '  <source media="(max-width: 640px)" srcset="./assets/nova-music-live-preview-mobile.jpg" />',
+        '  <img src="./assets/nova-music-live-preview.jpg" width="100%" alt="Current Nova Music Lab hero showing the bundled demonstration museum, navigation and live product calls to action" />',
+        '</picture>',
+        '</a>',
+        "",
+        "**Live product preview:** responsive React interface, bundled demonstration museum and a direct path to the working deployment.",
+        "",
         "<details>",
         '<summary><strong>🎧 Open the Nova Music Lab data journey</strong></summary>',
         "",
@@ -631,6 +736,21 @@ def main() -> int:
         0
     """
     args = build_parser().parse_args()
+    if args.check:
+        expected = render_profile(load_profile(args.data), args.mode)
+        if not args.output.exists():
+            print(f"Generated profile check failed: missing {args.output}", file=sys.stderr)
+            return 1
+        actual = args.output.read_text(encoding="utf-8")
+        if actual != expected:
+            print(
+                f"Generated profile check failed: {args.output} is not synchronized with "
+                f"{args.data} in {args.mode} mode.",
+                file=sys.stderr,
+            )
+            return 1
+        _print_success(f"Generated profile is current: {args.output}")
+        return 0
     output = write_profile(args.data, args.output, args.mode)
     line_count = len(output.read_text(encoding="utf-8").splitlines())
     _print_success(f"Generated {output} with {line_count} lines")

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">Christopher Rodriguez educator portfolio social preview</title>
+  <desc id="desc">Navy, cyan and amber project card for an accessible bilingual educator portfolio built with React and TypeScript.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07101f"/><stop offset="0.57" stop-color="#0a1c34"/><stop offset="1" stop-color="#2c2639"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="95" y1="112" x2="1174" y2="548" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22d3ee"/><stop offset="0.52" stop-color="#60a5fa"/><stop offset="1" stop-color="#fbbf24"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientTransform="translate(1018 315) rotate(90) scale(266)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#78350f" stop-opacity="0.42"/><stop offset="0.58" stop-color="#172554" stop-opacity="0.43"/><stop offset="1" stop-color="#07101f" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#7dd3fc" stroke-opacity="0.05"/>
+    </pattern>
+    <filter id="glow" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="640" rx="30" fill="url(#bg)"/>
+  <rect width="1280" height="640" rx="30" fill="url(#grid)"/>
+  <path d="M0 550C247 476 439 599 674 524C886 456 1083 406 1280 466V640H0Z" fill="#3a2a32" opacity="0.4"/>
+  <rect x="34" y="34" width="1212" height="572" rx="24" fill="none" stroke="#60a5fa" stroke-opacity="0.25"/>
+  <rect x="34" y="34" width="8" height="572" rx="4" fill="url(#accent)"/>
+
+  <g font-family="Segoe UI, Inter, Arial, sans-serif">
+    <g transform="translate(92 82)">
+      <rect width="190" height="38" rx="19" fill="#10233f" stroke="#fbbf24" stroke-opacity="0.46"/>
+      <circle cx="22" cy="19" r="5" fill="#fbbf24" filter="url(#glow)"/>
+      <text x="40" y="25" fill="#fef3c7" font-size="15" font-weight="700" letter-spacing="2">CLIENT PORTFOLIO</text>
+    </g>
+    <text x="92" y="218" fill="#fbfdff" font-size="62" font-weight="760" letter-spacing="-1.7">Christopher Rodríguez</text>
+    <text x="94" y="282" fill="#fde68a" font-size="30" font-weight="650">Accessible bilingual educator portfolio</text>
+    <rect x="94" y="319" width="594" height="2" fill="url(#accent)"/>
+    <text x="94" y="377" fill="#d7eaff" font-size="24" font-weight="600">Clear evidence, verified content states, keyboard-friendly UX.</text>
+
+    <g transform="translate(94 452)">
+      <rect width="212" height="50" rx="25" fill="#10233f" stroke="#38bdf8" stroke-opacity="0.58"/>
+      <text x="28" y="32" fill="#e0f2fe" font-size="18" font-weight="700">React + TypeScript</text>
+      <rect x="228" width="146" height="50" rx="25" fill="#322619" stroke="#fbbf24" stroke-opacity="0.58"/>
+      <text x="262" y="32" fill="#fef3c7" font-size="18" font-weight="650">EN + ES</text>
+    </g>
+    <text x="95" y="560" fill="#829fbe" font-size="15" letter-spacing="1.55">LIRIOTHTELTANION / CHRISTOPHERRODRIGUEZCVONLINE</text>
+  </g>
+
+  <g>
+    <circle cx="1018" cy="315" r="268" fill="url(#halo)"/>
+    <circle cx="1018" cy="315" r="214" fill="none" stroke="#60a5fa" stroke-opacity="0.24" stroke-width="2"/>
+    <path d="M850 213C900 189 955 194 1018 228V440C955 405 900 401 850 422Z" fill="#0b203b" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="3"/>
+    <path d="M1186 213C1136 189 1081 194 1018 228V440C1081 405 1136 401 1186 422Z" fill="#2a251f" stroke="#fbbf24" stroke-opacity="0.58" stroke-width="3"/>
+    <path d="M1018 228V440" stroke="#f8fafc" stroke-opacity="0.42" stroke-width="2"/>
+    <g fill="none" stroke-linecap="round">
+      <path d="M884 258H976M884 287H963M884 316H979M884 345H952" stroke="#7dd3fc" stroke-opacity="0.7" stroke-width="5"/>
+      <path d="M1060 258H1150M1060 287H1136M1060 316H1154M1060 345H1128" stroke="#fde68a" stroke-opacity="0.72" stroke-width="5"/>
+    </g>
+    <circle cx="1180" cy="198" r="6" fill="#fbbf24" filter="url(#glow)"/>
+    <circle cx="856" cy="454" r="5" fill="#22d3ee" filter="url(#glow)"/>
+  </g>
+
+  <g transform="translate(1051 456) scale(.42)" fill="none" stroke="url(#accent)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.75">
+    <path d="M24 74C44 63 59 48 80 29C69 61 56 103 43 151M60 83C80 68 95 51 107 34M61 85C77 107 93 126 116 134"/>
+    <path d="M159 62C148 44 123 48 111 68C94 95 107 126 130 130C146 132 160 122 169 109"/>
+    <path d="M198 31C190 65 178 104 171 136C194 138 217 132 236 116C222 121 209 139 225 148C241 157 258 143 268 128"/>
+    <path d="M226 59C257 44 291 44 326 53M282 47C272 75 260 109 254 140"/>
+    <path d="M27 169C96 151 164 153 220 158C268 162 311 153 337 134"/>
+  </g>
+</svg>

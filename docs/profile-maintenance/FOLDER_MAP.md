@@ -4,12 +4,16 @@
 LiriothTeltanion/
 ├── .github/
 │   └── workflows/
+│       ├── external-link-audit.yml # Weekly/manual public-link audit
 │       └── profile-validation.yml  # Automated profile checks
 ├── assets/                         # Public banners and visual assets
+│   ├── brand/                      # KC × LT signature and avatar derivatives
 │   ├── projects/                   # Featured-project cards
+│   ├── social/                     # Upload-ready 1280 × 640 previews
 │   └── visuals/                    # Profile section illustrations
 ├── docs/
 │   └── profile-maintenance/
+│       ├── ASSET_MANIFEST.md       # Public, retained and removed asset policy
 │       ├── FOLDER_MAP.md
 │       ├── PUBLIC_METADATA.md
 │       ├── ROADMAP.md
@@ -22,6 +26,7 @@ LiriothTeltanion/
 │   └── CODEX_PROFILE.md            # Reusable focused-edit prompt
 ├── scripts/
 │   ├── build_profile.py            # Compact/expanded README generator
+│   ├── check_external_links.py     # Conservative scheduled URL audit
 │   └── validate_profile.py         # Lightweight generated-profile checks
 ├── tests/
 │   └── test_profile_tooling.py     # Generator/validator regressions
@@ -43,17 +48,24 @@ LiriothTeltanion/
 └── SETUP.md                        # Setup and first-run guide
 ```
 
-## Generated local content
+## Ignored local content
 
 `tools/profile/backup-readme.ps1` creates `.local-backups/` at the repository
 root. That directory is intentionally absent from the tracked tree and is
 ignored by the repository's `.gitignore`, so the behavior is portable to every
 clone.
 
+`.nova-pack-backup/` is also ignored. It is an accidental local package-snapshot
+location, not part of the tracked `preview/` archive.
+
+`.cache/` stores checksum-verified Natural Earth source downloads for the globe
+generator. It is reproducible and intentionally untracked.
+
 ## Directory roles
 
 - `assets/` contains files used by the public README. Treat filenames and case
-  as public API because GitHub resolves the relative paths.
+  as public API because GitHub resolves the relative paths. See
+  `ASSET_MANIFEST.md` before removing public, generated or provenance artwork.
 - `preview/` contains retained rendering proofs and historical visual snapshots.
   It is not a cache and is not automatically pruned.
 - `extras/` contains optional material that has no effect on the public profile

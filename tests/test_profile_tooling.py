@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import copy
+import hashlib
 import io
 import json
 import re
@@ -13,7 +14,8 @@ from pathlib import Path
 from typing import Any, Callable
 from unittest.mock import patch
 
-from scripts import build_profile, validate_profile
+from scripts import build_profile, check_external_links, validate_profile
+from tools.profile import generate_world_globe
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -67,6 +69,41 @@ class ProfileDataValidationTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, r"Nova Music Lab.*first"):
             self.load(data)
 
+    def test_public_links_must_use_https(self) -> None:
+        data = copy.deepcopy(self.valid_data)
+        data["links"]["github"] = "http://github.com/LiriothTeltanion"
+
+        with self.assertRaisesRegex(ValueError, r"profile\.links\.github.*HTTPS"):
+            self.load(data)
+
+    def test_contact_email_must_be_a_simple_mailto_url(self) -> None:
+        data = copy.deepcopy(self.valid_data)
+        data["links"]["email"] = "mailto:kevincusnir@gmail.com?subject=Hello"
+
+        with self.assertRaisesRegex(ValueError, r"profile\.links\.email.*simple mailto"):
+            self.load(data)
+
+    def test_duplicate_projects_are_rejected_case_insensitively(self) -> None:
+        data = copy.deepcopy(self.valid_data)
+        data["projects"][1]["name"] = "nova music lab"
+
+        with self.assertRaisesRegex(ValueError, r"profile\.projects names.*duplicate"):
+            self.load(data)
+
+    def test_duplicate_skills_across_categories_are_rejected(self) -> None:
+        data = copy.deepcopy(self.valid_data)
+        data["skills"]["quality"].append(data["skills"]["languages"][0].lower())
+
+        with self.assertRaisesRegex(ValueError, r"profile\.skills across categories.*duplicate"):
+            self.load(data)
+
+    def test_evidence_counts_require_non_negative_integers(self) -> None:
+        data = copy.deepcopy(self.valid_data)
+        data["evidence_counts"][0]["value"] = True
+
+        with self.assertRaisesRegex(ValueError, r"non-negative integer"):
+            self.load(data)
+
 
 class Cp1252OutputTests(unittest.TestCase):
     """Keep both Windows CLI success paths safe outside UTF-8 terminals."""
@@ -115,7 +152,9 @@ class Cp1252OutputTests(unittest.TestCase):
                 (assets / name).write_text("<svg></svg>", encoding="utf-8")
             readme = root / "README.md"
             readme.write_text(
-                "# Kevin Cusnir\n\n<details>\n</details>\n\n## 🤝 Contact\n",
+                "# Kevin Cusnir\n\n<details>\n"
+                "<summary>Engineering approach and transferable strengths</summary>\n"
+                "</details>\n\n## 🤝 Contact\n",
                 encoding="utf-8",
             )
             arguments = ["validate_profile", "--readme", str(readme)]
@@ -139,14 +178,18 @@ class GeneratedProfileContractTests(unittest.TestCase):
         self.assertLessEqual(len(content.splitlines()), 300)
         for expected in (
             "profile-banner-mobile-static.svg",
-            "portfolio-command-center-mobile-static.svg",
+            "nova-music-live-preview-mobile.jpg",
             "nova-music-journey-static.svg",
             "nova-music-journey-mobile-static.svg",
             "motivation-center-mobile.svg",
             "novafit-trust-system-mobile.svg",
+            "engineering-orbit-mobile-static.svg",
+            "engineering-orbit-mobile.svg",
             "world-globe-mobile.svg",
             "world-globe-mobile-static.svg",
             "learning-roadmap-mobile.svg",
+            "kc-lt-signature.svg",
+            "kc-lt-signature-animated.svg",
             "seeded demonstration records",
             "Nova Music Lab source",
         ):
@@ -164,6 +207,15 @@ class GeneratedProfileContractTests(unittest.TestCase):
         self.assertIn("San Cristóbal, Venezuela", content)
         self.assertIn("Beersheba, Israel", content)
         self.assertIn("Country outlines worldwide", content)
+
+    def test_project_demo_urls_stay_with_the_correct_project(self) -> None:
+        projects = {project["name"]: project for project in self.data["projects"]}
+
+        self.assertIsNone(projects["NovaFit"]["demo"])
+        self.assertEqual(
+            projects["Christopher Rodríguez Portfolio"]["demo"],
+            "https://liriothteltanion.github.io/ChristopherRodriguezCVOnline/",
+        )
 
     def test_globe_assets_cover_the_world_and_personal_route(self) -> None:
         filenames = (
@@ -202,6 +254,137 @@ class GeneratedProfileContractTests(unittest.TestCase):
         self.assertEqual(expanded, build_profile.render_profile(self.data, "expanded"))
         self.assertNotIn(b"\r\n", (ROOT / "README.md").read_bytes())
         self.assertNotIn(b"\r\n", (ROOT / "README_EXPANDED.md").read_bytes())
+
+    def test_both_generated_modes_pass_the_light_validator(self) -> None:
+        self.assertEqual(
+            validate_profile.validate_profile(ROOT / "README.md", 300, "compact"),
+            [],
+        )
+        self.assertEqual(
+            validate_profile.validate_profile(
+                ROOT / "README_EXPANDED.md", 300, "expanded"
+            ),
+            [],
+        )
+
+    def test_localized_profiles_keep_canonical_identity_and_links(self) -> None:
+        self.assertEqual(validate_profile.validate_localized_profiles(), [])
+
+    def test_builder_check_mode_detects_drift_without_overwriting(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "README.md"
+            output.write_text("stale\n", encoding="utf-8")
+            arguments = [
+                "build_profile",
+                "--data",
+                str(ROOT / "profile.json"),
+                "--output",
+                str(output),
+                "--mode",
+                "compact",
+                "--check",
+            ]
+            with patch.object(sys, "argv", arguments), patch.object(sys, "stderr", io.StringIO()):
+                result = build_profile.main()
+
+            self.assertEqual(result, 1)
+            self.assertEqual(output.read_text(encoding="utf-8"), "stale\n")
+
+
+class ExternalLinkAuditTests(unittest.TestCase):
+    """Keep the scheduled link audit deterministic and conservative."""
+
+    def test_extract_urls_deduplicates_public_links(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "PROFILE.md"
+            source.write_text(
+                "[one](https://example.com/path)\n"
+                '"https://example.com/path"\n'
+                "[two](https://example.org/demo/).\n",
+                encoding="utf-8",
+            )
+
+            self.assertEqual(
+                check_external_links.extract_urls([source]),
+                ["https://example.com/path", "https://example.org/demo/"],
+            )
+
+    def test_status_classification_fails_only_convincing_client_errors(self) -> None:
+        self.assertEqual(
+            check_external_links.classify_status("https://example.com", 200), "ok"
+        )
+        self.assertEqual(
+            check_external_links.classify_status("https://example.com/missing", 404),
+            "failure",
+        )
+        self.assertEqual(
+            check_external_links.classify_status("https://example.com", 429),
+            "warning",
+        )
+        self.assertEqual(
+            check_external_links.classify_status("https://www.linkedin.com/in/example", 999),
+            "warning",
+        )
+
+    def test_get_fallback_can_recover_from_a_rejected_head_request(self) -> None:
+        statuses = iter((405, 200))
+
+        class Response:
+            def __init__(self, status: int) -> None:
+                self.status = status
+
+            def __enter__(self) -> "Response":
+                return self
+
+            def __exit__(self, *args: object) -> None:
+                return None
+
+            def getcode(self) -> int:
+                return self.status
+
+        def opener(*args: object, **kwargs: object) -> Response:
+            return Response(next(statuses))
+
+        result = check_external_links.check_url(
+            "https://example.com/profile", timeout=1, opener=opener
+        )
+
+        self.assertEqual(result.state, "ok")
+        self.assertEqual(result.status, 200)
+        self.assertIn("HEAD HTTP 405; GET HTTP 200", result.detail)
+
+
+class GlobeSourceProvenanceTests(unittest.TestCase):
+    """Protect checksum verification and offline cache behavior."""
+
+    def test_verified_cache_supports_offline_generation(self) -> None:
+        payload = b'{"type":"FeatureCollection","features":[{"type":"Feature"}]}'
+        source = generate_world_globe.SourceSpec(
+            filename="countries.geojson",
+            url="https://example.com/countries.geojson",
+            sha256=hashlib.sha256(payload).hexdigest(),
+        )
+        with tempfile.TemporaryDirectory() as directory:
+            cache = Path(directory)
+            (cache / source.filename).write_bytes(payload)
+
+            data = generate_world_globe.fetch_geojson(source, cache, offline=True)
+
+        self.assertEqual(data["type"], "FeatureCollection")
+        self.assertEqual(len(data["features"]), 1)
+
+    def test_corrupt_offline_cache_is_rejected(self) -> None:
+        source = generate_world_globe.SourceSpec(
+            filename="countries.geojson",
+            url="https://example.com/countries.geojson",
+            sha256="0" * 64,
+        )
+        with tempfile.TemporaryDirectory() as directory:
+            cache = Path(directory)
+            (cache / source.filename).write_text("{}", encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, r"Checksum mismatch"):
+                generate_world_globe.fetch_geojson(source, cache, offline=True)
 
 
 if __name__ == "__main__":

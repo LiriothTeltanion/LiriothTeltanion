@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="260" viewBox="0 0 720 260" role="img" aria-labelledby="title desc">
+  <title id="title">KC LT monochrome signature logo</title>
+  <desc id="desc">A transparent single-color handwritten signature combining the initials K, C, L and T for print and restrained layouts.</desc>
+  <g fill="none" stroke="#145da0" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M48 99C84 80 111 55 151 24C131 76 105 140 78 221"/>
+    <path d="M111 112C151 89 183 57 213 29M112 115C144 146 176 177 220 185"/>
+    <path d="M304 72C291 43 250 43 222 73C191 107 191 153 216 175C239 195 278 180 300 147"/>
+    <path d="M353 35C338 88 316 146 300 186C344 189 387 182 421 158"/>
+    <path d="M354 175C329 183 320 211 351 213C379 215 400 199 414 178"/>
+    <path d="M406 70C453 48 512 46 575 57M492 51C475 92 455 145 444 190"/>
+    <path d="M58 233C186 208 309 205 420 211C506 215 585 204 650 176"/>
+  </g>
+</svg>

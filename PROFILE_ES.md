@@ -12,7 +12,7 @@ Nací en **San Cristóbal, Venezuela**, y actualmente vivo en **Beersheba, Israe
 
 ### 🎧 Nova Music Lab
 
-Aplicación React/TypeScript local-first que transforma exportaciones de Spotify, Last.fm, Apple Music, ListenBrainz y YouTube en un museo musical interactivo. Incluye normalización, deduplicación, analítica verificable, navegación profunda, pruebas, auditorías de datos, límites de bundle y despliegue automatizado.
+Aplicación React/TypeScript local-first que transforma exportaciones de Spotify, Last.fm, Apple Music, ListenBrainz y YouTube en un museo musical interactivo. Incluye normalización, deduplicación, analítica verificable, carga diferida, límites de bundle, 14 temas, experiencia EN/ES, reduced motion, herramientas de recursos en hebreo, pruebas, CI y despliegue automatizado.
 
 - [Demo pública](https://liriothteltanion.github.io/NovaMusicLab/)
 - [Código fuente](https://github.com/LiriothTeltanion/NovaMusicLab)
@@ -25,13 +25,14 @@ NovaFit Ultimate 4.0 es una aplicación local de escritorio y terminal con Pytho
 
 ### 👨‍🏫 Portafolio de Christopher Rodríguez
 
-Caso de colaboración real: portafolio bilingüe React/TypeScript para un educador, con contenido estructurado, accesibilidad por teclado, reduced motion, temas persistentes, estados de verificación y despliegue mediante GitHub Actions.
+Caso de colaboración real: portafolio bilingüe React/TypeScript para un educador, con contenido estructurado, accesibilidad por teclado, reduced motion, temas persistentes, estados de verificación y despliegue público mediante GitHub Actions y GitHub Pages.
 
+- [Demo pública](https://liriothteltanion.github.io/ChristopherRodriguezCVOnline/)
 - [Código fuente](https://github.com/LiriothTeltanion/ChristopherRodriguezCVOnline)
 
 ### 📚 Fullstack2026
 
-Archivo público de aprendizaje que conserva la progresión desde Python y programación orientada a objetos hasta JavaScript, DOM, asincronía, TypeScript, Node.js, SQL y bases de datos.
+Archivo auditado de seis semanas que conserva la progresión desde Python y programación orientada a objetos hasta JavaScript, DOM, asincronía, TypeScript, Node.js, SQL y bases de datos. Sus informes hacen visibles tanto 14 archivos de pruebas detectables como los controles de calidad todavía pendientes; es evidencia de aprendizaje, no un producto presentado como terminado.
 
 - [Repositorio](https://github.com/LiriothTeltanion/Fullstack2026)
 

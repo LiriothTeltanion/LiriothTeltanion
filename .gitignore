@@ -1,6 +1,15 @@
 # Local README snapshots created by tools/profile/backup-readme.ps1.
 .local-backups/
 
+# Accidental local package snapshots are not the curated preview archive.
+.nova-pack-backup/
+
+# Windows Explorer metadata is machine-local.
+desktop.ini
+
 # Python tooling caches.
 __pycache__/
 *.py[cod]
+
+# Checksum-verified downloads used by deterministic visual generators.
+.cache/

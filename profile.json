@@ -37,18 +37,18 @@
     {
       "name": "Nova Music Lab",
       "icon": "🎧",
-      "status": "Live flagship",
+      "status": "Live local-first flagship",
       "problem": "Listening exports are fragmented, hard to compare and easy to misrepresent.",
-      "solution": "A local-first personal music museum with multi-source imports, honest analytics, multilingual UX, generative identity and quality gates.",
+      "solution": "A local-first music museum that turns exports from five listening ecosystems into source-aware analytics, visual stories and a portable personal archive.",
       "stack": "React · TypeScript · Vite · Vitest · Recharts · GitHub Actions",
-      "evidence": "Source normalization, deduplication, tests, bundle budgets, CI and GitHub Pages",
+      "evidence": "Five import families, source normalization, deduplication, automated tests, bundle budgets, CI and a live GitHub Pages build",
       "source": "https://github.com/LiriothTeltanion/NovaMusicLab",
       "demo": "https://liriothteltanion.github.io/NovaMusicLab/",
       "role_signal": "Frontend engineering · data visualization · privacy-aware product thinking",
       "highlights": [
         "Five import families normalized into one model",
         "Lazy-loaded museum rooms and bundle budgets",
-        "Multilingual UX, accessibility checks, tests and CI"
+        "Fourteen themes, EN/ES UX, reduced-motion support and Hebrew resource tooling"
       ]
     },
     {
@@ -78,7 +78,7 @@
       "stack": "React · TypeScript · Vite · Tailwind CSS · Framer Motion",
       "evidence": "EN/ES content architecture, keyboard UX, reduced motion, SEO and automated deployment",
       "source": "https://github.com/LiriothTeltanion/ChristopherRodriguezCVOnline",
-      "demo": null,
+      "demo": "https://liriothteltanion.github.io/ChristopherRodriguezCVOnline/",
       "role_signal": "Client communication · accessible frontend · maintainable content architecture",
       "highlights": [
         "Content separated from presentation",
@@ -89,18 +89,18 @@
     {
       "name": "Fullstack2026",
       "icon": "📚",
-      "status": "Learning evidence archive",
+      "status": "Audited six-week learning archive",
       "problem": "Course exercises need context, progression and reproducible quality checks.",
       "solution": "A structured archive from Python and OOP through JavaScript, DOM, async workflows, TypeScript, Node and databases.",
       "stack": "Python · JavaScript · TypeScript · Node.js · SQL",
-      "evidence": "Progressive exercises, focused PRs, documentation, repository audit and CI",
+      "evidence": "Six curriculum weeks, 14 discoverable test files, CI, generated audits and transparently documented remaining quality gates",
       "source": "https://github.com/LiriothTeltanion/Fullstack2026",
       "demo": null,
       "role_signal": "Learning progression · problem solving · Git/PR discipline",
       "highlights": [
         "Python and OOP foundations",
         "DOM, asynchronous JavaScript, TypeScript, Node and SQL",
-        "Repository-wide documentation and quality workflow"
+        "Repository-wide documentation, audit reports and visible unresolved gates"
       ]
     }
   ],

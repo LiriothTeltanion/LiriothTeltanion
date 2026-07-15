@@ -49,7 +49,10 @@ documentation or one-section edit does not require a new backup.
 - Do not invent employment, education, certifications, users, stars, metrics or
   production-readiness claims.
 - Keep local asset paths relative and case-correct.
-- Check all references before renaming or deleting any asset.
+- Check all references and `ASSET_MANIFEST.md` before renaming or deleting any
+  asset. An unlinked file may still be retained provenance or preview history.
+- Keep personal-looking wellness records and identity-linked private metrics out
+  of public screenshots, GIFs and generated visuals.
 - Distinguish verified functionality from planned work.
 - Prefer accessible hierarchy, meaningful alt text, keyboard-friendly links and
   reduced-motion behavior.
@@ -61,6 +64,11 @@ Run the repository validator from the repository root:
 ```powershell
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\tools\profile\verify-profile.ps1
 ```
+
+For the complete local generation and QA pipeline on Windows, run
+`build_profile.bat`. It regenerates both README modes, checks drift, validates
+the localized profiles, compiles the tooling, runs doctests and unit tests, and
+finishes with the PowerShell verifier.
 
 Then inspect the patch itself:
 
@@ -88,6 +96,23 @@ from the repository root with:
 python tools/profile/generate_world_globe.py
 ```
 
+Once the pinned cache has been populated, prove that the committed globe assets
+are reproducible without a network request or file write:
+
+```powershell
+python tools/profile/generate_world_globe.py --offline --check
+```
+
+Audit live public URLs locally when changing links or before publishing:
+
+```powershell
+python scripts/check_external_links.py
+```
+
+The matching GitHub Actions workflow runs weekly and manually. It fails for
+convincing permanent missing responses while reporting bot blocks, rate limits,
+timeouts and server errors as warnings.
+
 ## Preview retention policy
 
 `preview/` is a tracked archive of rendering proofs and historical visual
@@ -102,6 +127,8 @@ snapshots. Preserve every existing file during normal maintenance.
   historical value, and must receive approval before an asset is removed.
 
 This policy also applies when a preview is not currently linked from README.md.
+The ignored `.nova-pack-backup/` path is an accidental local package snapshot,
+not a preview archive, and must not be committed.
 
 ## Review the final scope
 

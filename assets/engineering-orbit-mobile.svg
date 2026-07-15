@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1040" viewBox="0 0 720 1040" role="img" aria-labelledby="title desc">
+  <title id="title">Kevin Cusnir mobile engineering orbit</title>
+  <desc id="desc">A mobile-readable engineering map connecting React, TypeScript, Python, SQLite, accessibility, internationalization, testing, delivery, data and privacy around product engineering.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#050c18"/><stop offset=".55" stop-color="#0c2033"/><stop offset="1" stop-color="#21113f"/></linearGradient>
+    <linearGradient id="core" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#22d3ee"/><stop offset=".5" stop-color="#34d399"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <style>
+      .heading{font:800 34px system-ui,"Segoe UI",sans-serif;fill:#e8f5ff}.sub{font:600 22px system-ui,"Segoe UI",sans-serif;fill:#9fb4c7}.label{font:800 27px system-ui,"Segoe UI",sans-serif;fill:#e8f5ff}.detail{font:600 23px system-ui,"Segoe UI",sans-serif;fill:#aac0d0}.connector{fill:none;stroke-width:3;stroke-dasharray:8 11;animation:flow 4.5s linear infinite}.corePulse{animation:breathe 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.card{animation:float 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.card.delay1{animation-delay:.7s}.card.delay2{animation-delay:1.4s}.card.delay3{animation-delay:2.1s}.chip{animation:glint 4.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.chip.delay{animation-delay:1.2s}
+      @keyframes flow{to{stroke-dashoffset:-76}}@keyframes breathe{50%{transform:scale(1.025);filter:drop-shadow(0 0 13px #22d3ee)}}@keyframes float{50%{transform:translateY(-5px)}}@keyframes glint{50%{filter:drop-shadow(0 0 9px #38bdf8)}}
+      @media(prefers-reduced-motion:reduce){.connector,.corePulse,.card,.chip{animation:none!important}}
+    </style>
+  </defs>
+  <rect width="720" height="1040" rx="34" fill="url(#bg)"/>
+  <rect x="1.5" y="1.5" width="717" height="1037" rx="32.5" fill="none" stroke="#9ce8f5" stroke-opacity=".22" stroke-width="3"/>
+  <text x="360" y="54" text-anchor="middle" class="heading">Engineering orbit</text>
+  <text x="360" y="88" text-anchor="middle" class="sub">Products before isolated demos</text>
+
+  <path d="M360 322V372M360 472V497M360 597V622M360 722V747M360 847V890" class="connector" stroke="#22d3ee" opacity=".6"/>
+
+  <g transform="translate(60 118)"><g class="corePulse">
+    <rect width="600" height="204" rx="38" fill="#0b1828" stroke="url(#core)" stroke-width="3"/>
+    <circle cx="300" cy="72" r="43" fill="none" stroke="#22d3ee" stroke-width="7" filter="url(#glow)"/>
+    <path d="M282 72h13l6-18 11 37 9-27 7 13h14" fill="none" stroke="url(#core)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="300" y="139" text-anchor="middle" class="label">PRODUCT ENGINEERING</text>
+    <text x="300" y="174" text-anchor="middle" class="detail">Build · verify · explain · ship</text>
+  </g></g>
+
+  <g transform="translate(60 372)"><g class="card">
+    <rect width="600" height="100" rx="24" fill="#0b1828" stroke="#22d3ee" stroke-width="2"/>
+    <circle cx="52" cy="50" r="26" fill="#123047" stroke="#22d3ee"/><path d="M40 50h24M52 38v24" stroke="#67e8f9" stroke-width="4" stroke-linecap="round"/>
+    <text x="98" y="43" class="label">REACT · TYPESCRIPT</text><text x="98" y="75" class="detail">Accessible, responsive interfaces</text>
+  </g></g>
+  <g transform="translate(60 497)"><g class="card delay1">
+    <rect width="600" height="100" rx="24" fill="#0b1828" stroke="#34d399" stroke-width="2"/>
+    <circle cx="52" cy="50" r="26" fill="#123529" stroke="#34d399"/><path d="M39 42c9-9 19-9 27 0-8 5-17 5-27 0Zm0 16c9-5 18-5 27 0-8 9-18 9-27 0Z" fill="none" stroke="#6ee7b7" stroke-width="3"/>
+    <text x="98" y="43" class="label">PYTHON · SQLITE</text><text x="98" y="75" class="detail">Local tools and honest analytics</text>
+  </g></g>
+  <g transform="translate(60 622)"><g class="card delay2">
+    <rect width="600" height="100" rx="24" fill="#0b1828" stroke="#a78bfa" stroke-width="2"/>
+    <circle cx="52" cy="50" r="26" fill="#251d44" stroke="#a78bfa"/><path d="M40 39h24M40 50h18M40 61h21" stroke="#d8caff" stroke-width="4" stroke-linecap="round"/>
+    <text x="98" y="43" class="label">ACCESSIBILITY · I18N</text><text x="98" y="75" class="detail">English · Spanish · Hebrew · RTL</text>
+  </g></g>
+  <g transform="translate(60 747)"><g class="card delay3">
+    <rect width="600" height="100" rx="24" fill="#0b1828" stroke="#fbbf24" stroke-width="2"/>
+    <circle cx="52" cy="50" r="26" fill="#362c15" stroke="#fbbf24"/><path d="m39 51 9 9 18-22" fill="none" stroke="#fde68a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="98" y="43" class="label">TESTS · CI · DELIVERY</text><text x="98" y="75" class="detail">Reproducible engineering evidence</text>
+  </g></g>
+
+  <g transform="translate(60 890)"><g class="chip">
+    <rect width="285" height="96" rx="24" fill="#0b1828" stroke="#38bdf8" stroke-width="2"/>
+    <text x="142.5" y="40" text-anchor="middle" class="label">DATA</text><text x="142.5" y="72" text-anchor="middle" class="detail">Integrity first</text>
+  </g></g>
+  <g transform="translate(375 890)"><g class="chip delay">
+    <rect width="285" height="96" rx="24" fill="#0b1828" stroke="#fb7185" stroke-width="2"/>
+    <text x="142.5" y="40" text-anchor="middle" class="label">PRIVACY</text><text x="142.5" y="72" text-anchor="middle" class="detail">Local-first care</text>
+  </g></g>
+</svg>
