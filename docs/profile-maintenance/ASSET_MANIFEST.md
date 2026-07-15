@@ -28,7 +28,12 @@ authoritative check for missing local assets.
 
 - `tools/profile/generate_world_globe.py` is the reproducible source for the
   four global journey atlas SVGs. It uses pinned Natural Earth public-domain
-  data and writes both animated and reduced-motion variants.
+  data and writes both animated and reduced-motion variants. Its explicit
+  coverage contract represents all 195 baseline sovereign states: 182 through
+  the pinned Natural Earth polygon/tiny layers and 13 omitted microstate/island
+  states through deterministic labeled centroid markers. Six clustered eastern-
+  Caribbean markers use small callout offsets and leader lines so each remains
+  individually visible while its true geographic anchor is preserved.
 - `assets/projects/` retains project-card source and raster variants. They are
   useful provenance for future profile layouts even when the current README
   presents the projects directly.
@@ -87,6 +92,12 @@ not required by the public profile:
 Their filenames may remain in negative regression assertions that prevent them
 from being reintroduced into generated profile content. Do not restore these
 captures without a fresh privacy review and explicit approval.
+
+Kevin confirmed on 2026-07-15 that the historical values in those captures were
+synthetic demonstration data, not private wellness records. The files remain
+removed from the current profile because they are obsolete and unreferenced,
+but their presence in earlier Git history does not require a destructive
+history rewrite.
 
 ## No-delete-without-audit policy
 

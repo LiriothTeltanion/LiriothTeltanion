@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
-  <title id="title">Christopher Rodriguez educator portfolio social preview</title>
+  <title id="title">Christopher Rodríguez educator portfolio social preview</title>
   <desc id="desc">Navy, cyan and amber project card for an accessible bilingual educator portfolio built with React and TypeScript.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="640" gradientUnits="userSpaceOnUse">

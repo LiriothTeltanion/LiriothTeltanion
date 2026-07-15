@@ -189,7 +189,7 @@ The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, 
 
 **Life route:** San Cristóbal, Venezuela → Beersheba, Israel
 
-Country outlines worldwide frame a personal journey from Venezuelan roots to an Israeli home, supported by Spanish, English and Hebrew communication.
+Country boundaries and deterministic tiny-state markers represent 195 sovereign states while framing a personal journey from Venezuelan roots to an Israeli home, supported by Spanish, English and Hebrew communication.
 
 <picture>
   <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/world-globe-mobile-static.svg" />

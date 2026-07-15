@@ -6,10 +6,13 @@ import copy
 import hashlib
 import io
 import json
+import math
 import re
+import struct
 import sys
 import tempfile
 import unittest
+import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Any, Callable
 from unittest.mock import patch
@@ -19,6 +22,29 @@ from tools.profile import generate_world_globe
 
 
 ROOT = Path(__file__).resolve().parent.parent
+
+
+def point_to_segment_distance(
+    point: tuple[float, float],
+    start: tuple[float, float],
+    end: tuple[float, float],
+) -> float:
+    """Return the shortest Euclidean distance from a point to a segment."""
+
+    point_x, point_y = point
+    start_x, start_y = start
+    delta_x = end[0] - start_x
+    delta_y = end[1] - start_y
+    length_squared = delta_x**2 + delta_y**2
+    if length_squared == 0:
+        return math.hypot(point_x - start_x, point_y - start_y)
+    projection = (
+        (point_x - start_x) * delta_x + (point_y - start_y) * delta_y
+    ) / length_squared
+    projection = max(0.0, min(1.0, projection))
+    closest_x = start_x + projection * delta_x
+    closest_y = start_y + projection * delta_y
+    return math.hypot(point_x - closest_x, point_y - closest_y)
 
 
 class ProfileDataValidationTests(unittest.TestCase):
@@ -206,7 +232,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
             self.assertNotIn(forbidden, content)
         self.assertIn("San Cristóbal, Venezuela", content)
         self.assertIn("Beersheba, Israel", content)
-        self.assertIn("Country outlines worldwide", content)
+        self.assertIn("represent 195 sovereign states", content)
 
     def test_project_demo_urls_stay_with_the_correct_project(self) -> None:
         projects = {project["name"]: project for project in self.data["projects"]}
@@ -217,13 +243,20 @@ class GeneratedProfileContractTests(unittest.TestCase):
             "https://liriothteltanion.github.io/ChristopherRodriguezCVOnline/",
         )
 
-    def test_globe_assets_cover_the_world_and_personal_route(self) -> None:
+    def test_globe_assets_represent_exact_sovereign_contract_and_route(self) -> None:
         filenames = (
             "world-globe-animated.svg",
             "world-globe-static.svg",
             "world-globe-mobile.svg",
             "world-globe-mobile-static.svg",
         )
+        sovereign_codes = generate_world_globe.SOVEREIGN_ISO_A3
+        expected_supplemental = set(
+            generate_world_globe.SUPPLEMENTAL_SOVEREIGN_CENTROIDS
+        )
+        self.assertEqual(len(sovereign_codes), 195)
+        self.assertEqual(len(expected_supplemental), 13)
+
         for filename in filenames:
             content = (ROOT / "assets" / filename).read_text(encoding="utf-8")
             for expected in (
@@ -234,17 +267,112 @@ class GeneratedProfileContractTests(unittest.TestCase):
                 "Natural Earth",
                 'data-iso="VEN"',
                 'data-iso="ISR"',
+                "195 SOVEREIGN STATES REPRESENTED / TINY STATES MARKED",
+                "13 supplemental sovereign-centroid markers",
+                "195 sovereign states represented (182 from pinned sources)",
             ):
                 self.assertIn(expected, content, filename)
 
-        desktop = (ROOT / "assets" / "world-globe-animated.svg").read_text(
-            encoding="utf-8"
-        )
-        country_codes = set(
-            re.findall(r'data-layer="country"[^>]+data-iso="([^"]+)"', desktop)
-        )
-        self.assertGreaterEqual(len(country_codes), 175)
-        self.assertGreaterEqual(desktop.count('data-layer="tiny-country"'), 35)
+            country_codes = set(
+                re.findall(r'data-layer="country"[^>]+data-iso="([^"]+)"', content)
+            )
+            tiny_codes = set(
+                re.findall(
+                    r'data-layer="tiny-country"[^>]+data-iso="([^"]+)"', content
+                )
+            )
+            supplemental_codes = set(
+                re.findall(
+                    r'data-layer="supplemental-sovereign"[^>]+'
+                    r'data-iso="([^"]+)"',
+                    content,
+                )
+            )
+            source_codes = country_codes | tiny_codes
+            represented_sovereigns = (
+                source_codes | supplemental_codes
+            ) & sovereign_codes
+
+            self.assertEqual(represented_sovereigns, sovereign_codes, filename)
+            self.assertEqual(
+                sovereign_codes - source_codes, expected_supplemental, filename
+            )
+            self.assertEqual(supplemental_codes, expected_supplemental, filename)
+            self.assertTrue(source_codes.isdisjoint(supplemental_codes), filename)
+            self.assertEqual(len(source_codes & sovereign_codes), 182, filename)
+            self.assertEqual(content.count('data-layer="tiny-country"'), 37, filename)
+            self.assertEqual(
+                content.count('data-layer="supplemental-sovereign"'), 13, filename
+            )
+            self.assertEqual(
+                content.count('data-source="deterministic-centroid"'), 13, filename
+            )
+            offset_codes = set(generate_world_globe.SUPPLEMENTAL_MARKER_OFFSETS)
+            self.assertEqual(
+                content.count('data-layer="supplemental-leader"'),
+                len(offset_codes),
+                filename,
+            )
+            for iso in offset_codes:
+                self.assertIn(
+                    f'data-layer="supplemental-leader" data-iso="{iso}"',
+                    content,
+                    filename,
+                )
+
+            positions = {
+                iso: (float(x), float(y))
+                for iso, x, y in re.findall(
+                    r'<circle data-layer="supplemental-sovereign"[^>]+'
+                    r'data-iso="([A-Z]{3})"[^>]+cx="([0-9.-]+)" '
+                    r'cy="([0-9.-]+)"',
+                    content,
+                )
+            }
+            for left_index, left_iso in enumerate(sorted(offset_codes)):
+                for right_iso in sorted(offset_codes)[left_index + 1 :]:
+                    left_x, left_y = positions[left_iso]
+                    right_x, right_y = positions[right_iso]
+                    distance_squared = (left_x - right_x) ** 2 + (
+                        left_y - right_y
+                    ) ** 2
+                    self.assertGreater(distance_squared, 36.0, filename)
+
+            leader_segments = {
+                iso: tuple(float(value) for value in coordinates)
+                for iso, *coordinates in re.findall(
+                    r'<path data-layer="supplemental-leader" '
+                    r'data-iso="([A-Z]{3})"[^>]+d="M([0-9.-]+) ([0-9.-]+)'
+                    r'L([0-9.-]+) ([0-9.-]+)"',
+                    content,
+                )
+            }
+            visible_markers = [
+                (layer, iso, float(x), float(y), float(radius))
+                for layer, iso, x, y, radius in re.findall(
+                    r'<circle data-layer="(tiny-country|supplemental-sovereign)"'
+                    r'[^>]+data-iso="([A-Z]{3})"[^>]+ cx="([0-9.-]+)" '
+                    r'cy="([0-9.-]+)" r="([0-9.-]+)"',
+                    content,
+                )
+            ]
+            leader_half_width = 0.75 / 2
+            for leader_iso, (start_x, start_y, end_x, end_y) in (
+                leader_segments.items()
+            ):
+                for layer, marker_iso, x, y, radius in visible_markers:
+                    if layer == "supplemental-sovereign" and marker_iso == leader_iso:
+                        continue
+                    clearance = point_to_segment_distance(
+                        (x, y), (start_x, start_y), (end_x, end_y)
+                    ) - radius - leader_half_width
+                    self.assertGreater(
+                        clearance,
+                        0.0,
+                        f"{filename}: {leader_iso} leader crosses {marker_iso}",
+                    )
+            self.assertIn("PSE", source_codes, filename)
+            self.assertNotIn("PSX", source_codes, filename)
 
     def test_generated_readmes_match_the_builder(self) -> None:
         compact = (ROOT / "README.md").read_text(encoding="utf-8")
@@ -291,6 +419,37 @@ class GeneratedProfileContractTests(unittest.TestCase):
             self.assertEqual(output.read_text(encoding="utf-8"), "stale\n")
 
 
+class SocialPreviewAssetTests(unittest.TestCase):
+    """Keep all GitHub social-preview pairs upload-ready."""
+
+    def test_social_previews_are_exactly_1280_by_640(self) -> None:
+        basenames = (
+            "profile-social-preview",
+            "novamusiclab-social-preview",
+            "novafit-social-preview",
+            "christopherrodriguezcvonline-social-preview",
+            "fullstack2026-social-preview",
+        )
+        for basename in basenames:
+            png_path = ROOT / "assets" / "social" / f"{basename}.png"
+            png = png_path.read_bytes()
+            self.assertGreaterEqual(len(png), 33, png_path.name)
+            self.assertEqual(png[:8], b"\x89PNG\r\n\x1a\n", png_path.name)
+            self.assertEqual(png[12:16], b"IHDR", png_path.name)
+            self.assertEqual(struct.unpack(">II", png[16:24]), (1280, 640), png_path.name)
+
+            svg_path = ROOT / "assets" / "social" / f"{basename}.svg"
+            root = ET.parse(svg_path).getroot()
+            self.assertEqual(root.tag.rsplit("}", 1)[-1], "svg", svg_path.name)
+            self.assertEqual(root.get("width"), "1280", svg_path.name)
+            self.assertEqual(root.get("height"), "640", svg_path.name)
+            self.assertEqual(root.get("viewBox"), "0 0 1280 640", svg_path.name)
+            if basename == "christopherrodriguezcvonline-social-preview":
+                title = root.find("{http://www.w3.org/2000/svg}title")
+                self.assertIsNotNone(title, svg_path.name)
+                self.assertIn("Rodríguez", title.text or "", svg_path.name)
+
+
 class ExternalLinkAuditTests(unittest.TestCase):
     """Keep the scheduled link audit deterministic and conservative."""
 
@@ -316,6 +475,18 @@ class ExternalLinkAuditTests(unittest.TestCase):
         self.assertEqual(
             check_external_links.classify_status("https://example.com/missing", 404),
             "failure",
+        )
+        self.assertEqual(
+            check_external_links.classify_status("https://example.com/gone", 410),
+            "failure",
+        )
+        self.assertEqual(
+            check_external_links.classify_status("https://example.com/range", 416),
+            "warning",
+        )
+        self.assertEqual(
+            check_external_links.classify_status("https://example.com/restricted", 451),
+            "warning",
         )
         self.assertEqual(
             check_external_links.classify_status("https://example.com", 429),
@@ -356,6 +527,31 @@ class ExternalLinkAuditTests(unittest.TestCase):
 
 class GlobeSourceProvenanceTests(unittest.TestCase):
     """Protect checksum verification and offline cache behavior."""
+
+    def test_supplementals_are_only_the_source_missing_sovereigns(self) -> None:
+        supplemental = set(generate_world_globe.SUPPLEMENTAL_SOVEREIGN_CENTROIDS)
+        source_codes = generate_world_globe.SOVEREIGN_ISO_A3 - supplemental
+
+        source_sovereigns, validated_supplemental = (
+            generate_world_globe._validate_sovereign_contract(set(source_codes))
+        )
+
+        self.assertEqual(len(source_sovereigns), 182)
+        self.assertEqual(validated_supplemental, supplemental)
+        with self.assertRaisesRegex(ValueError, r"source-present definitions=\['AND'\]"):
+            generate_world_globe._validate_sovereign_contract(
+                set(source_codes) | {"AND"}
+            )
+
+    def test_feature_codes_prefer_valid_iso_a3_before_adm0_a3(self) -> None:
+        self.assertEqual(
+            generate_world_globe._feature_iso({"ISO_A3": "PSE", "ADM0_A3": "PSX"}),
+            "PSE",
+        )
+        self.assertEqual(
+            generate_world_globe._feature_iso({"ISO_A3": "-99", "ADM0_A3": "FRA"}),
+            "FRA",
+        )
 
     def test_verified_cache_supports_offline_generation(self) -> None:
         payload = b'{"type":"FeatureCollection","features":[{"type":"Feature"}]}'

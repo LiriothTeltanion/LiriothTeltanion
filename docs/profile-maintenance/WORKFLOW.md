@@ -103,6 +103,14 @@ are reproducible without a network request or file write:
 python tools/profile/generate_world_globe.py --offline --check
 ```
 
+The check must report `195/195 sovereign states represented`: 182 are supplied
+by the two pinned Natural Earth layers and the 13 states omitted at 1:110m are
+rendered as deterministic named centroid markers. Natural Earth may also show
+territories or disputed entities; those extras do not change the 195-state
+coverage contract. Six crowded eastern-Caribbean markers are separated by
+deterministic callout offsets and leader lines; their true projected anchors
+remain encoded in the SVG.
+
 Audit live public URLs locally when changing links or before publishing:
 
 ```powershell

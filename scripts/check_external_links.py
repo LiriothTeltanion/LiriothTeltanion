@@ -106,13 +106,11 @@ def classify_status(url: str, status: int) -> str:
     if status in PERMANENT_MISSING_STATUSES:
         return "failure"
 
-    # LinkedIn frequently blocks automated clients with non-standard 4xx
-    # responses. Keep those visible without asserting that the profile is gone.
-    hostname = (urlsplit(url).hostname or "").casefold()
-    if hostname == "linkedin.com" or hostname.endswith(".linkedin.com"):
-        return "warning"
+    # A non-missing 4xx can be caused by bot protection, authentication,
+    # legal restrictions, or the lightweight Range GET itself (HTTP 416).
+    # Keep it visible without claiming that the published destination is gone.
     if 400 <= status < 500:
-        return "failure"
+        return "warning"
     return "warning"
 
 

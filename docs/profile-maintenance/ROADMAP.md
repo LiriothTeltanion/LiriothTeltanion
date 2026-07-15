@@ -6,7 +6,7 @@
 - Responsive portrait banner keeps Kevin Cusnir and Lirioth Teltanion visible.
 - KC × LT has a reusable blue handwritten brand system and README signature.
 - Nova Music Lab has current desktop/mobile live-product evidence.
-- The globe shows worldwide country coverage plus San Cristóbal and Beersheba.
+- The globe represents 195 sovereign states plus San Cristóbal and Beersheba.
 - Responsive/reduced-motion fallbacks cover the banner, flagship journey,
   engineering orbit and globe.
 - Canonical EN content, ES/HE project URLs, generated-file drift, SVG/raster

@@ -36,6 +36,58 @@ MAX_SVG_BYTES = 512 * 1024
 SAN_CRISTOBAL = (-72.2250, 7.7670)
 BEERSHEBA = (34.7913, 31.2518)
 
+# The 193 UN member states plus the two UN observer states, Palestine and
+# Vatican City. Taiwan and Kosovo remain visible when present in Natural Earth,
+# but are outside this explicit 195-state representation contract.
+SOVEREIGN_ISO_A3 = frozenset(
+    """
+    AFG ALB DZA AND AGO ATG ARG ARM AUS AUT AZE BHS BHR BGD BRB BLR BEL BLZ
+    BEN BTN BOL BIH BWA BRA BRN BGR BFA BDI CPV KHM CMR CAN CAF TCD CHL CHN
+    COL COM COD COG CRI CIV HRV CUB CYP CZE DNK DJI DMA DOM ECU EGY SLV GNQ
+    ERI EST SWZ ETH FJI FIN FRA GAB GMB GEO DEU GHA GRC GRD GTM GIN GNB GUY
+    HTI HND HUN ISL IND IDN IRN IRQ IRL ISR ITA JAM JPN JOR KAZ KEN KIR PRK
+    KOR KWT KGZ LAO LVA LBN LSO LBR LBY LIE LTU LUX MDG MWI MYS MDV MLI MLT
+    MHL MRT MUS MEX FSM MDA MCO MNG MNE MAR MOZ MMR NAM NRU NPL NLD NZL NIC
+    NER NGA MKD NOR OMN PAK PLW PSE PAN PNG PRY PER PHL POL PRT QAT ROU RUS
+    RWA KNA LCA VCT WSM SMR STP SAU SEN SRB SYC SLE SGP SVK SVN SLB SOM ZAF
+    SSD ESP LKA SDN SUR SWE CHE SYR TJK TZA THA TLS TGO TON TTO TUN TUR TKM
+    TUV UGA UKR ARE GBR USA URY UZB VUT VAT VEN VNM YEM ZMB ZWE
+    """.split()
+)
+
+# Natural Earth 1:110m omits these sovereign states from both pinned layers.
+# Deterministic capital/central centroids make the representation explicit
+# without pretending that a point marker is a boundary polygon.
+SUPPLEMENTAL_SOVEREIGN_CENTROIDS = {
+    "AND": ("Andorra", 1.6016, 42.5462),
+    "ATG": ("Antigua and Barbuda", -61.7964, 17.0608),
+    "CPV": ("Cabo Verde", -23.6052, 15.1201),
+    "DMA": ("Dominica", -61.3710, 15.4150),
+    "GRD": ("Grenada", -61.6790, 12.1165),
+    "KNA": ("Saint Kitts and Nevis", -62.7830, 17.3578),
+    "LCA": ("Saint Lucia", -60.9789, 13.9094),
+    "LIE": ("Liechtenstein", 9.5554, 47.1660),
+    "MCO": ("Monaco", 7.4246, 43.7384),
+    "SMR": ("San Marino", 12.4578, 43.9424),
+    "SYC": ("Seychelles", 55.4915, -4.6796),
+    "VAT": ("Vatican City", 12.4534, 41.9029),
+    "VCT": ("Saint Vincent and the Grenadines", -61.2872, 12.9843),
+}
+
+# Six eastern-Caribbean centroids are closer than one marker diameter at world
+# scale. Small deterministic callout offsets plus leader lines keep every state
+# individually visible without disguising its true geographic anchor.
+SUPPLEMENTAL_MARKER_OFFSETS = {
+    "ATG": (8.0, -8.0),
+    "DMA": (8.0, -2.0),
+    "GRD": (-9.0, 9.0),
+    "KNA": (-8.0, -8.0),
+    # Route Saint Lucia west-northwest into the left-side fan so its leader
+    # clears Barbados and the surrounding Caribbean callouts.
+    "LCA": (-14.0, -4.0),
+    "VCT": (-10.0, 2.0),
+}
+
 # Robinson projection lookup coefficients at five-degree latitude intervals.
 ROBINSON_X = (
     1.0000,
@@ -108,11 +160,15 @@ class MapMarkup:
     graticule: str
     countries: str
     tiny_countries: str
+    supplemental_sovereigns: str
     route: str
     origin: tuple[float, float]
     current: tuple[float, float]
     country_count: int
     tiny_count: int
+    source_sovereign_count: int
+    supplemental_count: int
+    sovereign_count: int
 
 
 COUNTRIES_SOURCE = SourceSpec(
@@ -277,6 +333,62 @@ def _slug(value: str) -> str:
     return token or "unknown"
 
 
+def _feature_iso(properties: Mapping[str, Any]) -> str:
+    """Prefer a valid ISO_A3 code, falling back to Natural Earth's ADM0_A3."""
+    for field in ("ISO_A3", "ADM0_A3"):
+        candidate = str(properties.get(field) or "").strip().upper()
+        if re.fullmatch(r"[A-Z]{3}", candidate):
+            return candidate
+    return "---"
+
+
+def _source_iso_codes(*feature_sets: Iterable[Mapping[str, Any]]) -> set[str]:
+    """Collect valid rendered codes from pinned Natural Earth feature sets."""
+    codes: set[str] = set()
+    for features in feature_sets:
+        for feature in features:
+            properties = feature.get("properties", {})
+            if isinstance(properties, Mapping):
+                code = _feature_iso(properties)
+                if code != "---":
+                    codes.add(code)
+    return codes
+
+
+def _validate_sovereign_contract(source_codes: set[str]) -> tuple[set[str], set[str]]:
+    """Return source and supplemental sovereign codes after exact validation."""
+    if len(SOVEREIGN_ISO_A3) != 195:
+        raise ValueError(
+            f"Sovereign coverage contract has {len(SOVEREIGN_ISO_A3)} codes; expected 195."
+        )
+
+    source_sovereigns = source_codes & SOVEREIGN_ISO_A3
+    missing_from_sources = SOVEREIGN_ISO_A3 - source_sovereigns
+    supplemental_codes = set(SUPPLEMENTAL_SOVEREIGN_CENTROIDS)
+    unknown_offset_codes = set(SUPPLEMENTAL_MARKER_OFFSETS) - supplemental_codes
+    if unknown_offset_codes:
+        raise ValueError(
+            "Marker offsets reference undefined supplemental states: "
+            f"{sorted(unknown_offset_codes)}."
+        )
+    if missing_from_sources != supplemental_codes:
+        missing_definitions = sorted(missing_from_sources - supplemental_codes)
+        redundant_definitions = sorted(supplemental_codes - missing_from_sources)
+        raise ValueError(
+            "Supplemental sovereign contract does not match the pinned sources: "
+            f"missing definitions={missing_definitions}; "
+            f"source-present definitions={redundant_definitions}."
+        )
+
+    represented = source_sovereigns | supplemental_codes
+    if represented != SOVEREIGN_ISO_A3:
+        raise ValueError(
+            "Sovereign representation is incomplete: "
+            f"missing={sorted(SOVEREIGN_ISO_A3 - represented)}."
+        )
+    return source_sovereigns, supplemental_codes
+
+
 def _world_outline(box: MapBox) -> str:
     """Build the curved Robinson world boundary."""
     right = [project(180.0, lat, box) for lat in range(90, -91, -3)]
@@ -304,10 +416,13 @@ def build_map_markup(
     """Render all country polygons, tiny-country points, and the life route."""
     country_paths: list[str] = []
     features = countries_data["features"]
+    tiny_features = tiny_data["features"]
+    source_codes = _source_iso_codes(features, tiny_features)
+    source_sovereigns, supplemental_codes = _validate_sovereign_contract(source_codes)
     for feature in sorted(features, key=lambda item: item["properties"].get("ADMIN", "")):
         properties = feature["properties"]
         name = str(properties.get("ADMIN") or properties.get("NAME_EN") or "Unknown")
-        iso = str(properties.get("ADM0_A3") or properties.get("ISO_A3") or "---")
+        iso = _feature_iso(properties)
         continent = _slug(str(properties.get("CONTINENT") or "Other"))
         ring_paths: list[str] = []
         for ring in _geometry_rings(feature["geometry"]):
@@ -328,10 +443,10 @@ def build_map_markup(
         )
 
     tiny_markers: list[str] = []
-    for index, feature in enumerate(tiny_data["features"]):
+    for index, feature in enumerate(tiny_features):
         properties = feature["properties"]
         name = str(properties.get("ADMIN") or properties.get("NAME_EN") or "Tiny country")
-        iso = str(properties.get("ADM0_A3") or properties.get("ISO_A3") or "---")
+        iso = _feature_iso(properties)
         lon, lat, *_ = feature["geometry"]["coordinates"]
         x, y = project(float(lon), float(lat), box)
         classes = ["tiny-country"]
@@ -347,6 +462,28 @@ def build_map_markup(
             f'cx="{_fmt(x)}" cy="{_fmt(y)}" r="1.8"/>'
         )
 
+    supplemental_leaders: list[str] = []
+    supplemental_markers: list[str] = []
+    for index, iso in enumerate(sorted(supplemental_codes)):
+        name, longitude, latitude = SUPPLEMENTAL_SOVEREIGN_CENTROIDS[iso]
+        anchor_x, anchor_y = project(longitude, latitude, box)
+        offset_x, offset_y = SUPPLEMENTAL_MARKER_OFFSETS.get(iso, (0.0, 0.0))
+        x, y = anchor_x + offset_x, anchor_y + offset_y
+        if offset_x or offset_y:
+            supplemental_leaders.append(
+                '<path data-layer="supplemental-leader" '
+                f'data-iso="{iso}" class="supplemental-leader" '
+                f'd="M{_fmt(anchor_x)} {_fmt(anchor_y)}L{_fmt(x)} {_fmt(y)}"/>'
+            )
+        supplemental_markers.append(
+            '<circle data-layer="supplemental-sovereign" '
+            'data-source="deterministic-centroid" '
+            f'data-iso="{iso}" data-country="{html.escape(name, quote=True)}" '
+            f'data-anchor-cx="{_fmt(anchor_x)}" data-anchor-cy="{_fmt(anchor_y)}" '
+            f'data-index="{index}" class="tiny-country supplemental-sovereign" '
+            f'cx="{_fmt(x)}" cy="{_fmt(y)}" r="2.1"/>'
+        )
+
     origin = project(*SAN_CRISTOBAL, box)
     current = project(*BEERSHEBA, box)
     control_x = (origin[0] + current[0]) / 2.0
@@ -360,11 +497,17 @@ def build_map_markup(
         graticule=_graticule(box),
         countries="".join(country_paths),
         tiny_countries="".join(tiny_markers),
+        supplemental_sovereigns="".join(
+            [*supplemental_leaders, *supplemental_markers]
+        ),
         route=route,
         origin=origin,
         current=current,
         country_count=len(features),
         tiny_count=len(tiny_markers),
+        source_sovereign_count=len(source_sovereigns),
+        supplemental_count=len(supplemental_markers),
+        sovereign_count=len(source_sovereigns | supplemental_codes),
     )
 
 
@@ -390,7 +533,7 @@ def _styles(animated: bool) -> str:
       .title{font:800 38px system-ui,"Segoe UI",sans-serif;fill:#f2fbff}.eyebrow{font:800 16px system-ui,"Segoe UI",sans-serif;fill:#67e8f9;letter-spacing:3px}.subtitle{font:600 18px system-ui,"Segoe UI",sans-serif;fill:#a9bdcd}
       .card-title{font:800 22px system-ui,"Segoe UI",sans-serif;fill:#f2fbff}.card-kicker{font:800 13px system-ui,"Segoe UI",sans-serif;letter-spacing:2px}.card-copy{font:600 15px system-ui,"Segoe UI",sans-serif;fill:#a9bdcd}.chip{font:800 13px system-ui,"Segoe UI",sans-serif;fill:#dff8ff}.micro{font:700 11px system-ui,"Segoe UI",sans-serif;fill:#8ba8b8;letter-spacing:1.1px}
       .country{fill:#12384c;stroke:#8cecff;stroke-opacity:.45;stroke-width:.65;vector-effect:non-scaling-stroke}.continent-africa{fill:#164557}.continent-asia{fill:#173c59}.continent-europe{fill:#1d405e}.continent-north-america{fill:#123f4b}.continent-south-america{fill:#174a4b}.continent-oceania{fill:#253c62}.continent-seven-seas-open-ocean{fill:#1b3a50}.origin-country{fill:#d99a21;stroke:#fde68a;stroke-opacity:.95}.current-country{fill:#8b6bd6;stroke:#ddd6fe;stroke-opacity:.95}
-      .tiny-country{fill:#8cecff;stroke:#071727;stroke-width:.6}.tiny-country.origin-country{fill:#fbbf24}.tiny-country.current-country{fill:#c4b5fd}
+      .tiny-country{fill:#8cecff;stroke:#071727;stroke-width:.6}.supplemental-leader{fill:none;stroke:#67e8f9;stroke-opacity:.62;stroke-width:.75}.supplemental-sovereign{fill:#67e8f9;stroke:#f2fbff;stroke-width:.8}.tiny-country.origin-country{fill:#fbbf24}.tiny-country.current-country{fill:#c4b5fd}
       .graticule{fill:none;stroke:#7dd3fc;stroke-opacity:.16;stroke-width:.7;vector-effect:non-scaling-stroke}.route-base{fill:none;stroke:url(#route);stroke-width:4;stroke-linecap:round}.route-flow{fill:none;stroke:#f8fbff;stroke-width:1.6;stroke-dasharray:8 10;stroke-linecap:round}.route-spark{fill:none;stroke:#fff7c2;stroke-width:5;stroke-dasharray:1 259;stroke-linecap:round}.origin-dot{fill:#fbbf24}.current-dot{fill:#c4b5fd}.origin-halo{fill:none;stroke:#fbbf24;stroke-width:3}.current-halo{fill:none;stroke:#c4b5fd;stroke-width:3}
 """
         + animation
@@ -426,7 +569,7 @@ def _map_layer(markup: MapMarkup, suffix: str, animated: bool) -> str:
     <path class="map-glow" d="{markup.outline}" fill="url(#map-glow)" stroke="#67e8f9" stroke-opacity=".42" stroke-width="2"/>
     <path d="{markup.outline}" fill="url(#ocean)" stroke="#67e8f9" stroke-opacity=".54" stroke-width="2"/>
     <g class="graticule" clip-path="url(#world-clip-{suffix})">{markup.graticule}</g>
-    <g aria-hidden="true" clip-path="url(#world-clip-{suffix})">{markup.countries}{markup.tiny_countries}{scan}</g>
+    <g aria-hidden="true" clip-path="url(#world-clip-{suffix})">{markup.countries}{markup.tiny_countries}{markup.supplemental_sovereigns}{scan}</g>
     <path id="life-route-{suffix}" class="route-base" d="{markup.route}"/>
     <path class="route-flow" d="{markup.route}"/>
     <path class="route-spark" d="{markup.route}"/>
@@ -437,19 +580,19 @@ def _map_layer(markup: MapMarkup, suffix: str, animated: bool) -> str:
 def render_desktop(markup: MapMarkup, animated: bool) -> str:
     """Render the 1200x620 desktop journey atlas."""
     suffix = "desktop-motion" if animated else "desktop-static"
-    title_suffix = "animated" if animated else "reduced-motion"
+    presentation = "An animated" if animated else "A reduced-motion"
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
   <title id="title">Kevin Cusnir’s journey from San Cristóbal to Beersheba</title>
-  <desc id="desc">A {title_suffix} Natural Earth world atlas with country outlines and tiny-state markers, highlighting Kevin’s birthplace in San Cristóbal, Venezuela, his current base in Beersheba, Israel, and Spanish, English and Hebrew communication.</desc>
-  <!-- Natural Earth {VERSION} Admin-0 Countries and Tiny Countries; public domain: naturalearthdata.com -->
-  <metadata>Natural Earth {VERSION}; {markup.country_count} country boundary features and {markup.tiny_count} tiny-country markers; public domain.</metadata>
+  <desc id="desc">{presentation} Natural Earth world atlas representing 195 sovereign states with boundary features, source tiny-state markers and supplemental centroid markers, highlighting Kevin’s birthplace in San Cristóbal, Venezuela, his current base in Beersheba, Israel, and Spanish, English and Hebrew communication.</desc>
+  <!-- Natural Earth {VERSION} Admin-0 Countries and Tiny Countries; public domain: naturalearthdata.com. Thirteen source-missing sovereign states use deterministic supplemental centroids. -->
+  <metadata>Natural Earth {VERSION}; {markup.country_count} boundary features; {markup.tiny_count} source tiny-country markers; {markup.supplemental_count} supplemental sovereign-centroid markers; {markup.sovereign_count} sovereign states represented ({markup.source_sovereign_count} from pinned sources); public-domain geography.</metadata>
 {_defs(markup, animated, suffix)}
   <rect width="1200" height="620" rx="30" fill="url(#bg)"/><rect width="1200" height="620" rx="30" fill="url(#stars)"/>
   <text x="48" y="52" class="eyebrow">GLOBAL JOURNEY / COUNTRY ATLAS</text>
   <text x="48" y="96" class="title">From San Cristóbal to Beersheba</text>
   <text x="48" y="126" class="subtitle">Venezuelan roots · Israeli home · global collaboration</text>
   <g>{_map_layer(markup, suffix, animated)}</g>
-  <text x="62" y="548" class="micro">COUNTRY OUTLINES WORLDWIDE · TINY STATES MARKED · ROUTE EMPHASIZED</text>
+  <text x="62" y="548" class="micro">195 SOVEREIGN STATES REPRESENTED / TINY STATES MARKED</text>
   <g>
     <rect x="790" y="156" width="362" height="122" rx="24" fill="#2d281b" stroke="#fbbf24" stroke-opacity=".72" stroke-width="2"/>
     <text x="824" y="188" class="card-kicker" fill="#fbbf24">BIRTHPLACE / VENEZUELA</text><text x="824" y="224" class="card-title">San Cristóbal</text><text x="824" y="252" class="card-copy">Spanish roots · first horizon</text>
@@ -469,19 +612,19 @@ def render_desktop(markup: MapMarkup, animated: bool) -> str:
 def render_mobile(markup: MapMarkup, animated: bool) -> str:
     """Render the 720x1180 mobile journey atlas."""
     suffix = "mobile-motion" if animated else "mobile-static"
-    title_suffix = "animated" if animated else "reduced-motion"
+    presentation = "An animated mobile" if animated else "A reduced-motion mobile"
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1180" viewBox="0 0 720 1180" role="img" aria-labelledby="title desc">
   <title id="title">Kevin Cusnir’s journey from San Cristóbal to Beersheba</title>
-  <desc id="desc">A mobile {title_suffix} Natural Earth world atlas with country outlines and tiny-state markers, highlighting Kevin’s birthplace in San Cristóbal, Venezuela, his current base in Beersheba, Israel, and Spanish, English and Hebrew communication.</desc>
-  <!-- Natural Earth {VERSION} Admin-0 Countries and Tiny Countries; public domain: naturalearthdata.com -->
-  <metadata>Natural Earth {VERSION}; {markup.country_count} country boundary features and {markup.tiny_count} tiny-country markers; public domain.</metadata>
+  <desc id="desc">{presentation} Natural Earth world atlas representing 195 sovereign states with boundary features, source tiny-state markers and supplemental centroid markers, highlighting Kevin’s birthplace in San Cristóbal, Venezuela, his current base in Beersheba, Israel, and Spanish, English and Hebrew communication.</desc>
+  <!-- Natural Earth {VERSION} Admin-0 Countries and Tiny Countries; public domain: naturalearthdata.com. Thirteen source-missing sovereign states use deterministic supplemental centroids. -->
+  <metadata>Natural Earth {VERSION}; {markup.country_count} boundary features; {markup.tiny_count} source tiny-country markers; {markup.supplemental_count} supplemental sovereign-centroid markers; {markup.sovereign_count} sovereign states represented ({markup.source_sovereign_count} from pinned sources); public-domain geography.</metadata>
 {_defs(markup, animated, suffix)}
   <rect width="720" height="1180" rx="32" fill="url(#bg)"/><rect width="720" height="1180" rx="32" fill="url(#stars)"/>
   <text x="42" y="54" class="eyebrow">GLOBAL JOURNEY / COUNTRY ATLAS</text>
   <text x="42" y="104" class="title">Two cities, one evolving story</text>
   <text x="42" y="138" class="subtitle">Venezuelan roots · Israeli home</text>
   <g>{_map_layer(markup, suffix, animated)}</g>
-  <text x="52" y="520" class="micro">ALL COUNTRY OUTLINES · TINY STATES MARKED</text>
+  <text x="52" y="520" class="micro">195 SOVEREIGN STATES REPRESENTED / TINY STATES MARKED</text>
   <g>
     <rect x="48" y="558" width="624" height="154" rx="26" fill="#2d281b" stroke="#fbbf24" stroke-opacity=".78" stroke-width="2"/>
     <circle cx="96" cy="608" r="22" fill="#4b3a18" stroke="#fbbf24"/><text x="96" y="614" text-anchor="middle" class="chip">VE</text>
@@ -560,9 +703,11 @@ def main() -> int:
             _write_svg(path, content)
             print(f"Generated {filename}: {path.stat().st_size} bytes")
     print(
-        "Coverage: "
-        f"{desktop_map.country_count} country features + "
-        f"{desktop_map.tiny_count} tiny-country markers [OK]"
+        f"Coverage: {desktop_map.sovereign_count}/195 sovereign states represented "
+        f"({desktop_map.source_sovereign_count} from pinned sources + "
+        f"{desktop_map.supplemental_count} supplemental centroids); "
+        f"{desktop_map.country_count} boundary features + "
+        f"{desktop_map.tiny_count} source tiny-country markers [OK]"
     )
     if failures:
         print(f"Globe generation check failed: {failures} stale or missing asset(s).")
