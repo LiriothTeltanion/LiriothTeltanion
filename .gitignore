@@ -1,2 +1,6 @@
 # Local README snapshots created by tools/profile/backup-readme.ps1.
 .local-backups/
+
+# Python tooling caches.
+__pycache__/
+*.py[cod]

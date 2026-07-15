@@ -642,29 +642,21 @@ try {
 
                     # CSS transform animations override SVG placement transforms in browsers.
                     # Animated classes must live on a nested element, not on the positioned element.
-                    $svgContent = Get-Content -LiteralPath $svgFile.FullName -Raw -Encoding UTF8
                     $animatedClasses = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::Ordinal)
-                    $styleBlocks = @([regex]::Matches($svgContent, '(?is)(?<selector>[^{}]+)\{(?<body>[^{}]*animation\s*:[^{}]*)\}'))
-                    foreach ($styleBlock in $styleBlocks) {
-                        foreach ($classMatch in @([regex]::Matches($styleBlock.Groups["selector"].Value, '\.(?<name>[A-Za-z_][A-Za-z0-9_-]*)'))) {
+                    $styleText = (@($document.SelectNodes("//*[local-name()='style']")) | ForEach-Object { $_.InnerText }) -join "`n"
+                    $styleRules = @([regex]::Matches($styleText, '(?is)(?<selector>[^{}]+)\{(?<body>[^{}]*)\}'))
+                    foreach ($styleRule in $styleRules) {
+                        if ($styleRule.Groups["body"].Value -notmatch '(?is)(?:^|[;\s])animation\s*:') {
+                            continue
+                        }
+                        foreach ($classMatch in @([regex]::Matches($styleRule.Groups["selector"].Value, '\.(?<name>[A-Za-z_][A-Za-z0-9_-]*)'))) {
                             [void]$animatedClasses.Add($classMatch.Groups["name"].Value)
                         }
                     }
 
                     if ($animatedClasses.Count -gt 0) {
-                        $elementMatches = @([regex]::Matches($svgContent, '(?is)<[A-Za-z][A-Za-z0-9:-]*\b(?<attributes>[^>]*)>'))
-                        foreach ($elementMatch in $elementMatches) {
-                            $attributes = $elementMatch.Groups["attributes"].Value
-                            if ($attributes -notmatch '(?is)(?:^|\s)transform\s*=') {
-                                continue
-                            }
-
-                            $classAttribute = [regex]::Match($attributes, '(?is)(?:^|\s)class\s*=\s*(?:"(?<double>[^"]*)"|''(?<single>[^'']*)''|(?<bare>[^\s>]+))')
-                            if (-not $classAttribute.Success) {
-                                continue
-                            }
-
-                            $classValue = [string](Get-AttributeValue -Match $classAttribute)
+                        foreach ($positionedNode in @($document.SelectNodes("//*[@transform and @class]"))) {
+                            $classValue = [string]$positionedNode.GetAttribute("class")
                             foreach ($className in @($classValue -split '\s+')) {
                                 if ($animatedClasses.Contains($className)) {
                                     Fail "SVG asset '$relativeSvgPath' applies animated class '$className' to an element with a placement transform; use a nested animation wrapper."
@@ -690,7 +682,7 @@ try {
         }
 
         if ($script:failureCount -eq $svgFailureCountBefore) {
-            Pass "All $($svgFiles.Count) SVG assets are well-formed XML with an <svg> root element."
+            Pass "All $($svgFiles.Count) SVG assets passed XML, referenced-accessibility and animation-placement checks."
         }
     }
 }

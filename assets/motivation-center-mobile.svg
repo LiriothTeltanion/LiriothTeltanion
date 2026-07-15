@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1000" viewBox="0 0 720 1000" role="img" aria-labelledby="motivation-title motivation-desc">
+  <title id="motivation-title">NovaFit motivation loop for mobile screens</title>
+  <desc id="motivation-desc">A stacked visual flow from purpose to action, evidence, and momentum, presented as a non-medical product concept.</desc>
+  <defs>
+    <linearGradient id="motivation-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#061314"/>
+      <stop offset=".55" stop-color="#0a2223"/>
+      <stop offset="1" stop-color="#21123b"/>
+    </linearGradient>
+    <linearGradient id="motivation-line" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#22d3ee"/>
+      <stop offset=".5" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#c084fc"/>
+    </linearGradient>
+    <radialGradient id="motivation-glow">
+      <stop stop-color="#2dd4bf" stop-opacity=".62"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="motivation-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#020b0f" flood-opacity=".65"/>
+    </filter>
+    <style>
+      .eyebrow{font:800 18px system-ui,"Segoe UI",sans-serif;letter-spacing:3px;fill:#5eead4}
+      .headline{font:800 37px system-ui,"Segoe UI",sans-serif;fill:#ecfffb}
+      .intro{font:500 20px system-ui,"Segoe UI",sans-serif;fill:#9accc5}
+      .step{font:800 23px system-ui,"Segoe UI",sans-serif;fill:#f3fffd}
+      .copy{font:500 19px system-ui,"Segoe UI",sans-serif;fill:#a9c9c5}
+      .tag{font:800 15px system-ui,"Segoe UI",sans-serif;letter-spacing:1.5px}
+      .trail{stroke-dasharray:13 14;animation:motivation-dash 5s linear infinite}
+      .float{transform-box:fill-box;transform-origin:center;animation:motivation-float 4.8s ease-in-out infinite}
+      .pulse{transform-box:fill-box;transform-origin:center;animation:motivation-pulse 3s ease-in-out infinite}
+      .spark{animation:motivation-spark 2.8s ease-in-out infinite}
+      @keyframes motivation-dash{to{stroke-dashoffset:-108}}
+      @keyframes motivation-float{50%{transform:translateY(-8px)}}
+      @keyframes motivation-pulse{50%{transform:scale(1.035);filter:drop-shadow(0 0 16px #c084fc)}}
+      @keyframes motivation-spark{50%{opacity:.25}}
+      @media (prefers-reduced-motion:reduce){.trail,.float,.pulse,.spark{animation:none!important}}
+    </style>
+  </defs>
+
+  <rect width="720" height="1000" rx="32" fill="url(#motivation-bg)"/>
+  <circle cx="598" cy="180" r="210" fill="url(#motivation-glow)" opacity=".22"/>
+  <path d="M65 312H655M65 927H655" stroke="#5eead4" stroke-opacity=".12"/>
+
+  <g font-family="system-ui,Segoe UI,sans-serif">
+    <text x="52" y="72" class="eyebrow">NOVA / MOTIVATION CENTER</text>
+    <text x="52" y="124" class="headline">A repeatable path forward</text>
+    <text x="52" y="162" class="intro">Small steps become visible, reviewable progress.</text>
+    <rect x="52" y="192" width="244" height="42" rx="21" fill="#0f3436" stroke="#2dd4bf" stroke-opacity=".55"/>
+    <text x="174" y="219" text-anchor="middle" class="tag" fill="#99f6e4">PRODUCT FLOW · NON-MEDICAL</text>
+  </g>
+
+  <path class="trail" d="M112 355V870" fill="none" stroke="url(#motivation-line)" stroke-width="5" stroke-linecap="round"/>
+
+  <g transform="translate(58 300)">
+    <g class="float" filter="url(#motivation-shadow)">
+      <rect width="604" height="132" rx="25" fill="#0d2a31" stroke="#22d3ee" stroke-width="2" stroke-opacity=".72"/>
+      <circle cx="54" cy="66" r="28" fill="#123f4d" stroke="#67e8f9" stroke-width="2"/>
+      <text x="54" y="75" text-anchor="middle" font-size="26">🧭</text>
+      <text x="102" y="48" class="step">1 · PURPOSE</text>
+      <text x="102" y="80" class="copy">Name the reason the next step matters.</text>
+      <text x="102" y="108" class="tag" fill="#67e8f9">CLEAR INTENT</text>
+    </g>
+  </g>
+
+  <g transform="translate(58 454)">
+    <g class="float" style="animation-delay:.65s" filter="url(#motivation-shadow)">
+      <rect width="604" height="132" rx="25" fill="#0e302f" stroke="#34d399" stroke-width="2" stroke-opacity=".72"/>
+      <circle cx="54" cy="66" r="28" fill="#15433b" stroke="#6ee7b7" stroke-width="2"/>
+      <text x="54" y="75" text-anchor="middle" font-size="26">⚡</text>
+      <text x="102" y="48" class="step">2 · ACTION</text>
+      <text x="102" y="80" class="copy">Choose one useful, achievable move.</text>
+      <text x="102" y="108" class="tag" fill="#6ee7b7">FOCUSED EXECUTION</text>
+    </g>
+  </g>
+
+  <g transform="translate(58 608)">
+    <g class="float" style="animation-delay:1.3s" filter="url(#motivation-shadow)">
+      <rect width="604" height="132" rx="25" fill="#112c37" stroke="#38bdf8" stroke-width="2" stroke-opacity=".72"/>
+      <circle cx="54" cy="66" r="28" fill="#173b50" stroke="#7dd3fc" stroke-width="2"/>
+      <text x="54" y="75" text-anchor="middle" font-size="26">✓</text>
+      <text x="102" y="48" class="step">3 · EVIDENCE</text>
+      <text x="102" y="80" class="copy">Keep a transparent record of what changed.</text>
+      <text x="102" y="108" class="tag" fill="#7dd3fc">REVIEWABLE RESULT</text>
+    </g>
+  </g>
+
+  <g transform="translate(58 762)">
+    <g class="pulse" filter="url(#motivation-shadow)">
+      <rect width="604" height="132" rx="25" fill="#291842" stroke="#c084fc" stroke-width="2.5"/>
+      <circle cx="54" cy="66" r="28" fill="#3a245a" stroke="#e9d5ff" stroke-width="2"/>
+      <text x="54" y="75" text-anchor="middle" font-size="26">✦</text>
+      <text x="102" y="48" class="step">4 · MOMENTUM</text>
+      <text x="102" y="80" class="copy">Reflect, celebrate, and choose what comes next.</text>
+      <text x="102" y="108" class="tag" fill="#e9d5ff">SUSTAINABLE RHYTHM</text>
+    </g>
+  </g>
+
+  <g fill="#ecfffb">
+    <circle class="spark" cx="641" cy="261" r="3"/>
+    <circle class="spark" cx="676" cy="286" r="2" style="animation-delay:.8s"/>
+    <circle class="spark" cx="38" cy="918" r="3" style="animation-delay:1.4s"/>
+  </g>
+  <text x="360" y="958" text-anchor="middle" class="intro">Purpose → action → evidence → momentum</text>
+  <rect x="1" y="1" width="718" height="998" rx="31" fill="none" stroke="#67e8f9" stroke-opacity=".16"/>
+</svg>

@@ -19,7 +19,7 @@ Aplicación React/TypeScript local-first que transforma exportaciones de Spotify
 
 ### 💙 NovaFit
 
-NovaFit Ultimate 4.0 es una aplicación local de escritorio y terminal con Python, Tkinter y SQLite. Incluye cuatro espacios de analítica —Command Center, Trend Lab, Consistency Map y Training Atlas—, 74 pruebas automatizadas, perfiles aislados, interfaz EN/ES/HE con RTL en hebreo, doce temas, Sport & Data Coach, reportes portátiles, migración segura y distribución para Windows. Las capturas públicas usan datos de demostración sembrados; no muestran registros personales.
+NovaFit Ultimate 4.0 es una aplicación local de escritorio y terminal con Python, Tkinter y SQLite. Incluye cuatro espacios de analítica —Command Center, Trend Lab, Consistency Map y Training Atlas—, 74 pruebas automatizadas, perfiles aislados, interfaz EN/ES/HE con RTL en hebreo, doce temas, Sport & Data Coach, reportes portátiles, migración segura y distribución para Windows. Los gráficos públicos usan datos independientes del perfil o demostraciones sembradas y anonimizadas; no muestran historial personal.
 
 - [Código fuente](https://github.com/LiriothTeltanion/NovaFit)
 

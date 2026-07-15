@@ -31,6 +31,7 @@ git status --short
 git switch -c docs/definitive-recruiter-profile
 py -3 scripts/build_profile.py --mode compact --output README.md
 py -3 scripts/validate_profile.py --readme README.md --max-lines 300
+powershell -ExecutionPolicy Bypass -File tools/profile/verify-profile.ps1
 git diff -- README.md profile.json assets scripts
 ```
 
@@ -45,11 +46,11 @@ docs(profile): add definitive recruiter-first portfolio command center
 1. Target role, location, stack and availability are immediate.
 2. Projects use one consistent evidence format.
 3. No arbitrary skill percentages.
-4. NovaFit 4.0 is shown through actual analytics and GUI evidence.
+4. Nova Music Lab receives the flagship visual journey, and NovaFit 4.0 is shown through privacy-safe system diagrams plus profile-independent or anonymized seeded-demo analytics.
 5. Secondary content is collapsible.
 6. Spanish and Hebrew remain available without tripling the main README.
 7. `profile.json` reduces drift.
-8. The validator catches missing assets, placeholders, duplicate sections and uncontrolled growth.
+8. Validation catches missing assets, unsafe SVG animation placement, absent reduced-motion behavior, corrupt rasters, payload regressions, placeholders, duplicate sections and uncontrolled growth.
 
 ## Before publishing
 

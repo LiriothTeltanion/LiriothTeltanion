@@ -70,9 +70,11 @@ git status --short
 git diff -- README.md assets
 ```
 
-The validator checks the profile contract and local references. A successful
-script does not replace human review: open changed text files, confirm every
-changed path exists and ensure no private material or secret was added.
+The validator checks identity, local references, CSS and SMIL animation
+fallbacks, SVG accessibility, unsafe SVG transform composition, raster
+decoding and the public visual payload budget. A successful script does not
+replace human review: open changed text files, confirm every changed path
+exists and ensure no private material or secret was added.
 
 For a visual change, also render or open the affected section at desktop and
 narrow/mobile widths. Confirm that names are not clipped, text remains readable,

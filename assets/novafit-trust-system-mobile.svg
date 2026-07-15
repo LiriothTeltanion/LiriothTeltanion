@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1150" viewBox="0 0 720 1150" role="img" aria-labelledby="trust-mobile-title trust-mobile-desc">
+  <title id="trust-mobile-title">NovaFit trust system for mobile screens</title>
+  <desc id="trust-mobile-desc">A stacked product-quality pipeline from seeded demo profiles and localization through reasoned coaching, workspace verification, and clean release practices.</desc>
+  <defs>
+    <linearGradient id="trust-mobile-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#06121d"/>
+      <stop offset=".52" stop-color="#0a2325"/>
+      <stop offset="1" stop-color="#21113b"/>
+    </linearGradient>
+    <linearGradient id="trust-mobile-flow" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#22d3ee"/>
+      <stop offset=".35" stop-color="#34d399"/>
+      <stop offset=".68" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#c084fc"/>
+    </linearGradient>
+    <filter id="trust-mobile-shadow" x="-25%" y="-25%" width="150%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="13" flood-color="#020912" flood-opacity=".68"/>
+    </filter>
+    <style>
+      .eyebrow{font:800 18px system-ui,"Segoe UI",sans-serif;letter-spacing:3px;fill:#5eead4}
+      .headline{font:800 35px system-ui,"Segoe UI",sans-serif;fill:#effffc}
+      .intro{font:500 22px system-ui,"Segoe UI",sans-serif;fill:#9fbfc0}
+      .step{font:800 25px system-ui,"Segoe UI",sans-serif;fill:#effffc}
+      .copy{font:500 22px system-ui,"Segoe UI",sans-serif;fill:#b2c8ce}
+      .tag{font:800 16px system-ui,"Segoe UI",sans-serif;letter-spacing:1.2px}
+      .flow{stroke-dasharray:12 13;animation:trust-mobile-dash 4s linear infinite}
+      .motion{transform-box:fill-box;transform-origin:center;animation:trust-mobile-float 5s ease-in-out infinite}
+      .halo{transform-box:fill-box;transform-origin:center;animation:trust-mobile-pulse 3.2s ease-in-out infinite}
+      @keyframes trust-mobile-dash{to{stroke-dashoffset:-100}}
+      @keyframes trust-mobile-float{50%{transform:translateY(-7px)}}
+      @keyframes trust-mobile-pulse{50%{transform:scale(1.16);opacity:.2}}
+      @media (prefers-reduced-motion:reduce){.flow,.motion,.halo{animation:none!important}}
+    </style>
+  </defs>
+
+  <rect width="720" height="1150" rx="32" fill="url(#trust-mobile-bg)"/>
+  <path d="M52 171H668M52 1084H668" stroke="#67e8f9" stroke-opacity=".13"/>
+  <g font-family="system-ui,Segoe UI,sans-serif">
+    <text x="52" y="60" class="eyebrow">NOVAFIT / TRUST SYSTEM</text>
+    <text x="52" y="108" class="headline">Trust, visible at every step</text>
+    <text x="52" y="145" class="intro">A reviewable path from setup to release.</text>
+  </g>
+
+  <path class="flow" d="M104 260V980" fill="none" stroke="url(#trust-mobile-flow)" stroke-width="5" stroke-linecap="round"/>
+
+  <g transform="translate(58 198)">
+    <g class="motion" filter="url(#trust-mobile-shadow)">
+      <rect width="604" height="184" rx="25" fill="#0c2632" stroke="#22d3ee" stroke-width="2.2"/>
+      <circle class="halo" cx="58" cy="58" r="36" fill="#22d3ee" opacity=".08"/>
+      <circle cx="58" cy="58" r="27" fill="#123c4d" stroke="#67e8f9" stroke-width="2"/>
+      <text x="58" y="67" text-anchor="middle" font-size="27">🌐</text>
+      <text x="108" y="48" class="step">1 · PROFILES + I18N</text>
+      <text x="108" y="78" class="tag" fill="#67e8f9">INCLUSIVE ENTRY</text>
+      <path d="M28 105H576" stroke="#67e8f9" stroke-opacity=".18"/>
+      <text x="28" y="139" class="copy">Seeded demo profiles · locale switching</text>
+      <text x="28" y="169" class="copy">RTL-aware interface checks</text>
+    </g>
+  </g>
+
+  <g transform="translate(58 414)">
+    <g class="motion" style="animation-delay:.65s" filter="url(#trust-mobile-shadow)">
+      <rect width="604" height="184" rx="25" fill="#0d2d2d" stroke="#34d399" stroke-width="2.2"/>
+      <circle class="halo" cx="58" cy="58" r="36" fill="#34d399" opacity=".08" style="animation-delay:.65s"/>
+      <circle cx="58" cy="58" r="27" fill="#15443c" stroke="#6ee7b7" stroke-width="2"/>
+      <text x="58" y="67" text-anchor="middle" font-size="27">🧠</text>
+      <text x="108" y="48" class="step">2 · QUALITY + REASON</text>
+      <text x="108" y="78" class="tag" fill="#6ee7b7">REVIEWABLE COACH</text>
+      <path d="M28 105H576" stroke="#6ee7b7" stroke-opacity=".18"/>
+      <text x="28" y="139" class="copy">Explainable prompts · visible reasoning</text>
+      <text x="28" y="169" class="copy">Non-medical product language</text>
+    </g>
+  </g>
+
+  <g transform="translate(58 630)">
+    <g class="motion" style="animation-delay:1.3s" filter="url(#trust-mobile-shadow)">
+      <rect width="604" height="184" rx="25" fill="#10283a" stroke="#60a5fa" stroke-width="2.2"/>
+      <circle class="halo" cx="58" cy="58" r="36" fill="#60a5fa" opacity=".08" style="animation-delay:1.3s"/>
+      <circle cx="58" cy="58" r="27" fill="#173b59" stroke="#93c5fd" stroke-width="2"/>
+      <text x="58" y="67" text-anchor="middle" font-size="27">✓</text>
+      <text x="108" y="48" class="step">3 · WORKSPACE CHECKS</text>
+      <text x="108" y="78" class="tag" fill="#93c5fd">VERIFIED CHANGE</text>
+      <path d="M28 105H576" stroke="#93c5fd" stroke-opacity=".18"/>
+      <text x="28" y="139" class="copy">Repeatable validation · source evidence</text>
+      <text x="28" y="169" class="copy">Accessible visual review</text>
+    </g>
+  </g>
+
+  <g transform="translate(58 846)">
+    <g class="motion" style="animation-delay:1.95s" filter="url(#trust-mobile-shadow)">
+      <rect width="604" height="184" rx="25" fill="#27183e" stroke="#c084fc" stroke-width="2.5"/>
+      <circle class="halo" cx="58" cy="58" r="36" fill="#c084fc" opacity=".08" style="animation-delay:1.95s"/>
+      <circle cx="58" cy="58" r="27" fill="#3a2458" stroke="#e9d5ff" stroke-width="2"/>
+      <text x="58" y="67" text-anchor="middle" font-size="27">🚀</text>
+      <text x="108" y="48" class="step">4 · CLEAN RELEASE</text>
+      <text x="108" y="78" class="tag" fill="#e9d5ff">PUBLIC DELIVERY</text>
+      <path d="M28 105H576" stroke="#e9d5ff" stroke-opacity=".18"/>
+      <text x="28" y="139" class="copy">Focused history · no private user data</text>
+      <text x="28" y="169" class="copy">Recruiter-readable outcome</text>
+    </g>
+  </g>
+
+  <g font-family="system-ui,Segoe UI,sans-serif">
+    <rect x="52" y="1060" width="268" height="46" rx="23" fill="#102d32" stroke="#5eead4" stroke-opacity=".55"/>
+    <text x="186" y="1089" text-anchor="middle" class="tag" fill="#99f6e4">SEEDED DEMO DATA</text>
+    <text x="665" y="1090" text-anchor="end" class="tag" fill="#e9d5ff">TRUST BY DESIGN ✦</text>
+  </g>
+  <rect x="1" y="1" width="718" height="1148" rx="31" fill="none" stroke="#67e8f9" stroke-opacity=".16"/>
+</svg>

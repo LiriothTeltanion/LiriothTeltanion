@@ -35,13 +35,16 @@ jobs:
       - name: Verify generated profiles are current
         shell: pwsh
         run: |
+          function Get-NormalizedContent([string] $Path) {
+            return (Get-Content -LiteralPath $Path -Raw).Replace("`r`n", "`n").Replace("`r", "`n")
+          }
           $compact = Join-Path $env:RUNNER_TEMP "README.generated.md"
           $expanded = Join-Path $env:RUNNER_TEMP "README_EXPANDED.generated.md"
           python scripts/build_profile.py --mode compact --output $compact
           python scripts/build_profile.py --mode expanded --output $expanded
-          if ((Get-Content -LiteralPath README.md -Raw) -cne (Get-Content -LiteralPath $compact -Raw)) {
+          if ((Get-NormalizedContent README.md) -cne (Get-NormalizedContent $compact)) {
             throw "README.md is not synchronized with profile.json and scripts/build_profile.py."
           }
-          if ((Get-Content -LiteralPath README_EXPANDED.md -Raw) -cne (Get-Content -LiteralPath $expanded -Raw)) {
+          if ((Get-NormalizedContent README_EXPANDED.md) -cne (Get-NormalizedContent $expanded)) {
             throw "README_EXPANDED.md is not synchronized with profile.json and scripts/build_profile.py."
           }

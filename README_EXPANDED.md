@@ -63,8 +63,6 @@ I’m **Kevin Cusnir**, a junior frontend and full-stack developer in **Beersheb
 
 ## 🚀 Featured projects
 
-<img src="./assets/project-constellation-animated.svg" width="100%" alt="Four featured projects connected to Kevin Cusnir and the Lirioth Teltanion creative engineering identity" />
-
 ### 🎧 Nova Music Lab
 
 **Status:** Live flagship  
@@ -80,6 +78,8 @@ I’m **Kevin Cusnir**, a junior frontend and full-stack developer in **Beersheb
 <summary><strong>🎧 Open the Nova Music Lab data journey</strong></summary>
 
 <picture>
+  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/nova-music-journey-mobile-static.svg" />
+  <source media="(max-width: 640px)" srcset="./assets/nova-music-journey-mobile.svg" />
   <source media="(prefers-reduced-motion: reduce)" srcset="./assets/nova-music-journey-static.svg" />
   <img src="./assets/nova-music-journey-animated.svg" width="100%" alt="Private listening files move through normalization, analytics, emotion mapping and identity into an exportable museum report" />
 </picture>

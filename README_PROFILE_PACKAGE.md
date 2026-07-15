@@ -4,21 +4,22 @@ This folder is a complete, generated replacement for the GitHub profile reposito
 
 ## Included
 
-- recruiter-first `README.md` — 262 lines;
+- recruiter-first `README.md` — 292 lines;
 - optional expanded README;
 - Spanish and Hebrew summaries;
 - canonical `profile.json`;
 - compact/expanded generator;
 - validator;
 - Windows build/verify launchers;
-- animated professional banner;
-- animated portfolio command center;
+- responsive animated professional banner with mobile and reduced-motion variants;
+- responsive animated portfolio command center without arbitrary progress bars;
+- Nova Music Lab museum-journey spotlight;
 - animated project constellation;
 - animated engineering orbit;
 - detailed Beersheba-centered globe plus static fallback;
 - animated learning roadmap;
-- NovaFit 4.0 analytics tour GIF;
-- actual NovaFit GUI capture;
+- responsive NovaFit motivation and trust-system diagrams with reduced-motion behavior;
+- profile-independent Training Atlas and anonymized seeded-demo theme evidence;
 - migration guide.
 
 ## Regenerate
@@ -27,6 +28,7 @@ This folder is a complete, generated replacement for the GitHub profile reposito
 python scripts/build_profile.py --mode compact --output README.md
 python scripts/build_profile.py --mode expanded --output README_EXPANDED.md
 python scripts/validate_profile.py --readme README.md --max-lines 300
+powershell -ExecutionPolicy Bypass -File tools/profile/verify-profile.ps1
 ```
 
 On Windows:

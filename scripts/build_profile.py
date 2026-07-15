@@ -307,8 +307,6 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
         "",
         "## 🚀 Featured projects",
         "",
-        '<img src="./assets/project-constellation-animated.svg" width="100%" alt="Four featured projects connected to Kevin Cusnir and the Lirioth Teltanion creative engineering identity" />',
-        "",
     ]
 
     for project in projects:
@@ -351,6 +349,7 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
             "## 🌍 Global communication",
             "",
             '<picture>',
+            '  <source media="(max-width: 640px)" srcset="./assets/world-globe-mobile.svg" />',
             '  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/world-globe-static.svg" />',
             '  <img src="./assets/world-globe-animated.svg" width="100%" alt="Beersheba connects to Spanish, English and Hebrew product communication and localization" />',
             "</picture>",
@@ -371,7 +370,10 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
             "",
             "## 🌱 Current growth focus",
             "",
-            '<img src="./assets/learning-roadmap-animated.svg" width="100%" alt="Roadmap from proven frontend work through data and application trust to production full-stack delivery" />',
+            '<picture>',
+            '  <source media="(max-width: 640px)" srcset="./assets/learning-roadmap-mobile.svg" />',
+            '  <img src="./assets/learning-roadmap-animated.svg" width="100%" alt="Roadmap from proven frontend work through data and application trust to production full-stack delivery" />',
+            "</picture>",
             "",
         ]
     )
@@ -471,13 +473,15 @@ def write_profile(data_path: Path, output_path: Path, mode: str) -> Path:
         ValueError: If source data is incomplete.
 
     Example:
-        >>> write_profile(DEFAULT_DATA, ROOT / 'README.preview.md', 'compact').suffix
+        >>> write_profile(DEFAULT_DATA, ROOT / 'README.preview.md', 'compact').suffix  # doctest: +SKIP
         '.md'
     """
     content = render_profile(load_profile(data_path), mode)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     temporary = output_path.with_suffix(output_path.suffix + ".tmp")
-    temporary.write_text(content, encoding="utf-8")
+    # Markdown is committed with LF via .gitattributes. Force the same output on
+    # Windows so generated-file checks do not report CRLF-only drift.
+    temporary.write_text(content, encoding="utf-8", newline="\n")
     temporary.replace(output_path)
     return output_path
 
@@ -509,6 +513,8 @@ def _render_nova_music_spotlight(project: Mapping[str, Any]) -> list[str]:
         '<summary><strong>🎧 Open the Nova Music Lab data journey</strong></summary>',
         "",
         '<picture>',
+        '  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/nova-music-journey-mobile-static.svg" />',
+        '  <source media="(max-width: 640px)" srcset="./assets/nova-music-journey-mobile.svg" />',
         '  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/nova-music-journey-static.svg" />',
         '  <img src="./assets/nova-music-journey-animated.svg" width="100%" alt="Private listening files move through normalization, analytics, emotion mapping and identity into an exportable museum report" />',
         "</picture>",
@@ -528,24 +534,20 @@ def _render_novafit_spotlights(project: Mapping[str, Any]) -> list[str]:
         "<details>",
         '<summary><strong>💙 Open the NovaFit product, analytics and visual system</strong></summary>',
         "",
-        "> **Demo-data note:** every NovaFit capture in this profile uses seeded demonstration records; no personal wellness history is displayed.",
+        "> **Public-data boundary:** the visuals below use profile-independent or seeded demonstration data; no personal wellness history is displayed.",
         "",
         '<picture>',
-        '  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/novafit-ultimate-gui.png" />',
-        '  <img src="./assets/novafit-analytics-tour.gif" width="100%" alt="NovaFit analytics tour with seeded demonstration data across movement, hydration, mood and consistency views" />',
+        '  <source media="(max-width: 640px)" srcset="./assets/motivation-center-mobile.svg" />',
+        '  <img src="./assets/motivation-center-animated.svg" width="100%" alt="NovaFit Motivation Center connects purpose, small actions, evidence, celebration and recovery" />',
         "</picture>",
         "",
         "**Why this project matters:** NovaFit brings multi-user data isolation, a complete Tkinter interface, trilingual UX, automation-friendly CLI workflows, safe migrations, explainable suggestions, analytics, portable reports and Windows delivery into one local-first product.",
         "",
-        '<a href="./assets/novafit-ultimate-gui.png"><img src="./assets/novafit-ultimate-gui.png" width="100%" alt="NovaFit Ultimate 4.0 Wellness Command Center showing seeded demonstration metrics and local profile controls" /></a>',
-        "",
         '<a href="./assets/analytics-training-atlas.png"><img src="./assets/analytics-training-atlas.png" width="100%" alt="NovaFit Training Atlas workspace showing seeded analytical charts" /></a>',
         "",
-        '<img src="./assets/motivation-center-animated.svg" width="100%" alt="NovaFit Motivation Center connects purpose, small actions, evidence, celebration and recovery" />',
-        "",
-        '<a href="./assets/motivation-center-ultimate.png"><img src="./assets/motivation-center-ultimate.png" width="100%" alt="NovaFit Motivation Center interface using seeded demonstration data" /></a>',
-        "",
         '<a href="./assets/theme-spectrum.png"><img src="./assets/theme-spectrum.png" width="100%" alt="NovaFit twelve-theme interface contact sheet" /></a>',
+        "",
+        "The Training Atlas is profile-independent; the theme contact sheet uses seeded demonstration records without publishing a profile name.",
         "",
         "**Twelve themes:** Midnight Neon · Aurora Borealis · Negev Sunrise · Ocean Depth · Forest Focus · Rose Quartz · Cloud Day · Solar Paper · High Contrast · Royal Sapphire · Cyber Lime · Sunset Arcade.",
         "",
@@ -556,21 +558,14 @@ def _render_novafit_spotlights(project: Mapping[str, Any]) -> list[str]:
         "<details>",
         '<summary><strong>🌍 Open NovaFit profiles, EN/ES/HE, coach and safe delivery</strong></summary>',
         "",
-        "> All profile names and health signals shown below are seeded demonstration data.",
+        "> **Public-data boundary:** this system map contains no profile names, dates or wellness metrics.",
         "",
-        '<img src="./assets/multi-profile-i18n-animated.svg" width="100%" alt="Seeded demo profiles keep records, goals, language and theme settings isolated, including Hebrew right-to-left layout" />',
-        "",
-        '<a href="./assets/multi-profile-language-center.png"><img src="./assets/multi-profile-language-center.png" width="100%" alt="NovaFit local profile manager with seeded English, Spanish and Hebrew demonstration profiles" /></a>',
-        "",
-        '<img src="./assets/sport-data-engine-animated.svg" width="100%" alt="Local records pass through quality checks into conservative suggestions with explicit reasons and confidence boundaries" />',
-        "",
-        '<a href="./assets/sport-data-coach-real.png"><img src="./assets/sport-data-coach-real.png" width="100%" alt="NovaFit Sport and Data Coach showing seeded suggestions, data confidence and safety boundaries" /></a>',
+        '<picture>',
+        '  <source media="(max-width: 640px)" srcset="./assets/novafit-trust-system-mobile.svg" />',
+        '  <img src="./assets/novafit-trust-system-animated.svg" width="100%" alt="NovaFit protects profile boundaries, checks data quality, explains conservative suggestions, verifies the workspace and stages clean releases" />',
+        "</picture>",
         "",
         "Each profile owns isolated records, goals, language, theme and activity preferences. English and Spanish use LTR; Hebrew moves the shell to RTL. Suggestions expose data confidence and reasons while avoiding medical claims.",
-        "",
-        '<img src="./assets/self-healing-verification-animated.svg" width="100%" alt="Windows setup checks Python, repairs a local environment, installs dependencies and runs verification" />',
-        "",
-        '<img src="./assets/distribution-safety-animated.svg" width="100%" alt="Workspace verification preserves local data while clean release staging excludes private runtime files" />',
         "",
         "The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, runs 74 tests, preserves an existing user database in workspace mode, and uses strict clean staging for downloadable releases.",
         "",
