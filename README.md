@@ -65,13 +65,13 @@ I’m **Kevin Cusnir**, a junior frontend and full-stack developer in **Beersheb
 
 ### 🎧 Nova Music Lab
 
-**Status:** Live flagship  
-**Problem:** Listening exports are fragmented, hard to compare and easy to misrepresent.  
-**Solution:** A local-first personal music museum with multi-source imports, honest analytics, multilingual UX, generative identity and quality gates.  
-**Stack:** React · TypeScript · Vite · Vitest · Recharts · GitHub Actions  
-**Evidence:** Source normalization, deduplication, tests, bundle budgets, CI and GitHub Pages  
-**Role signal:** Frontend engineering · data visualization · privacy-aware product thinking  
-**Highlights:** Five import families normalized into one model · Lazy-loaded museum rooms and bundle budgets · Multilingual UX, accessibility checks, tests and CI  
+**Status:** Live flagship<br>
+**Problem:** Listening exports are fragmented, hard to compare and easy to misrepresent.<br>
+**Solution:** A local-first personal music museum with multi-source imports, honest analytics, multilingual UX, generative identity and quality gates.<br>
+**Stack:** React · TypeScript · Vite · Vitest · Recharts · GitHub Actions<br>
+**Evidence:** Source normalization, deduplication, tests, bundle budgets, CI and GitHub Pages<br>
+**Role signal:** Frontend engineering · data visualization · privacy-aware product thinking<br>
+**Highlights:** Five import families normalized into one model · Lazy-loaded museum rooms and bundle budgets · Multilingual UX, accessibility checks, tests and CI<br>
 [Open Nova Music Lab live demo](https://liriothteltanion.github.io/NovaMusicLab/) · [Nova Music Lab source](https://github.com/LiriothTeltanion/NovaMusicLab)
 
 <details>
@@ -92,36 +92,32 @@ Five import families become one deduplicated, source-aware listening history. Mi
 
 ### 💙 NovaFit
 
-**Status:** Ultimate 4.0 local-first desktop product  
-**Problem:** Daily wellness data should remain portable, understandable and private.  
-**Solution:** A multi-user Python CLI and Tkinter wellness intelligence studio with profile-isolated SQLite, EN/ES/HE, Hebrew RTL, twelve themes, four analytics workspaces, explainable Sport & Data recommendations, motivation, portable reports and self-healing Windows delivery.  
-**Stack:** Python · Tkinter · SQLite · Requests · Faker · Matplotlib  
-**Evidence:** 74 automated tests, twelve-theme gallery, trilingual seeded-demo GUI captures, profile-isolated schema v4, Training Atlas, workspace-safe audit and strict clean release staging  
-**Role signal:** Python application architecture · desktop UX · SQLite migrations · i18n/RTL · analytics · release engineering  
-**Highlights:** Multi-user profiles with isolated records, goals, language and theme · EN/ES/HE interface with true Hebrew RTL shell behavior · Command Center, Trend Lab, Consistency Map, Training Atlas and Sport & Data Coach · Workspace-safe checker preserves user DB; release staging excludes private runtime files  
+**Status:** Ultimate 4.0 local-first desktop product<br>
+**Problem:** Daily wellness data should remain portable, understandable and private.<br>
+**Solution:** A multi-user Python CLI and Tkinter wellness intelligence studio with profile-isolated SQLite, EN/ES/HE, Hebrew RTL, twelve themes, four analytics workspaces, explainable Sport & Data recommendations, motivation, portable reports and self-healing Windows delivery.<br>
+**Stack:** Python · Tkinter · SQLite · Requests · Faker · Matplotlib<br>
+**Evidence:** 74 automated tests, twelve-theme gallery, trilingual UI with Hebrew RTL validation, profile-isolated schema v4, Training Atlas, workspace-safe audit and strict clean release staging<br>
+**Role signal:** Python application architecture · desktop UX · SQLite migrations · i18n/RTL · analytics · release engineering<br>
+**Highlights:** Multi-user profiles with isolated records, goals, language and theme · EN/ES/HE interface with true Hebrew RTL shell behavior · Command Center, Trend Lab, Consistency Map, Training Atlas and Sport & Data Coach · Workspace-safe checker preserves user DB; release staging excludes private runtime files<br>
 [NovaFit source](https://github.com/LiriothTeltanion/NovaFit)
 
 <details>
 <summary><strong>💙 Open the NovaFit product, analytics and visual system</strong></summary>
 
-> **Demo-data note:** every NovaFit capture in this profile uses seeded demonstration records; no personal wellness history is displayed.
+> **Public-data boundary:** the visuals below use profile-independent or seeded demonstration data; no personal wellness history is displayed.
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/novafit-ultimate-gui.png" />
-  <img src="./assets/novafit-analytics-tour.gif" width="100%" alt="NovaFit analytics tour with seeded demonstration data across movement, hydration, mood and consistency views" />
+  <source media="(max-width: 640px)" srcset="./assets/motivation-center-mobile.svg" />
+  <img src="./assets/motivation-center-animated.svg" width="100%" alt="NovaFit Motivation Center connects purpose, small actions, evidence, celebration and recovery" />
 </picture>
 
 **Why this project matters:** NovaFit brings multi-user data isolation, a complete Tkinter interface, trilingual UX, automation-friendly CLI workflows, safe migrations, explainable suggestions, analytics, portable reports and Windows delivery into one local-first product.
 
-<a href="./assets/novafit-ultimate-gui.png"><img src="./assets/novafit-ultimate-gui.png" width="100%" alt="NovaFit Ultimate 4.0 Wellness Command Center showing seeded demonstration metrics and local profile controls" /></a>
-
 <a href="./assets/analytics-training-atlas.png"><img src="./assets/analytics-training-atlas.png" width="100%" alt="NovaFit Training Atlas workspace showing seeded analytical charts" /></a>
 
-<img src="./assets/motivation-center-animated.svg" width="100%" alt="NovaFit Motivation Center connects purpose, small actions, evidence, celebration and recovery" />
-
-<a href="./assets/motivation-center-ultimate.png"><img src="./assets/motivation-center-ultimate.png" width="100%" alt="NovaFit Motivation Center interface using seeded demonstration data" /></a>
-
 <a href="./assets/theme-spectrum.png"><img src="./assets/theme-spectrum.png" width="100%" alt="NovaFit twelve-theme interface contact sheet" /></a>
+
+The Training Atlas is profile-independent; the theme contact sheet uses seeded demonstration records without publishing a profile name.
 
 **Twelve themes:** Midnight Neon · Aurora Borealis · Negev Sunrise · Ocean Depth · Forest Focus · Rose Quartz · Cloud Day · Solar Paper · High Contrast · Royal Sapphire · Cyber Lime · Sunset Arcade.
 
@@ -132,21 +128,14 @@ Five import families become one deduplicated, source-aware listening history. Mi
 <details>
 <summary><strong>🌍 Open NovaFit profiles, EN/ES/HE, coach and safe delivery</strong></summary>
 
-> All profile names and health signals shown below are seeded demonstration data.
+> **Public-data boundary:** this system map contains no profile names, dates or wellness metrics.
 
-<img src="./assets/multi-profile-i18n-animated.svg" width="100%" alt="Seeded demo profiles keep records, goals, language and theme settings isolated, including Hebrew right-to-left layout" />
-
-<a href="./assets/multi-profile-language-center.png"><img src="./assets/multi-profile-language-center.png" width="100%" alt="NovaFit local profile manager with seeded English, Spanish and Hebrew demonstration profiles" /></a>
-
-<img src="./assets/sport-data-engine-animated.svg" width="100%" alt="Local records pass through quality checks into conservative suggestions with explicit reasons and confidence boundaries" />
-
-<a href="./assets/sport-data-coach-real.png"><img src="./assets/sport-data-coach-real.png" width="100%" alt="NovaFit Sport and Data Coach showing seeded suggestions, data confidence and safety boundaries" /></a>
+<picture>
+  <source media="(max-width: 640px)" srcset="./assets/novafit-trust-system-mobile.svg" />
+  <img src="./assets/novafit-trust-system-animated.svg" width="100%" alt="NovaFit protects profile boundaries, checks data quality, explains conservative suggestions, verifies the workspace and stages clean releases" />
+</picture>
 
 Each profile owns isolated records, goals, language, theme and activity preferences. English and Spanish use LTR; Hebrew moves the shell to RTL. Suggestions expose data confidence and reasons while avoiding medical claims.
-
-<img src="./assets/self-healing-verification-animated.svg" width="100%" alt="Windows setup checks Python, repairs a local environment, installs dependencies and runs verification" />
-
-<img src="./assets/distribution-safety-animated.svg" width="100%" alt="Workspace verification preserves local data while clean release staging excludes private runtime files" />
 
 The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, runs 74 tests, preserves an existing user database in workspace mode, and uses strict clean staging for downloadable releases.
 
@@ -154,24 +143,24 @@ The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, 
 
 ### 👨‍🏫 Christopher Rodríguez Portfolio
 
-**Status:** Client/collaboration case study  
-**Problem:** A real educator needed a maintainable bilingual professional presence.  
-**Solution:** An accessible React and TypeScript portfolio with structured content, verification states, persistent themes and GitHub Pages delivery.  
-**Stack:** React · TypeScript · Vite · Tailwind CSS · Framer Motion  
-**Evidence:** EN/ES content architecture, keyboard UX, reduced motion, SEO and automated deployment  
-**Role signal:** Client communication · accessible frontend · maintainable content architecture  
-**Highlights:** Content separated from presentation · Bilingual EN/ES experience and persistent preferences · Verification states for professional claims  
+**Status:** Client/collaboration case study<br>
+**Problem:** A real educator needed a maintainable bilingual professional presence.<br>
+**Solution:** An accessible React and TypeScript portfolio with structured content, verification states, persistent themes and GitHub Pages delivery.<br>
+**Stack:** React · TypeScript · Vite · Tailwind CSS · Framer Motion<br>
+**Evidence:** EN/ES content architecture, keyboard UX, reduced motion, SEO and automated deployment<br>
+**Role signal:** Client communication · accessible frontend · maintainable content architecture<br>
+**Highlights:** Content separated from presentation · Bilingual EN/ES experience and persistent preferences · Verification states for professional claims<br>
 [Christopher Rodríguez Portfolio source](https://github.com/LiriothTeltanion/ChristopherRodriguezCVOnline)
 
 ### 📚 Fullstack2026
 
-**Status:** Learning evidence archive  
-**Problem:** Course exercises need context, progression and reproducible quality checks.  
-**Solution:** A structured archive from Python and OOP through JavaScript, DOM, async workflows, TypeScript, Node and databases.  
-**Stack:** Python · JavaScript · TypeScript · Node.js · SQL  
-**Evidence:** Progressive exercises, focused PRs, documentation, repository audit and CI  
-**Role signal:** Learning progression · problem solving · Git/PR discipline  
-**Highlights:** Python and OOP foundations · DOM, asynchronous JavaScript, TypeScript, Node and SQL · Repository-wide documentation and quality workflow  
+**Status:** Learning evidence archive<br>
+**Problem:** Course exercises need context, progression and reproducible quality checks.<br>
+**Solution:** A structured archive from Python and OOP through JavaScript, DOM, async workflows, TypeScript, Node and databases.<br>
+**Stack:** Python · JavaScript · TypeScript · Node.js · SQL<br>
+**Evidence:** Progressive exercises, focused PRs, documentation, repository audit and CI<br>
+**Role signal:** Learning progression · problem solving · Git/PR discipline<br>
+**Highlights:** Python and OOP foundations · DOM, asynchronous JavaScript, TypeScript, Node and SQL · Repository-wide documentation and quality workflow<br>
 [Fullstack2026 source](https://github.com/LiriothTeltanion/Fullstack2026)
 
 ---
@@ -203,6 +192,7 @@ The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, 
 ## 🌍 Global communication
 
 <picture>
+  <source media="(max-width: 640px)" srcset="./assets/world-globe-mobile.svg" />
   <source media="(prefers-reduced-motion: reduce)" srcset="./assets/world-globe-static.svg" />
   <img src="./assets/world-globe-animated.svg" width="100%" alt="Beersheba connects to Spanish, English and Hebrew product communication and localization" />
 </picture>
@@ -217,7 +207,10 @@ The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, 
 
 ## 🌱 Current growth focus
 
-<img src="./assets/learning-roadmap-animated.svg" width="100%" alt="Roadmap from proven frontend work through data and application trust to production full-stack delivery" />
+<picture>
+  <source media="(max-width: 640px)" srcset="./assets/learning-roadmap-mobile.svg" />
+  <img src="./assets/learning-roadmap-animated.svg" width="100%" alt="Roadmap from proven frontend work through data and application trust to production full-stack delivery" />
+</picture>
 
 - Production backend architecture
 - PostgreSQL relational modeling and migrations

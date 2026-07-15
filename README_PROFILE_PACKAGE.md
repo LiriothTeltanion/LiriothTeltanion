@@ -4,7 +4,7 @@ This folder is a complete, generated replacement for the GitHub profile reposito
 
 ## Included
 
-- recruiter-first `README.md` — 292 lines;
+- recruiter-first `README.md` — 285 lines;
 - optional expanded README;
 - Spanish and Hebrew summaries;
 - canonical `profile.json`;
