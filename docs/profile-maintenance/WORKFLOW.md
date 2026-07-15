@@ -29,6 +29,10 @@ Do not pull, switch branches, commit or push merely to begin a maintenance
 session. Those are separate actions that require an explicit reason and, for
 publishing, Kevin's approval.
 
+NovaFit's version, verified capability and quality facts are synchronized from
+its public project manifest. See [`NOVAFIT_SYNC.md`](./NOVAFIT_SYNC.md) before
+changing the managed NovaFit fields by hand.
+
 ## Before a large change
 
 Back up the README before a major restructure or wide visual rewrite:
@@ -69,6 +73,12 @@ For the complete local generation and QA pipeline on Windows, run
 `build_profile.bat`. It regenerates both README modes, checks drift, validates
 the localized profiles, compiles the tooling, runs doctests and unit tests, and
 finishes with the PowerShell verifier.
+
+Confirm the checked-in NovaFit snapshot and both generated README modes agree:
+
+```powershell
+python scripts/sync_novafit.py --check
+```
 
 Then inspect the patch itself:
 

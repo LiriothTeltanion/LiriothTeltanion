@@ -54,20 +54,33 @@
     {
       "name": "NovaFit",
       "icon": "💙",
-      "status": "Ultimate 4.0 local-first desktop product",
+      "status": "Active v4.1.0 local-first desktop product",
       "problem": "Daily wellness data should remain portable, understandable and private.",
-      "solution": "A multi-user Python CLI and Tkinter wellness intelligence studio with profile-isolated SQLite, EN/ES/HE, Hebrew RTL, twelve themes, four analytics workspaces, explainable Sport & Data recommendations, motivation, portable reports and self-healing Windows delivery.",
+      "solution": "A local-first Windows wellness intelligence studio with isolated profiles, English, Spanish and Hebrew RTL, efficient motion, explainable analytics, complete verified backups and one-click self-repair.",
       "stack": "Python · Tkinter · SQLite · Requests · Faker · Matplotlib",
-      "evidence": "74 automated tests, twelve-theme gallery, trilingual UI with Hebrew RTL validation, profile-isolated schema v4, Training Atlas, workspace-safe audit and strict clean release staging",
+      "evidence": "105 discovered automated tests, 12 themes, EN/ES/HE RTL UX, verified complete backups, 54 public visual assets, one-click verification and strict release audit",
       "source": "https://github.com/LiriothTeltanion/NovaFit",
       "demo": null,
       "role_signal": "Python application architecture · desktop UX · SQLite migrations · i18n/RTL · analytics · release engineering",
       "highlights": [
-        "Multi-user profiles with isolated records, goals, language and theme",
-        "EN/ES/HE interface with true Hebrew RTL shell behavior",
-        "Command Center, Trend Lab, Consistency Map, Training Atlas and Sport & Data Coach",
-        "Workspace-safe checker preserves user DB; release staging excludes private runtime files"
-      ]
+        "Multi-profile SQLite isolation",
+        "Hebrew right-to-left interface",
+        "Four analytics studios",
+        "Purposeful reduced-motion-aware animation",
+        "Complete all-profile ZIP backups with SHA-256",
+        "JSON, CSV, PNG and offline HTML exports",
+        "One-click Windows setup, launch and verification"
+      ],
+      "portfolio_sync": {
+        "schema": "nova-portfolio-project-v1",
+        "source": "https://raw.githubusercontent.com/LiriothTeltanion/NovaFit/main/portfolio/project.json",
+        "version": "4.1.0",
+        "theme_count": 12,
+        "automated_tests_discovered": 105,
+        "verification_command": "VERIFY_ALL.bat",
+        "release_audit": "python tools/package_audit.py --strict-distribution",
+        "asset_count": 54
+      }
     },
     {
       "name": "Christopher Rodríguez Portfolio",

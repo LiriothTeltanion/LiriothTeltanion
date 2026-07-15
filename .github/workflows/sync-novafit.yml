@@ -1,0 +1,61 @@
+name: Sync NovaFit portfolio facts
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 4 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-novafit-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Refresh generated NovaFit profile evidence
+    if: github.repository == 'LiriothTeltanion/LiriothTeltanion'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      MANIFEST_URL: https://raw.githubusercontent.com/LiriothTeltanion/NovaFit/main/portfolio/project.json
+
+    steps:
+      - name: Check out profile repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: "3.13"
+
+      - name: Refresh the allow-listed NovaFit manifest
+        run: python scripts/sync_novafit.py --url "$MANIFEST_URL" --write
+
+      - name: Verify synchronized profile outputs
+        run: |
+          python scripts/sync_novafit.py --check
+          python scripts/build_profile.py --mode compact --output README.md --check
+          python scripts/build_profile.py --mode expanded --output README_EXPANDED.md --check
+          python scripts/validate_profile.py --readme README.md --max-lines 300 --mode compact --check-localized
+          python scripts/validate_profile.py --readme README_EXPANDED.md --max-lines 300 --mode expanded
+          python -m unittest discover -s tests -v
+          git diff --check
+
+      - name: Commit verified generated changes
+        shell: bash
+        run: |
+          git add -- \
+            data/project-snapshots/novafit.json \
+            profile.json \
+            README.md \
+            README_EXPANDED.md
+          if git diff --cached --quiet; then
+            echo "NovaFit profile facts are already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(profile): sync NovaFit portfolio facts"
+          git push origin HEAD:main

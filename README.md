@@ -36,7 +36,7 @@ I’m **Kevin Cusnir**, born in **San Cristóbal, Venezuela** and now based in *
 | What I can prove publicly | Strongest evidence |
 |---|---|
 | React and TypeScript product work | Nova Music Lab and Christopher Rodríguez Portfolio |
-| Python, SQLite and desktop workflows | NovaFit Ultimate 4.0; Fullstack2026 shows the learning path |
+| Python, SQLite and desktop workflows | NovaFit v4.1.0; Fullstack2026 shows the learning path |
 | Data, accessibility and multilingual UX | Honest source-aware analytics; EN/ES/HE, RTL, keyboard and reduced-motion work |
 | Delivery discipline | Automated tests, CI, live Pages builds, bundle budgets and release checks |
 
@@ -84,13 +84,13 @@ Five import families become one deduplicated, source-aware listening history. Mi
 
 ### 💙 NovaFit
 
-**Status:** Ultimate 4.0 local-first desktop product<br>
+**Status:** Active v4.1.0 local-first desktop product<br>
 **Problem:** Daily wellness data should remain portable, understandable and private.<br>
-**Solution:** A multi-user Python CLI and Tkinter wellness intelligence studio with profile-isolated SQLite, EN/ES/HE, Hebrew RTL, twelve themes, four analytics workspaces, explainable Sport & Data recommendations, motivation, portable reports and self-healing Windows delivery.<br>
+**Solution:** A local-first Windows wellness intelligence studio with isolated profiles, English, Spanish and Hebrew RTL, efficient motion, explainable analytics, complete verified backups and one-click self-repair.<br>
 **Stack:** Python · Tkinter · SQLite · Requests · Faker · Matplotlib<br>
-**Evidence:** 74 automated tests, twelve-theme gallery, trilingual UI with Hebrew RTL validation, profile-isolated schema v4, Training Atlas, workspace-safe audit and strict clean release staging<br>
+**Evidence:** 105 discovered automated tests, 12 themes, EN/ES/HE RTL UX, verified complete backups, 54 public visual assets, one-click verification and strict release audit<br>
 **Role signal:** Python application architecture · desktop UX · SQLite migrations · i18n/RTL · analytics · release engineering<br>
-**Highlights:** Multi-user profiles with isolated records, goals, language and theme · EN/ES/HE interface with true Hebrew RTL shell behavior · Command Center, Trend Lab, Consistency Map, Training Atlas and Sport & Data Coach · Workspace-safe checker preserves user DB; release staging excludes private runtime files<br>
+**Highlights:** Multi-profile SQLite isolation · Hebrew right-to-left interface · Four analytics studios · Purposeful reduced-motion-aware animation · Complete all-profile ZIP backups with SHA-256 · JSON, CSV, PNG and offline HTML exports · One-click Windows setup, launch and verification<br>
 [NovaFit source](https://github.com/LiriothTeltanion/NovaFit)
 
 <details>
@@ -103,7 +103,7 @@ Five import families become one deduplicated, source-aware listening history. Mi
   <img src="./assets/motivation-center-animated.svg" width="100%" alt="NovaFit Motivation Center connects purpose, small actions, evidence, celebration and recovery" />
 </picture>
 
-**Why this project matters:** NovaFit brings multi-user data isolation, a complete Tkinter interface, trilingual UX, automation-friendly CLI workflows, safe migrations, explainable suggestions, analytics, portable reports and Windows delivery into one local-first product.
+**Manifest-backed product summary:** A local-first Windows wellness intelligence studio with isolated profiles, English, Spanish and Hebrew RTL, efficient motion, explainable analytics, complete verified backups and one-click self-repair.
 
 <a href="./assets/analytics-training-atlas.png"><img src="./assets/analytics-training-atlas.png" width="100%" alt="NovaFit Training Atlas workspace showing seeded analytical charts" /></a>
 
@@ -111,9 +111,9 @@ Five import families become one deduplicated, source-aware listening history. Mi
 
 The Training Atlas is profile-independent; the theme contact sheet uses seeded demonstration records without publishing a profile name.
 
-**Twelve themes:** Midnight Neon · Aurora Borealis · Negev Sunrise · Ocean Depth · Forest Focus · Rose Quartz · Cloud Day · Solar Paper · High Contrast · Royal Sapphire · Cyber Lime · Sunset Arcade.
+**12 curated themes:** Midnight Neon · Aurora Borealis · Negev Sunrise · Ocean Depth · Forest Focus · Rose Quartz · Cloud Day · Solar Paper · High Contrast · Royal Sapphire · Cyber Lime · Sunset Arcade.
 
-[Inspect the NovaFit source](https://github.com/LiriothTeltanion/NovaFit)
+[Inspect the NovaFit source](https://github.com/LiriothTeltanion/NovaFit) · [Verified project manifest](https://raw.githubusercontent.com/LiriothTeltanion/NovaFit/main/portfolio/project.json)
 
 </details>
 
@@ -129,7 +129,7 @@ The Training Atlas is profile-independent; the theme contact sheet uses seeded d
 
 Each profile owns isolated records, goals, language, theme and activity preferences. English and Spanish use LTR; Hebrew moves the shell to RTL. Suggestions expose data confidence and reasons while avoiding medical claims.
 
-The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, runs 74 tests, preserves an existing user database in workspace mode, and uses strict clean staging for downloadable releases.
+The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, runs 105 discovered automated tests, preserves an existing user database in workspace mode, and uses `VERIFY_ALL.bat` plus `python tools/package_audit.py --strict-distribution` for reproducible verification and clean downloadable releases.
 
 </details>
 

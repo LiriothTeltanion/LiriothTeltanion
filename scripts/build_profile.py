@@ -76,8 +76,12 @@ def build_parser() -> argparse.ArgumentParser:
         prog="build_profile",
         description="Generate an ordered, collapsible GitHub profile README.",
     )
-    parser.add_argument("--data", type=Path, default=DEFAULT_DATA, help="Profile JSON source.")
-    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT, help="README destination.")
+    parser.add_argument(
+        "--data", type=Path, default=DEFAULT_DATA, help="Profile JSON source."
+    )
+    parser.add_argument(
+        "--output", type=Path, default=DEFAULT_OUTPUT, help="README destination."
+    )
     parser.add_argument(
         "--mode",
         choices=["compact", "expanded"],
@@ -159,7 +163,9 @@ def _validate_profile_data(data: Mapping[str, Any]) -> None:
             _require_unique(highlights, f"{path}.highlights")
 
     _require_unique(project_names, "profile.projects names")
-    _require_unique(project_urls, "profile.projects source/demo URLs", normalize_url=True)
+    _require_unique(
+        project_urls, "profile.projects source/demo URLs", normalize_url=True
+    )
 
     flagship = projects[0]
     if flagship["name"] != "Nova Music Lab":
@@ -207,7 +213,9 @@ def _validate_profile_data(data: Mapping[str, Any]) -> None:
     _require_unique(strengths, "profile.strengths")
     _require_unique(growth, "profile.growth")
 
-    education = _require_mapping(data["education"], "profile.education", EDUCATION_FIELDS)
+    education = _require_mapping(
+        data["education"], "profile.education", EDUCATION_FIELDS
+    )
     for field in EDUCATION_FIELDS:
         _require_text(education[field], f"profile.education.{field}")
 
@@ -252,7 +260,9 @@ def _require_text(value: Any, path: str) -> str:
     return value
 
 
-def _require_text_list(value: Any, path: str, *, allow_empty: bool = False) -> list[Any]:
+def _require_text_list(
+    value: Any, path: str, *, allow_empty: bool = False
+) -> list[Any]:
     """Validate an array containing only non-empty strings."""
     items = _require_list(value, path, allow_empty=allow_empty)
     for index, item in enumerate(items):
@@ -313,7 +323,9 @@ def _require_unique(
         else:
             key = value.strip().casefold()
         if key in seen:
-            raise ValueError(f"{path} contains duplicate values: {seen[key]!r} and {value!r}.")
+            raise ValueError(
+                f"{path} contains duplicate values: {seen[key]!r} and {value!r}."
+            )
         seen[key] = value
 
 
@@ -342,6 +354,9 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
     projects = data["projects"]
     review_path = data["review_path"]
     skills = data["skills"]
+    novafit = next(project for project in projects if project["name"] == "NovaFit")
+    novafit_sync = novafit.get("portfolio_sync", {})
+    novafit_version = novafit_sync.get("version", "4.0")
     fast_review = " · ".join(
         f"**{item['time']}**: {item['action']}" for item in review_path
     )
@@ -351,7 +366,7 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
         "",
         '<div align="center">',
         "",
-        '<picture>',
+        "<picture>",
         '  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/profile-banner-mobile-static.svg" />',
         '  <source media="(max-width: 640px)" srcset="./assets/profile-banner-mobile-animated.svg" />',
         '  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/profile-banner-static.svg" />',
@@ -385,7 +400,7 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
         "| What I can prove publicly | Strongest evidence |",
         "|---|---|",
         "| React and TypeScript product work | Nova Music Lab and Christopher Rodríguez Portfolio |",
-        "| Python, SQLite and desktop workflows | NovaFit Ultimate 4.0; Fullstack2026 shows the learning path |",
+        f"| Python, SQLite and desktop workflows | NovaFit v{novafit_version}; Fullstack2026 shows the learning path |",
         "| Data, accessibility and multilingual UX | Honest source-aware analytics; EN/ES/HE, RTL, keyboard and reduced-motion work |",
         "| Delivery discipline | Automated tests, CI, live Pages builds, bundle budgets and release checks |",
         "",
@@ -410,11 +425,11 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
             "",
             "## 🧪 Engineering evidence",
             "",
-            '<picture>',
+            "<picture>",
             '  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/engineering-orbit-mobile-static.svg" />',
             '  <source media="(max-width: 640px)" srcset="./assets/engineering-orbit-mobile.svg" />',
             '  <img src="./assets/engineering-orbit-animated.svg" width="100%" alt="Product engineering connects frontend, Python, data, accessibility, privacy, testing and delivery" />',
-            '</picture>',
+            "</picture>",
             "",
             "> Evidence counts come from the featured public projects and their documented quality pipelines.",
             "",
@@ -444,7 +459,7 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
             "",
             "Country boundaries and deterministic tiny-state markers represent 195 sovereign states while framing a personal journey from Venezuelan roots to an Israeli home, supported by Spanish, English and Hebrew communication.",
             "",
-            '<picture>',
+            "<picture>",
             '  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/world-globe-mobile-static.svg" />',
             '  <source media="(max-width: 640px)" srcset="./assets/world-globe-mobile.svg" />',
             '  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/world-globe-static.svg" />',
@@ -467,7 +482,7 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
             "",
             "## 🌱 Current growth focus",
             "",
-            '<picture>',
+            "<picture>",
             '  <source media="(max-width: 640px)" srcset="./assets/learning-roadmap-mobile.svg" />',
             '  <img src="./assets/learning-roadmap-animated.svg" width="100%" alt="Roadmap from proven frontend work through data and application trust to production full-stack delivery" />',
             "</picture>",
@@ -546,10 +561,10 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
             "",
             '<div align="center">',
             "",
-            '<picture>',
+            "<picture>",
             '  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/brand/kc-lt-signature.svg" />',
             '  <img src="./assets/brand/kc-lt-signature-animated.svg" width="360" alt="KC LT handwritten blue signature, the personal mark of Kevin Cusnir and Lirioth Teltanion" />',
-            '</picture>',
+            "</picture>",
             "",
             "**Code with purpose. Design with personality. Data with honesty.** 💙",
             "",
@@ -602,7 +617,9 @@ def _render_project(project: Mapping[str, Any]) -> list[str]:
         f"**Stack:** {project['stack']}<br>",
         f"**Evidence:** {project['evidence']}<br>",
         f"**Role signal:** {project.get('role_signal', 'Product engineering')}<br>",
-        f"**Highlights:** {' · '.join(project.get('highlights', []))}<br>" if project.get("highlights") else "",
+        f"**Highlights:** {' · '.join(project.get('highlights', []))}<br>"
+        if project.get("highlights")
+        else "",
         " · ".join(links),
         "",
     ]
@@ -612,18 +629,18 @@ def _render_nova_music_spotlight(project: Mapping[str, Any]) -> list[str]:
     """Render the live flagship preview and its data journey."""
     return [
         f'<a href="{project["demo"]}">',
-        '<picture>',
+        "<picture>",
         '  <source media="(max-width: 640px)" srcset="./assets/nova-music-live-preview-mobile.jpg" />',
         '  <img src="./assets/nova-music-live-preview.jpg" width="100%" alt="Current Nova Music Lab hero showing the bundled demonstration museum, navigation and live product calls to action" />',
-        '</picture>',
-        '</a>',
+        "</picture>",
+        "</a>",
         "",
         "**Live product preview:** responsive React interface, bundled demonstration museum and a direct path to the working deployment.",
         "",
         "<details>",
-        '<summary><strong>🎧 Open the Nova Music Lab data journey</strong></summary>',
+        "<summary><strong>🎧 Open the Nova Music Lab data journey</strong></summary>",
         "",
-        '<picture>',
+        "<picture>",
         '  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/nova-music-journey-mobile-static.svg" />',
         '  <source media="(max-width: 640px)" srcset="./assets/nova-music-journey-mobile.svg" />',
         '  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/nova-music-journey-static.svg" />',
@@ -641,18 +658,27 @@ def _render_nova_music_spotlight(project: Mapping[str, Any]) -> list[str]:
 
 def _render_novafit_spotlights(project: Mapping[str, Any]) -> list[str]:
     """Render two focused NovaFit tours while keeping the main project list scannable."""
+    sync = project.get("portfolio_sync", {})
+    test_count = sync.get("automated_tests_discovered", "documented")
+    theme_count = sync.get("theme_count", "Twelve")
+    verification = sync.get("verification_command", "the one-click verifier")
+    release_audit = sync.get("release_audit", "the strict release audit")
+    manifest_source = sync.get("source")
+    manifest_link = (
+        f" · [Verified project manifest]({manifest_source})" if manifest_source else ""
+    )
     return [
         "<details>",
-        '<summary><strong>💙 Open the NovaFit product, analytics and visual system</strong></summary>',
+        "<summary><strong>💙 Open the NovaFit product, analytics and visual system</strong></summary>",
         "",
         "> **Public-data boundary:** the visuals below use profile-independent or seeded demonstration data; no personal wellness history is displayed.",
         "",
-        '<picture>',
+        "<picture>",
         '  <source media="(max-width: 640px)" srcset="./assets/motivation-center-mobile.svg" />',
         '  <img src="./assets/motivation-center-animated.svg" width="100%" alt="NovaFit Motivation Center connects purpose, small actions, evidence, celebration and recovery" />',
         "</picture>",
         "",
-        "**Why this project matters:** NovaFit brings multi-user data isolation, a complete Tkinter interface, trilingual UX, automation-friendly CLI workflows, safe migrations, explainable suggestions, analytics, portable reports and Windows delivery into one local-first product.",
+        f"**Manifest-backed product summary:** {project['solution']}",
         "",
         '<a href="./assets/analytics-training-atlas.png"><img src="./assets/analytics-training-atlas.png" width="100%" alt="NovaFit Training Atlas workspace showing seeded analytical charts" /></a>',
         "",
@@ -660,25 +686,25 @@ def _render_novafit_spotlights(project: Mapping[str, Any]) -> list[str]:
         "",
         "The Training Atlas is profile-independent; the theme contact sheet uses seeded demonstration records without publishing a profile name.",
         "",
-        "**Twelve themes:** Midnight Neon · Aurora Borealis · Negev Sunrise · Ocean Depth · Forest Focus · Rose Quartz · Cloud Day · Solar Paper · High Contrast · Royal Sapphire · Cyber Lime · Sunset Arcade.",
+        f"**{theme_count} curated themes:** Midnight Neon · Aurora Borealis · Negev Sunrise · Ocean Depth · Forest Focus · Rose Quartz · Cloud Day · Solar Paper · High Contrast · Royal Sapphire · Cyber Lime · Sunset Arcade.",
         "",
-        f"[Inspect the NovaFit source]({project['source']})",
+        f"[Inspect the NovaFit source]({project['source']}){manifest_link}",
         "",
         "</details>",
         "",
         "<details>",
-        '<summary><strong>🌍 Open NovaFit profiles, EN/ES/HE, coach and safe delivery</strong></summary>',
+        "<summary><strong>🌍 Open NovaFit profiles, EN/ES/HE, coach and safe delivery</strong></summary>",
         "",
         "> **Public-data boundary:** this system map contains no profile names, dates or wellness metrics.",
         "",
-        '<picture>',
+        "<picture>",
         '  <source media="(max-width: 640px)" srcset="./assets/novafit-trust-system-mobile.svg" />',
         '  <img src="./assets/novafit-trust-system-animated.svg" width="100%" alt="NovaFit protects profile boundaries, checks data quality, explains conservative suggestions, verifies the workspace and stages clean releases" />',
         "</picture>",
         "",
         "Each profile owns isolated records, goals, language, theme and activity preferences. English and Spanish use LTR; Hebrew moves the shell to RTL. Suggestions expose data confidence and reasons while avoiding medical claims.",
         "",
-        "The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, runs 74 tests, preserves an existing user database in workspace mode, and uses strict clean staging for downloadable releases.",
+        f"The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, runs {test_count} discovered automated tests, preserves an existing user database in workspace mode, and uses `{verification}` plus `{release_audit}` for reproducible verification and clean downloadable releases.",
         "",
         "</details>",
         "",
@@ -715,7 +741,11 @@ def _render_secondary(data: Mapping[str, Any]) -> dict[str, list[str]]:
         "",
         "Together, these identities make technically sound products easier to understand, remember and enjoy.",
     ]
-    return {"approach": approach, "education": education_lines, "identity": identity_lines}
+    return {
+        "approach": approach,
+        "education": education_lines,
+        "identity": identity_lines,
+    }
 
 
 def _join(values: Sequence[str]) -> str:
@@ -739,7 +769,10 @@ def main() -> int:
     if args.check:
         expected = render_profile(load_profile(args.data), args.mode)
         if not args.output.exists():
-            print(f"Generated profile check failed: missing {args.output}", file=sys.stderr)
+            print(
+                f"Generated profile check failed: missing {args.output}",
+                file=sys.stderr,
+            )
             return 1
         actual = args.output.read_text(encoding="utf-8")
         if actual != expected:
@@ -765,7 +798,9 @@ def _print_success(message: str) -> None:
     try:
         decorated.encode(encoding)
     except (LookupError, UnicodeEncodeError):
-        decorated = fallback.encode(encoding, errors="backslashreplace").decode(encoding)
+        decorated = fallback.encode(encoding, errors="backslashreplace").decode(
+            encoding
+        )
     print(decorated)
 
 

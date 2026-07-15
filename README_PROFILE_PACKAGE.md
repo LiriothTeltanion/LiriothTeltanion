@@ -20,6 +20,7 @@ This folder is a complete, generated replacement for the GitHub profile reposito
 - animated learning roadmap;
 - responsive NovaFit motivation and trust-system diagrams with reduced-motion behavior;
 - profile-independent Training Atlas and anonymized seeded-demo theme evidence;
+- allow-listed NovaFit project-manifest synchronization with offline drift checks;
 - migration guide.
 
 ## Regenerate
@@ -27,6 +28,7 @@ This folder is a complete, generated replacement for the GitHub profile reposito
 ```bash
 python scripts/build_profile.py --mode compact --output README.md
 python scripts/build_profile.py --mode expanded --output README_EXPANDED.md
+python scripts/sync_novafit.py --check
 python scripts/validate_profile.py --readme README.md --max-lines 300
 powershell -ExecutionPolicy Bypass -File tools/profile/verify-profile.ps1
 ```

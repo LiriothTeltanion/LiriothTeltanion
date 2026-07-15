@@ -54,5 +54,6 @@ jobs:
       - name: Verify generated profiles are current
         shell: pwsh
         run: |
+          python scripts/sync_novafit.py --check
           python scripts/build_profile.py --mode compact --output README.md --check
           python scripts/build_profile.py --mode expanded --output README_EXPANDED.md --check

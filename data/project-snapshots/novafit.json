@@ -1,0 +1,54 @@
+{
+  "schema": "nova-portfolio-project-v1",
+  "slug": "novafit",
+  "name": "NovaFit",
+  "version": "4.1.0",
+  "status": "active",
+  "default_branch": "main",
+  "repository": "https://github.com/LiriothTeltanion/NovaFit",
+  "summary": "A local-first Windows wellness intelligence studio with isolated profiles, English, Spanish and Hebrew RTL, efficient motion, explainable analytics, complete verified backups and one-click self-repair.",
+  "platforms": [
+    "Windows desktop",
+    "Python CLI"
+  ],
+  "languages": [
+    "en",
+    "es",
+    "he"
+  ],
+  "theme_count": 12,
+  "quality": {
+    "workflow": ".github/workflows/quality.yml",
+    "automated_tests_discovered": 105,
+    "verification_command": "VERIFY_ALL.bat",
+    "release_audit": "python tools/package_audit.py --strict-distribution"
+  },
+  "automation": {
+    "documentation": "python scripts/sync_docs.py --write",
+    "quality_workflow": ".github/workflows/quality.yml",
+    "tag_release_workflow": ".github/workflows/release.yml",
+    "profile_source": "portfolio/project.json"
+  },
+  "capabilities": [
+    "multi-profile SQLite isolation",
+    "Hebrew right-to-left interface",
+    "four analytics studios",
+    "purposeful reduced-motion-aware animation",
+    "complete all-profile ZIP backups with SHA-256",
+    "JSON, CSV, PNG and offline HTML exports",
+    "one-click Windows setup, launch and verification"
+  ],
+  "privacy": {
+    "local_first": true,
+    "tracked_runtime_data": false,
+    "weather_sends_health_records": false
+  },
+  "assets": {
+    "count": 54,
+    "total_bytes": 26280998,
+    "hero": "assets/novafit-ultimate-banner-animated.svg",
+    "poster": "assets/novafit-ultimate-gui.png",
+    "hebrew": "assets/hebrew-rtl-command-center.png",
+    "manifest": "assets/manifest.json"
+  }
+}
