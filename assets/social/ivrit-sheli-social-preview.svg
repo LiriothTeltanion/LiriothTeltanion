@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">Ivrit Sheli 2.0 social preview</title>
+  <desc id="desc">A dark blue production product card for Kevin Cusnir's trilingual Hebrew learning application, with authentication, PostgreSQL, Docker, tests and structured logs. The card includes the KC star LT signature.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#06101f"/>
+      <stop offset=".52" stop-color="#0d1a35"/>
+      <stop offset="1" stop-color="#171333"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#40e4dc"/>
+      <stop offset=".52" stop-color="#6685ff"/>
+      <stop offset="1" stop-color="#b95cff"/>
+    </linearGradient>
+    <radialGradient id="halo">
+      <stop stop-color="#5c83ff" stop-opacity=".38"/>
+      <stop offset="1" stop-color="#5c83ff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#8fa5d7" stroke-opacity=".055"/>
+    </pattern>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- KC_LT_STAR_FILTER_START --><filter id="signatureStarGlow" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceGraphic" stdDeviation="1.8" result="starBlur"/><feFlood flood-color="#3b82f6" flood-opacity="0.24" result="starColour"/><feComposite in="starColour" in2="starBlur" operator="in" result="starGlow"/><feMerge><feMergeNode in="starGlow"/><feMergeNode in="SourceGraphic"/></feMerge></filter><!-- KC_LT_STAR_FILTER_END -->
+  </defs>
+
+  <rect width="1280" height="640" rx="34" fill="url(#bg)"/>
+  <rect width="1280" height="640" rx="34" fill="url(#grid)"/>
+  <circle cx="1050" cy="120" r="300" fill="url(#halo)"/>
+  <circle cx="116" cy="590" r="250" fill="url(#halo)" opacity=".55"/>
+  <rect x="2" y="2" width="1276" height="636" rx="32" fill="none" stroke="url(#accent)" stroke-opacity=".45" stroke-width="4"/>
+
+  <image href="../projects/ivrit-sheli-logo.svg" x="56" y="42" width="520" height="145" preserveAspectRatio="xMinYMid meet"/>
+  <rect x="62" y="194" width="134" height="32" rx="16" fill="#17264b" stroke="#5f84ff"/>
+  <text x="129" y="216" text-anchor="middle" fill="#dce7ff" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="800">VERSION 2.0</text>
+
+  <text x="62" y="288" fill="#f1f7ff" font-family="Inter,Arial,sans-serif" font-size="46" font-weight="850">Learn Hebrew from real life.</text>
+  <text x="62" y="336" fill="#aabbdc" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="550">Private-first locally · authenticated and isolated in the cloud</text>
+
+  <g transform="translate(62 386)">
+    <g>
+      <rect width="218" height="66" rx="18" fill="#112441" stroke="#43ddd5" stroke-opacity=".7"/>
+      <circle cx="30" cy="33" r="11" fill="#43ddd5"/>
+      <path d="m24 33 5 5 10-13" fill="none" stroke="#06111f" stroke-width="4" stroke-linecap="round"/>
+      <text x="54" y="28" fill="#edf7ff" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="800">GitHub OAuth</text>
+      <text x="54" y="48" fill="#91a8cb" font-family="Inter,Arial,sans-serif" font-size="13">PKCE · secure sessions</text>
+    </g>
+    <g transform="translate(236)">
+      <rect width="218" height="66" rx="18" fill="#141f45" stroke="#7188ff" stroke-opacity=".75"/>
+      <ellipse cx="30" cy="27" rx="12" ry="5" fill="#7188ff"/>
+      <path d="M18 27v17c0 3 5 6 12 6s12-3 12-6V27" fill="#7188ff" opacity=".35" stroke="#9facff"/>
+      <text x="54" y="28" fill="#edf7ff" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="800">PostgreSQL</text>
+      <text x="54" y="48" fill="#91a8cb" font-family="Inter,Arial,sans-serif" font-size="13">Alembic · tenant RLS</text>
+    </g>
+    <g transform="translate(472)">
+      <rect width="218" height="66" rx="18" fill="#171d43" stroke="#a36cff" stroke-opacity=".75"/>
+      <path d="M20 23h22v22H20zM24 18h14M24 50h14" fill="none" stroke="#bd8aff" stroke-width="3"/>
+      <text x="54" y="28" fill="#edf7ff" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="800">Docker + CI</text>
+      <text x="54" y="48" fill="#91a8cb" font-family="Inter,Arial,sans-serif" font-size="13">126 tests · non-root image</text>
+    </g>
+  </g>
+
+  <g transform="translate(62 490)">
+    <rect width="690" height="80" rx="22" fill="#0d1830" stroke="#536b98" stroke-opacity=".65"/>
+    <text x="28" y="34" fill="#7deae5" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="800" letter-spacing="1.5">ENGLISH · ESPAÑOL · עברית</text>
+    <text x="28" y="59" fill="#aabbdc" font-family="Inter,Arial,sans-serif" font-size="16">React 19 · TypeScript · FastAPI · JSON logs · live/ready probes</text>
+  </g>
+
+  <g transform="translate(800 124)">
+    <rect width="402" height="392" rx="34" fill="#0b172e" stroke="url(#accent)" stroke-width="2.5" filter="url(#glow)"/>
+    <rect x="25" y="28" width="352" height="52" rx="14" fill="#132545"/>
+    <circle cx="51" cy="54" r="8" fill="#43ddd5"/>
+    <circle cx="77" cy="54" r="8" fill="#7188ff"/>
+    <circle cx="103" cy="54" r="8" fill="#b36fff"/>
+    <rect x="25" y="101" width="214" height="116" rx="20" fill="#11213e" stroke="#42dcd5" stroke-opacity=".55"/>
+    <text x="48" y="137" fill="#8fa8cc" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700">TODAY'S MISSION</text>
+    <text x="48" y="171" fill="#f1f7ff" font-family="Arial,sans-serif" font-size="29" font-weight="800">לדבר בביטחון</text>
+    <text x="48" y="197" fill="#8fa8cc" font-family="Inter,Arial,sans-serif" font-size="13">Speak with confidence</text>
+    <rect x="257" y="101" width="120" height="116" rx="20" fill="#171d41" stroke="#8a71ff" stroke-opacity=".6"/>
+    <circle cx="317" cy="148" r="30" fill="none" stroke="#29355e" stroke-width="9"/>
+    <path d="M317 118a30 30 0 0 1 25 47" fill="none" stroke="url(#accent)" stroke-width="9" stroke-linecap="round"/>
+    <text x="317" y="155" text-anchor="middle" fill="#edf7ff" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="800">68%</text>
+    <text x="317" y="194" text-anchor="middle" fill="#8fa8cc" font-family="Inter,Arial,sans-serif" font-size="12">MASTERY</text>
+    <rect x="25" y="238" width="352" height="63" rx="18" fill="#10263d"/>
+    <circle cx="54" cy="269" r="12" fill="#43ddd5" opacity=".25" stroke="#43ddd5"/>
+    <path d="m48 269 5 5 9-11" fill="none" stroke="#c9fffb" stroke-width="3" stroke-linecap="round"/>
+    <text x="80" y="266" fill="#edf7ff" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="750">Read-only demo ready</text>
+    <text x="80" y="286" fill="#8fa8cc" font-family="Inter,Arial,sans-serif" font-size="12">Synthetic data · zero private history</text>
+  </g>
+
+  <g class="signature-ink" transform="translate(904 428) scale(.42)" fill="none" stroke="url(#accent)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M63 28C57 63 51 104 45 153"/>
+    <path d="M55 84C76 68 90 51 106 34"/>
+    <path d="M55 87C74 104 91 121 108 133"/>
+    <path d="M165 62C153 45 129 46 116 65C103 86 105 115 121 129C137 141 156 131 166 112"/>
+    <path d="M209 36C203 70 196 106 190 136C206 138 223 133 238 123"/>
+    <path d="M291 49C284 77 278 106 273 139"/>
+    <path d="M249 55C276 45 308 45 337 53"/>
+    <path d="M28 169C92 153 157 156 216 161C265 165 311 159 344 145"/>
+  </g>
+  <!-- KC_LT_STAR_START -->
+  <g transform="translate(904 428) scale(.42)" aria-hidden="true"><g class="signature-star-placement" transform="translate(178 94)"><g class="signature-star" aria-hidden="true" filter="url(#signatureStarGlow)"><path d="M0 -8L1.68 -2.24L6 0L1.68 2.24L0 8L-1.68 2.24L-6 0L-1.68 -2.24Z" fill="#2563eb"/><path d="M0 -8L1.68 -2.24L6 0L1.68 2.24L0 8L-1.68 2.24L-6 0L-1.68 -2.24Z" fill="#60a5fa" transform="scale(.64)"/><path d="M0 -8L1.68 -2.24L6 0L1.68 2.24L0 8L-1.68 2.24L-6 0L-1.68 -2.24Z" fill="#eff6ff" transform="scale(.28)"/></g></g></g>
+  <!-- KC_LT_STAR_END -->
+
+  <text x="62" y="612" fill="#8297bd" font-family="Inter,Arial,sans-serif" font-size="16">Kevin Cusnir · Lirioth Teltanion · Full-stack production proof</text>
+</svg>

@@ -5,6 +5,51 @@ The profile follows Semantic Versioning: major for a structural identity or
 presentation generation, minor for a contained feature or visual upgrade, and
 patch for a narrow correction.
 
+## [2.1.0] — 2026-07-16 · Full-Stack Production Proof & Star Signature Edition
+
+### Release status
+
+- Published as Profile `2.1.0` from the fully validated release commit, with
+  annotated tag `v2.1.0` and matching GitHub Release notes documenting the
+  visual, accessibility, privacy and repository checks completed before launch.
+- Ivrit Sheli is public and deployment-ready at version `2.0.0`; a live product
+  URL remains intentionally absent until its Railway deployment, TLS, readiness
+  endpoint and OAuth callback have been configured and verified.
+
+### Added
+
+- Ivrit Sheli 2.0 as the second featured project after Nova Music Lab, with its
+  public source, full-stack architecture and verified quality evidence.
+- Recruiter-facing Ivrit media for desktop, responsive mobile and Hebrew RTL,
+  plus a concise animated product tour with static reduced-motion fallbacks.
+- A dedicated Ivrit social-preview pair and project logo for repository and
+  profile presentation.
+- Structured Ivrit release evidence: 109 backend tests, 17 frontend tests and
+  126 unique passing automated tests in total.
+
+### Changed
+
+- Production evidence now includes React 19, TypeScript, FastAPI, PostgreSQL 17,
+  Alembic, GitHub OAuth with PKCE, tenant RLS, Docker, integration tests and
+  structured JSON logging.
+- The profile growth section now moves beyond the delivered full-stack milestone
+  toward monitoring and SLOs, backup/restore drills, OAuth and authorization E2E
+  coverage, cost controls and incident-ready operations.
+- Recommended pins now prioritize Nova Music Lab, Ivrit Sheli, NovaFit and the
+  Christopher Rodríguez portfolio; Fullstack2026 remains visible as the audited
+  learning archive rather than occupying a top-four product slot.
+- The KC ✦ LT identity keeps eight readable blue pen strokes and adds one small
+  four-point star between KC and LT with a restrained glow and reduced-motion-
+  safe one-time reveal.
+
+### Public-data and deployment boundary
+
+- Ivrit visuals use the public read-only demonstration experience and synthetic
+  learner records; they contain no private learning history, provider token,
+  secret, runtime database or personal export.
+- Source availability and deployment readiness are described separately from a
+  live deployment. No placeholder or unverified website is presented as live.
+
 ## [2.0.0] — 2026-07-16 · NovaFit & Signature Ultimate Edition
 
 ### Release status

@@ -1,0 +1,29 @@
+<svg width="680" height="190" viewBox="0 0 680 190" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Ivrit Sheli Ultimate logo</title>
+  <desc id="desc">A glowing Hebrew aleph inside a rounded speech bubble beside the Ivrit Sheli name.</desc>
+  <defs>
+    <linearGradient id="bg" x1="18" y1="12" x2="176" y2="178" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#42E8E0"/>
+      <stop offset="0.48" stop-color="#687BFF"/>
+      <stop offset="1" stop-color="#B95CFF"/>
+    </linearGradient>
+    <linearGradient id="word" x1="225" y1="48" x2="610" y2="152" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E9FDFF"/>
+      <stop offset="0.55" stop-color="#BFD1FF"/>
+      <stop offset="1" stop-color="#E5C7FF"/>
+    </linearGradient>
+    <filter id="glow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect x="10" y="10" width="170" height="150" rx="48" fill="#0D1632" stroke="url(#bg)" stroke-width="6"/>
+  <path d="M56 160L44 181L84 160" fill="#0D1632" stroke="#6D8BFF" stroke-width="6" stroke-linejoin="round"/>
+  <circle cx="95" cy="85" r="55" fill="url(#bg)" opacity="0.18" filter="url(#glow)"/>
+  <text x="95" y="116" text-anchor="middle" font-size="86" font-family="Arial, sans-serif" font-weight="700" fill="url(#bg)">א</text>
+  <path d="M139 37L143 48L154 52L143 56L139 67L135 56L124 52L135 48L139 37Z" fill="#FFD66B"/>
+  <text x="218" y="92" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="800" fill="url(#word)">Ivrit Sheli</text>
+  <text x="222" y="137" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#7DEAE5">העברית שלי</text>
+  <rect x="470" y="111" width="156" height="39" rx="19.5" fill="#152143" stroke="#6E82FF"/>
+  <text x="548" y="137" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="#DCE4FF">ULTIMATE</text>
+</svg>

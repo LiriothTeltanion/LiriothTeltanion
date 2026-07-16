@@ -33,6 +33,13 @@ NovaFit's version, verified capability and quality facts are synchronized from
 its public project manifest. See [`NOVAFIT_SYNC.md`](./NOVAFIT_SYNC.md) before
 changing the managed NovaFit fields by hand.
 
+Ivrit Sheli 2.0 currently uses a reviewed release-evidence contract rather than
+a remote synchronization script. Keep its source fixed to
+`https://github.com/LiriothTeltanion/IvritSheli` and verify the arithmetic before
+publication: 109 backend tests + 17 frontend tests = 126 unique passing tests.
+Keep its live URL empty while deployment is pending; source availability and
+deployment readiness are not evidence of a working public service.
+
 ## Before a large change
 
 Back up the README before a major restructure or wide visual rewrite:
@@ -97,6 +104,42 @@ exists and ensure no private material or secret was added.
 For a visual change, also render or open the affected section at desktop and
 narrow/mobile widths. Confirm that names are not clipped, text remains readable,
 links are usable and the reduced-motion experience is complete.
+
+The KC ✦ LT brand system is generated from eight canonical pen strokes and one
+separate four-point star. After changing its geometry, palette or animation,
+regenerate and prove that the brand, banner and social SVG embeddings agree:
+
+```powershell
+python tools/profile/generate_signature_assets.py
+python tools/profile/generate_signature_assets.py --check
+```
+
+The star reveal runs once and must become static when reduced motion is
+requested. The monochrome variant intentionally keeps the star without blur.
+
+Ivrit's Profile 2.1 visual family is sourced from its public read-only demo and
+must contain synthetic learner records only:
+
+```text
+assets/ivrit-sheli-product-tour.gif
+assets/ivrit-sheli-2-dashboard.png
+assets/ivrit-sheli-2-mobile.png
+assets/ivrit-sheli-2-hebrew-rtl.png
+assets/projects/ivrit-sheli-logo.svg
+assets/social/ivrit-sheli-social-preview.svg
+assets/social/ivrit-sheli-social-preview.png
+```
+
+Keep desktop, narrow/mobile and Hebrew RTL frames readable; use PNG fallbacks
+for reduced motion and optimize the GIF so the complete referenced README visual
+payload remains below 8 MiB. The copied social SVG must point to
+`../projects/ivrit-sheli-logo.svg` and embed the canonical compact KC ✦ LT pen
+paths and star before running `generate_signature_assets.py --check`.
+
+Do not publish a Railway or other live link until its HTTPS page, read-only demo,
+`/health/ready`, `/version` and GitHub OAuth callback have been tested. When the
+deployment becomes real, update the canonical project data, both localized
+profiles and public metadata in the same patch.
 
 The global journey atlas is generated from pinned Natural Earth 1:110m public-
 domain country data. Rebuild its desktop, mobile and reduced-motion variants
@@ -170,7 +213,9 @@ Publishing happens only after Kevin explicitly approves it.
    - `design: improve mobile readability`
 4. Commit to the current branch.
 5. Push origin.
-6. Open the public profile and inspect the rendered result.
+6. Apply the documented About metadata, social previews and pin order.
+7. Open the public profile in signed-in and signed-out views and inspect the
+   rendered result at desktop and narrow/mobile widths.
 
 ## Recovery
 

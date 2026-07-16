@@ -4,7 +4,7 @@
 
 ## Desarrollador Frontend y Full-Stack Junior · Tecnólogo Creativo
 
-Nací en **San Cristóbal, Venezuela**, y actualmente vivo en **Beersheba, Israel**. Soy desarrollador con evidencia práctica en React, TypeScript, JavaScript, Python, SQL, SQLite, visualización de datos, pruebas automatizadas, accesibilidad y experiencias multilingües.
+Nací en **San Cristóbal, Venezuela**, y actualmente vivo en **Beersheba, Israel**. Soy desarrollador con evidencia práctica en React, TypeScript, JavaScript, Python, FastAPI, SQL, PostgreSQL, SQLite, visualización de datos, pruebas automatizadas, accesibilidad y experiencias multilingües.
 
 **Lirioth Teltanion** es mi firma creativa para productos donde la ingeniería se conecta con música, narrativa visual, datos y sistemas generativos.
 
@@ -16,6 +16,13 @@ Aplicación React/TypeScript local-first que transforma exportaciones de Spotify
 
 - [Demo pública](https://liriothteltanion.github.io/NovaMusicLab/)
 - [Código fuente](https://github.com/LiriothTeltanion/NovaMusicLab)
+
+### א Ivrit Sheli
+
+Ivrit Sheli 2.0 es un producto full-stack trilingüe para aprender hebreo desde situaciones reales. Conserva un modo local privado con SQLite y añade una experiencia React 19/TypeScript autenticada con FastAPI, GitHub OAuth con PKCE, PostgreSQL 17 y aislamiento por usuario mediante RLS, migraciones Alembic, Docker no-root, logging JSON estructurado y controles operativos. Su base verificada suma **109 pruebas de backend + 17 de frontend = 126 pruebas automatizadas**. La interfaz funciona en inglés, español y hebreo con RTL; el demo compartido usa datos sintéticos y es de solo lectura.
+
+- [Código fuente y guía de ejecución](https://github.com/LiriothTeltanion/IvritSheli)
+- Despliegue público: pendiente de configurar y verificar; no se publica una URL provisional.
 
 ### 💙 NovaFit
 
@@ -40,15 +47,15 @@ Archivo auditado de seis semanas que conserva la progresión desde Python y prog
 ## Fortalezas comprobables
 
 - React y TypeScript para interfaces y productos orientados a datos.
-- Python, SQLite, JSON, CSV, CLI y Tkinter.
+- Python, FastAPI, PostgreSQL, Alembic, SQLite, JSON, CSV, CLI y Tkinter.
 - Accesibilidad, internacionalización y comportamiento RTL.
-- Validación, pruebas, CI, auditorías y documentación técnica.
+- Validación, pruebas unitarias y de integración, CI, Docker, logging estructurado, auditorías y documentación técnica.
 - Tratamiento honesto de datos incompletos e inferencias.
 - Depuración persistente y comunicación con usuarios no técnicos.
 
-## Próximo objetivo
+## Próxima profundidad
 
-Publicar una aplicación full-stack con backend real, PostgreSQL, autenticación, autorización por roles, Docker, pruebas de integración, logging estructurado y una cuenta demo documentada.
+Ivrit Sheli 2.0 ya convierte ese objetivo full-stack en evidencia pública. La siguiente profundidad es operar productos desplegados con monitoreo y SLOs claros, simulacros de copia y restauración, pruebas E2E de OAuth y límites de autorización, controles de costo y abuso, y procedimientos de respuesta ante incidentes.
 
 ## Idiomas
 

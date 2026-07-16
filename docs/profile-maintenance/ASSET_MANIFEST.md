@@ -16,6 +16,7 @@ The following families are referenced by both `README.md` and
 | Personal signature | `brand/kc-lt-signature-animated.svg`, `brand/kc-lt-signature.svg` |
 | Nova Music Lab live preview | `nova-music-live-preview.jpg`, `nova-music-live-preview-mobile.jpg` |
 | Nova Music Lab journey | `nova-music-journey-animated.svg`, `nova-music-journey-static.svg`, `nova-music-journey-mobile.svg`, `nova-music-journey-mobile-static.svg` |
+| Ivrit Sheli 2.0 evidence | `ivrit-sheli-product-tour.gif`, `ivrit-sheli-2-dashboard.png`, `ivrit-sheli-2-mobile.png`, `ivrit-sheli-2-hebrew-rtl.png` |
 | NovaFit evidence | `novafit-product-tour.gif`, `novafit-product-tour-static.png`, `analytics-training-atlas.png`, `theme-spectrum.png`, `novafit-trust-system-animated.svg`, `novafit-trust-system-mobile.svg` |
 | Engineering and growth | `engineering-orbit-animated.svg`, `engineering-orbit-mobile.svg`, `engineering-orbit-mobile-static.svg`, `learning-roadmap-animated.svg`, `learning-roadmap-mobile.svg` |
 | Global journey atlas | `world-globe-animated.svg`, `world-globe-static.svg`, `world-globe-mobile.svg`, `world-globe-mobile-static.svg` |
@@ -34,16 +35,18 @@ authoritative check for missing local assets.
   states through deterministic labeled centroid markers. Six clustered eastern-
   Caribbean markers use small callout offsets and leader lines so each remains
   individually visible while its true geographic anchor is preserved.
-- `assets/projects/` retains project-card source and raster variants. They are
-  useful provenance for future profile layouts even when the current README
-  presents the projects directly.
+- `assets/projects/` retains project-card source and raster variants, including
+  `ivrit-sheli-logo.svg`. They are useful provenance for future profile layouts
+  even when the current README presents the projects directly.
 - The four `portfolio-command-center-*.svg` files are retained layout
   provenance. They were removed from the recruiter-first README to bring the
   flagship project above the fold, not because the artwork became disposable.
 - `assets/brand/` contains the master, animated, compact, light, monochrome and
-  transparent PNG versions of the KC × LT signature plus the optimized avatar
-  cameo embedded by the four responsive banner variants. Profile 2.0 refines
-  the same blue handwritten mark for faster KC × LT recognition; it does not
+  transparent PNG versions of the KC ✦ LT signature plus the optimized avatar
+  cameo embedded by the four responsive banner variants. The same eight blue
+  pen strokes remain canonical; one separate four-point star now marks the gap
+  between KC and LT with a restrained blue glow. The reveal runs once, reduced
+  motion is static and the monochrome variant has no blur. The mark does not
   replace Kevin Cusnir or Lirioth Teltanion with an unreadable symbol.
 - `assets/novafit-product-tour.gif` is the Profile 2.0 desktop motion proof for
   NovaFit 4.2.0. `assets/novafit-product-tour-static.png` is the canonical mobile
@@ -51,6 +54,14 @@ authoritative check for missing local assets.
   use clearly labeled seeded demo profiles and deterministic synthetic records,
   and exclude real wellness history, runtime databases, secrets and private
   exports.
+- `assets/ivrit-sheli-product-tour.gif` is the concise Profile 2.1 motion proof
+  for Ivrit Sheli 2.0. The three matching PNGs preserve desktop, narrow/mobile
+  and Hebrew RTL evidence and provide static reduced-motion fallbacks. All four
+  visuals must come from the shared read-only demonstration experience, contain
+  synthetic learner records only and exclude private learning history, provider
+  tokens, runtime databases, secrets and personal exports. Keep the GIF
+  aggressively optimized so the combined README visual payload remains below
+  the verifier's 8 MiB ceiling.
 - `assets/motivation-center-animated.svg` and
   `assets/motivation-center-mobile.svg` remain reusable NovaFit visual-system
   provenance. Profile 2.0 replaces their README slot with the more complete
@@ -67,9 +78,15 @@ mechanically rebuilding its output.
 ## Upload-ready social previews
 
 `assets/social/` contains editable 1280 × 640 SVG sources and matching PNGs for
-the profile, Nova Music Lab, NovaFit, Christopher Rodríguez Portfolio and
-Fullstack2026. They are tracked preparation assets; GitHub does not use them
-until the matching PNG is uploaded manually in the target repository settings.
+the profile, Nova Music Lab, Ivrit Sheli, NovaFit, Christopher Rodríguez
+Portfolio and Fullstack2026. They are tracked preparation assets; GitHub does
+not use them until the matching PNG is uploaded manually in the target
+repository settings.
+
+The Ivrit SVG must reference `../projects/ivrit-sheli-logo.svg` and inline the
+same canonical eight-stroke, one-star compact KC ✦ LT signature used by every
+other social card. A linked or independently redrawn signature is not an
+acceptable substitute because it would bypass deterministic drift checks.
 
 The exact repository-to-file mapping and publication order live in
 `PUBLIC_METADATA.md`. Keep the SVG and PNG pairs together, preserve the verified

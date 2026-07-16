@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="260" viewBox="0 0 720 260" role="img" aria-labelledby="title desc">
-  <title id="title">KC LT monochrome handwritten signature logo</title>
-  <desc id="desc">A transparent single-blue KC LT signature for print and restrained layouts, with clearly separated handwritten initials.</desc>
-  <g fill="none" stroke="#0a6fc2" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+  <title id="title">KC ✦ LT monochrome handwritten signature logo</title>
+  <desc id="desc">A transparent single-blue KC star LT signature for print and restrained layouts, with clearly separated initials and one unblurred four-point star.</desc>
+  <g class="signature-ink" fill="none" stroke="#0a6fc2" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
     <path d="M122 40C112 99 101 161 92 208"/>
     <path d="M110 116C141 94 169 67 199 39"/>
     <path d="M111 119C139 145 166 171 198 190"/>
@@ -11,4 +11,5 @@
     <path d="M477 70C530 52 592 52 649 66"/>
     <path d="M66 232C185 214 314 216 430 223C520 229 602 225 666 207"/>
   </g>
+  <g class="signature-star-placement" transform="translate(346 110)"><g class="signature-star" aria-hidden="true"><path d="M0 -11L2.52 -3.08L9 0L2.52 3.08L0 11L-2.52 3.08L-9 0L-2.52 -3.08Z" fill="#0a6fc2"/></g></g>
 </svg>

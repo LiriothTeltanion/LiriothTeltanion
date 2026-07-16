@@ -33,6 +33,10 @@ jobs:
         shell: pwsh
         run: python -m compileall -q scripts tests tools/profile
 
+      - name: Verify deterministic KC star LT assets
+        shell: pwsh
+        run: python tools/profile/generate_signature_assets.py --check
+
       - name: Run Python doctests
         shell: pwsh
         run: python -m doctest scripts/build_profile.py scripts/validate_profile.py tools/profile/generate_world_globe.py
