@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="1150" viewBox="0 0 720 1150" role="img" aria-labelledby="trust-mobile-title trust-mobile-desc">
-  <title id="trust-mobile-title">NovaFit trust system for mobile screens</title>
-  <desc id="trust-mobile-desc">A stacked product-quality pipeline from seeded demo profiles and localization through reasoned coaching, workspace verification, and clean release practices.</desc>
+  <title id="trust-mobile-title">NovaFit 4.2 trust system for mobile screens</title>
+  <desc id="trust-mobile-desc">A reduced-motion-aware NovaFit 4.2 mobile pipeline from seeded demo profiles and localization through reasoned coaching, 124 automated tests, and clean release practices.</desc>
   <defs>
     <linearGradient id="trust-mobile-bg" x1="0" y1="0" x2="1" y2="1">
       <stop stop-color="#06121d"/>
@@ -36,7 +36,7 @@
   <rect width="720" height="1150" rx="32" fill="url(#trust-mobile-bg)"/>
   <path d="M52 171H668M52 1084H668" stroke="#67e8f9" stroke-opacity=".13"/>
   <g font-family="system-ui,Segoe UI,sans-serif">
-    <text x="52" y="60" class="eyebrow">NOVAFIT / TRUST SYSTEM</text>
+    <text x="52" y="60" class="eyebrow">NOVAFIT 4.2 / TRUST SYSTEM</text>
     <text x="52" y="108" class="headline">Trust, visible at every step</text>
     <text x="52" y="145" class="intro">A reviewable path from setup to release.</text>
   </g>
@@ -80,7 +80,7 @@
       <text x="108" y="48" class="step">3 · WORKSPACE CHECKS</text>
       <text x="108" y="78" class="tag" fill="#93c5fd">VERIFIED CHANGE</text>
       <path d="M28 105H576" stroke="#93c5fd" stroke-opacity=".18"/>
-      <text x="28" y="139" class="copy">Repeatable validation · source evidence</text>
+      <text x="28" y="139" class="copy">124 automated tests · source evidence</text>
       <text x="28" y="169" class="copy">Accessible visual review</text>
     </g>
   </g>
@@ -94,7 +94,7 @@
       <text x="108" y="48" class="step">4 · CLEAN RELEASE</text>
       <text x="108" y="78" class="tag" fill="#e9d5ff">PUBLIC DELIVERY</text>
       <path d="M28 105H576" stroke="#e9d5ff" stroke-opacity=".18"/>
-      <text x="28" y="139" class="copy">Focused history · no private user data</text>
+      <text x="28" y="139" class="copy">Windows + PWA · no private user data</text>
       <text x="28" y="169" class="copy">Recruiter-readable outcome</text>
     </g>
   </g>
@@ -102,7 +102,7 @@
   <g font-family="system-ui,Segoe UI,sans-serif">
     <rect x="52" y="1060" width="268" height="46" rx="23" fill="#102d32" stroke="#5eead4" stroke-opacity=".55"/>
     <text x="186" y="1089" text-anchor="middle" class="tag" fill="#99f6e4">SEEDED DEMO DATA</text>
-    <text x="665" y="1090" text-anchor="end" class="tag" fill="#e9d5ff">TRUST BY DESIGN ✦</text>
+    <text x="665" y="1090" text-anchor="end" class="tag" fill="#e9d5ff">124 TESTS · 12 THEMES ✦</text>
   </g>
   <rect x="1" y="1" width="718" height="1148" rx="31" fill="none" stroke="#67e8f9" stroke-opacity=".16"/>
 </svg>

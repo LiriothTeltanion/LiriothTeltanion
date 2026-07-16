@@ -1,31 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="260" viewBox="0 0 720 260" role="img" aria-labelledby="title desc">
   <title id="title">KC LT handwritten signature logo</title>
-  <desc id="desc">A transparent blue and cyan pen-style signature combining Kevin Cusnir's KC initials with the Lirioth Teltanion LT initials.</desc>
+  <desc id="desc">A transparent accessible-blue pen signature with clearly separated KC and LT initials and a low underline.</desc>
   <defs>
-    <linearGradient id="ink" x1="42" y1="220" x2="650" y2="42" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#155eef"/>
-      <stop offset="0.55" stop-color="#0788f5"/>
-      <stop offset="1" stop-color="#67e8f9"/>
-    </linearGradient>
-    <filter id="softGlow" x="-12%" y="-30%" width="124%" height="160%">
-      <feGaussianBlur stdDeviation="2.4" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
+    <linearGradient id="ink" x1="48" y1="220" x2="650" y2="42" gradientUnits="userSpaceOnUse"><stop stop-color="#155eef"/><stop offset="0.52" stop-color="#0a6fc2"/><stop offset="1" stop-color="#0b82e8"/></linearGradient>
   </defs>
-  <g fill="none" stroke="url(#ink)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" filter="url(#softGlow)">
-    <path d="M48 99C84 80 111 55 151 24C131 76 105 140 78 221"/>
-    <path d="M111 112C151 89 183 57 213 29M112 115C144 146 176 177 220 185"/>
-    <path d="M304 72C291 43 250 43 222 73C191 107 191 153 216 175C239 195 278 180 300 147"/>
-    <path d="M353 35C338 88 316 146 300 186C344 189 387 182 421 158"/>
-    <path d="M354 175C329 183 320 211 351 213C379 215 400 199 414 178"/>
-    <path d="M406 70C453 48 512 46 575 57M492 51C475 92 455 145 444 190"/>
-    <path d="M58 233C186 208 309 205 420 211C506 215 585 204 650 176"/>
-  </g>
-  <g fill="none" stroke="#d8f8ff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.48">
-    <path d="M52 98C86 79 113 54 150 27C130 80 106 141 81 218"/>
-    <path d="M114 110C153 87 183 58 210 32M116 117C146 146 177 174 217 182"/>
-    <path d="M301 72C288 47 251 47 226 75C197 108 197 150 220 171C241 188 275 176 296 146"/>
-    <path d="M356 37C341 90 320 145 305 181C345 184 385 177 418 157"/>
-    <path d="M409 68C455 50 511 49 571 58M495 53C478 94 459 145 448 188"/>
+  <g fill="none" stroke="url(#ink)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M122 40C112 99 101 161 92 208"/>
+    <path d="M110 116C141 94 169 67 199 39"/>
+    <path d="M111 119C139 145 166 171 198 190"/>
+    <path d="M323 76C300 45 255 46 231 79C205 115 210 165 240 185C269 204 307 187 326 155"/>
+    <path d="M397 42C386 98 375 151 365 187C391 190 420 183 447 169"/>
+    <path d="M560 59C548 102 536 149 526 191"/>
+    <path d="M477 70C530 52 592 52 649 66"/>
+    <path d="M66 232C185 214 314 216 430 223C520 229 602 225 666 207"/>
   </g>
 </svg>

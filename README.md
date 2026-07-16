@@ -1,3 +1,5 @@
+<!-- profile-version: 2.0.0; release-tag: v2.0.0; release-title: Profile 2.0 — NovaFit & Signature Ultimate Edition -->
+
 <a id="top"></a>
 
 <div align="center">
@@ -94,16 +96,22 @@ Five import families become one deduplicated, source-aware listening history. Mi
 [Open NovaFit live demo](https://liriothteltanion.github.io/NovaFit/) · [NovaFit source](https://github.com/LiriothTeltanion/NovaFit)
 
 <details>
-<summary><strong>💙 Open the NovaFit product, analytics and visual system</strong></summary>
+<summary><strong>💙 Open the NovaFit 4.2.0 product tour and verified evidence</strong></summary>
 
-> **Public-data boundary:** the visuals below use profile-independent or seeded demonstration data; no personal wellness history is displayed.
+> **Public-data boundary:** The tour and static fallback use clearly labeled seeded demo profiles and deterministic synthetic records; they contain no real wellness history, runtime database, secret or private export.
 
 <picture>
-  <source media="(max-width: 640px)" srcset="./assets/motivation-center-mobile.svg" />
-  <img src="./assets/motivation-center-animated.svg" width="100%" alt="NovaFit Motivation Center connects purpose, small actions, evidence, celebration and recovery" />
+  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/novafit-product-tour-static.png" />
+  <source media="(max-width: 640px)" srcset="./assets/novafit-product-tour-static.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/novafit-product-tour-static.png" />
+  <img src="./assets/novafit-product-tour.gif" width="100%" alt="NovaFit 4.2.0 seeded public demo moving through the Wellness Command Center, Motivation Center, Sport and Data Coach, isolated profiles, English, Spanish and Hebrew, including a Hebrew RTL workspace" />
 </picture>
 
+**NovaFit 4.2.0 in motion:** A concise recruiter-facing desktop tour demonstrates navigation, motivation design, explainable coaching, profile isolation and multilingual RTL behavior; the static evidence below documents the analytics and twelve-theme system.
+
 **Manifest-backed product summary:** A local-first Windows wellness intelligence studio with isolated profiles, English, Spanish and Hebrew RTL, efficient motion, explainable analytics, complete verified backups and one-click self-repair.
+
+**Verified v4.2.0 evidence:** 124 discovered automated tests · 12 themes · 58 public visual assets · EN/ES/HE with Hebrew RTL · complete verified backups · installable static showcase · one-click Windows release.
 
 <a href="./assets/analytics-training-atlas.png"><img src="./assets/analytics-training-atlas.png" width="100%" alt="NovaFit Training Atlas workspace showing seeded analytical charts" /></a>
 
@@ -113,7 +121,7 @@ The Training Atlas is profile-independent; the theme contact sheet uses seeded d
 
 **12 curated themes:** Midnight Neon · Aurora Borealis · Negev Sunrise · Ocean Depth · Forest Focus · Rose Quartz · Cloud Day · Solar Paper · High Contrast · Royal Sapphire · Cyber Lime · Sunset Arcade.
 
-[Open the NovaFit live showcase](https://liriothteltanion.github.io/NovaFit/) · [Inspect the NovaFit source](https://github.com/LiriothTeltanion/NovaFit) · [Verified project manifest](https://raw.githubusercontent.com/LiriothTeltanion/NovaFit/main/portfolio/project.json)
+[Open the NovaFit live showcase](https://liriothteltanion.github.io/NovaFit/) · [Download the verified v4.2.0 release](https://github.com/LiriothTeltanion/NovaFit/releases/tag/v4.2.0) · [Inspect the NovaFit source](https://github.com/LiriothTeltanion/NovaFit) · [Verified project manifest](https://raw.githubusercontent.com/LiriothTeltanion/NovaFit/main/portfolio/project.json)
 
 </details>
 

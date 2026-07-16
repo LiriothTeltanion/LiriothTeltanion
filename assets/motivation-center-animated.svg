@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
-  <title id="title">NovaFit Motivation Center</title>
-  <desc id="desc">Animated constellation connecting purpose, small actions, milestones, achievements, and recovery.</desc>
+  <title id="title">NovaFit 4.2 Motivation Center</title>
+  <desc id="desc">Animated, reduced-motion-aware NovaFit 4.2 flow connecting purpose, small actions, evidence, momentum, and recovery.</desc>
   <defs>
     <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#061314"/><stop offset=".55" stop-color="#0a2223"/><stop offset="1" stop-color="#1b1234"/></linearGradient>
     <radialGradient id="glow"><stop stop-color="#2dd4bf" stop-opacity=".8"/><stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/></radialGradient>
@@ -20,9 +20,11 @@
   <rect width="1200" height="420" rx="28" fill="url(#bg)"/>
   <circle cx="940" cy="198" r="190" fill="url(#glow)" opacity=".32" filter="url(#blur)"/>
   <g font-family="Segoe UI,Arial,sans-serif">
-    <text x="62" y="78" fill="#2dd4bf" font-size="18" font-weight="800" letter-spacing="4">NOVA / MOTIVATION CENTER</text>
+    <text x="62" y="78" fill="#2dd4bf" font-size="18" font-weight="800" letter-spacing="4">NOVAFIT 4.2 / MOTIVATION CENTER</text>
     <text x="62" y="126" fill="#ecfffb" font-size="39" font-weight="800">Build the next repeatable win.</text>
     <text x="62" y="160" fill="#95c6bf" font-size="18">Purpose → action → evidence → celebration → recovery</text>
+    <rect x="910" y="52" width="230" height="40" rx="20" fill="#0f3436" stroke="#2dd4bf" stroke-opacity=".6"/>
+    <text x="1025" y="78" text-anchor="middle" fill="#99f6e4" font-size="13" font-weight="800" letter-spacing="1.3">LOCAL-FIRST · EN/ES/HE</text>
   </g>
   <path class="beam" d="M92 278 C260 210 370 345 535 270 S800 185 985 270" fill="none" stroke="#2dd4bf" stroke-width="4" stroke-linecap="round"/>
   <ellipse class="orbit" cx="944" cy="246" rx="172" ry="86"/><ellipse class="orbit alt" cx="944" cy="246" rx="116" ry="148"/>
@@ -33,5 +35,5 @@
     <g class="node"><circle cx="944" cy="246" r="62" fill="#2a1740" stroke="#f0abfc" stroke-width="4"/><text x="944" y="239" fill="#ecfffb" font-size="17" font-weight="800">MOMENTUM</text><text x="944" y="264" fill="#f0abfc" font-size="13">transparent · non-medical</text></g>
   </g>
   <g fill="#ecfffb"><circle class="spark" cx="836" cy="112" r="3"/><circle class="spark" cx="1020" cy="98" r="4"/><circle class="spark" cx="1090" cy="210" r="3"/><circle class="spark" cx="806" cy="330" r="4"/><circle class="spark" cx="1060" cy="354" r="3"/></g>
-  <text x="62" y="386" fill="#95c6bf" font-family="Segoe UI,Arial,sans-serif" font-size="14">Private purpose board · achievement constellation · weekly challenge · 60-second visual reset</text>
+  <text x="62" y="386" fill="#95c6bf" font-family="Segoe UI,Arial,sans-serif" font-size="14">Private purpose board · achievement constellation · weekly challenge · reduced-motion visual reset</text>
 </svg>

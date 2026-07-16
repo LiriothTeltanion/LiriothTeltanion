@@ -10,7 +10,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
+from datetime import date
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 from urllib.parse import urlsplit
@@ -26,7 +28,9 @@ REQUIRED_PROFILE_SECTIONS = {
     "identity",
     "languages",
     "links",
+    "profile_version",
     "projects",
+    "release",
     "review_path",
     "skills",
     "strengths",
@@ -57,6 +61,43 @@ LANGUAGE_FIELDS = ("level", "name", "product_value")
 EVIDENCE_FIELDS = ("label", "value")
 EDUCATION_FIELDS = ("coverage", "current", "period", "program")
 REVIEW_PATH_FIELDS = ("action", "evidence", "time")
+RELEASE_FIELDS = (
+    "baseline",
+    "focus",
+    "prepared_on",
+    "public_data_boundary",
+    "status",
+    "summary",
+    "tag",
+    "title",
+)
+NOVAFIT_SYNC_FIELDS = (
+    "asset_count",
+    "automated_tests_discovered",
+    "live_demo",
+    "release_audit",
+    "schema",
+    "source",
+    "theme_count",
+    "verification_command",
+    "version",
+)
+NOVAFIT_MEDIA_FIELDS = (
+    "alt",
+    "animation",
+    "caption",
+    "description",
+    "mobile_static",
+    "public_data_boundary",
+    "reduced_motion_static",
+    "static",
+)
+SEMVER_PATTERN = re.compile(
+    r"^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)"
+    r"(?:-(?:0|[1-9]\d*|\d*[A-Za-z-][0-9A-Za-z-]*)"
+    r"(?:\.(?:0|[1-9]\d*|\d*[A-Za-z-][0-9A-Za-z-]*))*)?"
+    r"(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?$"
+)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -126,6 +167,29 @@ def load_profile(path: Path) -> dict[str, Any]:
 
 def _validate_profile_data(data: Mapping[str, Any]) -> None:
     """Validate every required field consumed by the renderer."""
+    profile_version = _require_semver(data["profile_version"], "profile.profile_version")
+    release = _require_mapping(data["release"], "profile.release", RELEASE_FIELDS)
+    for field in (
+        "baseline",
+        "public_data_boundary",
+        "status",
+        "summary",
+        "title",
+    ):
+        _require_text(release[field], f"profile.release.{field}")
+    if release["status"] not in {"release-candidate", "released"}:
+        raise ValueError(
+            "profile.release.status must be 'release-candidate' or 'released'."
+        )
+    expected_tag = f"v{profile_version}"
+    if release["tag"] != expected_tag:
+        raise ValueError(
+            f"profile.release.tag must match profile.profile_version as {expected_tag!r}."
+        )
+    _require_iso_date(release["prepared_on"], "profile.release.prepared_on")
+    release_focus = _require_text_list(release["focus"], "profile.release.focus")
+    _require_unique(release_focus, "profile.release.focus")
+
     identity = _require_mapping(data["identity"], "profile.identity", IDENTITY_FIELDS)
     for field in IDENTITY_FIELDS:
         _require_text(identity[field], f"profile.identity.{field}")
@@ -174,6 +238,54 @@ def _validate_profile_data(data: Mapping[str, Any]) -> None:
             "uses the first project's demo URL."
         )
     _require_text(flagship["demo"], "profile.projects[0].demo")
+
+    novafit_projects = [project for project in projects if project["name"] == "NovaFit"]
+    if len(novafit_projects) != 1:
+        raise ValueError("profile.projects must contain exactly one NovaFit project.")
+    novafit = novafit_projects[0]
+    sync = _require_mapping(
+        novafit.get("portfolio_sync"),
+        "profile.projects[NovaFit].portfolio_sync",
+        NOVAFIT_SYNC_FIELDS,
+    )
+    novafit_version = _require_semver(
+        sync["version"], "profile.projects[NovaFit].portfolio_sync.version"
+    )
+    for field in ("asset_count", "automated_tests_discovered", "theme_count"):
+        _require_positive_integer(
+            sync[field], f"profile.projects[NovaFit].portfolio_sync.{field}"
+        )
+    for field in ("release_audit", "schema", "verification_command"):
+        _require_text(sync[field], f"profile.projects[NovaFit].portfolio_sync.{field}")
+    for field in ("live_demo", "source"):
+        _require_https_url(sync[field], f"profile.projects[NovaFit].portfolio_sync.{field}")
+    if sync["live_demo"] != novafit["demo"]:
+        raise ValueError(
+            "profile.projects[NovaFit].portfolio_sync.live_demo must match the NovaFit demo URL."
+        )
+    expected_status = f"Active v{novafit_version} local-first desktop product"
+    if novafit["status"] != expected_status:
+        raise ValueError(
+            "profile.projects[NovaFit].status must agree with portfolio_sync.version."
+        )
+
+    media = _require_mapping(
+        novafit.get("media"),
+        "profile.projects[NovaFit].media",
+        NOVAFIT_MEDIA_FIELDS,
+    )
+    for field in ("alt", "caption", "description", "public_data_boundary"):
+        _require_text(media[field], f"profile.projects[NovaFit].media.{field}")
+    for field in ("animation", "mobile_static", "reduced_motion_static", "static"):
+        _require_asset_path(media[field], f"profile.projects[NovaFit].media.{field}")
+    if media["mobile_static"] != media["static"]:
+        raise ValueError(
+            "profile.projects[NovaFit].media.mobile_static must use the canonical static fallback."
+        )
+    if media["reduced_motion_static"] != media["static"]:
+        raise ValueError(
+            "profile.projects[NovaFit].media.reduced_motion_static must use the canonical static fallback."
+        )
 
     skills = _require_mapping(data["skills"], "profile.skills", SKILL_FIELDS)
     all_skills: list[str] = []
@@ -258,6 +370,51 @@ def _require_text(value: Any, path: str) -> str:
     if not isinstance(value, str) or not value.strip():
         raise ValueError(f"{path} must be a non-empty string.")
     return value
+
+
+def _require_semver(value: Any, path: str) -> str:
+    """Return a strict Semantic Versioning 2.0 value."""
+    version = _require_text(value, path)
+    if not SEMVER_PATTERN.fullmatch(version):
+        raise ValueError(f"{path} must be a Semantic Versioning value such as 2.0.0.")
+    return version
+
+
+def _require_iso_date(value: Any, path: str) -> str:
+    """Return an ISO 8601 calendar date after strict parsing."""
+    raw = _require_text(value, path)
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", raw):
+        raise ValueError(f"{path} must be an ISO date in YYYY-MM-DD format.")
+    try:
+        date.fromisoformat(raw)
+    except ValueError as error:
+        raise ValueError(f"{path} must be an ISO date in YYYY-MM-DD format.") from error
+    return raw
+
+
+def _require_positive_integer(value: Any, path: str) -> int:
+    """Return a positive integer while rejecting booleans."""
+    if not isinstance(value, int) or isinstance(value, bool) or value < 1:
+        raise ValueError(f"{path} must be a positive integer.")
+    return value
+
+
+def _require_asset_path(value: Any, path: str) -> str:
+    """Validate a repository-relative public asset path."""
+    asset = _require_text(value, path)
+    parts = asset.split("/")
+    parsed = urlsplit(asset)
+    if (
+        not asset.startswith("assets/")
+        or "\\" in asset
+        or any(part in {"", ".", ".."} for part in parts)
+        or parsed.scheme
+        or parsed.netloc
+        or parsed.query
+        or parsed.fragment
+    ):
+        raise ValueError(f"{path} must be a clean repository-relative assets/ path.")
+    return asset
 
 
 def _require_text_list(
@@ -351,17 +508,24 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
 
     identity = data["identity"]
     links = data["links"]
+    profile_version = data["profile_version"]
     projects = data["projects"]
+    release = data["release"]
     review_path = data["review_path"]
     skills = data["skills"]
     novafit = next(project for project in projects if project["name"] == "NovaFit")
-    novafit_sync = novafit.get("portfolio_sync", {})
-    novafit_version = novafit_sync.get("version", "4.0")
+    novafit_sync = novafit["portfolio_sync"]
+    novafit_version = novafit_sync["version"]
     fast_review = " · ".join(
         f"**{item['time']}**: {item['action']}" for item in review_path
     )
 
     lines: list[str] = [
+        (
+            f"<!-- profile-version: {profile_version}; release-tag: {release['tag']}; "
+            f"release-title: {release['title']} -->"
+        ),
+        "",
         '<a id="top"></a>',
         "",
         '<div align="center">',
@@ -658,31 +822,48 @@ def _render_nova_music_spotlight(project: Mapping[str, Any]) -> list[str]:
 
 def _render_novafit_spotlights(project: Mapping[str, Any]) -> list[str]:
     """Render two focused NovaFit tours while keeping the main project list scannable."""
-    sync = project.get("portfolio_sync", {})
-    test_count = sync.get("automated_tests_discovered", "documented")
-    theme_count = sync.get("theme_count", "Twelve")
-    verification = sync.get("verification_command", "the one-click verifier")
-    release_audit = sync.get("release_audit", "the strict release audit")
-    manifest_source = sync.get("source")
-    live_demo = project.get("demo")
-    manifest_link = (
-        f" · [Verified project manifest]({manifest_source})" if manifest_source else ""
-    )
-    live_demo_link = (
-        f"[Open the NovaFit live showcase]({live_demo}) · " if live_demo else ""
-    )
+    sync = project["portfolio_sync"]
+    media = project["media"]
+    version = sync["version"]
+    release_tag = f"v{version}"
+    release_url = f"{project['source']}/releases/tag/{release_tag}"
+    test_count = sync["automated_tests_discovered"]
+    theme_count = sync["theme_count"]
+    asset_count = sync["asset_count"]
+    verification = sync["verification_command"]
+    release_audit = sync["release_audit"]
+    manifest_source = sync["source"]
+    live_demo = project["demo"]
     return [
         "<details>",
-        "<summary><strong>💙 Open the NovaFit product, analytics and visual system</strong></summary>",
+        (
+            f"<summary><strong>💙 Open the NovaFit {version} product tour and "
+            "verified evidence</strong></summary>"
+        ),
         "",
-        "> **Public-data boundary:** the visuals below use profile-independent or seeded demonstration data; no personal wellness history is displayed.",
+        f"> **Public-data boundary:** {media['public_data_boundary']}",
         "",
         "<picture>",
-        '  <source media="(max-width: 640px)" srcset="./assets/motivation-center-mobile.svg" />',
-        '  <img src="./assets/motivation-center-animated.svg" width="100%" alt="NovaFit Motivation Center connects purpose, small actions, evidence, celebration and recovery" />',
+        (
+            '  <source media="(max-width: 640px) and '
+            '(prefers-reduced-motion: reduce)" '
+            f'srcset="./{media["mobile_static"]}" />'
+        ),
+        f'  <source media="(max-width: 640px)" srcset="./{media["mobile_static"]}" />',
+        f'  <source media="(prefers-reduced-motion: reduce)" srcset="./{media["reduced_motion_static"]}" />',
+        f'  <img src="./{media["animation"]}" width="100%" alt="{media["alt"]}" />',
         "</picture>",
         "",
+        f"**{media['caption']}** {media['description']}",
+        "",
         f"**Manifest-backed product summary:** {project['solution']}",
+        "",
+        (
+            f"**Verified {release_tag} evidence:** {test_count} discovered automated "
+            f"tests · {theme_count} themes · {asset_count} public visual assets · "
+            "EN/ES/HE with Hebrew RTL · complete verified backups · installable "
+            "static showcase · one-click Windows release."
+        ),
         "",
         '<a href="./assets/analytics-training-atlas.png"><img src="./assets/analytics-training-atlas.png" width="100%" alt="NovaFit Training Atlas workspace showing seeded analytical charts" /></a>',
         "",
@@ -692,7 +873,12 @@ def _render_novafit_spotlights(project: Mapping[str, Any]) -> list[str]:
         "",
         f"**{theme_count} curated themes:** Midnight Neon · Aurora Borealis · Negev Sunrise · Ocean Depth · Forest Focus · Rose Quartz · Cloud Day · Solar Paper · High Contrast · Royal Sapphire · Cyber Lime · Sunset Arcade.",
         "",
-        f"{live_demo_link}[Inspect the NovaFit source]({project['source']}){manifest_link}",
+        (
+            f"[Open the NovaFit live showcase]({live_demo}) · "
+            f"[Download the verified {release_tag} release]({release_url}) · "
+            f"[Inspect the NovaFit source]({project['source']}) · "
+            f"[Verified project manifest]({manifest_source})"
+        ),
         "",
         "</details>",
         "",

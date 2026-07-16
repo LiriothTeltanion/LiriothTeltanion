@@ -25,11 +25,11 @@
 
   <g transform="translate(327 112)"><g class="cardMotion" style="animation-delay:.8s">
     <rect width="253" height="248" rx="24" class="card"/><path d="M22 18H231" stroke="#34d399" stroke-width="3" stroke-linecap="round" class="signal"/>
-    <text x="22" y="61" class="icon">💙</text><text x="62" y="59" class="heading">NovaFit Ultimate 4.0</text>
+    <text x="22" y="61" class="icon">💙</text><text x="62" y="59" class="heading">NovaFit v4.2</text>
     <rect x="22" y="78" width="132" height="25" rx="12" fill="#123b35"/><text x="88" y="95" text-anchor="middle" class="status" fill="#6ee7b7">DESKTOP · LOCAL</text>
     <text x="22" y="130" class="copy">Python · Tkinter · SQLite</text><text x="22" y="153" class="copy">Four-workspace analytics studio</text>
-    <rect x="22" y="178" width="62" height="24" rx="12" fill="#15372f"/><text x="53" y="194" text-anchor="middle" class="chip">74 TESTS</text><rect x="91" y="178" width="56" height="24" rx="12" fill="#15372f"/><text x="119" y="194" text-anchor="middle" class="chip">EN/ES/HE</text>
-    <text x="22" y="226" class="copy" fill="#6ee7b7">Profiles · themes · safe delivery</text>
+    <rect x="22" y="178" width="70" height="24" rx="12" fill="#15372f"/><text x="57" y="194" text-anchor="middle" class="chip">124 TESTS</text><rect x="99" y="178" width="62" height="24" rx="12" fill="#15372f"/><text x="130" y="194" text-anchor="middle" class="chip">EN/ES/HE</text>
+    <text x="22" y="226" class="copy" fill="#6ee7b7">12 themes · RTL · verified release</text>
   </g></g>
 
   <g transform="translate(620 112)"><g class="cardMotion" style="animation-delay:1.6s">

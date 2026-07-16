@@ -1,8 +1,8 @@
-# GitHub Profile Definitive Migration Guide 🧭
+# GitHub Profile 2.0 Release Guide 🧭
 
 ## Objective
 
-Replace the repetitive profile with a generated recruiter-first command center while preserving multilingual summaries and creative identity.
+Publish the generated recruiter-first Profile 2.0 command center while preserving multilingual summaries, verified project evidence, accessible motion and the KC × LT creative identity.
 
 ## Copy scope
 
@@ -16,9 +16,11 @@ README_EXPANDED.md
 PROFILE_ES.md
 PROFILE_HE.md
 profile.json
+CHANGELOG.md
 assets/
 scripts/build_profile.py
 scripts/validate_profile.py
+tools/profile/generate_signature_assets.py
 build_profile.bat
 verify_profile.bat
 .gitattributes
@@ -28,8 +30,10 @@ verify_profile.bat
 
 ```powershell
 git status --short
-git switch -c docs/definitive-recruiter-profile
+git switch -c codex/profile-v2-novafit-signature
+py -3 tools/profile/generate_signature_assets.py --check
 py -3 scripts/build_profile.py --mode compact --output README.md
+py -3 scripts/build_profile.py --mode expanded --output README_EXPANDED.md
 py -3 scripts/validate_profile.py --readme README.md --max-lines 300
 powershell -ExecutionPolicy Bypass -File tools/profile/verify-profile.ps1
 git diff -- README.md profile.json assets scripts
@@ -38,7 +42,7 @@ git diff -- README.md profile.json assets scripts
 Recommended commit:
 
 ```text
-docs(profile): add definitive recruiter-first portfolio command center
+feat(profile): release v2 NovaFit and signature edition
 ```
 
 ## Why this structure is stronger
@@ -46,7 +50,7 @@ docs(profile): add definitive recruiter-first portfolio command center
 1. Target role, location, stack and availability are immediate.
 2. Projects use one consistent evidence format.
 3. No arbitrary skill percentages.
-4. Nova Music Lab receives the flagship visual journey, and NovaFit 4.0 is shown through privacy-safe system diagrams plus profile-independent or anonymized seeded-demo analytics.
+4. Nova Music Lab remains the flagship visual journey, while NovaFit v4.2.0 adds a privacy-safe product tour, manifest-backed evidence and deterministic seeded-demo analytics.
 5. Secondary content is collapsible.
 6. Spanish and Hebrew remain available without tripling the main README.
 7. `profile.json` reduces drift.
@@ -54,9 +58,10 @@ docs(profile): add definitive recruiter-first portfolio command center
 
 ## Before publishing
 
-- Release NovaFit 4.0 first.
+- Confirm NovaFit v4.2.0, its 124-test count, 12 themes and 58-asset manifest remain synchronized.
 - Confirm Nova Music Lab live URL.
-- Validate all GIF/SVG assets on GitHub.
+- Validate all GIF/SVG assets, responsive fallbacks and reduced-motion behavior on GitHub.
+- Confirm `profile_version`, release tag and changelog all agree on `2.0.0` / `v2.0.0`.
 - Pin Nova Music Lab, NovaFit, Christopher Portfolio and Fullstack2026.
 - Unpin the profile repository itself.
 - Archive or privatize empty public repositories.

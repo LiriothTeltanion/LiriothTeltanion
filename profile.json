@@ -1,4 +1,20 @@
 {
+  "profile_version": "2.0.0",
+  "release": {
+    "title": "Profile 2.0 — NovaFit & Signature Ultimate Edition",
+    "tag": "v2.0.0",
+    "status": "released",
+    "prepared_on": "2026-07-16",
+    "baseline": "Pre-versioned Ultimate profile baseline",
+    "summary": "A major public-profile presentation release that refreshes NovaFit 4.2.0 evidence, improves the KC × LT signature for faster recognition and preserves the recruiter-first hierarchy led by Nova Music Lab.",
+    "focus": [
+      "NovaFit 4.2.0 recruiter-facing product tour with deterministic demonstration data",
+      "Clearer KC × LT handwritten identity across the banner and closing signature",
+      "Responsive static fallbacks for mobile and reduced-motion readers",
+      "Versioned release documentation, semantic validation and generated-output agreement"
+    ],
+    "public_data_boundary": "Only public repository facts and deterministic or synthetic demonstration visuals are included; no private wellness history, runtime database, secrets or personal exports are published."
+  },
   "identity": {
     "name": "Kevin Cusnir",
     "alias": "Lirioth Teltanion",
@@ -72,6 +88,16 @@
         "One-click Windows setup, launch and verification",
         "Installable public Pages showcase with no desktop-data access"
       ],
+      "media": {
+        "animation": "assets/novafit-product-tour.gif",
+        "static": "assets/novafit-product-tour-static.png",
+        "mobile_static": "assets/novafit-product-tour-static.png",
+        "reduced_motion_static": "assets/novafit-product-tour-static.png",
+        "alt": "NovaFit 4.2.0 seeded public demo moving through the Wellness Command Center, Motivation Center, Sport and Data Coach, isolated profiles, English, Spanish and Hebrew, including a Hebrew RTL workspace",
+        "description": "A concise recruiter-facing desktop tour demonstrates navigation, motivation design, explainable coaching, profile isolation and multilingual RTL behavior; the static evidence below documents the analytics and twelve-theme system.",
+        "caption": "NovaFit 4.2.0 in motion:",
+        "public_data_boundary": "The tour and static fallback use clearly labeled seeded demo profiles and deterministic synthetic records; they contain no real wellness history, runtime database, secret or private export."
+      },
       "portfolio_sync": {
         "schema": "nova-portfolio-project-v1",
         "source": "https://raw.githubusercontent.com/LiriothTeltanion/NovaFit/main/portfolio/project.json",

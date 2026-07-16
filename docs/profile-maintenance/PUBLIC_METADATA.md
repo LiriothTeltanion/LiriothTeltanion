@@ -1,9 +1,9 @@
 # Approved GitHub metadata blueprint
 
-This file is the exact, evidence-based configuration prepared for Kevin's public
-GitHub repositories. It is intentionally **not applied automatically**: About
-metadata, social previews and pinned repositories change the public account and
-should be published only after Kevin's final review.
+This file is the exact, evidence-based configuration for Kevin's public GitHub
+repositories. Keeping the blueprint here does not apply account settings by
+itself: About metadata, social previews and pinned repositories still require a
+reviewed GitHub update and a public verification pass.
 
 ## Profile repository: `LiriothTeltanion/LiriothTeltanion`
 
@@ -42,6 +42,18 @@ creative-technology
 ```text
 assets/social/profile-social-preview.png
 ```
+
+**Alt text**
+
+```text
+Kevin Cusnir and the Lirioth Teltanion creative identity presented in a blue developer-profile card with React, TypeScript, Python, accessibility and multilingual product focus.
+```
+
+**Public boundary**
+
+The card uses Kevin's intentionally public profile identity and portfolio facts.
+It does not contain private contact details beyond the email already published
+in the profile, personal documents, private metrics or unverified claims.
 
 ## `LiriothTeltanion/NovaMusicLab`
 
@@ -82,11 +94,18 @@ assets/social/novamusiclab-social-preview.png
 **Description**
 
 ```text
-Local-first Python, Tkinter, and SQLite wellness intelligence studio with isolated profiles, EN/ES/HE RTL UX, explainable analytics, and 74 automated tests.
+NovaFit 4.2.0 is a local-first Python, Tkinter and SQLite wellness studio with EN/ES/HE RTL UX, explainable analytics, 124 tests and Windows releases.
 ```
 
-Leave the website empty until a verified public demo or release landing page is
-available; the repository remains the honest destination.
+**Website**
+
+```text
+https://liriothteltanion.github.io/NovaFit/
+```
+
+This URL is the verified installable static showcase. It presents deterministic
+demonstration data and links to the desktop download; it is not the Tkinter
+runtime and cannot read or publish the local desktop database.
 
 **Topics**
 
@@ -101,6 +120,8 @@ rtl
 analytics
 testing
 windows
+github-pages
+pwa
 ```
 
 **Social preview after upload**
@@ -108,6 +129,18 @@ windows
 ```text
 assets/social/novafit-social-preview.png
 ```
+
+**Alt text**
+
+```text
+NovaFit 4.2.0 blue product card highlighting a local-first Windows wellness studio, four analytics spaces, EN/ES/HE RTL support, 12 themes and 124 automated tests.
+```
+
+**Public boundary**
+
+The preview and linked showcase use clearly labeled demo profiles and
+deterministic synthetic records. They contain no real wellness history, private
+profile, runtime database, secret, medical claim or private export.
 
 ## `LiriothTeltanion/ChristopherRodriguezCVOnline`
 
