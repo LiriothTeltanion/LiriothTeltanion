@@ -130,6 +130,56 @@ class ProfileDataValidationTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, r"non-negative integer"):
             self.load(data)
 
+    def test_profile_version_requires_strict_semver(self) -> None:
+        data = copy.deepcopy(self.valid_data)
+        data["profile_version"] = "2.0"
+
+        with self.assertRaisesRegex(ValueError, r"profile_version.*Semantic Versioning"):
+            self.load(data)
+
+    def test_release_tag_must_agree_with_profile_version(self) -> None:
+        data = copy.deepcopy(self.valid_data)
+        data["release"]["tag"] = "v2.1.0"
+
+        with self.assertRaisesRegex(ValueError, r"release\.tag.*v2\.0\.0"):
+            self.load(data)
+
+    def test_release_prepared_date_must_be_iso_calendar_date(self) -> None:
+        data = copy.deepcopy(self.valid_data)
+        data["release"]["prepared_on"] = "2026-02-31"
+
+        with self.assertRaisesRegex(ValueError, r"prepared_on.*YYYY-MM-DD"):
+            self.load(data)
+
+        data["release"]["prepared_on"] = "20260716"
+        with self.assertRaisesRegex(ValueError, r"prepared_on.*YYYY-MM-DD"):
+            self.load(data)
+
+    def test_novafit_status_must_agree_with_manifest_version(self) -> None:
+        data = copy.deepcopy(self.valid_data)
+        data["projects"][1]["status"] = "Active v4.1.0 local-first desktop product"
+
+        with self.assertRaisesRegex(ValueError, r"NovaFit.*status.*portfolio_sync"):
+            self.load(data)
+
+    def test_novafit_tour_requires_one_canonical_static_fallback(self) -> None:
+        data = copy.deepcopy(self.valid_data)
+        data["projects"][1]["media"]["mobile_static"] = (
+            "assets/novafit-product-tour-mobile.png"
+        )
+
+        with self.assertRaisesRegex(ValueError, r"mobile_static.*canonical static"):
+            self.load(data)
+
+    def test_novafit_tour_rejects_remote_or_ambiguous_asset_paths(self) -> None:
+        data = copy.deepcopy(self.valid_data)
+        data["projects"][1]["media"]["animation"] = (
+            "assets/novafit-product-tour.gif?raw=1"
+        )
+
+        with self.assertRaisesRegex(ValueError, r"animation.*repository-relative"):
+            self.load(data)
+
 
 class Cp1252OutputTests(unittest.TestCase):
     """Keep both Windows CLI success paths safe outside UTF-8 terminals."""
@@ -203,11 +253,13 @@ class GeneratedProfileContractTests(unittest.TestCase):
 
         self.assertLessEqual(len(content.splitlines()), 300)
         for expected in (
+            "profile-version: 2.0.0",
             "profile-banner-mobile-static.svg",
             "nova-music-live-preview-mobile.jpg",
             "nova-music-journey-static.svg",
             "nova-music-journey-mobile-static.svg",
-            "motivation-center-mobile.svg",
+            "novafit-product-tour.gif",
+            "novafit-product-tour-static.png",
             "novafit-trust-system-mobile.svg",
             "engineering-orbit-mobile-static.svg",
             "engineering-orbit-mobile.svg",
@@ -217,6 +269,12 @@ class GeneratedProfileContractTests(unittest.TestCase):
             "kc-lt-signature.svg",
             "kc-lt-signature-animated.svg",
             "seeded demonstration records",
+            "clearly labeled seeded demo profiles",
+            "deterministic synthetic records",
+            "Verified v4.2.0 evidence",
+            "124 discovered automated tests",
+            "58 public visual assets",
+            "Download the verified v4.2.0 release",
             "Nova Music Lab source",
         ):
             self.assertIn(expected, content)
@@ -233,6 +291,37 @@ class GeneratedProfileContractTests(unittest.TestCase):
         self.assertIn("San Cristóbal, Venezuela", content)
         self.assertIn("Beersheba, Israel", content)
         self.assertIn("represent 195 sovereign states", content)
+
+    def test_release_metadata_and_generated_modes_agree(self) -> None:
+        version = self.data["profile_version"]
+        release = self.data["release"]
+        expected_marker = (
+            f"<!-- profile-version: {version}; release-tag: {release['tag']}; "
+            f"release-title: {release['title']} -->"
+        )
+
+        self.assertEqual(version, "2.0.0")
+        self.assertEqual(release["tag"], f"v{version}")
+        for mode in ("compact", "expanded"):
+            self.assertTrue(
+                build_profile.render_profile(self.data, mode).startswith(expected_marker)
+            )
+
+        changelog = (ROOT / "CHANGELOG.md").read_text(encoding="utf-8")
+        self.assertIn(f"## [{version}]", changelog)
+        self.assertIn("Pre-versioned Ultimate profile baseline", changelog)
+
+    def test_nova_music_lab_remains_the_strongest_first_flagship(self) -> None:
+        content = build_profile.render_profile(self.data, "compact")
+
+        self.assertEqual(self.data["projects"][0]["name"], "Nova Music Lab")
+        self.assertLess(
+            content.index("### 🎧 Nova Music Lab"), content.index("### 💙 NovaFit")
+        )
+        self.assertLess(
+            content.index("nova-music-live-preview.jpg"),
+            content.index("novafit-product-tour.gif"),
+        )
 
     def test_project_demo_urls_stay_with_the_correct_project(self) -> None:
         projects = {project["name"]: project for project in self.data["projects"]}
@@ -451,6 +540,47 @@ class SocialPreviewAssetTests(unittest.TestCase):
                 title = root.find("{http://www.w3.org/2000/svg}title")
                 self.assertIsNotNone(title, svg_path.name)
                 self.assertIn("Rodríguez", title.text or "", svg_path.name)
+
+    def test_social_previews_reuse_the_canonical_compact_signature(self) -> None:
+        """Prevent share-card copies of KC x LT from drifting from the master."""
+
+        signature = ET.parse(
+            ROOT / "assets" / "brand" / "kc-lt-signature-compact.svg"
+        ).getroot()
+        namespace = "{http://www.w3.org/2000/svg}"
+        canonical_paths = [
+            path.get("d") for path in signature.findall(f".//{namespace}path")
+        ]
+        self.assertEqual(len(canonical_paths), 8)
+        self.assertNotIn(None, canonical_paths)
+
+        for svg_path in sorted((ROOT / "assets" / "social").glob("*.svg")):
+            source = svg_path.read_text(encoding="utf-8")
+            for path_data in canonical_paths:
+                self.assertIn(f'd="{path_data}"', source, svg_path.name)
+
+    def test_novafit_secondary_art_uses_verified_4_2_facts(self) -> None:
+        """Keep retained cards consistent with the canonical public manifest."""
+
+        targets = (
+            ROOT / "assets" / "social" / "novafit-social-preview.svg",
+            ROOT / "assets" / "projects" / "novafit.svg",
+            ROOT / "assets" / "portfolio-command-center-animated.svg",
+            ROOT / "assets" / "portfolio-command-center-static.svg",
+            ROOT / "assets" / "portfolio-command-center-mobile.svg",
+            ROOT / "assets" / "portfolio-command-center-mobile-static.svg",
+            ROOT / "assets" / "self-healing-verification-animated.svg",
+        )
+        for path in targets:
+            source = path.read_text(encoding="utf-8")
+            self.assertNotIn("74 tests", source, path.name)
+            self.assertNotIn("74 TESTS", source, path.name)
+            self.assertNotIn("Ultimate 4.0", source, path.name)
+
+        social = targets[0].read_text(encoding="utf-8")
+        self.assertIn("124 tests", social)
+        self.assertIn("12 themes", social)
+        self.assertIn("v4.2", social)
 
 
 class ExternalLinkAuditTests(unittest.TestCase):

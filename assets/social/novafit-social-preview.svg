@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
   <title id="title">NovaFit social preview</title>
-  <desc id="desc">Navy, cyan and emerald project card for NovaFit, a local-first wellness intelligence application built with Python and SQLite and covered by 74 tests.</desc>
+  <desc id="desc">Navy, cyan and emerald project card for NovaFit v4.2.0, a local-first wellness intelligence studio built with Python and SQLite, covered by 124 tests and available in English, Spanish and Hebrew RTL.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="640" gradientUnits="userSpaceOnUse">
       <stop stop-color="#040d17"/><stop offset="0.56" stop-color="#071b2c"/><stop offset="1" stop-color="#0b343c"/>
@@ -32,7 +32,7 @@
       <text x="40" y="25" fill="#d1fae5" font-size="15" font-weight="700" letter-spacing="2">FEATURED PROJECT</text>
     </g>
     <text x="92" y="226" fill="#f7fffc" font-size="72" font-weight="760" letter-spacing="-2">NovaFit</text>
-    <text x="94" y="287" fill="#a7f3d0" font-size="32" font-weight="650">Local-first wellness intelligence</text>
+    <text x="94" y="287" fill="#a7f3d0" font-size="32" font-weight="650">v4.2 · Local-first wellness intelligence</text>
     <rect x="94" y="323" width="536" height="2" fill="url(#accent)"/>
     <text x="94" y="382" fill="#cfebed" font-size="25" font-weight="600">Private profiles, explainable analytics, multilingual UX.</text>
 
@@ -40,7 +40,9 @@
       <rect width="210" height="50" rx="25" fill="#082834" stroke="#22d3ee" stroke-opacity="0.56"/>
       <text x="29" y="32" fill="#cffafe" font-size="18" font-weight="700">Python + SQLite</text>
       <rect x="226" width="132" height="50" rx="25" fill="#123526" stroke="#a3e635" stroke-opacity="0.56"/>
-      <text x="258" y="32" fill="#ecfccb" font-size="18" font-weight="700">74 tests</text>
+      <text x="250" y="32" fill="#ecfccb" font-size="18" font-weight="700">124 tests</text>
+      <rect x="374" width="154" height="50" rx="25" fill="#0a3040" stroke="#22d3ee" stroke-opacity="0.56"/>
+      <text x="398" y="32" fill="#cffafe" font-size="18" font-weight="700">12 themes</text>
     </g>
     <text x="95" y="560" fill="#72a7a5" font-size="15" letter-spacing="1.8">LIRIOTHTELTANION / NOVAFIT</text>
   </g>
@@ -56,11 +58,14 @@
     <circle cx="846" cy="446" r="5" fill="#22d3ee" filter="url(#glow)"/>
   </g>
 
-  <g transform="translate(1050 457) scale(.42)" fill="none" stroke="url(#accent)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.78">
-    <path d="M24 74C44 63 59 48 80 29C69 61 56 103 43 151M60 83C80 68 95 51 107 34M61 85C77 107 93 126 116 134"/>
-    <path d="M159 62C148 44 123 48 111 68C94 95 107 126 130 130C146 132 160 122 169 109"/>
-    <path d="M198 31C190 65 178 104 171 136C194 138 217 132 236 116C222 121 209 139 225 148C241 157 258 143 268 128"/>
-    <path d="M226 59C257 44 291 44 326 53M282 47C272 75 260 109 254 140"/>
-    <path d="M27 169C96 151 164 153 220 158C268 162 311 153 337 134"/>
+  <g transform="translate(1027 447) scale(.52)" fill="none" stroke="url(#accent)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M63 28C57 63 51 104 45 153"/>
+    <path d="M55 84C76 68 90 51 106 34"/>
+    <path d="M55 87C74 104 91 121 108 133"/>
+    <path d="M165 62C153 45 129 46 116 65C103 86 105 115 121 129C137 141 156 131 166 112"/>
+    <path d="M209 36C203 70 196 106 190 136C206 138 223 133 238 123"/>
+    <path d="M291 49C284 77 278 106 273 139"/>
+    <path d="M249 55C276 45 308 45 337 53"/>
+    <path d="M28 169C92 153 157 156 216 161C265 165 311 159 344 145"/>
   </g>
 </svg>

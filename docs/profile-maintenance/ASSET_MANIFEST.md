@@ -16,7 +16,7 @@ The following families are referenced by both `README.md` and
 | Personal signature | `brand/kc-lt-signature-animated.svg`, `brand/kc-lt-signature.svg` |
 | Nova Music Lab live preview | `nova-music-live-preview.jpg`, `nova-music-live-preview-mobile.jpg` |
 | Nova Music Lab journey | `nova-music-journey-animated.svg`, `nova-music-journey-static.svg`, `nova-music-journey-mobile.svg`, `nova-music-journey-mobile-static.svg` |
-| NovaFit evidence | `analytics-training-atlas.png`, `theme-spectrum.png`, `motivation-center-animated.svg`, `motivation-center-mobile.svg`, `novafit-trust-system-animated.svg`, `novafit-trust-system-mobile.svg` |
+| NovaFit evidence | `novafit-product-tour.gif`, `novafit-product-tour-static.png`, `analytics-training-atlas.png`, `theme-spectrum.png`, `novafit-trust-system-animated.svg`, `novafit-trust-system-mobile.svg` |
 | Engineering and growth | `engineering-orbit-animated.svg`, `engineering-orbit-mobile.svg`, `engineering-orbit-mobile-static.svg`, `learning-roadmap-animated.svg`, `learning-roadmap-mobile.svg` |
 | Global journey atlas | `world-globe-animated.svg`, `world-globe-static.svg`, `world-globe-mobile.svg`, `world-globe-mobile-static.svg` |
 
@@ -42,13 +42,26 @@ authoritative check for missing local assets.
   flagship project above the fold, not because the artwork became disposable.
 - `assets/brand/` contains the master, animated, compact, light, monochrome and
   transparent PNG versions of the KC × LT signature plus the optimized avatar
-  cameo embedded by the four responsive banner variants.
+  cameo embedded by the four responsive banner variants. Profile 2.0 refines
+  the same blue handwritten mark for faster KC × LT recognition; it does not
+  replace Kevin Cusnir or Lirioth Teltanion with an unreadable symbol.
+- `assets/novafit-product-tour.gif` is the Profile 2.0 desktop motion proof for
+  NovaFit 4.2.0. `assets/novafit-product-tour-static.png` is the canonical mobile
+  and reduced-motion fallback. Both must tell the same recruiter-facing story,
+  use clearly labeled seeded demo profiles and deterministic synthetic records,
+  and exclude real wellness history, runtime databases, secrets and private
+  exports.
+- `assets/motivation-center-animated.svg` and
+  `assets/motivation-center-mobile.svg` remain reusable NovaFit visual-system
+  provenance. Profile 2.0 replaces their README slot with the more complete
+  product tour; they are preserved rather than deleted.
 - `assets/visuals/` and the remaining unlinked root-level SVG/PNG files retain
   prior section artwork and source evidence. Unlinked does not mean obsolete.
   Audit references, provenance and visual value before proposing removal.
 
-Generated output must remain deterministic, accessible and free of private or
-personal-looking records. When a generator exists, update the generator before
+Generated output must remain deterministic, accessible and free of real private
+records. Any personal-looking demonstration field must be visibly identified as
+seeded public demo data. When a generator exists, update the generator before
 mechanically rebuilding its output.
 
 ## Upload-ready social previews
