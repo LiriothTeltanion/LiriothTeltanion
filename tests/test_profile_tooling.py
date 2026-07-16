@@ -237,7 +237,10 @@ class GeneratedProfileContractTests(unittest.TestCase):
     def test_project_demo_urls_stay_with_the_correct_project(self) -> None:
         projects = {project["name"]: project for project in self.data["projects"]}
 
-        self.assertIsNone(projects["NovaFit"]["demo"])
+        self.assertEqual(
+            projects["NovaFit"]["demo"],
+            "https://liriothteltanion.github.io/NovaFit/",
+        )
         self.assertEqual(
             projects["Christopher Rodríguez Portfolio"]["demo"],
             "https://liriothteltanion.github.io/ChristopherRodriguezCVOnline/",

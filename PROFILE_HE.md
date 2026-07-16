@@ -19,8 +19,9 @@
 
 ### 💙 NovaFit
 
-NovaFit Ultimate 4.0 היא אפליקציה מקומית לשולחן העבודה ולשורת הפקודה ב־Python, Tkinter ו־SQLite. היא כוללת ארבעה מרחבי אנליטיקה — Command Center, Trend Lab, Consistency Map ו־Training Atlas — ‏74 בדיקות אוטומטיות, פרופילים מבודדים, ממשק EN/ES/HE עם RTL בעברית, 12 ערכות נושא, Sport & Data Coach, דוחות ניידים, מיגרציה בטוחה והפצה ל־Windows. הגרפיקה הציבורית משתמשת בנתונים שאינם תלויי פרופיל או בנתוני הדגמה מוזנים מראש ואנונימיים, ואינה מציגה היסטוריה אישית.
+NovaFit 4.2 היא אפליקציה מקומית לשולחן העבודה ולשורת הפקודה ב־Python, Tkinter ו־SQLite. היא כוללת ארבעה מרחבי אנליטיקה — Command Center, Trend Lab, Consistency Map ו־Training Atlas — ‏124 בדיקות אוטומטיות, פרופילים מבודדים, ממשק EN/ES/HE עם RTL בעברית, 12 ערכות נושא, Sport & Data Coach, דוחות ניידים, מיגרציה בטוחה, הפצה ל־Windows ואתר PWA ניתן להתקנה ב־GitHub Pages. האתר משתמש אך ורק בנתוני הדגמה, ואינו קורא או מפרסם את ההיסטוריה האישית מהמחשב.
 
+- [פתיחת הדמו האינטראקטיבי](https://liriothteltanion.github.io/NovaFit/)
 - [קוד מקור](https://github.com/LiriothTeltanion/NovaFit)
 
 ### 👨‍🏫 Christopher Rodríguez Portfolio

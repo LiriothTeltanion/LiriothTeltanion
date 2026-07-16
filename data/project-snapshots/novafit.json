@@ -2,14 +2,15 @@
   "schema": "nova-portfolio-project-v1",
   "slug": "novafit",
   "name": "NovaFit",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "status": "active",
   "default_branch": "main",
   "repository": "https://github.com/LiriothTeltanion/NovaFit",
   "summary": "A local-first Windows wellness intelligence studio with isolated profiles, English, Spanish and Hebrew RTL, efficient motion, explainable analytics, complete verified backups and one-click self-repair.",
   "platforms": [
     "Windows desktop",
-    "Python CLI"
+    "Python CLI",
+    "Static web showcase/PWA"
   ],
   "languages": [
     "en",
@@ -19,15 +20,29 @@
   "theme_count": 12,
   "quality": {
     "workflow": ".github/workflows/quality.yml",
-    "automated_tests_discovered": 105,
+    "automated_tests_discovered": 124,
     "verification_command": "VERIFY_ALL.bat",
-    "release_audit": "python tools/package_audit.py --strict-distribution"
+    "release_audit": "python tools/package_audit.py --strict-distribution",
+    "pages_audit": "python tools/site_audit.py --site-root _site --base-path /NovaFit/"
   },
   "automation": {
     "documentation": "python scripts/sync_docs.py --write",
     "quality_workflow": ".github/workflows/quality.yml",
     "tag_release_workflow": ".github/workflows/release.yml",
+    "pages_workflow": ".github/workflows/pages.yml",
     "profile_source": "portfolio/project.json"
+  },
+  "website": {
+    "live": "https://liriothteltanion.github.io/NovaFit/",
+    "source": "site/",
+    "kind": "installable-static-showcase",
+    "desktop_runtime": false
+  },
+  "release": {
+    "tag": "v4.2.0",
+    "downloads": "https://github.com/LiriothTeltanion/NovaFit/releases/latest",
+    "windows_one_click": "GitHub Release executable",
+    "source_fallback": "run_novafit.bat"
   },
   "capabilities": [
     "multi-profile SQLite isolation",
@@ -36,16 +51,19 @@
     "purposeful reduced-motion-aware animation",
     "complete all-profile ZIP backups with SHA-256",
     "JSON, CSV, PNG and offline HTML exports",
-    "one-click Windows setup, launch and verification"
+    "one-click Windows setup, launch and verification",
+    "installable public Pages showcase with no desktop-data access"
   ],
   "privacy": {
     "local_first": true,
     "tracked_runtime_data": false,
-    "weather_sends_health_records": false
+    "weather_sends_health_records": false,
+    "site_reads_desktop_database": false,
+    "site_publishes_runtime_data": false
   },
   "assets": {
-    "count": 54,
-    "total_bytes": 26280998,
+    "count": 58,
+    "total_bytes": 27945959,
     "hero": "assets/novafit-ultimate-banner-animated.svg",
     "poster": "assets/novafit-ultimate-gui.png",
     "hebrew": "assets/hebrew-rtl-command-center.png",

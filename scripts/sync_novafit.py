@@ -31,6 +31,7 @@ DEFAULT_MANIFEST_URL = (
     "LiriothTeltanion/NovaFit/main/portfolio/project.json"
 )
 EXPECTED_REPOSITORY = "https://github.com/LiriothTeltanion/NovaFit"
+EXPECTED_LIVE_DEMO = "https://liriothteltanion.github.io/NovaFit/"
 EXPECTED_SCHEMA = "nova-portfolio-project-v1"
 MAX_MANIFEST_BYTES = 512 * 1024
 VERSION_PATTERN = re.compile(r"^[0-9]+(?:\.[0-9]+){2}(?:[-+][0-9A-Za-z.-]+)?$")
@@ -127,6 +128,22 @@ def validate_manifest(raw: Mapping[str, Any]) -> dict[str, Any]:
     )
     _plain_text(quality.get("release_audit"), "quality.release_audit", 240)
 
+    website = _mapping(raw.get("website"), "website")
+    live_demo = _plain_text(website.get("live"), "website.live", 200)
+    _expect(live_demo == EXPECTED_LIVE_DEMO, "Unexpected NovaFit live demo URL.")
+    _expect(
+        website.get("source") == "site/",
+        "NovaFit website source must be the reviewed site/ directory.",
+    )
+    _expect(
+        website.get("kind") == "installable-static-showcase",
+        "NovaFit website must remain an installable static showcase.",
+    )
+    _expect(
+        website.get("desktop_runtime") is False,
+        "NovaFit Pages must not be represented as the desktop runtime.",
+    )
+
     capabilities = _plain_text_list(raw.get("capabilities"), "capabilities", 12, 180)
     _expect(
         len(capabilities) >= 3, "Manifest must publish at least three capabilities."
@@ -137,6 +154,8 @@ def validate_manifest(raw: Mapping[str, Any]) -> dict[str, Any]:
         "local_first",
         "tracked_runtime_data",
         "weather_sends_health_records",
+        "site_reads_desktop_database",
+        "site_publishes_runtime_data",
     ):
         _expect(
             isinstance(privacy.get(field), bool), f"privacy.{field} must be boolean."
@@ -148,6 +167,14 @@ def validate_manifest(raw: Mapping[str, Any]) -> dict[str, Any]:
     _expect(
         privacy["weather_sends_health_records"] is False,
         "Weather integration must not send health records.",
+    )
+    _expect(
+        privacy["site_reads_desktop_database"] is False,
+        "The public site must not read the desktop database.",
+    )
+    _expect(
+        privacy["site_publishes_runtime_data"] is False,
+        "The public site must not publish runtime data.",
     )
 
     assets = _mapping(raw.get("assets"), "assets")
@@ -229,11 +256,13 @@ def apply_manifest(
     project = matches[0]
     quality = validated["quality"]
     assets = validated["assets"]
+    website = validated["website"]
     version = validated["version"]
     test_count = quality["automated_tests_discovered"]
     theme_count = validated["theme_count"]
     project["status"] = f"Active v{version} local-first desktop product"
     project["solution"] = validated["summary"]
+    project["demo"] = website["live"]
     project["evidence"] = (
         f"{test_count} discovered automated tests, {theme_count} themes, EN/ES/HE RTL UX, "
         f"verified complete backups, {assets['count']} public visual assets, one-click "
@@ -252,6 +281,7 @@ def apply_manifest(
         "verification_command": quality["verification_command"],
         "release_audit": quality["release_audit"],
         "asset_count": assets["count"],
+        "live_demo": website["live"],
     }
     build_profile._validate_profile_data(updated)
     return updated

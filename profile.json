@@ -54,13 +54,13 @@
     {
       "name": "NovaFit",
       "icon": "💙",
-      "status": "Active v4.1.0 local-first desktop product",
+      "status": "Active v4.2.0 local-first desktop product",
       "problem": "Daily wellness data should remain portable, understandable and private.",
       "solution": "A local-first Windows wellness intelligence studio with isolated profiles, English, Spanish and Hebrew RTL, efficient motion, explainable analytics, complete verified backups and one-click self-repair.",
       "stack": "Python · Tkinter · SQLite · Requests · Faker · Matplotlib",
-      "evidence": "105 discovered automated tests, 12 themes, EN/ES/HE RTL UX, verified complete backups, 54 public visual assets, one-click verification and strict release audit",
+      "evidence": "124 discovered automated tests, 12 themes, EN/ES/HE RTL UX, verified complete backups, 58 public visual assets, one-click verification and strict release audit",
       "source": "https://github.com/LiriothTeltanion/NovaFit",
-      "demo": null,
+      "demo": "https://liriothteltanion.github.io/NovaFit/",
       "role_signal": "Python application architecture · desktop UX · SQLite migrations · i18n/RTL · analytics · release engineering",
       "highlights": [
         "Multi-profile SQLite isolation",
@@ -69,17 +69,19 @@
         "Purposeful reduced-motion-aware animation",
         "Complete all-profile ZIP backups with SHA-256",
         "JSON, CSV, PNG and offline HTML exports",
-        "One-click Windows setup, launch and verification"
+        "One-click Windows setup, launch and verification",
+        "Installable public Pages showcase with no desktop-data access"
       ],
       "portfolio_sync": {
         "schema": "nova-portfolio-project-v1",
         "source": "https://raw.githubusercontent.com/LiriothTeltanion/NovaFit/main/portfolio/project.json",
-        "version": "4.1.0",
+        "version": "4.2.0",
         "theme_count": 12,
-        "automated_tests_discovered": 105,
+        "automated_tests_discovered": 124,
         "verification_command": "VERIFY_ALL.bat",
         "release_audit": "python tools/package_audit.py --strict-distribution",
-        "asset_count": 54
+        "asset_count": 58,
+        "live_demo": "https://liriothteltanion.github.io/NovaFit/"
       }
     },
     {

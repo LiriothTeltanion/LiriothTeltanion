@@ -664,8 +664,12 @@ def _render_novafit_spotlights(project: Mapping[str, Any]) -> list[str]:
     verification = sync.get("verification_command", "the one-click verifier")
     release_audit = sync.get("release_audit", "the strict release audit")
     manifest_source = sync.get("source")
+    live_demo = project.get("demo")
     manifest_link = (
         f" · [Verified project manifest]({manifest_source})" if manifest_source else ""
+    )
+    live_demo_link = (
+        f"[Open the NovaFit live showcase]({live_demo}) · " if live_demo else ""
     )
     return [
         "<details>",
@@ -688,7 +692,7 @@ def _render_novafit_spotlights(project: Mapping[str, Any]) -> list[str]:
         "",
         f"**{theme_count} curated themes:** Midnight Neon · Aurora Borealis · Negev Sunrise · Ocean Depth · Forest Focus · Rose Quartz · Cloud Day · Solar Paper · High Contrast · Royal Sapphire · Cyber Lime · Sunset Arcade.",
         "",
-        f"[Inspect the NovaFit source]({project['source']}){manifest_link}",
+        f"{live_demo_link}[Inspect the NovaFit source]({project['source']}){manifest_link}",
         "",
         "</details>",
         "",

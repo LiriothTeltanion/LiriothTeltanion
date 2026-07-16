@@ -17,6 +17,7 @@ NovaFit entry in `profile.json`; the profile builder then regenerates
 - manifest-backed product summary;
 - discovered automated-test count and theme count;
 - public visual-asset count;
+- canonical GitHub Pages demo URL;
 - verified capabilities, one-click verification and release-audit commands.
 
 Identity, contact information, other projects, skills, education, artwork and
@@ -36,7 +37,8 @@ git diff --check
 ```
 
 The URL is an exact allow-list, the response is capped at 512 KiB, and schema,
-repository identity, branch, privacy flags, bounds and plain-text fields are
+repository identity, branch, the exact Pages origin, static-site privacy
+boundaries, bounds and plain-text fields are
 validated before any file is changed. Writes use temporary files and atomic
 replacement. A failed fetch or invalid manifest leaves the profile untouched.
 
@@ -63,4 +65,7 @@ NovaFit owns the upstream facts. Its release workflow should run
 `python scripts/sync_docs.py --check` before pushing `main`. The profile's next
 scheduled or manual refresh then consumes that public manifest. This keeps app
 code, NovaFit documentation and the main GitHub profile connected without
-duplicating private runtime data.
+duplicating private runtime data. The profile links the public installable
+showcase while continuing to describe the Windows desktop application as the
+local-first runtime; the site is explicitly forbidden from reading the desktop
+database or publishing runtime records.

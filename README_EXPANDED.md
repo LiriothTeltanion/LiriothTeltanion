@@ -36,7 +36,7 @@ I’m **Kevin Cusnir**, born in **San Cristóbal, Venezuela** and now based in *
 | What I can prove publicly | Strongest evidence |
 |---|---|
 | React and TypeScript product work | Nova Music Lab and Christopher Rodríguez Portfolio |
-| Python, SQLite and desktop workflows | NovaFit v4.1.0; Fullstack2026 shows the learning path |
+| Python, SQLite and desktop workflows | NovaFit v4.2.0; Fullstack2026 shows the learning path |
 | Data, accessibility and multilingual UX | Honest source-aware analytics; EN/ES/HE, RTL, keyboard and reduced-motion work |
 | Delivery discipline | Automated tests, CI, live Pages builds, bundle budgets and release checks |
 
@@ -84,14 +84,14 @@ Five import families become one deduplicated, source-aware listening history. Mi
 
 ### 💙 NovaFit
 
-**Status:** Active v4.1.0 local-first desktop product<br>
+**Status:** Active v4.2.0 local-first desktop product<br>
 **Problem:** Daily wellness data should remain portable, understandable and private.<br>
 **Solution:** A local-first Windows wellness intelligence studio with isolated profiles, English, Spanish and Hebrew RTL, efficient motion, explainable analytics, complete verified backups and one-click self-repair.<br>
 **Stack:** Python · Tkinter · SQLite · Requests · Faker · Matplotlib<br>
-**Evidence:** 105 discovered automated tests, 12 themes, EN/ES/HE RTL UX, verified complete backups, 54 public visual assets, one-click verification and strict release audit<br>
+**Evidence:** 124 discovered automated tests, 12 themes, EN/ES/HE RTL UX, verified complete backups, 58 public visual assets, one-click verification and strict release audit<br>
 **Role signal:** Python application architecture · desktop UX · SQLite migrations · i18n/RTL · analytics · release engineering<br>
-**Highlights:** Multi-profile SQLite isolation · Hebrew right-to-left interface · Four analytics studios · Purposeful reduced-motion-aware animation · Complete all-profile ZIP backups with SHA-256 · JSON, CSV, PNG and offline HTML exports · One-click Windows setup, launch and verification<br>
-[NovaFit source](https://github.com/LiriothTeltanion/NovaFit)
+**Highlights:** Multi-profile SQLite isolation · Hebrew right-to-left interface · Four analytics studios · Purposeful reduced-motion-aware animation · Complete all-profile ZIP backups with SHA-256 · JSON, CSV, PNG and offline HTML exports · One-click Windows setup, launch and verification · Installable public Pages showcase with no desktop-data access<br>
+[Open NovaFit live demo](https://liriothteltanion.github.io/NovaFit/) · [NovaFit source](https://github.com/LiriothTeltanion/NovaFit)
 
 <details>
 <summary><strong>💙 Open the NovaFit product, analytics and visual system</strong></summary>
@@ -113,7 +113,7 @@ The Training Atlas is profile-independent; the theme contact sheet uses seeded d
 
 **12 curated themes:** Midnight Neon · Aurora Borealis · Negev Sunrise · Ocean Depth · Forest Focus · Rose Quartz · Cloud Day · Solar Paper · High Contrast · Royal Sapphire · Cyber Lime · Sunset Arcade.
 
-[Inspect the NovaFit source](https://github.com/LiriothTeltanion/NovaFit) · [Verified project manifest](https://raw.githubusercontent.com/LiriothTeltanion/NovaFit/main/portfolio/project.json)
+[Open the NovaFit live showcase](https://liriothteltanion.github.io/NovaFit/) · [Inspect the NovaFit source](https://github.com/LiriothTeltanion/NovaFit) · [Verified project manifest](https://raw.githubusercontent.com/LiriothTeltanion/NovaFit/main/portfolio/project.json)
 
 </details>
 
@@ -129,7 +129,7 @@ The Training Atlas is profile-independent; the theme contact sheet uses seeded d
 
 Each profile owns isolated records, goals, language, theme and activity preferences. English and Spanish use LTR; Hebrew moves the shell to RTL. Suggestions expose data confidence and reasons while avoiding medical claims.
 
-The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, runs 105 discovered automated tests, preserves an existing user database in workspace mode, and uses `VERIFY_ALL.bat` plus `python tools/package_audit.py --strict-distribution` for reproducible verification and clean downloadable releases.
+The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, runs 124 discovered automated tests, preserves an existing user database in workspace mode, and uses `VERIFY_ALL.bat` plus `python tools/package_audit.py --strict-distribution` for reproducible verification and clean downloadable releases.
 
 </details>
 

@@ -36,6 +36,12 @@ def valid_manifest() -> dict[str, object]:
             "verification_command": "VERIFY_ALL.bat",
             "release_audit": "python tools/package_audit.py --strict-distribution",
         },
+        "website": {
+            "live": "https://liriothteltanion.github.io/NovaFit/",
+            "source": "site/",
+            "kind": "installable-static-showcase",
+            "desktop_runtime": False,
+        },
         "capabilities": [
             "multi-profile SQLite isolation",
             "Hebrew right-to-left interface",
@@ -45,6 +51,8 @@ def valid_manifest() -> dict[str, object]:
             "local_first": True,
             "tracked_runtime_data": False,
             "weather_sends_health_records": False,
+            "site_reads_desktop_database": False,
+            "site_publishes_runtime_data": False,
         },
         "assets": {
             "count": 27,
@@ -78,13 +86,25 @@ class NovaFitSyncTests(unittest.TestCase):
         self.assertNotEqual(updated_novafit["evidence"], original_novafit["evidence"])
         self.assertEqual(updated_novafit["portfolio_sync"]["version"], "4.1.0")
         self.assertEqual(
+            updated_novafit["demo"],
+            "https://liriothteltanion.github.io/NovaFit/",
+        )
+        self.assertEqual(
+            updated_novafit["portfolio_sync"]["live_demo"],
+            "https://liriothteltanion.github.io/NovaFit/",
+        )
+        self.assertEqual(
             updated_novafit["portfolio_sync"]["automated_tests_discovered"], 123
         )
+        self.assertEqual(updated_novafit["portfolio_sync"]["theme_count"], 12)
+        self.assertEqual(updated_novafit["portfolio_sync"]["asset_count"], 27)
 
         readme = build_profile.render_profile(updated, "compact")
         self.assertIn("NovaFit v4.1.0", readme)
         self.assertIn("runs 123 discovered automated tests", readme)
         self.assertIn("Verified project manifest", readme)
+        self.assertIn("Open NovaFit live demo", readme)
+        self.assertIn("Open the NovaFit live showcase", readme)
 
     def test_manifest_rejects_identity_and_markdown_injection(self) -> None:
         wrong_repository = valid_manifest()
@@ -101,6 +121,16 @@ class NovaFitSyncTests(unittest.TestCase):
         unsafe_capability["capabilities"][0] = "<img src=x>"
         with self.assertRaisesRegex(ValueError, "unsafe Markdown"):
             sync_novafit.validate_manifest(unsafe_capability)
+
+        unsafe_demo = valid_manifest()
+        unsafe_demo["website"]["live"] = "https://example.com/NovaFit/"
+        with self.assertRaisesRegex(ValueError, "Unexpected NovaFit live demo URL"):
+            sync_novafit.validate_manifest(unsafe_demo)
+
+        unsafe_site_boundary = valid_manifest()
+        unsafe_site_boundary["privacy"]["site_reads_desktop_database"] = True
+        with self.assertRaisesRegex(ValueError, "must not read the desktop database"):
+            sync_novafit.validate_manifest(unsafe_site_boundary)
 
     def test_write_then_offline_check_detects_readme_drift(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
