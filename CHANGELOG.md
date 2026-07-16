@@ -5,6 +5,41 @@ The profile follows Semantic Versioning: major for a structural identity or
 presentation generation, minor for a contained feature or visual upgrade, and
 patch for a narrow correction.
 
+## [2.2.0] — 2026-07-16 · Luminous Signature & Live Ivrit Edition
+
+### Release status
+
+- Published as Profile `2.2.0` from the fully validated release commit, with
+  annotated tag `v2.2.0` and matching GitHub Release notes documenting the
+  visual, accessibility, live-service and repository checks completed before
+  launch.
+- Ivrit Sheli `2.1.0` is live at
+  `https://ivritsheli-production.up.railway.app`; HTTPS, readiness/version,
+  PostgreSQL and the read-only synthetic demo are verified against the public
+  service. GitHub OAuth consent and cancellation are verified, while the final
+  authorization-code exchange remains an explicit pending check.
+
+### Changed
+
+- Enlarged the four-point star in the KC ✦ LT mark and lowered it toward the
+  baseline so the signature reads naturally like `KC·LT` while retaining a
+  distinctive handwritten star rather than a literal period.
+- Increased the star's blue luminosity and blur enough to remain visible at
+  compact size without obscuring the eight canonical pen strokes.
+- Propagated the refined geometry through the deterministic brand masters,
+  responsive banner variants and upload-ready social-preview SVG sources.
+- Promoted Ivrit Sheli from deployment-ready source evidence to a linked live
+  product, and advanced its verified suite to 110 backend tests plus 17
+  frontend tests: 127 passing automated tests in total.
+
+### Preserved
+
+- The one-time reveal, static reduced-motion state and blur-free monochrome
+  variant remain part of the accessibility contract.
+- Project ordering, public-data boundaries and synthetic-demo safeguards remain
+  unchanged from Profile `2.1.0`. The historical `2.1.0` release record below
+  remains intact while the current release adds only newly verified evidence.
+
 ## [2.1.0] — 2026-07-16 · Full-Stack Production Proof & Star Signature Edition
 
 ### Release status

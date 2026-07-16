@@ -1,4 +1,4 @@
-<!-- profile-version: 2.1.0; release-tag: v2.1.0; release-title: Profile 2.1 — Full-Stack Production Proof & Star Signature Edition -->
+<!-- profile-version: 2.2.0; release-tag: v2.2.0; release-title: Profile 2.2 — Luminous Signature & Live Ivrit Edition -->
 
 <a id="top"></a>
 <div align="center">
@@ -16,7 +16,7 @@
 
 **I build React, TypeScript, Python and SQL products with accessible multilingual UX, data honesty and practical automation.**
 
-[💼 LinkedIn](https://www.linkedin.com/in/kevin-cusnir-883173b4/) · [📄 CV EN](https://github.com/LiriothTeltanion/CV/blob/main/CV_EN.md) · [CV ES](https://github.com/LiriothTeltanion/CV/blob/main/CV_ES.md) · [CV HE](https://github.com/LiriothTeltanion/CV/blob/main/CV_HE.md) · [✉️ Email](mailto:kevincusnir@gmail.com) · [🎧 Nova Music Lab live](https://liriothteltanion.github.io/NovaMusicLab/) · [א Ivrit Sheli](https://github.com/LiriothTeltanion/IvritSheli)
+[💼 LinkedIn](https://www.linkedin.com/in/kevin-cusnir-883173b4/) · [📄 CV EN](https://github.com/LiriothTeltanion/CV/blob/main/CV_EN.md) · [CV ES](https://github.com/LiriothTeltanion/CV/blob/main/CV_ES.md) · [CV HE](https://github.com/LiriothTeltanion/CV/blob/main/CV_HE.md) · [✉️ Email](mailto:kevincusnir@gmail.com) · [🎧 Nova Music Lab live](https://liriothteltanion.github.io/NovaMusicLab/) · [א Ivrit Sheli live](https://ivritsheli-production.up.railway.app)
 
 **Open to:** Junior Frontend & Full-Stack roles · **Born in:** San Cristóbal, Venezuela · **Based in:** Beersheba, Israel · **Languages:** ES · EN · HE
 
@@ -37,9 +37,9 @@ I’m **Kevin Cusnir**, born in **San Cristóbal, Venezuela** and now based in *
 | What I can prove publicly | Strongest evidence |
 |---|---|
 | React and TypeScript product work | Nova Music Lab, Ivrit Sheli and Christopher Rodríguez Portfolio |
-| Full-stack, Python and data persistence | Ivrit Sheli v2.0.0 with FastAPI/PostgreSQL; NovaFit v4.2.0 with Python/SQLite |
+| Full-stack, Python and data persistence | Ivrit Sheli v2.1.0 with FastAPI/PostgreSQL; NovaFit v4.2.0 with Python/SQLite |
 | Data, accessibility and multilingual UX | Honest source-aware analytics; EN/ES/HE, RTL, keyboard and reduced-motion work |
-| Delivery discipline | 126-test full-stack proof, Docker, CI, live Pages builds, bundle budgets and release checks |
+| Delivery discipline | 127-test full-stack proof, Docker, CI, live deployments, bundle budgets and release checks |
 
 **Review path:** **30 seconds**: Read the snapshot and role positioning · **2 minutes**: Open Nova Music Lab and Ivrit Sheli · **5 minutes**: Inspect tests, CI, security architecture and recent releases · **15 minutes**: Run Ivrit Sheli or NovaFit, or explore the live music museum.
 
@@ -81,25 +81,25 @@ Five import families become one deduplicated, source-aware listening history. Mi
 
 ### א Ivrit Sheli
 
-**Status:** Public v2.0.0 full-stack release · live deployment pending · **Stack:** React 19 · TypeScript · FastAPI · PostgreSQL 17 · Alembic · Docker<br>
+**Status:** Live v2.1.0 dual-mode full-stack product · **Stack:** React 19 · TypeScript · FastAPI · PostgreSQL 17 · Alembic · Docker · Railway<br>
 **Problem → solution:** Hebrew learners need focused practice, progress and multilingual guidance without surrendering private study data or depending on a fragile cloud service. A dual-mode Hebrew learning platform that keeps a private SQLite path while adding authenticated PostgreSQL accounts, tenant isolation, a read-only public demo and a trilingual responsive PWA.<br>
-**Evidence:** GitHub OAuth with PKCE, forced tenant RLS, redacted structured JSON logs, a non-root Docker image and 109 backend + 17 frontend = 126 passing tests · **Role signal:** Full-stack architecture · backend security · PostgreSQL ownership · integration testing · multilingual RTL UX<br>
-[Ivrit Sheli source](https://github.com/LiriothTeltanion/IvritSheli)
+**Evidence:** Live Railway HTTPS, managed PostgreSQL readiness, GitHub OAuth with PKCE, forced tenant RLS, redacted structured JSON logs, a non-root Docker image and 110 backend + 17 frontend = 127 passing tests · **Role signal:** Full-stack architecture · backend security · PostgreSQL ownership · integration testing · multilingual RTL UX<br>
+[Open Ivrit Sheli live demo](https://ivritsheli-production.up.railway.app) · [Ivrit Sheli source](https://github.com/LiriothTeltanion/IvritSheli)
 
 <details>
-<summary><strong>א Open the Ivrit Sheli 2.0.0 product tour and full-stack proof</strong></summary>
+<summary><strong>א Open the Ivrit Sheli 2.1.0 product tour and full-stack proof</strong></summary>
 
 <p><strong>Public-data boundary:</strong> Every frame uses the repository's synthetic read-only demo learner; it contains no private study history, credential, token, provider result or production database record.</p>
 <picture>
   <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/ivrit-sheli-2-mobile.png" />
   <source media="(max-width: 640px)" srcset="./assets/ivrit-sheli-2-mobile.png" />
   <source media="(prefers-reduced-motion: reduce)" srcset="./assets/ivrit-sheli-2-dashboard.png" />
-  <img src="./assets/ivrit-sheli-product-tour.gif" width="100%" alt="Ivrit Sheli 2.0 product tour moving from the responsive learning dashboard to the compact mobile experience and the Hebrew right-to-left workspace" />
+  <img src="./assets/ivrit-sheli-product-tour.gif" width="100%" alt="Ivrit Sheli 2.1 product tour moving from the responsive learning dashboard to the compact mobile experience and the Hebrew right-to-left workspace" />
 </picture>
-<p><strong>Ivrit Sheli 2.0 in motion:</strong> A concise tour of the real 2.0 interface shows the desktop learning command center, compact mobile navigation and native Hebrew RTL layout.</p>
-<p><strong>Verified v2.0.0 evidence:</strong> 109 backend + 17 frontend = 126 passing tests · GitHub OAuth/PKCE · PostgreSQL tenant RLS · Alembic · non-root Docker · redacted structured JSON logs.</p>
-<p><a href="https://github.com/LiriothTeltanion/IvritSheli">Inspect the Ivrit Sheli source</a> · <a href="https://github.com/LiriothTeltanion/IvritSheli#test-everything">Review the test contract</a> · <a href="./assets/ivrit-sheli-2-hebrew-rtl.png">Open the full Hebrew RTL frame</a></p>
-<p><strong>Live deployment pending:</strong> source and local/Docker paths are public now.</p>
+<p><strong>Ivrit Sheli 2.1 in motion:</strong> A concise tour of the real 2.1 interface shows the desktop learning command center, compact mobile navigation and native Hebrew RTL layout beside the verified live Railway deployment.</p>
+<p><strong>Verified v2.1.0 evidence:</strong> 110 backend + 17 frontend = 127 passing tests · GitHub OAuth/PKCE · PostgreSQL tenant RLS · Alembic · non-root Docker · redacted structured JSON logs.</p>
+<p><a href="https://github.com/LiriothTeltanion/IvritSheli">Inspect the Ivrit Sheli source</a> · <a href="https://github.com/LiriothTeltanion/IvritSheli/blob/main/TEST_REPORT.md">Review the test contract</a> · <a href="./assets/ivrit-sheli-2-hebrew-rtl.png">Open the full Hebrew RTL frame</a></p>
+<p><a href="https://ivritsheli-production.up.railway.app">Open verified live deployment</a></p>
 </details>
 
 ### 💙 NovaFit

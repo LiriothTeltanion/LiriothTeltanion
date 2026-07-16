@@ -4,7 +4,7 @@
 
 - Recruiter snapshot is compact and the live flagship appears immediately.
 - Responsive portrait banner keeps Kevin Cusnir and Lirioth Teltanion visible.
-- KC × LT has a reusable blue handwritten brand system and README signature.
+- KC ✦ LT has a reusable blue handwritten brand system and README signature.
 - Nova Music Lab has current desktop/mobile live-product evidence.
 - The globe represents 195 sovereign states plus San Cristóbal and Beersheba.
 - Responsive/reduced-motion fallbacks cover the banner, flagship journey,
@@ -42,7 +42,7 @@ This is a major profile presentation release. NovaFit remains independently
 versioned at 4.2.0 unless verified application changes are released from the
 NovaFit repository itself.
 
-## Profile 2.1.0 release target — Full-Stack Production Proof & Star Signature Edition
+## Profile 2.1.0 — Full-Stack Production Proof & Star Signature Edition — published
 
 - Keep Nova Music Lab first and visually strongest as the verified live React
   and data flagship.
@@ -73,6 +73,31 @@ NovaFit repository itself.
 This is a contained feature and visual release, so the profile increments from
 2.0.0 to 2.1.0. Ivrit Sheli remains independently versioned at 2.0.0.
 
+## Profile 2.2.0 — Luminous Signature & Live Ivrit Edition — published
+
+- Preserve the eight canonical KC ✦ LT pen strokes while enlarging the separate
+  four-point star, lowering it toward the baseline and strengthening its blue
+  glow so the mark reads naturally like a handwritten `KC·LT` signature.
+- Propagate the same geometry through master, animated, compact, light,
+  monochrome, transparent PNG, responsive banner and social-preview assets.
+- Keep the one-time reveal, static reduced-motion behavior and blur-free
+  monochrome variant intact.
+- Preserve the Profile 2.1 recruiter hierarchy, verified project evidence,
+  multilingual summaries and public-data boundaries.
+- Advance Ivrit Sheli to `2.1.0` with 110 backend tests and 17 frontend tests,
+  for 127 verified passing automated tests in total.
+- Link the verified Railway service at
+  `https://ivritsheli-production.up.railway.app`; HTTPS, readiness/version,
+  PostgreSQL and the public read-only synthetic demo have passed live checks.
+- State the OAuth boundary precisely: consent and cancellation are verified,
+  while the final authorization-code exchange remains pending E2E verification.
+- Record `profile_version` as `2.2.0`; create tag `v2.2.0` and its GitHub Release
+  only after deterministic generation, full validation and visual QA pass.
+
+This is a contained visual and live-project-evidence upgrade, so the profile
+increments from 2.1.0 to 2.2.0. Featured project versions remain independently
+managed; Ivrit Sheli advances from 2.0.0 to 2.1.0.
+
 ## Priority 1 — reliability
 
 - Keep every local image and SVG reference valid.
@@ -97,15 +122,15 @@ This is a contained feature and visual release, so the profile increments from
 - Improve project screenshots and demonstrations.
 - Earn GitHub achievements through genuine collaboration and useful work.
 
-## Best next depth after Profile 2.1
+## Best next depth after Profile 2.2
 
-- Convert Ivrit's deployment-ready status into a verified live link only after
-  Railway HTTPS, readiness, version and OAuth checks pass.
+- Complete and verify Ivrit's final OAuth authorization-code exchange; keep the
+  current consent/cancellation evidence separate until that E2E check passes.
 - Add operational evidence from real monitoring and SLOs, backup/restore drills,
-  OAuth and authorization E2E tests, cost controls and incident procedures.
+  authorization E2E tests, cost controls and incident procedures.
 - Refresh social previews only when a project's positioning materially changes.
-- Keep the portrait, KC ✦ LT signature, globe and first-screen hierarchy stable
-  so the identity remains recognizable across releases.
+- Keep the portrait, luminous KC ✦ LT signature, globe and first-screen
+  hierarchy stable so the identity remains recognizable across releases.
 
 ## Review rhythm
 

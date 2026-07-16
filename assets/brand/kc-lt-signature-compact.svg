@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="360" height="200" viewBox="0 0 360 200" role="img" aria-labelledby="title desc">
   <title id="title">KC ✦ LT compact handwritten signature mark</title>
-  <desc id="desc">A clear compact blue KC star LT handwritten mark with distinct K, C, L and T initials, a small glowing four-point star and a low underline.</desc>
+  <desc id="desc">A clear compact blue KC star LT handwritten mark with distinct K, C, L and T initials, a larger luminous four-point star lowered like a pen-dot and a low underline.</desc>
   <defs>
-    <linearGradient id="ink" x1="24" y1="169" x2="344" y2="28" gradientUnits="userSpaceOnUse"><stop stop-color="#155eef"/><stop offset="0.52" stop-color="#0a6fc2"/><stop offset="1" stop-color="#0b82e8"/></linearGradient><filter id="starGlow" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceGraphic" stdDeviation="1.8" result="starBlur"/><feFlood flood-color="#3b82f6" flood-opacity="0.24" result="starColour"/><feComposite in="starColour" in2="starBlur" operator="in" result="starGlow"/><feMerge><feMergeNode in="starGlow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <linearGradient id="ink" x1="24" y1="169" x2="344" y2="28" gradientUnits="userSpaceOnUse"><stop stop-color="#155eef"/><stop offset="0.52" stop-color="#0a6fc2"/><stop offset="1" stop-color="#0b82e8"/></linearGradient><filter id="starGlow" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceGraphic" stdDeviation="2.6" result="starBlur"/><feFlood flood-color="#3b82f6" flood-opacity="0.38" result="starColour"/><feComposite in="starColour" in2="starBlur" operator="in" result="starGlow"/><feMerge><feMergeNode in="starGlow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
   </defs>
   <g class="signature-ink" fill="none" stroke="url(#ink)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round">
     <path d="M63 28C57 63 51 104 45 153"/>
@@ -14,5 +14,5 @@
     <path d="M249 55C276 45 308 45 337 53"/>
     <path d="M28 169C92 153 157 156 216 161C265 165 311 159 344 145"/>
   </g>
-  <g class="signature-star-placement" transform="translate(178 94)"><g class="signature-star" aria-hidden="true" filter="url(#starGlow)"><path d="M0 -8L1.68 -2.24L6 0L1.68 2.24L0 8L-1.68 2.24L-6 0L-1.68 -2.24Z" fill="#2563eb"/><path d="M0 -8L1.68 -2.24L6 0L1.68 2.24L0 8L-1.68 2.24L-6 0L-1.68 -2.24Z" fill="#60a5fa" transform="scale(.64)"/><path d="M0 -8L1.68 -2.24L6 0L1.68 2.24L0 8L-1.68 2.24L-6 0L-1.68 -2.24Z" fill="#eff6ff" transform="scale(.28)"/></g></g>
+  <g class="signature-star-placement" transform="translate(180 120)"><g class="signature-star" aria-hidden="true" filter="url(#starGlow)"><path d="M0 -10L2.24 -2.8L8 0L2.24 2.8L0 10L-2.24 2.8L-8 0L-2.24 -2.8Z" fill="#2563eb"/><path d="M0 -10L2.24 -2.8L8 0L2.24 2.8L0 10L-2.24 2.8L-8 0L-2.24 -2.8Z" fill="#60a5fa" transform="scale(.64)"/><path d="M0 -10L2.24 -2.8L8 0L2.24 2.8L0 10L-2.24 2.8L-8 0L-2.24 -2.8Z" fill="#eff6ff" transform="scale(.28)"/></g></g>
 </svg>

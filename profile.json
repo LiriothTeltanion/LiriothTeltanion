@@ -1,17 +1,18 @@
 {
-  "profile_version": "2.1.0",
+  "profile_version": "2.2.0",
   "release": {
-    "title": "Profile 2.1 — Full-Stack Production Proof & Star Signature Edition",
-    "tag": "v2.1.0",
+    "title": "Profile 2.2 — Luminous Signature & Live Ivrit Edition",
+    "tag": "v2.2.0",
     "status": "released",
     "prepared_on": "2026-07-16",
-    "baseline": "Profile 2.0 — NovaFit & Signature Ultimate Edition",
-    "summary": "A focused profile release that adds Ivrit Sheli 2.0 as verified full-stack product evidence, introduces an authentic responsive product tour, refines the KC star LT signature and preserves the recruiter-first hierarchy led by Nova Music Lab.",
+    "baseline": "Profile 2.1 — Full-Stack Production Proof & Star Signature Edition",
+    "summary": "A polished visual and product-proof release that makes the KC ✦ LT mark more legible with a larger, lower four-point star and brighter blue glow, while placing the verified live Ivrit Sheli 2.1 deployment beside Nova Music Lab in the recruiter-first hierarchy.",
     "focus": [
-      "Ivrit Sheli 2.0 full-stack evidence with authentication, PostgreSQL, Docker, integration tests and structured logging",
-      "Authentic dashboard, mobile and Hebrew RTL product media with reduced-motion fallbacks",
-      "Clearer KC star LT handwritten identity across the banner, social cards and closing signature",
-      "Versioned release documentation, strict evidence validation and recruiter-first project ordering"
+      "Larger, lowered KC ✦ LT punctuation mark with a more luminous blue glow",
+      "Deterministic signature consistency across brand masters, responsive banners and social-preview sources",
+      "One-time reveal, static reduced-motion behavior and blur-free monochrome accessibility",
+      "Verified Ivrit Sheli 2.1 Railway deployment, managed PostgreSQL readiness and seeded read-only demo",
+      "Updated 127-test full-stack evidence with honest OAuth and public-data boundaries"
     ],
     "public_data_boundary": "Only public repository facts and deterministic or synthetic demonstration visuals are included; no private learning history, wellness history, runtime database, secrets, provider credentials or personal exports are published."
   },
@@ -70,38 +71,38 @@
     {
       "name": "Ivrit Sheli",
       "icon": "א",
-      "status": "Public v2.0.0 full-stack release · live deployment pending",
+      "status": "Live v2.1.0 dual-mode full-stack product",
       "problem": "Hebrew learners need focused practice, progress and multilingual guidance without surrendering private study data or depending on a fragile cloud service.",
       "solution": "A dual-mode Hebrew learning platform that keeps a private SQLite path while adding authenticated PostgreSQL accounts, tenant isolation, a read-only public demo and a trilingual responsive PWA.",
-      "stack": "React 19 · TypeScript · FastAPI · PostgreSQL 17 · Alembic · Docker",
-      "evidence": "GitHub OAuth with PKCE, forced tenant RLS, redacted structured JSON logs, a non-root Docker image and 109 backend + 17 frontend = 126 passing tests",
+      "stack": "React 19 · TypeScript · FastAPI · PostgreSQL 17 · Alembic · Docker · Railway",
+      "evidence": "Live Railway HTTPS, managed PostgreSQL readiness, GitHub OAuth with PKCE, forced tenant RLS, redacted structured JSON logs, a non-root Docker image and 110 backend + 17 frontend = 127 passing tests",
       "source": "https://github.com/LiriothTeltanion/IvritSheli",
-      "demo": null,
+      "demo": "https://ivritsheli-production.up.railway.app",
       "role_signal": "Full-stack architecture · backend security · PostgreSQL ownership · integration testing · multilingual RTL UX",
       "highlights": [
         "Private local SQLite and authenticated PostgreSQL modes",
         "Real PostgreSQL migration, persistence, session and cross-user isolation tests",
         "English, Spanish and Hebrew interfaces with native RTL behavior",
-        "Read-only synthetic recruiter demo with provider calls disabled by default"
+        "Live read-only synthetic recruiter demo with paid provider calls disabled by default"
       ],
       "release_evidence": {
-        "version": "2.0.0",
-        "backend_tests": 109,
+        "version": "2.1.0",
+        "backend_tests": 110,
         "frontend_tests": 17,
-        "total_tests": 126,
-        "test_report": "https://github.com/LiriothTeltanion/IvritSheli#test-everything"
+        "total_tests": 127,
+        "test_report": "https://github.com/LiriothTeltanion/IvritSheli/blob/main/TEST_REPORT.md"
       },
       "media": {
         "animation": "assets/ivrit-sheli-product-tour.gif",
         "static": "assets/ivrit-sheli-2-dashboard.png",
         "mobile_static": "assets/ivrit-sheli-2-mobile.png",
         "rtl_static": "assets/ivrit-sheli-2-hebrew-rtl.png",
-        "alt": "Ivrit Sheli 2.0 product tour moving from the responsive learning dashboard to the compact mobile experience and the Hebrew right-to-left workspace",
-        "static_alt": "Ivrit Sheli 2.0 dashboard with adaptive Hebrew learning, focused practice and authenticated cloud controls",
-        "mobile_alt": "Ivrit Sheli 2.0 compact mobile learning dashboard with clear navigation and focused-session controls",
-        "rtl_alt": "Ivrit Sheli 2.0 Hebrew interface rendered right to left with the synthetic demo learner workspace",
-        "description": "A concise tour of the real 2.0 interface shows the desktop learning command center, compact mobile navigation and native Hebrew RTL layout.",
-        "caption": "Ivrit Sheli 2.0 in motion:",
+        "alt": "Ivrit Sheli 2.1 product tour moving from the responsive learning dashboard to the compact mobile experience and the Hebrew right-to-left workspace",
+        "static_alt": "Ivrit Sheli 2.1 dashboard with adaptive Hebrew learning, focused practice and authenticated cloud controls",
+        "mobile_alt": "Ivrit Sheli 2.1 compact mobile learning dashboard with clear navigation and focused-session controls",
+        "rtl_alt": "Ivrit Sheli 2.1 Hebrew interface rendered right to left with the synthetic demo learner workspace",
+        "description": "A concise tour of the real 2.1 interface shows the desktop learning command center, compact mobile navigation and native Hebrew RTL layout beside the verified live Railway deployment.",
+        "caption": "Ivrit Sheli 2.1 in motion:",
         "public_data_boundary": "Every frame uses the repository's synthetic read-only demo learner; it contains no private study history, credential, token, provider result or production database record."
       }
     },

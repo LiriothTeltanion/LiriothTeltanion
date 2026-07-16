@@ -13,7 +13,7 @@
       <stop offset="1" stop-color="#c4b5fd"/>
     </linearGradient>
     <linearGradient id="signatureInk" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#155eef"/><stop offset=".52" stop-color="#0a6fc2"/><stop offset="1" stop-color="#0b82e8"/></linearGradient>
-    <!-- KC_LT_STAR_FILTER_START --><filter id="signatureStarGlow" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceGraphic" stdDeviation="1.8" result="starBlur"/><feFlood flood-color="#3b82f6" flood-opacity="0.24" result="starColour"/><feComposite in="starColour" in2="starBlur" operator="in" result="starGlow"/><feMerge><feMergeNode in="starGlow"/><feMergeNode in="SourceGraphic"/></feMerge></filter><!-- KC_LT_STAR_FILTER_END -->
+    <!-- KC_LT_STAR_FILTER_START --><filter id="signatureStarGlow" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceGraphic" stdDeviation="2.6" result="starBlur"/><feFlood flood-color="#3b82f6" flood-opacity="0.38" result="starColour"/><feComposite in="starColour" in2="starBlur" operator="in" result="starGlow"/><feMerge><feMergeNode in="starGlow"/><feMergeNode in="SourceGraphic"/></feMerge></filter><!-- KC_LT_STAR_FILTER_END -->
     <radialGradient id="aura"><stop stop-color="#22d3ee" stop-opacity=".65"/><stop offset="1" stop-color="#22d3ee" stop-opacity="0"/></radialGradient>
     <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse"><path d="M38 0H0V38" fill="none" stroke="#90b8cd" stroke-opacity=".09"/></pattern>
     <filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
@@ -66,7 +66,7 @@
 <path class="signature-stroke" pathLength="1" style="--signature-duration:.28s;--signature-delay:1.82s" d="M249 55C276 45 308 45 337 53"/>
 <path class="signature-stroke" pathLength="1" style="--signature-duration:.55s;--signature-delay:2.05s" d="M28 169C92 153 157 156 216 161C265 165 311 159 344 145"/></g>
   <!-- KC_LT_STAR_START -->
-  <g transform="translate(94 196) scale(.42)" aria-hidden="true"><g class="signature-star-placement" transform="translate(178 94)"><g class="signature-star" aria-hidden="true" filter="url(#signatureStarGlow)"><path d="M0 -8L1.68 -2.24L6 0L1.68 2.24L0 8L-1.68 2.24L-6 0L-1.68 -2.24Z" fill="#2563eb"/><path d="M0 -8L1.68 -2.24L6 0L1.68 2.24L0 8L-1.68 2.24L-6 0L-1.68 -2.24Z" fill="#60a5fa" transform="scale(.64)"/><path d="M0 -8L1.68 -2.24L6 0L1.68 2.24L0 8L-1.68 2.24L-6 0L-1.68 -2.24Z" fill="#eff6ff" transform="scale(.28)"/></g></g></g>
+  <g transform="translate(94 196) scale(.42)" aria-hidden="true"><g class="signature-star-placement" transform="translate(180 120)"><g class="signature-star" aria-hidden="true" filter="url(#signatureStarGlow)"><path d="M0 -10L2.24 -2.8L8 0L2.24 2.8L0 10L-2.24 2.8L-8 0L-2.24 -2.8Z" fill="#2563eb"/><path d="M0 -10L2.24 -2.8L8 0L2.24 2.8L0 10L-2.24 2.8L-8 0L-2.24 -2.8Z" fill="#60a5fa" transform="scale(.64)"/><path d="M0 -10L2.24 -2.8L8 0L2.24 2.8L0 10L-2.24 2.8L-8 0L-2.24 -2.8Z" fill="#eff6ff" transform="scale(.28)"/></g></g></g>
   <!-- KC_LT_STAR_END -->
   </g>
 

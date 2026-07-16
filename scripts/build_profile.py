@@ -611,6 +611,8 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
     skills = data["skills"]
     novafit = next(project for project in projects if project["name"] == "NovaFit")
     ivrit = next(project for project in projects if project["name"] == "Ivrit Sheli")
+    ivrit_header_url = ivrit.get("demo") or ivrit["source"]
+    ivrit_header_label = "א Ivrit Sheli live" if ivrit.get("demo") else "א Ivrit Sheli"
     novafit_sync = novafit["portfolio_sync"]
     novafit_version = novafit_sync["version"]
     fast_review = " · ".join(
@@ -639,7 +641,7 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
         "",
         f"**{identity['positioning']}**",
         "",
-        f"[💼 LinkedIn]({links['linkedin']}) · [📄 CV EN]({links['cv_en']}) · [CV ES]({links['cv_es']}) · [CV HE]({links['cv_he']}) · [✉️ Email]({links['email']}) · [🎧 Nova Music Lab live]({projects[0]['demo']}) · [א Ivrit Sheli]({ivrit['source']})",
+        f"[💼 LinkedIn]({links['linkedin']}) · [📄 CV EN]({links['cv_en']}) · [CV ES]({links['cv_es']}) · [CV HE]({links['cv_he']}) · [✉️ Email]({links['email']}) · [🎧 Nova Music Lab live]({projects[0]['demo']}) · [{ivrit_header_label}]({ivrit_header_url})",
         "",
         f"**Open to:** Junior Frontend & Full-Stack roles · **Born in:** {identity['birthplace']} · **Based in:** {identity['location']} · **Languages:** ES · EN · HE",
         "",
@@ -662,7 +664,7 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
         "| React and TypeScript product work | Nova Music Lab, Ivrit Sheli and Christopher Rodríguez Portfolio |",
         f"| Full-stack, Python and data persistence | Ivrit Sheli v{ivrit['release_evidence']['version']} with FastAPI/PostgreSQL; NovaFit v{novafit_version} with Python/SQLite |",
         "| Data, accessibility and multilingual UX | Honest source-aware analytics; EN/ES/HE, RTL, keyboard and reduced-motion work |",
-        "| Delivery discipline | 126-test full-stack proof, Docker, CI, live Pages builds, bundle budgets and release checks |",
+        f"| Delivery discipline | {ivrit['release_evidence']['total_tests']}-test full-stack proof, Docker, CI, live deployments, bundle budgets and release checks |",
         "",
         f"**Review path:** {fast_review}.",
         "",

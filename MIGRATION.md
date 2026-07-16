@@ -1,8 +1,8 @@
-# GitHub Profile 2.1 Release Guide 🧭
+# GitHub Profile 2.2 Release Guide 🧭
 
 ## Objective
 
-Publish the generated recruiter-first Profile 2.1 command center while preserving multilingual summaries, verified project evidence, accessible motion and the KC ✦ LT creative identity. Nova Music Lab remains the first flagship; Ivrit Sheli 2.0 becomes the second project as public, deployment-ready full-stack proof without claiming an unverified live URL.
+Publish **Profile 2.2 — Luminous Signature & Live Ivrit Edition** with a larger, lowered and more luminous KC ✦ LT star while preserving multilingual summaries, verified project evidence and accessible motion. Nova Music Lab remains the first flagship; live Ivrit Sheli 2.1.0 remains second as public full-stack proof backed by verified HTTPS, PostgreSQL and a read-only synthetic demo.
 
 ## Copy scope
 
@@ -30,7 +30,7 @@ verify_profile.bat
 
 ```powershell
 git status --short
-git switch -c codex/profile-v2.1-fullstack-star
+git switch -c codex/profile-v2.2-luminous-signature
 py -3 tools/profile/generate_signature_assets.py --check
 py -3 scripts/build_profile.py --mode compact --output README.md
 py -3 scripts/build_profile.py --mode expanded --output README_EXPANDED.md
@@ -43,7 +43,7 @@ git diff -- README.md profile.json assets scripts
 Recommended commit:
 
 ```text
-feat(profile): release v2.1 full-stack proof and star signature
+design(profile): release v2.2 luminous signature and live Ivrit
 ```
 
 ## Why this structure is stronger
@@ -51,34 +51,40 @@ feat(profile): release v2.1 full-stack proof and star signature
 1. Target role, location, stack and availability are immediate.
 2. Projects use one consistent evidence format.
 3. Nova Music Lab remains the live visual and data flagship.
-4. Ivrit Sheli adds verifiable full-stack depth: React 19, TypeScript, FastAPI,
+4. The KC ✦ LT star is larger, lower and more luminous, so the mark reads like
+   a handwritten `KC·LT` signature across banners, social art and compact use.
+5. Ivrit Sheli adds verifiable full-stack depth: React 19, TypeScript, FastAPI,
    PostgreSQL 17, Alembic, GitHub OAuth with PKCE, tenant RLS, Docker,
-   structured JSON logging and 126 passing tests.
-5. Ivrit source and deployment readiness remain separate from live deployment;
-   no website is linked until the real HTTPS service and OAuth flow pass QA.
-6. NovaFit v4.2.0 retains its privacy-safe product tour, manifest-backed evidence
+   structured JSON logging and 127 passing tests.
+6. Ivrit links directly to its verified Railway service. HTTPS,
+   readiness/version, PostgreSQL and the read-only demo passed public QA;
+   OAuth consent and cancellation passed, while the final code exchange remains
+   visibly pending rather than being presented as complete.
+7. NovaFit v4.2.0 retains its privacy-safe product tour, manifest-backed evidence
    and deterministic seeded-demo analytics.
-7. No arbitrary skill percentages are used, and secondary content remains
+8. No arbitrary skill percentages are used, and secondary content remains
    collapsible.
-8. Spanish and Hebrew remain available without tripling the main README.
-9. `profile.json` reduces drift.
-10. Validation catches missing assets, unsafe SVG animation placement, absent
+9. Spanish and Hebrew remain available without tripling the main README.
+10. `profile.json` reduces drift.
+11. Validation catches missing assets, unsafe SVG animation placement, absent
     reduced-motion behavior, corrupt rasters, payload regressions, placeholders,
     duplicate sections and uncontrolled growth.
 
 ## Before publishing
 
 - Confirm Nova Music Lab remains first and its live URL still works.
-- Confirm Ivrit Sheli remains second, its source is public, and its verified test
-  arithmetic is 109 backend + 17 frontend = 126 total.
-- Keep the Ivrit live URL absent while deployment is pending. Add it only after
-  HTTPS, `/health/ready`, `/version` and the GitHub OAuth callback work publicly.
+- Confirm Ivrit Sheli 2.1.0 remains second, its source and live demo are public,
+  and its verified test arithmetic is 110 backend + 17 frontend = 127 total.
+- Recheck `https://ivritsheli-production.up.railway.app`, `/health/ready` and
+  `/version`; confirm PostgreSQL and the read-only synthetic demo remain healthy.
+- Keep the OAuth limitation explicit: consent and cancellation are verified,
+  but the final authorization-code exchange is pending until its E2E check passes.
 - Confirm NovaFit v4.2.0, its 124-test count, 12 themes and 58-asset manifest
   remain synchronized.
 - Validate all GIF/SVG/PNG assets, responsive fallbacks and reduced-motion
   behavior on desktop, narrow/mobile and GitHub-rendered views.
-- Confirm `profile_version`, release tag and changelog all agree on `2.1.0` /
-  `v2.1.0`.
+- Confirm `profile_version`, release tag and changelog all agree on `2.2.0` /
+  `v2.2.0`.
 - Pin Nova Music Lab, Ivrit Sheli, NovaFit and Christopher Portfolio in that
   order. Keep Fullstack2026 public as learning evidence but outside the top four.
 - Unpin the profile repository itself.
