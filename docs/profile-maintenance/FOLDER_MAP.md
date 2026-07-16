@@ -7,7 +7,7 @@ LiriothTeltanion/
 │       ├── external-link-audit.yml # Weekly/manual public-link audit
 │       └── profile-validation.yml  # Automated profile checks
 ├── assets/                         # Public banners and visual assets
-│   ├── brand/                      # KC × LT signature and avatar derivatives
+│   ├── brand/                      # KC ✦ LT signature and avatar derivatives
 │   ├── projects/                   # Featured-project cards
 │   ├── social/                     # Upload-ready 1280 × 640 previews
 │   └── visuals/                    # Profile section illustrations

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
-  <title id="title">Ivrit Sheli 2.0 social preview</title>
-  <desc id="desc">A dark blue production product card for Kevin Cusnir's trilingual Hebrew learning application, with authentication, PostgreSQL, Docker, tests and structured logs. The card includes the KC star LT signature.</desc>
+  <title id="title">Ivrit Sheli 2.1 live social preview</title>
+  <desc id="desc">A dark blue production product card for Kevin Cusnir's live trilingual Hebrew learning application, with Railway, authentication, PostgreSQL, Docker, tests and structured logs. The card includes the luminous KC ✦ LT signature. The card includes the KC star LT signature.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop stop-color="#06101f"/>
@@ -24,7 +24,7 @@
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
 
-    <!-- KC_LT_STAR_FILTER_START --><filter id="signatureStarGlow" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceGraphic" stdDeviation="1.8" result="starBlur"/><feFlood flood-color="#3b82f6" flood-opacity="0.24" result="starColour"/><feComposite in="starColour" in2="starBlur" operator="in" result="starGlow"/><feMerge><feMergeNode in="starGlow"/><feMergeNode in="SourceGraphic"/></feMerge></filter><!-- KC_LT_STAR_FILTER_END -->
+    <!-- KC_LT_STAR_FILTER_START --><filter id="signatureStarGlow" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceGraphic" stdDeviation="2.6" result="starBlur"/><feFlood flood-color="#3b82f6" flood-opacity="0.38" result="starColour"/><feComposite in="starColour" in2="starBlur" operator="in" result="starGlow"/><feMerge><feMergeNode in="starGlow"/><feMergeNode in="SourceGraphic"/></feMerge></filter><!-- KC_LT_STAR_FILTER_END -->
   </defs>
 
   <rect width="1280" height="640" rx="34" fill="url(#bg)"/>
@@ -34,8 +34,8 @@
   <rect x="2" y="2" width="1276" height="636" rx="32" fill="none" stroke="url(#accent)" stroke-opacity=".45" stroke-width="4"/>
 
   <image href="../projects/ivrit-sheli-logo.svg" x="56" y="42" width="520" height="145" preserveAspectRatio="xMinYMid meet"/>
-  <rect x="62" y="194" width="134" height="32" rx="16" fill="#17264b" stroke="#5f84ff"/>
-  <text x="129" y="216" text-anchor="middle" fill="#dce7ff" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="800">VERSION 2.0</text>
+  <rect x="62" y="194" width="182" height="32" rx="16" fill="#17264b" stroke="#5f84ff"/>
+  <text x="153" y="216" text-anchor="middle" fill="#dce7ff" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="800">VERSION 2.1 · LIVE</text>
 
   <text x="62" y="288" fill="#f1f7ff" font-family="Inter,Arial,sans-serif" font-size="46" font-weight="850">Learn Hebrew from real life.</text>
   <text x="62" y="336" fill="#aabbdc" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="550">Private-first locally · authenticated and isolated in the cloud</text>
@@ -59,7 +59,7 @@
       <rect width="218" height="66" rx="18" fill="#171d43" stroke="#a36cff" stroke-opacity=".75"/>
       <path d="M20 23h22v22H20zM24 18h14M24 50h14" fill="none" stroke="#bd8aff" stroke-width="3"/>
       <text x="54" y="28" fill="#edf7ff" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="800">Docker + CI</text>
-      <text x="54" y="48" fill="#91a8cb" font-family="Inter,Arial,sans-serif" font-size="13">126 tests · non-root image</text>
+      <text x="54" y="48" fill="#91a8cb" font-family="Inter,Arial,sans-serif" font-size="13">127 tests · non-root image</text>
     </g>
   </g>
 
@@ -102,7 +102,7 @@
     <path d="M28 169C92 153 157 156 216 161C265 165 311 159 344 145"/>
   </g>
   <!-- KC_LT_STAR_START -->
-  <g transform="translate(904 428) scale(.42)" aria-hidden="true"><g class="signature-star-placement" transform="translate(178 94)"><g class="signature-star" aria-hidden="true" filter="url(#signatureStarGlow)"><path d="M0 -8L1.68 -2.24L6 0L1.68 2.24L0 8L-1.68 2.24L-6 0L-1.68 -2.24Z" fill="#2563eb"/><path d="M0 -8L1.68 -2.24L6 0L1.68 2.24L0 8L-1.68 2.24L-6 0L-1.68 -2.24Z" fill="#60a5fa" transform="scale(.64)"/><path d="M0 -8L1.68 -2.24L6 0L1.68 2.24L0 8L-1.68 2.24L-6 0L-1.68 -2.24Z" fill="#eff6ff" transform="scale(.28)"/></g></g></g>
+  <g transform="translate(904 428) scale(.42)" aria-hidden="true"><g class="signature-star-placement" transform="translate(180 120)"><g class="signature-star" aria-hidden="true" filter="url(#signatureStarGlow)"><path d="M0 -10L2.24 -2.8L8 0L2.24 2.8L0 10L-2.24 2.8L-8 0L-2.24 -2.8Z" fill="#2563eb"/><path d="M0 -10L2.24 -2.8L8 0L2.24 2.8L0 10L-2.24 2.8L-8 0L-2.24 -2.8Z" fill="#60a5fa" transform="scale(.64)"/><path d="M0 -10L2.24 -2.8L8 0L2.24 2.8L0 10L-2.24 2.8L-8 0L-2.24 -2.8Z" fill="#eff6ff" transform="scale(.28)"/></g></g></g>
   <!-- KC_LT_STAR_END -->
 
   <text x="62" y="612" fill="#8297bd" font-family="Inter,Arial,sans-serif" font-size="16">Kevin Cusnir · Lirioth Teltanion · Full-stack production proof</text>

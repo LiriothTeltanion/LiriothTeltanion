@@ -19,10 +19,11 @@ Aplicación React/TypeScript local-first que transforma exportaciones de Spotify
 
 ### א Ivrit Sheli
 
-Ivrit Sheli 2.0 es un producto full-stack trilingüe para aprender hebreo desde situaciones reales. Conserva un modo local privado con SQLite y añade una experiencia React 19/TypeScript autenticada con FastAPI, GitHub OAuth con PKCE, PostgreSQL 17 y aislamiento por usuario mediante RLS, migraciones Alembic, Docker no-root, logging JSON estructurado y controles operativos. Su base verificada suma **109 pruebas de backend + 17 de frontend = 126 pruebas automatizadas**. La interfaz funciona en inglés, español y hebreo con RTL; el demo compartido usa datos sintéticos y es de solo lectura.
+Ivrit Sheli 2.1.0 es un producto full-stack trilingüe para aprender hebreo desde situaciones reales. Conserva un modo local privado con SQLite y añade una experiencia React 19/TypeScript autenticada con FastAPI, GitHub OAuth con PKCE, PostgreSQL 17 y aislamiento por usuario mediante RLS, migraciones Alembic, Docker no-root, logging JSON estructurado y controles operativos. Su base verificada suma **110 pruebas de backend + 17 de frontend = 127 pruebas automatizadas**. La interfaz funciona en inglés, español y hebreo con RTL; el demo público usa datos sintéticos y es de solo lectura.
 
+- [Abrir demo público en Railway](https://ivritsheli-production.up.railway.app)
 - [Código fuente y guía de ejecución](https://github.com/LiriothTeltanion/IvritSheli)
-- Despliegue público: pendiente de configurar y verificar; no se publica una URL provisional.
+- El servicio HTTPS, PostgreSQL y el demo de solo lectura se verificaron en el despliegue público. El consentimiento y la cancelación de GitHub OAuth también se verificaron; el intercambio final del código OAuth continúa pendiente.
 
 ### 💙 NovaFit
 
@@ -55,7 +56,7 @@ Archivo auditado de seis semanas que conserva la progresión desde Python y prog
 
 ## Próxima profundidad
 
-Ivrit Sheli 2.0 ya convierte ese objetivo full-stack en evidencia pública. La siguiente profundidad es operar productos desplegados con monitoreo y SLOs claros, simulacros de copia y restauración, pruebas E2E de OAuth y límites de autorización, controles de costo y abuso, y procedimientos de respuesta ante incidentes.
+Ivrit Sheli 2.1.0 ya convierte ese objetivo full-stack en evidencia pública y desplegada. La siguiente profundidad es completar el intercambio OAuth E2E y operar productos con monitoreo y SLOs claros, simulacros de copia y restauración, pruebas de límites de autorización, controles de costo y abuso, y procedimientos de respuesta ante incidentes.
 
 ## Idiomas
 

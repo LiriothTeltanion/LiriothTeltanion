@@ -33,12 +33,15 @@ NovaFit's version, verified capability and quality facts are synchronized from
 its public project manifest. See [`NOVAFIT_SYNC.md`](./NOVAFIT_SYNC.md) before
 changing the managed NovaFit fields by hand.
 
-Ivrit Sheli 2.0 currently uses a reviewed release-evidence contract rather than
+Ivrit Sheli 2.1.0 currently uses a reviewed release-evidence contract rather than
 a remote synchronization script. Keep its source fixed to
 `https://github.com/LiriothTeltanion/IvritSheli` and verify the arithmetic before
-publication: 109 backend tests + 17 frontend tests = 126 unique passing tests.
-Keep its live URL empty while deployment is pending; source availability and
-deployment readiness are not evidence of a working public service.
+publication: 110 backend tests + 17 frontend tests = 127 unique passing tests.
+Keep its verified live URL fixed to
+`https://ivritsheli-production.up.railway.app`. HTTPS, readiness/version,
+PostgreSQL and the public read-only synthetic demo are verified. GitHub OAuth
+consent and cancellation are verified; keep the final authorization-code
+exchange marked pending until its E2E check passes.
 
 ## Before a large change
 
@@ -106,8 +109,10 @@ narrow/mobile widths. Confirm that names are not clipped, text remains readable,
 links are usable and the reduced-motion experience is complete.
 
 The KC ✦ LT brand system is generated from eight canonical pen strokes and one
-separate four-point star. After changing its geometry, palette or animation,
-regenerate and prove that the brand, banner and social SVG embeddings agree:
+separate four-point star. In Profile 2.2 the star is larger, sits lower like the
+punctuation in `KC·LT` and uses a brighter blue glow. After changing its
+geometry, palette or animation, regenerate and prove that the brand, banner and
+social SVG embeddings agree:
 
 ```powershell
 python tools/profile/generate_signature_assets.py
@@ -117,8 +122,8 @@ python tools/profile/generate_signature_assets.py --check
 The star reveal runs once and must become static when reduced motion is
 requested. The monochrome variant intentionally keeps the star without blur.
 
-Ivrit's Profile 2.1 visual family is sourced from its public read-only demo and
-must contain synthetic learner records only:
+Ivrit's visual family was introduced in Profile 2.1 and is now sourced from the
+live 2.1.0 public read-only demo. It must contain synthetic learner records only:
 
 ```text
 assets/ivrit-sheli-product-tour.gif
@@ -137,9 +142,12 @@ payload remains below 8 MiB. The copied social SVG must point to
 paths and star before running `generate_signature_assets.py --check`.
 
 Do not publish a Railway or other live link until its HTTPS page, read-only demo,
-`/health/ready`, `/version` and GitHub OAuth callback have been tested. When the
-deployment becomes real, update the canonical project data, both localized
-profiles and public metadata in the same patch.
+`/health/ready`, `/version` and backing database have been tested. For the
+current Ivrit deployment, those checks and PostgreSQL are verified, as are the
+GitHub OAuth consent and cancellation paths. The final authorization-code
+exchange remains pending and must not be described as end-to-end verified.
+When deployment evidence changes, update the canonical project data, both
+localized profiles and public metadata in the same patch.
 
 The global journey atlas is generated from pinned Natural Earth 1:110m public-
 domain country data. Rebuild its desktop, mobile and reduced-motion variants

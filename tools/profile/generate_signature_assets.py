@@ -37,7 +37,7 @@ STAR_CORE = "#eff6ff"
 STAR_MID = "#60a5fa"
 STAR_OUTER = "#2563eb"
 STAR_GLOW = "#3b82f6"
-STAR_GLOW_OPACITY = 0.24
+STAR_GLOW_OPACITY = 0.38
 
 
 @dataclass(frozen=True)
@@ -59,8 +59,11 @@ class StarSpec:
     blur: float
 
 
-FULL_STAR = StarSpec(346, 110, 18, 22, 2.6)
-COMPACT_STAR = StarSpec(178, 94, 12, 16, 1.8)
+# The star behaves like the luminous punctuation point in KC.LT: centered in
+# the pen lift, lowered toward the baseline, and large enough to survive the
+# compact banner/social-card transforms without competing with the initials.
+FULL_STAR = StarSpec(348, 148, 24, 28, 4.0)
+COMPACT_STAR = StarSpec(180, 120, 16, 20, 2.6)
 
 
 # Canonical full-size geometry.  KC and LT are two visually distinct pairs:
@@ -134,7 +137,7 @@ def star_path(width: float, height: float) -> str:
 
 
 def star_filter_markup(identifier: str, blur: float) -> str:
-    """Return a subtle blue glow that preserves the crisp three-tone star."""
+    """Return a luminous blue halo that preserves the crisp three-tone star."""
 
     return (
         f'<filter id="{identifier}" x="-100%" y="-100%" width="300%" height="300%" '
@@ -191,7 +194,7 @@ def svg_document(kind: str) -> str:
         width, height, strokes, stroke_width = 360, 200, COMPACT_STROKES, 10.5
         star_spec = COMPACT_STAR
         title = "KC ✦ LT compact handwritten signature mark"
-        desc = "A clear compact blue KC star LT handwritten mark with distinct K, C, L and T initials, a small glowing four-point star and a low underline."
+        desc = "A clear compact blue KC star LT handwritten mark with distinct K, C, L and T initials, a larger luminous four-point star lowered like a pen-dot and a low underline."
         paint = "url(#ink)"
         defs = gradient_markup(compact=True) + star_filter_markup("starGlow", star_spec.blur)
         animated = False
@@ -208,9 +211,9 @@ def svg_document(kind: str) -> str:
             "monochrome": "KC ✦ LT monochrome handwritten signature logo",
         }
         descriptions = {
-            "master": "A transparent accessible-blue KC star LT pen signature with clearly separated initials, a small glowing four-point star and a low underline.",
-            "animated": "A transparent accessible-blue KC star LT signature that draws eight pen strokes and reveals one small glowing four-point star once, with a static reduced-motion fallback.",
-            "light": "A transparent light KC star LT signature for dark backgrounds, with clearly separated handwritten initials and a small glowing four-point star.",
+            "master": "A transparent accessible-blue KC star LT pen signature with clearly separated initials, a larger lowered glowing four-point star and a low underline.",
+            "animated": "A transparent accessible-blue KC star LT signature that draws eight pen strokes and reveals one larger lowered glowing four-point star once, with a static reduced-motion fallback.",
+            "light": "A transparent light KC star LT signature for dark backgrounds, with clearly separated handwritten initials and a larger lowered glowing four-point star.",
             "monochrome": "A transparent single-blue KC star LT signature for print and restrained layouts, with clearly separated initials and one unblurred four-point star.",
         }
         title = titles[kind]
@@ -627,7 +630,7 @@ def paint_polygon(
 
 
 def paint_star(pixels: bytearray, width: int, height: int, spec: StarSpec) -> None:
-    """Paint the three-tone star and its restrained blue glow."""
+    """Paint the three-tone punctuation star and its luminous blue halo."""
 
     outer = star_polygon(spec)
     glow_radius = spec.blur * 3

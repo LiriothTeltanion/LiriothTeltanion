@@ -141,7 +141,7 @@ class ProfileDataValidationTests(unittest.TestCase):
         data = copy.deepcopy(self.valid_data)
         data["release"]["tag"] = "v2.0.0"
 
-        with self.assertRaisesRegex(ValueError, r"release\.tag.*v2\.1\.0"):
+        with self.assertRaisesRegex(ValueError, r"release\.tag.*v2\.2\.0"):
             self.load(data)
 
     def test_release_prepared_date_must_be_iso_calendar_date(self) -> None:
@@ -190,14 +190,14 @@ class ProfileDataValidationTests(unittest.TestCase):
 
         data = copy.deepcopy(self.valid_data)
         ivrit = next(project for project in data["projects"] if project["name"] == "Ivrit Sheli")
-        ivrit["release_evidence"]["total_tests"] = 125
+        ivrit["release_evidence"]["total_tests"] = 126
         with self.assertRaisesRegex(ValueError, r"total_tests.*backend_tests.*frontend_tests"):
             self.load(data)
 
-    def test_ivrit_pending_live_status_and_media_are_strict(self) -> None:
+    def test_ivrit_live_status_and_media_are_strict(self) -> None:
         data = copy.deepcopy(self.valid_data)
         ivrit = next(project for project in data["projects"] if project["name"] == "Ivrit Sheli")
-        ivrit["status"] = "Live v2.0.0 dual-mode full-stack product"
+        ivrit["status"] = "Public v2.1.0 full-stack release · live deployment pending"
         with self.assertRaisesRegex(ValueError, r"Ivrit Sheli.*status.*verified live demo"):
             self.load(data)
 
@@ -280,7 +280,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
 
         self.assertLessEqual(len(content.splitlines()), 300)
         for expected in (
-            "profile-version: 2.1.0",
+            "profile-version: 2.2.0",
             "profile-banner-mobile-static.svg",
             "nova-music-live-preview-mobile.jpg",
             "nova-music-journey-static.svg",
@@ -306,10 +306,14 @@ class GeneratedProfileContractTests(unittest.TestCase):
             "58 public visual assets",
             "Download the verified v4.2.0 release",
             "Nova Music Lab source",
-            "109 backend + 17 frontend = 126 passing tests",
+            "110 backend + 17 frontend = 127 passing tests",
             "GitHub OAuth/PKCE",
             "PostgreSQL tenant RLS",
-            "Live deployment pending",
+            "Verified v2.1.0 evidence",
+            "https://ivritsheli-production.up.railway.app",
+            "[א Ivrit Sheli live](https://ivritsheli-production.up.railway.app)",
+            "Open Ivrit Sheli live demo",
+            "Open verified live deployment",
         ):
             self.assertIn(expected, content)
         for forbidden in (
@@ -321,6 +325,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
             "sport-data-coach-real.png",
             "img.shields.io",
             "The next portfolio milestone is a deployed full-stack product",
+            "Live deployment pending",
         ):
             self.assertNotIn(forbidden, content)
         self.assertIn("San Cristóbal, Venezuela", content)
@@ -335,7 +340,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
             f"release-title: {release['title']} -->"
         )
 
-        self.assertEqual(version, "2.1.0")
+        self.assertEqual(version, "2.2.0")
         self.assertEqual(release["tag"], f"v{version}")
         for mode in ("compact", "expanded"):
             self.assertTrue(
@@ -368,7 +373,15 @@ class GeneratedProfileContractTests(unittest.TestCase):
     def test_project_demo_urls_stay_with_the_correct_project(self) -> None:
         projects = {project["name"]: project for project in self.data["projects"]}
 
-        self.assertIsNone(projects["Ivrit Sheli"]["demo"])
+        self.assertEqual(
+            projects["Ivrit Sheli"]["demo"],
+            "https://ivritsheli-production.up.railway.app",
+        )
+        self.assertEqual(
+            projects["Ivrit Sheli"]["status"],
+            "Live v2.1.0 dual-mode full-stack product",
+        )
+        self.assertEqual(projects["Ivrit Sheli"]["release_evidence"]["version"], "2.1.0")
         self.assertEqual(
             projects["Ivrit Sheli"]["source"],
             "https://github.com/LiriothTeltanion/IvritSheli",
@@ -589,11 +602,11 @@ class SignatureAssetTests(unittest.TestCase):
 
     def test_brand_variants_keep_eight_pen_strokes_and_one_star(self) -> None:
         variants = {
-            "kc-lt-signature.svg": "translate(346 110)",
-            "kc-lt-signature-animated.svg": "translate(346 110)",
-            "kc-lt-signature-light.svg": "translate(346 110)",
-            "kc-lt-signature-monochrome.svg": "translate(346 110)",
-            "kc-lt-signature-compact.svg": "translate(178 94)",
+            "kc-lt-signature.svg": "translate(348 148)",
+            "kc-lt-signature-animated.svg": "translate(348 148)",
+            "kc-lt-signature-light.svg": "translate(348 148)",
+            "kc-lt-signature-monochrome.svg": "translate(348 148)",
+            "kc-lt-signature-compact.svg": "translate(180 120)",
         }
         for filename, transform in variants.items():
             self.assert_signature_contract(
@@ -612,11 +625,11 @@ class SignatureAssetTests(unittest.TestCase):
     def test_star_palette_glow_and_one_time_reveal_are_exact(self) -> None:
         self.assertEqual(
             generate_signature_assets.FULL_STAR,
-            generate_signature_assets.StarSpec(346, 110, 18, 22, 2.6),
+            generate_signature_assets.StarSpec(348, 148, 24, 28, 4.0),
         )
         self.assertEqual(
             generate_signature_assets.COMPACT_STAR,
-            generate_signature_assets.StarSpec(178, 94, 12, 16, 1.8),
+            generate_signature_assets.StarSpec(180, 120, 16, 20, 2.6),
         )
         master = ET.parse(
             ROOT / "assets" / "brand" / "kc-lt-signature.svg"
@@ -641,9 +654,9 @@ class SignatureAssetTests(unittest.TestCase):
         flood = glow.find(f"{self.namespace}feFlood")
         self.assertIsNotNone(blur)
         self.assertIsNotNone(flood)
-        self.assertEqual(blur.get("stdDeviation"), "2.6")
+        self.assertEqual(blur.get("stdDeviation"), "4")
         self.assertEqual(flood.get("flood-color"), "#3b82f6")
-        self.assertEqual(flood.get("flood-opacity"), "0.24")
+        self.assertEqual(flood.get("flood-opacity"), "0.38")
 
         animated = (
             ROOT / "assets" / "brand" / "kc-lt-signature-animated.svg"
@@ -688,7 +701,7 @@ class SignatureAssetTests(unittest.TestCase):
             self.assertEqual(len(stars), 1, path.name)
             self.assertEqual(len(placements), 1, path.name)
             self.assertEqual(
-                placements[0].get("transform"), "translate(178 94)", path.name
+                placements[0].get("transform"), "translate(180 120)", path.name
             )
             self.assertIsNone(stars[0].get("transform"), path.name)
             self.assertEqual(stars[0].get("aria-hidden"), "true", path.name)
@@ -755,7 +768,7 @@ class SocialPreviewAssetTests(unittest.TestCase):
             self.assertEqual(len(stars), 1, svg_path.name)
             self.assertEqual(len(placements), 1, svg_path.name)
             self.assertEqual(
-                placements[0].get("transform"), "translate(178 94)", svg_path.name
+                placements[0].get("transform"), "translate(180 120)", svg_path.name
             )
             self.assertIsNone(stars[0].get("transform"), svg_path.name)
             self.assertEqual(stars[0].get("aria-hidden"), "true", svg_path.name)

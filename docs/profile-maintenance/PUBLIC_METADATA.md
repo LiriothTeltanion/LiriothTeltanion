@@ -99,15 +99,19 @@ assets/social/novamusiclab-social-preview.png
 **Description**
 
 ```text
-Ivrit Sheli 2.0 is a trilingual Hebrew-learning PWA with GitHub OAuth, FastAPI, PostgreSQL/RLS, Docker, structured logging and 126 tests.
+Ivrit Sheli 2.1 is a live trilingual Hebrew-learning PWA with GitHub OAuth, FastAPI, PostgreSQL/RLS, Docker, structured logging and 127 tests.
 ```
 
 **Website**
 
-Leave the website empty while deployment is pending. Add the verified Railway
-HTTPS URL only after `/health/ready`, `/version`, the read-only demo and GitHub
-OAuth callback work publicly. The public repository URL is source evidence, not
-a substitute live-product URL.
+```text
+https://ivritsheli-production.up.railway.app
+```
+
+This is the verified Railway deployment. `/health/ready`, `/version`, the
+PostgreSQL-backed runtime, the read-only synthetic demo, OAuth consent and safe
+OAuth cancellation passed public QA. The final authorization-code exchange is
+still documented as a pending end-to-end check.
 
 **Topics**
 
@@ -139,15 +143,16 @@ assets/social/ivrit-sheli-social-preview.png
 **Alt text**
 
 ```text
-Ivrit Sheli 2.0 product card showing a trilingual Hebrew-learning workspace with GitHub OAuth, PostgreSQL tenant isolation, Docker, structured logging and 126 passing tests.
+Ivrit Sheli 2.1 live product card showing a trilingual Hebrew-learning workspace with GitHub OAuth, PostgreSQL tenant isolation, Docker, structured logging and 127 passing tests.
 ```
 
 **Public boundary**
 
 The preview and profile tour use the shared read-only demonstration experience
 and synthetic learner records. They contain no private learning history,
-provider token, secret, runtime database or personal export. Deployment-ready
-source must not be labeled live until the real service passes public QA.
+provider token, secret, runtime database or personal export. The live label is
+limited to the verified Railway service and its public read-only demo; the final
+OAuth authorization-code exchange remains explicitly pending.
 
 ## `LiriothTeltanion/NovaFit`
 
@@ -271,7 +276,7 @@ assets/social/fullstack2026-social-preview.png
 Use this order so the strongest working evidence appears first:
 
 1. `NovaMusicLab` — live frontend and data flagship.
-2. `IvritSheli` — deployment-ready authenticated full-stack product.
+2. `IvritSheli` — live authenticated full-stack product with PostgreSQL.
 3. `NovaFit` — complete Python desktop and SQLite product.
 4. `ChristopherRodriguezCVOnline` — accessible real-world collaboration.
 
@@ -287,7 +292,7 @@ are viewing and that pin currently consumes a higher-value project slot.
 1. Obtain Kevin's explicit final publish approval.
 2. Commit and push the validated local profile changes.
 3. Update each About panel with the exact description, website and topics above.
-   Leave Ivrit's website empty until its live deployment is verified.
+   Keep Ivrit's verified Railway website URL visible.
 4. Upload the matching 1280 x 640 PNG under **Settings → General → Social preview**.
 5. Reorder the four profile pins to Nova Music Lab, Ivrit Sheli, NovaFit and
    Christopher Rodríguez Portfolio, then unpin the profile repository.

@@ -24,7 +24,7 @@
       <feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
 
-    <!-- KC_LT_STAR_FILTER_START --><filter id="signatureStarGlow" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceGraphic" stdDeviation="1.8" result="starBlur"/><feFlood flood-color="#3b82f6" flood-opacity="0.24" result="starColour"/><feComposite in="starColour" in2="starBlur" operator="in" result="starGlow"/><feMerge><feMergeNode in="starGlow"/><feMergeNode in="SourceGraphic"/></feMerge></filter><!-- KC_LT_STAR_FILTER_END -->
+    <!-- KC_LT_STAR_FILTER_START --><filter id="signatureStarGlow" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceGraphic" stdDeviation="2.6" result="starBlur"/><feFlood flood-color="#3b82f6" flood-opacity="0.38" result="starColour"/><feComposite in="starColour" in2="starBlur" operator="in" result="starGlow"/><feMerge><feMergeNode in="starGlow"/><feMergeNode in="SourceGraphic"/></feMerge></filter><!-- KC_LT_STAR_FILTER_END -->
   </defs>
 
   <rect width="1280" height="640" rx="30" fill="url(#bg)"/>
@@ -77,6 +77,6 @@
     <path d="M28 169C92 153 157 156 216 161C265 165 311 159 344 145"/>
   </g>
   <!-- KC_LT_STAR_START -->
-  <g transform="translate(1031 448) scale(.52)" aria-hidden="true"><g class="signature-star-placement" transform="translate(178 94)"><g class="signature-star" aria-hidden="true" filter="url(#signatureStarGlow)"><path d="M0 -8L1.68 -2.24L6 0L1.68 2.24L0 8L-1.68 2.24L-6 0L-1.68 -2.24Z" fill="#2563eb"/><path d="M0 -8L1.68 -2.24L6 0L1.68 2.24L0 8L-1.68 2.24L-6 0L-1.68 -2.24Z" fill="#60a5fa" transform="scale(.64)"/><path d="M0 -8L1.68 -2.24L6 0L1.68 2.24L0 8L-1.68 2.24L-6 0L-1.68 -2.24Z" fill="#eff6ff" transform="scale(.28)"/></g></g></g>
+  <g transform="translate(1031 448) scale(.52)" aria-hidden="true"><g class="signature-star-placement" transform="translate(180 120)"><g class="signature-star" aria-hidden="true" filter="url(#signatureStarGlow)"><path d="M0 -10L2.24 -2.8L8 0L2.24 2.8L0 10L-2.24 2.8L-8 0L-2.24 -2.8Z" fill="#2563eb"/><path d="M0 -10L2.24 -2.8L8 0L2.24 2.8L0 10L-2.24 2.8L-8 0L-2.24 -2.8Z" fill="#60a5fa" transform="scale(.64)"/><path d="M0 -10L2.24 -2.8L8 0L2.24 2.8L0 10L-2.24 2.8L-8 0L-2.24 -2.8Z" fill="#eff6ff" transform="scale(.28)"/></g></g></g>
   <!-- KC_LT_STAR_END -->
 </svg>
