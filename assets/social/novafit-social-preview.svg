@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
   <title id="title">NovaFit social preview</title>
-  <desc id="desc">Navy, cyan and emerald project card for NovaFit v4.2.0, a local-first wellness intelligence studio built with Python and SQLite, covered by 124 tests and available in English, Spanish and Hebrew RTL.</desc>
+  <desc id="desc">Navy, cyan and emerald project card for NovaFit v4.2.0, a local-first wellness intelligence studio built with Python and SQLite, covered by 124 tests and available in English, Spanish and Hebrew RTL. The card includes the KC star LT signature.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="640" gradientUnits="userSpaceOnUse">
       <stop stop-color="#040d17"/><stop offset="0.56" stop-color="#071b2c"/><stop offset="1" stop-color="#0b343c"/>
@@ -17,6 +17,8 @@
     <filter id="glow" x="-70%" y="-70%" width="240%" height="240%">
       <feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+
+    <!-- KC_LT_STAR_FILTER_START --><filter id="signatureStarGlow" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceGraphic" stdDeviation="1.8" result="starBlur"/><feFlood flood-color="#3b82f6" flood-opacity="0.24" result="starColour"/><feComposite in="starColour" in2="starBlur" operator="in" result="starGlow"/><feMerge><feMergeNode in="starGlow"/><feMergeNode in="SourceGraphic"/></feMerge></filter><!-- KC_LT_STAR_FILTER_END -->
   </defs>
 
   <rect width="1280" height="640" rx="30" fill="url(#bg)"/>
@@ -58,7 +60,7 @@
     <circle cx="846" cy="446" r="5" fill="#22d3ee" filter="url(#glow)"/>
   </g>
 
-  <g transform="translate(1027 447) scale(.52)" fill="none" stroke="url(#accent)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round">
+  <g class="signature-ink" transform="translate(1027 447) scale(.52)" fill="none" stroke="url(#accent)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round">
     <path d="M63 28C57 63 51 104 45 153"/>
     <path d="M55 84C76 68 90 51 106 34"/>
     <path d="M55 87C74 104 91 121 108 133"/>
@@ -68,4 +70,7 @@
     <path d="M249 55C276 45 308 45 337 53"/>
     <path d="M28 169C92 153 157 156 216 161C265 165 311 159 344 145"/>
   </g>
+  <!-- KC_LT_STAR_START -->
+  <g transform="translate(1027 447) scale(.52)" aria-hidden="true"><g class="signature-star-placement" transform="translate(178 94)"><g class="signature-star" aria-hidden="true" filter="url(#signatureStarGlow)"><path d="M0 -8L1.68 -2.24L6 0L1.68 2.24L0 8L-1.68 2.24L-6 0L-1.68 -2.24Z" fill="#2563eb"/><path d="M0 -8L1.68 -2.24L6 0L1.68 2.24L0 8L-1.68 2.24L-6 0L-1.68 -2.24Z" fill="#60a5fa" transform="scale(.64)"/><path d="M0 -8L1.68 -2.24L6 0L1.68 2.24L0 8L-1.68 2.24L-6 0L-1.68 -2.24Z" fill="#eff6ff" transform="scale(.28)"/></g></g></g>
+  <!-- KC_LT_STAR_END -->
 </svg>

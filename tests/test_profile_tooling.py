@@ -18,7 +18,7 @@ from typing import Any, Callable
 from unittest.mock import patch
 
 from scripts import build_profile, check_external_links, validate_profile
-from tools.profile import generate_world_globe
+from tools.profile import generate_signature_assets, generate_world_globe
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -139,9 +139,9 @@ class ProfileDataValidationTests(unittest.TestCase):
 
     def test_release_tag_must_agree_with_profile_version(self) -> None:
         data = copy.deepcopy(self.valid_data)
-        data["release"]["tag"] = "v2.1.0"
+        data["release"]["tag"] = "v2.0.0"
 
-        with self.assertRaisesRegex(ValueError, r"release\.tag.*v2\.0\.0"):
+        with self.assertRaisesRegex(ValueError, r"release\.tag.*v2\.1\.0"):
             self.load(data)
 
     def test_release_prepared_date_must_be_iso_calendar_date(self) -> None:
@@ -157,27 +157,54 @@ class ProfileDataValidationTests(unittest.TestCase):
 
     def test_novafit_status_must_agree_with_manifest_version(self) -> None:
         data = copy.deepcopy(self.valid_data)
-        data["projects"][1]["status"] = "Active v4.1.0 local-first desktop product"
+        novafit = next(project for project in data["projects"] if project["name"] == "NovaFit")
+        novafit["status"] = "Active v4.1.0 local-first desktop product"
 
         with self.assertRaisesRegex(ValueError, r"NovaFit.*status.*portfolio_sync"):
             self.load(data)
 
     def test_novafit_tour_requires_one_canonical_static_fallback(self) -> None:
         data = copy.deepcopy(self.valid_data)
-        data["projects"][1]["media"]["mobile_static"] = (
-            "assets/novafit-product-tour-mobile.png"
-        )
+        novafit = next(project for project in data["projects"] if project["name"] == "NovaFit")
+        novafit["media"]["mobile_static"] = "assets/novafit-product-tour-mobile.png"
 
         with self.assertRaisesRegex(ValueError, r"mobile_static.*canonical static"):
             self.load(data)
 
     def test_novafit_tour_rejects_remote_or_ambiguous_asset_paths(self) -> None:
         data = copy.deepcopy(self.valid_data)
-        data["projects"][1]["media"]["animation"] = (
-            "assets/novafit-product-tour.gif?raw=1"
-        )
+        novafit = next(project for project in data["projects"] if project["name"] == "NovaFit")
+        novafit["media"]["animation"] = "assets/novafit-product-tour.gif?raw=1"
 
         with self.assertRaisesRegex(ValueError, r"animation.*repository-relative"):
+            self.load(data)
+
+    def test_ivrit_must_be_second_and_test_totals_must_reconcile(self) -> None:
+        data = copy.deepcopy(self.valid_data)
+        data["projects"][1], data["projects"][2] = (
+            data["projects"][2],
+            data["projects"][1],
+        )
+        with self.assertRaisesRegex(ValueError, r"Ivrit Sheli.*second"):
+            self.load(data)
+
+        data = copy.deepcopy(self.valid_data)
+        ivrit = next(project for project in data["projects"] if project["name"] == "Ivrit Sheli")
+        ivrit["release_evidence"]["total_tests"] = 125
+        with self.assertRaisesRegex(ValueError, r"total_tests.*backend_tests.*frontend_tests"):
+            self.load(data)
+
+    def test_ivrit_pending_live_status_and_media_are_strict(self) -> None:
+        data = copy.deepcopy(self.valid_data)
+        ivrit = next(project for project in data["projects"] if project["name"] == "Ivrit Sheli")
+        ivrit["status"] = "Live v2.0.0 dual-mode full-stack product"
+        with self.assertRaisesRegex(ValueError, r"Ivrit Sheli.*status.*verified live demo"):
+            self.load(data)
+
+        data = copy.deepcopy(self.valid_data)
+        ivrit = next(project for project in data["projects"] if project["name"] == "Ivrit Sheli")
+        ivrit["media"]["rtl_static"] = ivrit["media"]["static"]
+        with self.assertRaisesRegex(ValueError, r"distinct animation, desktop, mobile and RTL"):
             self.load(data)
 
 
@@ -253,11 +280,14 @@ class GeneratedProfileContractTests(unittest.TestCase):
 
         self.assertLessEqual(len(content.splitlines()), 300)
         for expected in (
-            "profile-version: 2.0.0",
+            "profile-version: 2.1.0",
             "profile-banner-mobile-static.svg",
             "nova-music-live-preview-mobile.jpg",
             "nova-music-journey-static.svg",
             "nova-music-journey-mobile-static.svg",
+            "ivrit-sheli-product-tour.gif",
+            "ivrit-sheli-2-mobile.png",
+            "ivrit-sheli-2-hebrew-rtl.png",
             "novafit-product-tour.gif",
             "novafit-product-tour-static.png",
             "novafit-trust-system-mobile.svg",
@@ -276,6 +306,10 @@ class GeneratedProfileContractTests(unittest.TestCase):
             "58 public visual assets",
             "Download the verified v4.2.0 release",
             "Nova Music Lab source",
+            "109 backend + 17 frontend = 126 passing tests",
+            "GitHub OAuth/PKCE",
+            "PostgreSQL tenant RLS",
+            "Live deployment pending",
         ):
             self.assertIn(expected, content)
         for forbidden in (
@@ -286,6 +320,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
             "multi-profile-language-center.png",
             "sport-data-coach-real.png",
             "img.shields.io",
+            "The next portfolio milestone is a deployed full-stack product",
         ):
             self.assertNotIn(forbidden, content)
         self.assertIn("San Cristóbal, Venezuela", content)
@@ -300,7 +335,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
             f"release-title: {release['title']} -->"
         )
 
-        self.assertEqual(version, "2.0.0")
+        self.assertEqual(version, "2.1.0")
         self.assertEqual(release["tag"], f"v{version}")
         for mode in ("compact", "expanded"):
             self.assertTrue(
@@ -316,15 +351,28 @@ class GeneratedProfileContractTests(unittest.TestCase):
 
         self.assertEqual(self.data["projects"][0]["name"], "Nova Music Lab")
         self.assertLess(
-            content.index("### 🎧 Nova Music Lab"), content.index("### 💙 NovaFit")
+            content.index("### 🎧 Nova Music Lab"), content.index("### א Ivrit Sheli")
+        )
+        self.assertLess(
+            content.index("### א Ivrit Sheli"), content.index("### 💙 NovaFit")
         )
         self.assertLess(
             content.index("nova-music-live-preview.jpg"),
+            content.index("ivrit-sheli-product-tour.gif"),
+        )
+        self.assertLess(
+            content.index("ivrit-sheli-product-tour.gif"),
             content.index("novafit-product-tour.gif"),
         )
 
     def test_project_demo_urls_stay_with_the_correct_project(self) -> None:
         projects = {project["name"]: project for project in self.data["projects"]}
+
+        self.assertIsNone(projects["Ivrit Sheli"]["demo"])
+        self.assertEqual(
+            projects["Ivrit Sheli"]["source"],
+            "https://github.com/LiriothTeltanion/IvritSheli",
+        )
 
         self.assertEqual(
             projects["NovaFit"]["demo"],
@@ -511,6 +559,144 @@ class GeneratedProfileContractTests(unittest.TestCase):
             self.assertEqual(output.read_text(encoding="utf-8"), "stale\n")
 
 
+class SignatureAssetTests(unittest.TestCase):
+    """Protect the eight-stroke KC star LT geometry and restrained motion."""
+
+    namespace = "{http://www.w3.org/2000/svg}"
+
+    def assert_signature_contract(
+        self, path: Path, expected_star_transform: str
+    ) -> None:
+        root = ET.parse(path).getroot()
+        ink_groups = root.findall(
+            f'.//{self.namespace}g[@class="signature-ink"]'
+        )
+        stars = root.findall(f'.//{self.namespace}g[@class="signature-star"]')
+        placements = root.findall(
+            f'.//{self.namespace}g[@class="signature-star-placement"]'
+        )
+        self.assertEqual(len(ink_groups), 1, path.name)
+        self.assertEqual(
+            len(ink_groups[0].findall(f"./{self.namespace}path")), 8, path.name
+        )
+        self.assertEqual(len(stars), 1, path.name)
+        self.assertEqual(len(placements), 1, path.name)
+        self.assertEqual(
+            placements[0].get("transform"), expected_star_transform, path.name
+        )
+        self.assertIsNone(stars[0].get("transform"), path.name)
+        self.assertEqual(stars[0].get("aria-hidden"), "true", path.name)
+
+    def test_brand_variants_keep_eight_pen_strokes_and_one_star(self) -> None:
+        variants = {
+            "kc-lt-signature.svg": "translate(346 110)",
+            "kc-lt-signature-animated.svg": "translate(346 110)",
+            "kc-lt-signature-light.svg": "translate(346 110)",
+            "kc-lt-signature-monochrome.svg": "translate(346 110)",
+            "kc-lt-signature-compact.svg": "translate(178 94)",
+        }
+        for filename, transform in variants.items():
+            self.assert_signature_contract(
+                ROOT / "assets" / "brand" / filename, transform
+            )
+
+        monochrome = ET.parse(
+            ROOT / "assets" / "brand" / "kc-lt-signature-monochrome.svg"
+        ).getroot()
+        star = monochrome.find(
+            f'.//{self.namespace}g[@class="signature-star"]'
+        )
+        self.assertIsNotNone(star)
+        self.assertIsNone(star.get("filter"))
+
+    def test_star_palette_glow_and_one_time_reveal_are_exact(self) -> None:
+        self.assertEqual(
+            generate_signature_assets.FULL_STAR,
+            generate_signature_assets.StarSpec(346, 110, 18, 22, 2.6),
+        )
+        self.assertEqual(
+            generate_signature_assets.COMPACT_STAR,
+            generate_signature_assets.StarSpec(178, 94, 12, 16, 1.8),
+        )
+        master = ET.parse(
+            ROOT / "assets" / "brand" / "kc-lt-signature.svg"
+        ).getroot()
+        star = master.find(f'.//{self.namespace}g[@class="signature-star"]')
+        self.assertIsNotNone(star)
+        self.assertEqual(star.get("filter"), "url(#starGlow)")
+        fills = {
+            shape.get("fill") for shape in star.findall(f"./{self.namespace}path")
+        }
+        self.assertEqual(
+            fills,
+            {
+                generate_signature_assets.STAR_CORE,
+                generate_signature_assets.STAR_MID,
+                generate_signature_assets.STAR_OUTER,
+            },
+        )
+        glow = master.find(f'.//{self.namespace}filter[@id="starGlow"]')
+        self.assertIsNotNone(glow)
+        blur = glow.find(f"{self.namespace}feGaussianBlur")
+        flood = glow.find(f"{self.namespace}feFlood")
+        self.assertIsNotNone(blur)
+        self.assertIsNotNone(flood)
+        self.assertEqual(blur.get("stdDeviation"), "2.6")
+        self.assertEqual(flood.get("flood-color"), "#3b82f6")
+        self.assertEqual(flood.get("flood-opacity"), "0.24")
+
+        animated = (
+            ROOT / "assets" / "brand" / "kc-lt-signature-animated.svg"
+        ).read_text(encoding="utf-8")
+        self.assertIn(
+            ".signature-star{opacity:0;animation:signatureStarReveal .32s ease-out 1.14s both}",
+            animated,
+        )
+        self.assertIn(
+            ".signature-star{animation:none!important;opacity:1!important}",
+            animated,
+        )
+        star_rule = re.search(
+            r"\.signature-star\{opacity:0;animation:([^}]+)\}", animated
+        )
+        self.assertIsNotNone(star_rule)
+        self.assertNotIn("infinite", star_rule.group(1))
+        pen_end = max(
+            float(stroke.delay.removesuffix("s"))
+            + float(stroke.duration.removesuffix("s"))
+            for stroke in generate_signature_assets.PRIMARY_STROKES
+        )
+        self.assertAlmostEqual(pen_end, 2.6)
+        self.assertLessEqual(1.14 + 0.32, pen_end)
+
+    def test_banner_embeddings_keep_one_compact_star_and_accessible_description(self) -> None:
+        for path in generate_signature_assets.BANNER_FILES:
+            root = ET.parse(path).getroot()
+            ink_groups = root.findall(
+                f'.//{self.namespace}g[@class="signature-ink"]'
+            )
+            stars = root.findall(
+                f'.//{self.namespace}g[@class="signature-star"]'
+            )
+            placements = root.findall(
+                f'.//{self.namespace}g[@class="signature-star-placement"]'
+            )
+            self.assertEqual(len(ink_groups), 1, path.name)
+            self.assertEqual(
+                len(ink_groups[0].findall(f"./{self.namespace}path")), 8, path.name
+            )
+            self.assertEqual(len(stars), 1, path.name)
+            self.assertEqual(len(placements), 1, path.name)
+            self.assertEqual(
+                placements[0].get("transform"), "translate(178 94)", path.name
+            )
+            self.assertIsNone(stars[0].get("transform"), path.name)
+            self.assertEqual(stars[0].get("aria-hidden"), "true", path.name)
+            description = root.find(f"{self.namespace}desc")
+            self.assertIsNotNone(description, path.name)
+            self.assertIn("KC star LT", description.text or "", path.name)
+
+
 class SocialPreviewAssetTests(unittest.TestCase):
     """Keep all GitHub social-preview pairs upload-ready."""
 
@@ -519,6 +705,7 @@ class SocialPreviewAssetTests(unittest.TestCase):
             "profile-social-preview",
             "novamusiclab-social-preview",
             "novafit-social-preview",
+            "ivrit-sheli-social-preview",
             "christopherrodriguezcvonline-social-preview",
             "fullstack2026-social-preview",
         )
@@ -542,14 +729,16 @@ class SocialPreviewAssetTests(unittest.TestCase):
                 self.assertIn("Rodríguez", title.text or "", svg_path.name)
 
     def test_social_previews_reuse_the_canonical_compact_signature(self) -> None:
-        """Prevent share-card copies of KC x LT from drifting from the master."""
+        """Prevent share-card copies of KC star LT from drifting from the master."""
 
         signature = ET.parse(
             ROOT / "assets" / "brand" / "kc-lt-signature-compact.svg"
         ).getroot()
         namespace = "{http://www.w3.org/2000/svg}"
+        ink = signature.find(f'.//{namespace}g[@class="signature-ink"]')
+        self.assertIsNotNone(ink)
         canonical_paths = [
-            path.get("d") for path in signature.findall(f".//{namespace}path")
+            path.get("d") for path in ink.findall(f"./{namespace}path")
         ]
         self.assertEqual(len(canonical_paths), 8)
         self.assertNotIn(None, canonical_paths)
@@ -558,6 +747,22 @@ class SocialPreviewAssetTests(unittest.TestCase):
             source = svg_path.read_text(encoding="utf-8")
             for path_data in canonical_paths:
                 self.assertIn(f'd="{path_data}"', source, svg_path.name)
+            root = ET.parse(svg_path).getroot()
+            stars = root.findall(f'.//{namespace}g[@class="signature-star"]')
+            placements = root.findall(
+                f'.//{namespace}g[@class="signature-star-placement"]'
+            )
+            self.assertEqual(len(stars), 1, svg_path.name)
+            self.assertEqual(len(placements), 1, svg_path.name)
+            self.assertEqual(
+                placements[0].get("transform"), "translate(178 94)", svg_path.name
+            )
+            self.assertIsNone(stars[0].get("transform"), svg_path.name)
+            self.assertEqual(stars[0].get("aria-hidden"), "true", svg_path.name)
+            self.assertEqual(stars[0].get("filter"), "url(#signatureStarGlow)")
+            description = root.find(f"{namespace}desc")
+            self.assertIsNotNone(description, svg_path.name)
+            self.assertIn("KC star LT", description.text or "", svg_path.name)
 
     def test_novafit_secondary_art_uses_verified_4_2_facts(self) -> None:
         """Keep retained cards consistent with the canonical public manifest."""

@@ -1,14 +1,13 @@
-<!-- profile-version: 2.0.0; release-tag: v2.0.0; release-title: Profile 2.0 — NovaFit & Signature Ultimate Edition -->
+<!-- profile-version: 2.1.0; release-tag: v2.1.0; release-title: Profile 2.1 — Full-Stack Production Proof & Star Signature Edition -->
 
 <a id="top"></a>
-
 <div align="center">
 
 <picture>
   <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/profile-banner-mobile-static.svg" />
   <source media="(max-width: 640px)" srcset="./assets/profile-banner-mobile-animated.svg" />
   <source media="(prefers-reduced-motion: reduce)" srcset="./assets/profile-banner-static.svg" />
-  <img src="./assets/profile-banner-animated.svg" width="100%" alt="Portrait of Kevin Cusnir with the Lirioth Teltanion creative identity, KC LT signature and frontend, full-stack and creative engineering focus" />
+  <img src="./assets/profile-banner-animated.svg" width="100%" alt="Portrait of Kevin Cusnir with the Lirioth Teltanion creative identity, KC star LT signature and frontend, full-stack and creative engineering focus" />
 </picture>
 
 # Kevin Cusnir · Lirioth Teltanion ✨
@@ -17,7 +16,7 @@
 
 **I build React, TypeScript, Python and SQL products with accessible multilingual UX, data honesty and practical automation.**
 
-[💼 LinkedIn](https://www.linkedin.com/in/kevin-cusnir-883173b4/) · [📄 CV EN](https://github.com/LiriothTeltanion/CV/blob/main/CV_EN.md) · [CV ES](https://github.com/LiriothTeltanion/CV/blob/main/CV_ES.md) · [CV HE](https://github.com/LiriothTeltanion/CV/blob/main/CV_HE.md) · [✉️ Email](mailto:kevincusnir@gmail.com) · [🎧 Nova Music Lab live](https://liriothteltanion.github.io/NovaMusicLab/)
+[💼 LinkedIn](https://www.linkedin.com/in/kevin-cusnir-883173b4/) · [📄 CV EN](https://github.com/LiriothTeltanion/CV/blob/main/CV_EN.md) · [CV ES](https://github.com/LiriothTeltanion/CV/blob/main/CV_ES.md) · [CV HE](https://github.com/LiriothTeltanion/CV/blob/main/CV_HE.md) · [✉️ Email](mailto:kevincusnir@gmail.com) · [🎧 Nova Music Lab live](https://liriothteltanion.github.io/NovaMusicLab/) · [א Ivrit Sheli](https://github.com/LiriothTeltanion/IvritSheli)
 
 **Open to:** Junior Frontend & Full-Stack roles · **Born in:** San Cristóbal, Venezuela · **Based in:** Beersheba, Israel · **Languages:** ES · EN · HE
 
@@ -37,12 +36,12 @@ I’m **Kevin Cusnir**, born in **San Cristóbal, Venezuela** and now based in *
 
 | What I can prove publicly | Strongest evidence |
 |---|---|
-| React and TypeScript product work | Nova Music Lab and Christopher Rodríguez Portfolio |
-| Python, SQLite and desktop workflows | NovaFit v4.2.0; Fullstack2026 shows the learning path |
+| React and TypeScript product work | Nova Music Lab, Ivrit Sheli and Christopher Rodríguez Portfolio |
+| Full-stack, Python and data persistence | Ivrit Sheli v2.0.0 with FastAPI/PostgreSQL; NovaFit v4.2.0 with Python/SQLite |
 | Data, accessibility and multilingual UX | Honest source-aware analytics; EN/ES/HE, RTL, keyboard and reduced-motion work |
-| Delivery discipline | Automated tests, CI, live Pages builds, bundle budgets and release checks |
+| Delivery discipline | 126-test full-stack proof, Docker, CI, live Pages builds, bundle budgets and release checks |
 
-**Review path:** **30 seconds**: Read the snapshot and role positioning · **2 minutes**: Open Nova Music Lab and NovaFit · **5 minutes**: Inspect tests, CI, README architecture and recent commits · **15 minutes**: Run NovaFit or explore the live music museum.
+**Review path:** **30 seconds**: Read the snapshot and role positioning · **2 minutes**: Open Nova Music Lab and Ivrit Sheli · **5 minutes**: Inspect tests, CI, security architecture and recent releases · **15 minutes**: Run Ivrit Sheli or NovaFit, or explore the live music museum.
 
 ---
 
@@ -50,13 +49,9 @@ I’m **Kevin Cusnir**, born in **San Cristóbal, Venezuela** and now based in *
 
 ### 🎧 Nova Music Lab
 
-**Status:** Live local-first flagship<br>
-**Problem:** Listening exports are fragmented, hard to compare and easy to misrepresent.<br>
-**Solution:** A local-first music museum that turns exports from five listening ecosystems into source-aware analytics, visual stories and a portable personal archive.<br>
-**Stack:** React · TypeScript · Vite · Vitest · Recharts · GitHub Actions<br>
-**Evidence:** Five import families, source normalization, deduplication, automated tests, bundle budgets, CI and a live GitHub Pages build<br>
-**Role signal:** Frontend engineering · data visualization · privacy-aware product thinking<br>
-**Highlights:** Five import families normalized into one model · Lazy-loaded museum rooms and bundle budgets · Fourteen themes, EN/ES UX, reduced-motion support and Hebrew resource tooling<br>
+**Status:** Live local-first flagship · **Stack:** React · TypeScript · Vite · Vitest · Recharts · GitHub Actions<br>
+**Problem → solution:** Listening exports are fragmented, hard to compare and easy to misrepresent. A local-first music museum that turns exports from five listening ecosystems into source-aware analytics, visual stories and a portable personal archive.<br>
+**Evidence:** Five import families, source normalization, deduplication, automated tests, bundle budgets, CI and a live GitHub Pages build · **Role signal:** Frontend engineering · data visualization · privacy-aware product thinking<br>
 [Open Nova Music Lab live demo](https://liriothteltanion.github.io/NovaMusicLab/) · [Nova Music Lab source](https://github.com/LiriothTeltanion/NovaMusicLab)
 
 <a href="https://liriothteltanion.github.io/NovaMusicLab/">
@@ -84,15 +79,34 @@ Five import families become one deduplicated, source-aware listening history. Mi
 
 </details>
 
+### א Ivrit Sheli
+
+**Status:** Public v2.0.0 full-stack release · live deployment pending · **Stack:** React 19 · TypeScript · FastAPI · PostgreSQL 17 · Alembic · Docker<br>
+**Problem → solution:** Hebrew learners need focused practice, progress and multilingual guidance without surrendering private study data or depending on a fragile cloud service. A dual-mode Hebrew learning platform that keeps a private SQLite path while adding authenticated PostgreSQL accounts, tenant isolation, a read-only public demo and a trilingual responsive PWA.<br>
+**Evidence:** GitHub OAuth with PKCE, forced tenant RLS, redacted structured JSON logs, a non-root Docker image and 109 backend + 17 frontend = 126 passing tests · **Role signal:** Full-stack architecture · backend security · PostgreSQL ownership · integration testing · multilingual RTL UX<br>
+[Ivrit Sheli source](https://github.com/LiriothTeltanion/IvritSheli)
+
+<details>
+<summary><strong>א Open the Ivrit Sheli 2.0.0 product tour and full-stack proof</strong></summary>
+
+<p><strong>Public-data boundary:</strong> Every frame uses the repository's synthetic read-only demo learner; it contains no private study history, credential, token, provider result or production database record.</p>
+<picture>
+  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/ivrit-sheli-2-mobile.png" />
+  <source media="(max-width: 640px)" srcset="./assets/ivrit-sheli-2-mobile.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/ivrit-sheli-2-dashboard.png" />
+  <img src="./assets/ivrit-sheli-product-tour.gif" width="100%" alt="Ivrit Sheli 2.0 product tour moving from the responsive learning dashboard to the compact mobile experience and the Hebrew right-to-left workspace" />
+</picture>
+<p><strong>Ivrit Sheli 2.0 in motion:</strong> A concise tour of the real 2.0 interface shows the desktop learning command center, compact mobile navigation and native Hebrew RTL layout.</p>
+<p><strong>Verified v2.0.0 evidence:</strong> 109 backend + 17 frontend = 126 passing tests · GitHub OAuth/PKCE · PostgreSQL tenant RLS · Alembic · non-root Docker · redacted structured JSON logs.</p>
+<p><a href="https://github.com/LiriothTeltanion/IvritSheli">Inspect the Ivrit Sheli source</a> · <a href="https://github.com/LiriothTeltanion/IvritSheli#test-everything">Review the test contract</a> · <a href="./assets/ivrit-sheli-2-hebrew-rtl.png">Open the full Hebrew RTL frame</a></p>
+<p><strong>Live deployment pending:</strong> source and local/Docker paths are public now.</p>
+</details>
+
 ### 💙 NovaFit
 
-**Status:** Active v4.2.0 local-first desktop product<br>
-**Problem:** Daily wellness data should remain portable, understandable and private.<br>
-**Solution:** A local-first Windows wellness intelligence studio with isolated profiles, English, Spanish and Hebrew RTL, efficient motion, explainable analytics, complete verified backups and one-click self-repair.<br>
-**Stack:** Python · Tkinter · SQLite · Requests · Faker · Matplotlib<br>
-**Evidence:** 124 discovered automated tests, 12 themes, EN/ES/HE RTL UX, verified complete backups, 58 public visual assets, one-click verification and strict release audit<br>
-**Role signal:** Python application architecture · desktop UX · SQLite migrations · i18n/RTL · analytics · release engineering<br>
-**Highlights:** Multi-profile SQLite isolation · Hebrew right-to-left interface · Four analytics studios · Purposeful reduced-motion-aware animation · Complete all-profile ZIP backups with SHA-256 · JSON, CSV, PNG and offline HTML exports · One-click Windows setup, launch and verification · Installable public Pages showcase with no desktop-data access<br>
+**Status:** Active v4.2.0 local-first desktop product · **Stack:** Python · Tkinter · SQLite · Requests · Faker · Matplotlib<br>
+**Problem → solution:** Daily wellness data should remain portable, understandable and private. A local-first Windows wellness intelligence studio with isolated profiles, English, Spanish and Hebrew RTL, efficient motion, explainable analytics, complete verified backups and one-click self-repair.<br>
+**Evidence:** 124 discovered automated tests, 12 themes, EN/ES/HE RTL UX, verified complete backups, 58 public visual assets, one-click verification and strict release audit · **Role signal:** Python application architecture · desktop UX · SQLite migrations · i18n/RTL · analytics · release engineering<br>
 [Open NovaFit live demo](https://liriothteltanion.github.io/NovaFit/) · [NovaFit source](https://github.com/LiriothTeltanion/NovaFit)
 
 <details>
@@ -143,24 +157,16 @@ The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, 
 
 ### 👨‍🏫 Christopher Rodríguez Portfolio
 
-**Status:** Client/collaboration case study<br>
-**Problem:** A real educator needed a maintainable bilingual professional presence.<br>
-**Solution:** An accessible React and TypeScript portfolio with structured content, verification states, persistent themes and GitHub Pages delivery.<br>
-**Stack:** React · TypeScript · Vite · Tailwind CSS · Framer Motion<br>
-**Evidence:** EN/ES content architecture, keyboard UX, reduced motion, SEO and automated deployment<br>
-**Role signal:** Client communication · accessible frontend · maintainable content architecture<br>
-**Highlights:** Content separated from presentation · Bilingual EN/ES experience and persistent preferences · Verification states for professional claims<br>
+**Status:** Client/collaboration case study · **Stack:** React · TypeScript · Vite · Tailwind CSS · Framer Motion<br>
+**Problem → solution:** A real educator needed a maintainable bilingual professional presence. An accessible React and TypeScript portfolio with structured content, verification states, persistent themes and GitHub Pages delivery.<br>
+**Evidence:** EN/ES content architecture, keyboard UX, reduced motion, SEO and automated deployment · **Role signal:** Client communication · accessible frontend · maintainable content architecture<br>
 [Open Christopher Rodríguez Portfolio live demo](https://liriothteltanion.github.io/ChristopherRodriguezCVOnline/) · [Christopher Rodríguez Portfolio source](https://github.com/LiriothTeltanion/ChristopherRodriguezCVOnline)
 
 ### 📚 Fullstack2026
 
-**Status:** Audited six-week learning archive<br>
-**Problem:** Course exercises need context, progression and reproducible quality checks.<br>
-**Solution:** A structured archive from Python and OOP through JavaScript, DOM, async workflows, TypeScript, Node and databases.<br>
-**Stack:** Python · JavaScript · TypeScript · Node.js · SQL<br>
-**Evidence:** Six curriculum weeks, 14 discoverable test files, CI, generated audits and transparently documented remaining quality gates<br>
-**Role signal:** Learning progression · problem solving · Git/PR discipline<br>
-**Highlights:** Python and OOP foundations · DOM, asynchronous JavaScript, TypeScript, Node and SQL · Repository-wide documentation, audit reports and visible unresolved gates<br>
+**Status:** Audited six-week learning archive · **Stack:** Python · JavaScript · TypeScript · Node.js · SQL<br>
+**Problem → solution:** Course exercises need context, progression and reproducible quality checks. A structured archive from Python and OOP through JavaScript, DOM, async workflows, TypeScript, Node and databases.<br>
+**Evidence:** Six curriculum weeks, 14 discoverable test files, CI, generated audits and transparently documented remaining quality gates · **Role signal:** Learning progression · problem solving · Git/PR discipline<br>
 [Fullstack2026 source](https://github.com/LiriothTeltanion/Fullstack2026)
 
 ---
@@ -177,19 +183,19 @@ The checker repairs a local `.venv`, validates Matplotlib and `Asia/Jerusalem`, 
 
 | Evidence across featured work | Count |
 |---|---:|
-| Featured products/case studies | **4** |
-| React or TypeScript projects | **3** |
-| Python evidence areas | **2** |
-| Multilingual/accessibility projects (including RTL) | **3** |
-| Automated quality pipelines | **3** |
+| Featured products/case studies | **5** |
+| React or TypeScript projects | **4** |
+| Python evidence areas | **3** |
+| Multilingual/accessibility projects (including RTL) | **4** |
+| Automated quality pipelines | **4** |
 
 ### Core stack
 
-**Languages:** TypeScript · JavaScript · Python · SQL  
-**Frontend:** React · HTML5 · CSS3 · Tailwind CSS · Vite · Accessibility · i18n / RTL  
-**Backend & data:** Node.js · Express fundamentals · REST APIs · SQLite · PostgreSQL learning · JSON / CSV  
-**Testing & quality:** Vitest · Testing Library · unittest · GitHub Actions · linting · data audits · bundle budgets  
-**Workflow:** Git · GitHub · Conventional Commits · README-first documentation · AI-assisted review with explicit verification
+**Languages:** TypeScript · JavaScript · Python · SQL<br>
+**Frontend:** React · HTML5 · CSS3 · Tailwind CSS · Vite · Accessibility · i18n / RTL<br>
+**Backend & data:** Node.js · Express fundamentals · REST APIs · SQLite · PostgreSQL · FastAPI · Alembic · JSON / CSV<br>
+**Testing & quality:** Vitest · Testing Library · unittest · pytest · integration testing · structured logging · GitHub Actions · linting · data audits · bundle budgets<br>
+**Workflow:** Git · GitHub · Docker · Conventional Commits · README-first documentation · AI-assisted review with explicit verification
 
 ---
 
@@ -221,14 +227,7 @@ Country boundaries and deterministic tiny-state markers represent 195 sovereign 
   <img src="./assets/learning-roadmap-animated.svg" width="100%" alt="Roadmap from proven frontend work through data and application trust to production full-stack delivery" />
 </picture>
 
-- Production backend architecture
-- PostgreSQL relational modeling and migrations
-- Authentication and role-based authorization
-- Docker-based development and deployment operations
-- Integration and end-to-end testing
-- Structured logging, monitoring and incident-ready thinking
-
-The next portfolio milestone is a deployed full-stack product with PostgreSQL, authentication, Docker, integration tests, structured logging and a documented demo account.
+**Next depth:** Production monitoring, service-level objectives and alert design · PostgreSQL backup, restore and migration drills · Authorization, OAuth and browser-level end-to-end testing · Free-tier deployment, capacity and cost operations
 
 ---
 
@@ -282,7 +281,7 @@ Together, these identities make technically sound products easier to understand,
 
 <picture>
   <source media="(prefers-reduced-motion: reduce)" srcset="./assets/brand/kc-lt-signature.svg" />
-  <img src="./assets/brand/kc-lt-signature-animated.svg" width="360" alt="KC LT handwritten blue signature, the personal mark of Kevin Cusnir and Lirioth Teltanion" />
+  <img src="./assets/brand/kc-lt-signature-animated.svg" width="360" alt="KC star LT handwritten blue signature, the personal mark of Kevin Cusnir and Lirioth Teltanion" />
 </picture>
 
 **Code with purpose. Design with personality. Data with honesty.** 💙

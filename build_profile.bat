@@ -16,6 +16,11 @@ if errorlevel 1 goto :failed
 %PYTHON_CMD% scripts\sync_novafit.py --check
 if errorlevel 1 goto :failed
 
+%PYTHON_CMD% tools\profile\generate_signature_assets.py
+if errorlevel 1 goto :failed
+%PYTHON_CMD% tools\profile\generate_signature_assets.py --check
+if errorlevel 1 goto :failed
+
 %PYTHON_CMD% scripts\build_profile.py --mode compact --output README.md
 if errorlevel 1 goto :failed
 %PYTHON_CMD% scripts\build_profile.py --mode expanded --output README_EXPANDED.md

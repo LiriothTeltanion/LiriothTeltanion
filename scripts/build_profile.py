@@ -92,6 +92,26 @@ NOVAFIT_MEDIA_FIELDS = (
     "reduced_motion_static",
     "static",
 )
+IVRIT_RELEASE_EVIDENCE_FIELDS = (
+    "backend_tests",
+    "frontend_tests",
+    "test_report",
+    "total_tests",
+    "version",
+)
+IVRIT_MEDIA_FIELDS = (
+    "alt",
+    "animation",
+    "caption",
+    "description",
+    "mobile_alt",
+    "mobile_static",
+    "public_data_boundary",
+    "rtl_alt",
+    "rtl_static",
+    "static",
+    "static_alt",
+)
 SEMVER_PATTERN = re.compile(
     r"^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)"
     r"(?:-(?:0|[1-9]\d*|\d*[A-Za-z-][0-9A-Za-z-]*)"
@@ -238,6 +258,82 @@ def _validate_profile_data(data: Mapping[str, Any]) -> None:
             "uses the first project's demo URL."
         )
     _require_text(flagship["demo"], "profile.projects[0].demo")
+
+    ivrit_projects = [project for project in projects if project["name"] == "Ivrit Sheli"]
+    if len(ivrit_projects) != 1:
+        raise ValueError("profile.projects must contain exactly one Ivrit Sheli project.")
+    if len(projects) < 2 or projects[1]["name"] != "Ivrit Sheli":
+        raise ValueError(
+            "profile.projects must list 'Ivrit Sheli' second, directly after Nova Music Lab."
+        )
+    ivrit = ivrit_projects[0]
+    release_evidence = _require_mapping(
+        ivrit.get("release_evidence"),
+        "profile.projects[Ivrit Sheli].release_evidence",
+        IVRIT_RELEASE_EVIDENCE_FIELDS,
+    )
+    ivrit_version = _require_semver(
+        release_evidence["version"],
+        "profile.projects[Ivrit Sheli].release_evidence.version",
+    )
+    for field in ("backend_tests", "frontend_tests", "total_tests"):
+        _require_positive_integer(
+            release_evidence[field],
+            f"profile.projects[Ivrit Sheli].release_evidence.{field}",
+        )
+    if (
+        release_evidence["backend_tests"] + release_evidence["frontend_tests"]
+        != release_evidence["total_tests"]
+    ):
+        raise ValueError(
+            "profile.projects[Ivrit Sheli].release_evidence.total_tests must equal "
+            "backend_tests + frontend_tests."
+        )
+    _require_https_url(
+        release_evidence["test_report"],
+        "profile.projects[Ivrit Sheli].release_evidence.test_report",
+    )
+    expected_ivrit_status = (
+        f"Live v{ivrit_version} dual-mode full-stack product"
+        if ivrit["demo"]
+        else f"Public v{ivrit_version} full-stack release · live deployment pending"
+    )
+    if ivrit["status"] != expected_ivrit_status:
+        raise ValueError(
+            "profile.projects[Ivrit Sheli].status must agree with release_evidence.version "
+            "and the presence of a verified live demo URL."
+        )
+    ivrit_media = _require_mapping(
+        ivrit.get("media"),
+        "profile.projects[Ivrit Sheli].media",
+        IVRIT_MEDIA_FIELDS,
+    )
+    for field in (
+        "alt",
+        "caption",
+        "description",
+        "mobile_alt",
+        "public_data_boundary",
+        "rtl_alt",
+        "static_alt",
+    ):
+        _require_text(ivrit_media[field], f"profile.projects[Ivrit Sheli].media.{field}")
+    for field in ("animation", "mobile_static", "rtl_static", "static"):
+        _require_asset_path(
+            ivrit_media[field], f"profile.projects[Ivrit Sheli].media.{field}"
+        )
+    if len(
+        {
+            ivrit_media["animation"],
+            ivrit_media["mobile_static"],
+            ivrit_media["rtl_static"],
+            ivrit_media["static"],
+        }
+    ) != 4:
+        raise ValueError(
+            "profile.projects[Ivrit Sheli].media must use distinct animation, desktop, "
+            "mobile and RTL assets."
+        )
 
     novafit_projects = [project for project in projects if project["name"] == "NovaFit"]
     if len(novafit_projects) != 1:
@@ -514,6 +610,7 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
     review_path = data["review_path"]
     skills = data["skills"]
     novafit = next(project for project in projects if project["name"] == "NovaFit")
+    ivrit = next(project for project in projects if project["name"] == "Ivrit Sheli")
     novafit_sync = novafit["portfolio_sync"]
     novafit_version = novafit_sync["version"]
     fast_review = " · ".join(
@@ -527,14 +624,13 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
         ),
         "",
         '<a id="top"></a>',
-        "",
         '<div align="center">',
         "",
         "<picture>",
         '  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/profile-banner-mobile-static.svg" />',
         '  <source media="(max-width: 640px)" srcset="./assets/profile-banner-mobile-animated.svg" />',
         '  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/profile-banner-static.svg" />',
-        '  <img src="./assets/profile-banner-animated.svg" width="100%" alt="Portrait of Kevin Cusnir with the Lirioth Teltanion creative identity, KC LT signature and frontend, full-stack and creative engineering focus" />',
+        '  <img src="./assets/profile-banner-animated.svg" width="100%" alt="Portrait of Kevin Cusnir with the Lirioth Teltanion creative identity, KC star LT signature and frontend, full-stack and creative engineering focus" />',
         "</picture>",
         "",
         f"# {identity['name']} · {identity['alias']} ✨",
@@ -543,7 +639,7 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
         "",
         f"**{identity['positioning']}**",
         "",
-        f"[💼 LinkedIn]({links['linkedin']}) · [📄 CV EN]({links['cv_en']}) · [CV ES]({links['cv_es']}) · [CV HE]({links['cv_he']}) · [✉️ Email]({links['email']}) · [🎧 Nova Music Lab live]({projects[0]['demo']})",
+        f"[💼 LinkedIn]({links['linkedin']}) · [📄 CV EN]({links['cv_en']}) · [CV ES]({links['cv_es']}) · [CV HE]({links['cv_he']}) · [✉️ Email]({links['email']}) · [🎧 Nova Music Lab live]({projects[0]['demo']}) · [א Ivrit Sheli]({ivrit['source']})",
         "",
         f"**Open to:** Junior Frontend & Full-Stack roles · **Born in:** {identity['birthplace']} · **Based in:** {identity['location']} · **Languages:** ES · EN · HE",
         "",
@@ -563,10 +659,10 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
         "",
         "| What I can prove publicly | Strongest evidence |",
         "|---|---|",
-        "| React and TypeScript product work | Nova Music Lab and Christopher Rodríguez Portfolio |",
-        f"| Python, SQLite and desktop workflows | NovaFit v{novafit_version}; Fullstack2026 shows the learning path |",
+        "| React and TypeScript product work | Nova Music Lab, Ivrit Sheli and Christopher Rodríguez Portfolio |",
+        f"| Full-stack, Python and data persistence | Ivrit Sheli v{ivrit['release_evidence']['version']} with FastAPI/PostgreSQL; NovaFit v{novafit_version} with Python/SQLite |",
         "| Data, accessibility and multilingual UX | Honest source-aware analytics; EN/ES/HE, RTL, keyboard and reduced-motion work |",
-        "| Delivery discipline | Automated tests, CI, live Pages builds, bundle budgets and release checks |",
+        "| Delivery discipline | 126-test full-stack proof, Docker, CI, live Pages builds, bundle budgets and release checks |",
         "",
         f"**Review path:** {fast_review}.",
         "",
@@ -580,6 +676,8 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
         lines.extend(_render_project(project))
         if project["name"] == "Nova Music Lab":
             lines.extend(_render_nova_music_spotlight(project))
+        elif project["name"] == "Ivrit Sheli":
+            lines.extend(_render_ivrit_spotlight(project))
         elif project["name"] == "NovaFit":
             lines.extend(_render_novafit_spotlights(project))
 
@@ -609,10 +707,10 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
             "",
             "### Core stack",
             "",
-            f"**Languages:** {_join(skills['languages'])}  ",
-            f"**Frontend:** {_join(skills['frontend'])}  ",
-            f"**Backend & data:** {_join(skills['backend_data'])}  ",
-            f"**Testing & quality:** {_join(skills['quality'])}  ",
+            f"**Languages:** {_join(skills['languages'])}<br>",
+            f"**Frontend:** {_join(skills['frontend'])}<br>",
+            f"**Backend & data:** {_join(skills['backend_data'])}<br>",
+            f"**Testing & quality:** {_join(skills['quality'])}<br>",
             f"**Workflow:** {_join(skills['workflow'])}",
             "",
             "---",
@@ -653,13 +751,10 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
             "",
         ]
     )
-    for item in data["growth"]:
-        lines.append(f"- {item}")
+    lines.append(f"**Next depth:** {_join(data['growth'])}")
 
     lines.extend(
         [
-            "",
-            "The next portfolio milestone is a deployed full-stack product with PostgreSQL, authentication, Docker, integration tests, structured logging and a documented demo account.",
             "",
             "---",
             "",
@@ -727,7 +822,7 @@ def render_profile(data: Mapping[str, Any], mode: str = "compact") -> str:
             "",
             "<picture>",
             '  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/brand/kc-lt-signature.svg" />',
-            '  <img src="./assets/brand/kc-lt-signature-animated.svg" width="360" alt="KC LT handwritten blue signature, the personal mark of Kevin Cusnir and Lirioth Teltanion" />',
+            '  <img src="./assets/brand/kc-lt-signature-animated.svg" width="360" alt="KC star LT handwritten blue signature, the personal mark of Kevin Cusnir and Lirioth Teltanion" />',
             "</picture>",
             "",
             "**Code with purpose. Design with personality. Data with honesty.** 💙",
@@ -775,15 +870,9 @@ def _render_project(project: Mapping[str, Any]) -> list[str]:
     return [
         f"### {project['icon']} {project['name']}",
         "",
-        f"**Status:** {project['status']}<br>",
-        f"**Problem:** {project['problem']}<br>",
-        f"**Solution:** {project['solution']}<br>",
-        f"**Stack:** {project['stack']}<br>",
-        f"**Evidence:** {project['evidence']}<br>",
-        f"**Role signal:** {project.get('role_signal', 'Product engineering')}<br>",
-        f"**Highlights:** {' · '.join(project.get('highlights', []))}<br>"
-        if project.get("highlights")
-        else "",
+        f"**Status:** {project['status']} · **Stack:** {project['stack']}<br>",
+        f"**Problem → solution:** {project['problem']} {project['solution']}<br>",
+        f"**Evidence:** {project['evidence']} · **Role signal:** {project.get('role_signal', 'Product engineering')}<br>",
         " · ".join(links),
         "",
     ]
@@ -815,6 +904,41 @@ def _render_nova_music_spotlight(project: Mapping[str, Any]) -> list[str]:
         "",
         f"[Explore the live music museum]({project['demo']}) · [Inspect the Nova Music Lab source]({project['source']})",
         "",
+        "</details>",
+        "",
+    ]
+
+
+def _render_ivrit_spotlight(project: Mapping[str, Any]) -> list[str]:
+    """Render authentic Ivrit Sheli product motion with accessible static evidence."""
+
+    media = project["media"]
+    evidence = project["release_evidence"]
+    live_link = (
+        f'<p><a href="{project["demo"]}">Open verified live deployment</a></p>'
+        if project.get("demo")
+        else "<p><strong>Live deployment pending:</strong> source and local/Docker paths are public now.</p>"
+    )
+    return [
+        "<details>",
+        f"<summary><strong>א Open the Ivrit Sheli {evidence['version']} product tour and full-stack proof</strong></summary>",
+        "",
+        f"<p><strong>Public-data boundary:</strong> {media['public_data_boundary']}</p>",
+        "<picture>",
+        f'  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./{media["mobile_static"]}" />',
+        f'  <source media="(max-width: 640px)" srcset="./{media["mobile_static"]}" />',
+        f'  <source media="(prefers-reduced-motion: reduce)" srcset="./{media["static"]}" />',
+        f'  <img src="./{media["animation"]}" width="100%" alt="{media["alt"]}" />',
+        "</picture>",
+        f"<p><strong>{media['caption']}</strong> {media['description']}</p>",
+        (
+            f"<p><strong>Verified v{evidence['version']} evidence:</strong> {evidence['backend_tests']} backend + "
+            f"{evidence['frontend_tests']} frontend = {evidence['total_tests']} passing tests · "
+            "GitHub OAuth/PKCE · PostgreSQL tenant RLS · Alembic · non-root Docker · "
+            "redacted structured JSON logs.</p>"
+        ),
+        f'<p><a href="{project["source"]}">Inspect the Ivrit Sheli source</a> · <a href="{evidence["test_report"]}">Review the test contract</a> · <a href="./{media["rtl_static"]}">Open the full Hebrew RTL frame</a></p>',
+        live_link,
         "</details>",
         "",
     ]

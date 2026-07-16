@@ -17,7 +17,7 @@
 This baseline remains the stable design system. It was published before formal
 profile-level Semantic Versioning and is not represented as a retroactive tag.
 
-## Profile 2.0.0 release target — NovaFit & Signature Ultimate Edition
+## Profile 2.0.0 — NovaFit & Signature Ultimate Edition — published
 
 - Keep Nova Music Lab first and visually strongest as the live React and data
   flagship.
@@ -41,6 +41,37 @@ profile-level Semantic Versioning and is not represented as a retroactive tag.
 This is a major profile presentation release. NovaFit remains independently
 versioned at 4.2.0 unless verified application changes are released from the
 NovaFit repository itself.
+
+## Profile 2.1.0 release target — Full-Stack Production Proof & Star Signature Edition
+
+- Keep Nova Music Lab first and visually strongest as the verified live React
+  and data flagship.
+- Add Ivrit Sheli 2.0 second as public, deployment-ready full-stack evidence,
+  followed by NovaFit, Christopher Rodríguez Portfolio and Fullstack2026.
+- Publish only verified Ivrit facts: React 19, TypeScript, FastAPI, PostgreSQL 17,
+  Alembic, GitHub OAuth with PKCE, tenant RLS, Docker, structured JSON logging,
+  109 backend tests and 17 frontend tests for 126 total.
+- Present one concise `ivrit-sheli-product-tour.gif`, plus desktop, mobile and
+  Hebrew RTL PNG evidence with static reduced-motion fallbacks and meaningful
+  alternative text.
+- Use only the shared read-only demonstration experience and synthetic learner
+  records in profile media. Include no private learning history, provider token,
+  runtime database, secret or personal export.
+- Keep Ivrit's public source link visible while omitting a live URL until the
+  Railway deployment, HTTPS, readiness/version endpoints and GitHub OAuth
+  callback are verified end to end.
+- Preserve the eight-stroke KC ✦ LT signature and add one small four-point star
+  between KC and LT with a restrained blue glow and one-time reveal.
+- Advance the evidence counts to five featured projects, four React/TypeScript
+  projects, three Python evidence areas, four multilingual/accessibility
+  projects and four automated quality pipelines.
+- Recommend the pin order Nova Music Lab, Ivrit Sheli, NovaFit and Christopher
+  Rodríguez Portfolio; keep Fullstack2026 visible as a learning archive.
+- Record `profile_version` as `2.1.0`; create tag `v2.1.0` and its GitHub Release
+  only after generation, local verification, visual QA and public publication.
+
+This is a contained feature and visual release, so the profile increments from
+2.0.0 to 2.1.0. Ivrit Sheli remains independently versioned at 2.0.0.
 
 ## Priority 1 — reliability
 
@@ -66,15 +97,15 @@ NovaFit repository itself.
 - Improve project screenshots and demonstrations.
 - Earn GitHub achievements through genuine collaboration and useful work.
 
-## Best next visual upgrade after new work exists
+## Best next depth after Profile 2.1
 
-- Add one current product image or short motion proof for a newly finished,
-  deployed full-stack project.
-- Replace learning-roadmap emphasis with production evidence once PostgreSQL,
-  authentication, Docker, integration tests and observability are public.
+- Convert Ivrit's deployment-ready status into a verified live link only after
+  Railway HTTPS, readiness, version and OAuth checks pass.
+- Add operational evidence from real monitoring and SLOs, backup/restore drills,
+  OAuth and authorization E2E tests, cost controls and incident procedures.
 - Refresh social previews only when a project's positioning materially changes.
-- Keep the portrait, signature, globe and first-screen hierarchy stable so the
-  identity remains recognizable across releases.
+- Keep the portrait, KC ✦ LT signature, globe and first-screen hierarchy stable
+  so the identity remains recognizable across releases.
 
 ## Review rhythm
 

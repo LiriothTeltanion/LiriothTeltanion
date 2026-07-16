@@ -1,19 +1,19 @@
 {
-  "profile_version": "2.0.0",
+  "profile_version": "2.1.0",
   "release": {
-    "title": "Profile 2.0 — NovaFit & Signature Ultimate Edition",
-    "tag": "v2.0.0",
+    "title": "Profile 2.1 — Full-Stack Production Proof & Star Signature Edition",
+    "tag": "v2.1.0",
     "status": "released",
     "prepared_on": "2026-07-16",
-    "baseline": "Pre-versioned Ultimate profile baseline",
-    "summary": "A major public-profile presentation release that refreshes NovaFit 4.2.0 evidence, improves the KC × LT signature for faster recognition and preserves the recruiter-first hierarchy led by Nova Music Lab.",
+    "baseline": "Profile 2.0 — NovaFit & Signature Ultimate Edition",
+    "summary": "A focused profile release that adds Ivrit Sheli 2.0 as verified full-stack product evidence, introduces an authentic responsive product tour, refines the KC star LT signature and preserves the recruiter-first hierarchy led by Nova Music Lab.",
     "focus": [
-      "NovaFit 4.2.0 recruiter-facing product tour with deterministic demonstration data",
-      "Clearer KC × LT handwritten identity across the banner and closing signature",
-      "Responsive static fallbacks for mobile and reduced-motion readers",
-      "Versioned release documentation, semantic validation and generated-output agreement"
+      "Ivrit Sheli 2.0 full-stack evidence with authentication, PostgreSQL, Docker, integration tests and structured logging",
+      "Authentic dashboard, mobile and Hebrew RTL product media with reduced-motion fallbacks",
+      "Clearer KC star LT handwritten identity across the banner, social cards and closing signature",
+      "Versioned release documentation, strict evidence validation and recruiter-first project ordering"
     ],
-    "public_data_boundary": "Only public repository facts and deterministic or synthetic demonstration visuals are included; no private wellness history, runtime database, secrets or personal exports are published."
+    "public_data_boundary": "Only public repository facts and deterministic or synthetic demonstration visuals are included; no private learning history, wellness history, runtime database, secrets, provider credentials or personal exports are published."
   },
   "identity": {
     "name": "Kevin Cusnir",
@@ -66,6 +66,44 @@
         "Lazy-loaded museum rooms and bundle budgets",
         "Fourteen themes, EN/ES UX, reduced-motion support and Hebrew resource tooling"
       ]
+    },
+    {
+      "name": "Ivrit Sheli",
+      "icon": "א",
+      "status": "Public v2.0.0 full-stack release · live deployment pending",
+      "problem": "Hebrew learners need focused practice, progress and multilingual guidance without surrendering private study data or depending on a fragile cloud service.",
+      "solution": "A dual-mode Hebrew learning platform that keeps a private SQLite path while adding authenticated PostgreSQL accounts, tenant isolation, a read-only public demo and a trilingual responsive PWA.",
+      "stack": "React 19 · TypeScript · FastAPI · PostgreSQL 17 · Alembic · Docker",
+      "evidence": "GitHub OAuth with PKCE, forced tenant RLS, redacted structured JSON logs, a non-root Docker image and 109 backend + 17 frontend = 126 passing tests",
+      "source": "https://github.com/LiriothTeltanion/IvritSheli",
+      "demo": null,
+      "role_signal": "Full-stack architecture · backend security · PostgreSQL ownership · integration testing · multilingual RTL UX",
+      "highlights": [
+        "Private local SQLite and authenticated PostgreSQL modes",
+        "Real PostgreSQL migration, persistence, session and cross-user isolation tests",
+        "English, Spanish and Hebrew interfaces with native RTL behavior",
+        "Read-only synthetic recruiter demo with provider calls disabled by default"
+      ],
+      "release_evidence": {
+        "version": "2.0.0",
+        "backend_tests": 109,
+        "frontend_tests": 17,
+        "total_tests": 126,
+        "test_report": "https://github.com/LiriothTeltanion/IvritSheli#test-everything"
+      },
+      "media": {
+        "animation": "assets/ivrit-sheli-product-tour.gif",
+        "static": "assets/ivrit-sheli-2-dashboard.png",
+        "mobile_static": "assets/ivrit-sheli-2-mobile.png",
+        "rtl_static": "assets/ivrit-sheli-2-hebrew-rtl.png",
+        "alt": "Ivrit Sheli 2.0 product tour moving from the responsive learning dashboard to the compact mobile experience and the Hebrew right-to-left workspace",
+        "static_alt": "Ivrit Sheli 2.0 dashboard with adaptive Hebrew learning, focused practice and authenticated cloud controls",
+        "mobile_alt": "Ivrit Sheli 2.0 compact mobile learning dashboard with clear navigation and focused-session controls",
+        "rtl_alt": "Ivrit Sheli 2.0 Hebrew interface rendered right to left with the synthetic demo learner workspace",
+        "description": "A concise tour of the real 2.0 interface shows the desktop learning command center, compact mobile navigation and native Hebrew RTL layout.",
+        "caption": "Ivrit Sheli 2.0 in motion:",
+        "public_data_boundary": "Every frame uses the repository's synthetic read-only demo learner; it contains no private study history, credential, token, provider result or production database record."
+      }
     },
     {
       "name": "NovaFit",
@@ -166,13 +204,18 @@
       "Express fundamentals",
       "REST APIs",
       "SQLite",
-      "PostgreSQL learning",
+      "PostgreSQL",
+      "FastAPI",
+      "Alembic",
       "JSON / CSV"
     ],
     "quality": [
       "Vitest",
       "Testing Library",
       "unittest",
+      "pytest",
+      "integration testing",
+      "structured logging",
       "GitHub Actions",
       "linting",
       "data audits",
@@ -181,6 +224,7 @@
     "workflow": [
       "Git",
       "GitHub",
+      "Docker",
       "Conventional Commits",
       "README-first documentation",
       "AI-assisted review with explicit verification"
@@ -189,23 +233,23 @@
   "evidence_counts": [
     {
       "label": "Featured products/case studies",
-      "value": 4
+      "value": 5
     },
     {
       "label": "React or TypeScript projects",
-      "value": 3
+      "value": 4
     },
     {
       "label": "Python evidence areas",
-      "value": 2
+      "value": 3
     },
     {
       "label": "Multilingual/accessibility projects (including RTL)",
-      "value": 3
+      "value": 4
     },
     {
       "label": "Automated quality pipelines",
-      "value": 3
+      "value": 4
     }
   ],
   "strengths": [
@@ -216,12 +260,10 @@
     "Local-first privacy decisions and proportional security claims"
   ],
   "growth": [
-    "Production backend architecture",
-    "PostgreSQL relational modeling and migrations",
-    "Authentication and role-based authorization",
-    "Docker-based development and deployment operations",
-    "Integration and end-to-end testing",
-    "Structured logging, monitoring and incident-ready thinking"
+    "Production monitoring, service-level objectives and alert design",
+    "PostgreSQL backup, restore and migration drills",
+    "Authorization, OAuth and browser-level end-to-end testing",
+    "Free-tier deployment, capacity and cost operations"
   ],
   "education": {
     "program": "Full-Stack Development — Developers Institute, Israel",
@@ -237,18 +279,18 @@
     },
     {
       "time": "2 minutes",
-      "action": "Open Nova Music Lab and NovaFit",
-      "evidence": "Frontend/data flagship plus complete Python desktop product"
+      "action": "Open Nova Music Lab and Ivrit Sheli",
+      "evidence": "Frontend/data flagship plus authenticated PostgreSQL full-stack product"
     },
     {
       "time": "5 minutes",
-      "action": "Inspect tests, CI, README architecture and recent commits",
-      "evidence": "Implementation depth, verification and delivery discipline"
+      "action": "Inspect tests, CI, security architecture and recent releases",
+      "evidence": "Implementation depth, tenant isolation, verification and delivery discipline"
     },
     {
       "time": "15 minutes",
-      "action": "Run NovaFit or explore the live music museum",
-      "evidence": "Real product behavior beyond screenshots"
+      "action": "Run Ivrit Sheli or NovaFit, or explore the live music museum",
+      "evidence": "Real product behavior, multilingual UX and persistence beyond screenshots"
     }
   ]
 }

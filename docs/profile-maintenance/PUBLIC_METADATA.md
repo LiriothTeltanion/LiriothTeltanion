@@ -10,7 +10,7 @@ reviewed GitHub update and a public verification pass.
 **Description**
 
 ```text
-Multilingual developer profile for Kevin Cusnir (Lirioth Teltanion), focused on React, TypeScript, accessible UI, local-first data products, and creative technology.
+Multilingual developer profile for Kevin Cusnir (Lirioth Teltanion): React, TypeScript, Python, PostgreSQL, accessible RTL UX, local-first products, and creative technology.
 ```
 
 **Website**
@@ -35,6 +35,11 @@ accessibility
 multilingual
 local-first
 creative-technology
+python
+postgresql
+fastapi
+docker
+rtl
 ```
 
 **Social preview after upload**
@@ -46,7 +51,7 @@ assets/social/profile-social-preview.png
 **Alt text**
 
 ```text
-Kevin Cusnir and the Lirioth Teltanion creative identity presented in a blue developer-profile card with React, TypeScript, Python, accessibility and multilingual product focus.
+Kevin Cusnir and the Lirioth Teltanion creative identity presented in a blue developer-profile card with React, TypeScript, Python, PostgreSQL, accessible RTL UX and multilingual product focus.
 ```
 
 **Public boundary**
@@ -88,6 +93,61 @@ github-pages
 ```text
 assets/social/novamusiclab-social-preview.png
 ```
+
+## `LiriothTeltanion/IvritSheli`
+
+**Description**
+
+```text
+Ivrit Sheli 2.0 is a trilingual Hebrew-learning PWA with GitHub OAuth, FastAPI, PostgreSQL/RLS, Docker, structured logging and 126 tests.
+```
+
+**Website**
+
+Leave the website empty while deployment is pending. Add the verified Railway
+HTTPS URL only after `/health/ready`, `/version`, the read-only demo and GitHub
+OAuth callback work publicly. The public repository URL is source evidence, not
+a substitute live-product URL.
+
+**Topics**
+
+```text
+hebrew-learning
+full-stack
+react
+typescript
+fastapi
+postgresql
+docker
+github-oauth
+row-level-security
+integration-testing
+structured-logging
+internationalization
+rtl
+accessibility
+local-first
+pwa
+```
+
+**Social preview after upload**
+
+```text
+assets/social/ivrit-sheli-social-preview.png
+```
+
+**Alt text**
+
+```text
+Ivrit Sheli 2.0 product card showing a trilingual Hebrew-learning workspace with GitHub OAuth, PostgreSQL tenant isolation, Docker, structured logging and 126 passing tests.
+```
+
+**Public boundary**
+
+The preview and profile tour use the shared read-only demonstration experience
+and synthetic learner records. They contain no private learning history,
+provider token, secret, runtime database or personal export. Deployment-ready
+source must not be labeled live until the real service passes public QA.
 
 ## `LiriothTeltanion/NovaFit`
 
@@ -211,9 +271,13 @@ assets/social/fullstack2026-social-preview.png
 Use this order so the strongest working evidence appears first:
 
 1. `NovaMusicLab` — live frontend and data flagship.
-2. `NovaFit` — complete Python desktop and SQLite product.
-3. `ChristopherRodriguezCVOnline` — accessible real-world collaboration.
-4. `Fullstack2026` — transparent learning progression.
+2. `IvritSheli` — deployment-ready authenticated full-stack product.
+3. `NovaFit` — complete Python desktop and SQLite product.
+4. `ChristopherRodriguezCVOnline` — accessible real-world collaboration.
+
+Keep `Fullstack2026` public and linked from the README as transparent learning
+progression, but outside the top four pins now that stronger product evidence is
+available.
 
 Unpin the profile repository itself; its README is already the page recruiters
 are viewing and that pin currently consumes a higher-value project slot.
@@ -223,8 +287,10 @@ are viewing and that pin currently consumes a higher-value project slot.
 1. Obtain Kevin's explicit final publish approval.
 2. Commit and push the validated local profile changes.
 3. Update each About panel with the exact description, website and topics above.
+   Leave Ivrit's website empty until its live deployment is verified.
 4. Upload the matching 1280 x 640 PNG under **Settings → General → Social preview**.
-5. Reorder the four profile pins and unpin the profile repository.
+5. Reorder the four profile pins to Nova Music Lab, Ivrit Sheli, NovaFit and
+   Christopher Rodríguez Portfolio, then unpin the profile repository.
 6. Refresh every public repository in a signed-out window and confirm the
    descriptions, preview crops, working websites and pin order.
 
