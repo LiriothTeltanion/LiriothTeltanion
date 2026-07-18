@@ -99,15 +99,16 @@ feat(profile): synchronize verified Ivrit 2.2 evidence
 - Keep the OAuth limitation explicit: consent and cancellation are verified,
   but final code exchange, session refresh and logout remain pending E2E.
 - Confirm the Ivrit deployment, Git tag and GitHub Release all agree on v2.2.0;
-  keep that product release separate from the published Profile v2.3.0 release.
-- Keep Ivrit GIF/PNG interface media labeled as archived 2.1.x evidence until
-  fresh desktop/mobile/RTL 2.2 captures pass visual QA.
+  keep that product release separate from the Profile v2.4.0 release.
+- Confirm the profile-owned Ivrit GIF/PNG media remains labeled 2.2.0 and the
+  desktop/mobile/RTL captures retain their reviewed public-data boundary.
 - Confirm NovaFit v4.2.0, its 124-test count, 12 themes and 58-asset manifest
   remain synchronized.
 - Validate all GIF/SVG/PNG assets, responsive fallbacks and reduced-motion
   behavior on desktop, narrow/mobile and GitHub-rendered views.
-- Confirm `profile_version`, released tag metadata, changelog and GitHub Release
-  all agree on `2.3.0` / `v2.3.0`.
+- For every future publication, confirm `profile_version`, tag metadata and
+  changelog agree; change status to `released` only in the exact explicitly
+  approved release commit.
 - Pin Nova Music Lab, Ivrit Sheli, NovaFit, Christopher Portfolio and CV in that
   order. Keep Fullstack2026 public as learning evidence but outside the pins.
 - Unpin the profile repository itself.

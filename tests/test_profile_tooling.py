@@ -141,7 +141,7 @@ class ProfileDataValidationTests(unittest.TestCase):
         data = copy.deepcopy(self.valid_data)
         data["release"]["tag"] = "v2.0.0"
 
-        with self.assertRaisesRegex(ValueError, r"release\.tag.*v2\.3\.1"):
+        with self.assertRaisesRegex(ValueError, r"release\.tag.*v2\.4\.0"):
             self.load(data)
 
     def test_release_prepared_date_must_be_iso_calendar_date(self) -> None:
@@ -292,7 +292,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
 
         self.assertLessEqual(len(content.splitlines()), 300)
         for expected in (
-            "profile-version: 2.3.1",
+            "profile-version: 2.4.0",
             "profile-banner-mobile-static.svg",
             "nova-music-live-preview-mobile.jpg",
             "nova-music-journey-static.svg",
@@ -322,8 +322,8 @@ class GeneratedProfileContractTests(unittest.TestCase):
             "Railway production",
             "PostgreSQL 17 ready",
             "Verified v2.2.0 evidence",
-            "Archived Ivrit Sheli 2.1.x interface",
-            "not visual proof of the live 2.2.0 interface",
+            "Ivrit Sheli 2.2.0 live interface",
+            "passed fresh desktop, mobile and Hebrew RTL browser QA",
             "final live authorization-code exchange",
             "deployment, Git tag and GitHub Release now agree on v2.2.0",
             "https://ivritsheli-production.up.railway.app",
@@ -356,7 +356,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
             f"release-title: {release['title']} -->"
         )
 
-        self.assertEqual(version, "2.3.1")
+        self.assertEqual(version, "2.4.0")
         self.assertEqual(release["tag"], f"v{version}")
         self.assertEqual(release["status"], "released")
         for mode in ("compact", "expanded"):
@@ -862,13 +862,18 @@ class ExternalLinkAuditTests(unittest.TestCase):
             source.write_text(
                 "[one](https://example.com/path)\n"
                 '"https://example.com/path"\n'
+                "`https://example.net/profile/`\n"
                 "[two](https://example.org/demo/).\n",
                 encoding="utf-8",
             )
 
             self.assertEqual(
                 check_external_links.extract_urls([source]),
-                ["https://example.com/path", "https://example.org/demo/"],
+                [
+                    "https://example.com/path",
+                    "https://example.net/profile/",
+                    "https://example.org/demo/",
+                ],
             )
 
     def test_status_classification_fails_only_convincing_client_errors(self) -> None:

@@ -143,14 +143,66 @@ class IvritSheliSyncTests(unittest.TestCase):
             updated_ivrit["portfolio_sync"]["release_state"],
             "published-and-deployed",
         )
-        self.assertEqual(updated_ivrit["media"]["version"], "2.1.x")
-        self.assertFalse(updated_ivrit["media"]["current_release_visual_proof"])
+        self.assertEqual(updated_ivrit["media"]["version"], "2.2.0")
+        self.assertTrue(updated_ivrit["media"]["current_release_visual_proof"])
 
         readme = build_profile.render_profile(updated, "compact")
         self.assertIn("139 backend + 48 frontend = 187 passing tests", readme)
         self.assertIn("PostgreSQL 17 ready", readme)
-        self.assertIn("not visual proof of the live 2.2.0 interface", readme)
+        self.assertIn("passed fresh desktop, mobile and Hebrew RTL browser QA", readme)
         self.assertIn("final live authorization-code exchange", readme)
+
+    def test_partial_upstream_manifest_cannot_regress_current_profile_media(self) -> None:
+        source_profile = copy.deepcopy(self.profile)
+        source_ivrit = next(
+            project
+            for project in source_profile["projects"]
+            if project["name"] == "Ivrit Sheli"
+        )
+        expected_media = copy.deepcopy(source_ivrit["media"])
+
+        updated = sync_ivrit_sheli.apply_manifest(source_profile, valid_manifest())
+        updated_ivrit = next(
+            project for project in updated["projects"] if project["name"] == "Ivrit Sheli"
+        )
+
+        self.assertEqual(updated_ivrit["media"], expected_media)
+        self.assertEqual(updated_ivrit["portfolio_sync"]["visual_proof_state"], "partial")
+
+    def test_current_upstream_manifest_is_schema_valid_and_keeps_reviewed_media(self) -> None:
+        manifest = valid_manifest()
+        manifest["visual_proof"] = {
+            "state": "current",
+            "social_preview_version": "2.2.0",
+            "readme_screenshot_version": "2.2.0",
+            "readme_screenshots_match_live_version": True,
+            "live_2_2_interactive_browser_qa": "verified",
+        }
+
+        updated = sync_ivrit_sheli.apply_manifest(self.profile, manifest)
+        updated_ivrit = next(
+            project for project in updated["projects"] if project["name"] == "Ivrit Sheli"
+        )
+
+        self.assertEqual(updated_ivrit["portfolio_sync"]["visual_proof_state"], "current")
+        self.assertTrue(updated_ivrit["media"]["current_release_visual_proof"])
+        self.assertEqual(updated_ivrit["media"]["version"], "2.2.0")
+
+    def test_new_same_version_production_commit_expires_profile_captures(self) -> None:
+        manifest = valid_manifest()
+        manifest["deployment"]["production_commit"] = "a" * 40
+
+        updated = sync_ivrit_sheli.apply_manifest(self.profile, manifest)
+        updated_ivrit = next(
+            project for project in updated["projects"] if project["name"] == "Ivrit Sheli"
+        )
+
+        self.assertFalse(updated_ivrit["media"]["current_release_visual_proof"])
+        self.assertIn("not visual proof", updated_ivrit["media"]["alt"])
+        self.assertEqual(
+            updated_ivrit["media"]["captured_release_commit"],
+            "c8c928661bdcf179ed1d9df88b9f2e4d730ffea3",
+        )
 
     def test_manifest_rejects_unknown_fields_injection_and_identity_drift(self) -> None:
         extra = valid_manifest()
@@ -208,6 +260,15 @@ class IvritSheliSyncTests(unittest.TestCase):
         incoming = sync_ivrit_sheli.validate_manifest(incoming)
 
         with self.assertRaisesRegex(ValueError, "regress.*publication state"):
+            sync_ivrit_sheli.prevent_publication_regression(reviewed, incoming)
+
+    def test_same_version_remote_cannot_replace_reviewed_production_commit(self) -> None:
+        reviewed = sync_ivrit_sheli.validate_manifest(valid_manifest())
+        incoming = valid_manifest()
+        incoming["deployment"]["production_commit"] = "b" * 40
+        incoming = sync_ivrit_sheli.validate_manifest(incoming)
+
+        with self.assertRaisesRegex(ValueError, "reviewed same-version production commit"):
             sync_ivrit_sheli.prevent_publication_regression(reviewed, incoming)
 
     def test_write_then_offline_check_detects_readme_drift(self) -> None:

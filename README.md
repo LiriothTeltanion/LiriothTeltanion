@@ -1,4 +1,4 @@
-<!-- profile-version: 2.3.1; release-tag: v2.3.1; release-title: Profile 2.3.1 — Release Integrity & Review-Gated Automation Patch -->
+<!-- profile-version: 2.4.0; release-tag: v2.4.0; release-title: Profile 2.4.0 — Recruiter Visual Evidence Edition -->
 
 <a id="top"></a>
 <div align="center">
@@ -83,24 +83,24 @@ Five import families become one deduplicated, source-aware listening history. Mi
 
 **Status:** Live v2.2.0 dual-mode full-stack product · **Stack:** React 19 · TypeScript · FastAPI · Python · PostgreSQL 17 · SQLite · Alembic · Docker · Railway<br>
 **Problem → solution:** Hebrew learners need focused practice, progress and multilingual guidance without surrendering private study data or depending on a fragile cloud service. A private-first trilingual Hebrew-learning product with local SQLite, authenticated PostgreSQL, native RTL, accessible motion and a synthetic read-only public demo.<br>
-**Evidence:** Verified Railway production and PostgreSQL readiness at commit c8c928661bdc, with 139 backend + 48 frontend = 187 passing tests; GitHub OAuth consent handoff and cancellation are verified, while final live code exchange, session refresh and logout remain unverified end to end · **Role signal:** Full-stack architecture · backend security · PostgreSQL ownership · integration testing · multilingual RTL UX<br>
+**Evidence:** Verified Railway production and PostgreSQL readiness for release baseline c8c928661bdc, with 139 backend + 48 frontend = 187 passing tests; GitHub OAuth consent handoff and cancellation are verified, while final live code exchange, session refresh and logout remain unverified end to end · **Role signal:** Full-stack architecture · backend security · PostgreSQL ownership · integration testing · multilingual RTL UX<br>
 [Open Ivrit Sheli live demo](https://ivritsheli-production.up.railway.app) · [Ivrit Sheli source](https://github.com/LiriothTeltanion/IvritSheli)
 
 <details>
-<summary><strong>א Open the archived Ivrit Sheli 2.1.x product tour and verified 2.2.0 full-stack proof</strong></summary>
-<p><strong>Public-data boundary:</strong> Every frame uses the repository's synthetic read-only demo learner; it contains no private study history, credential, token, provider result or production database record.</p>
-<p><strong>Visual evidence boundary:</strong> these 2.1.x screens are interaction history, not visual proof of the live 2.2.0 interface.</p>
+<summary><strong>א Open the current Ivrit Sheli 2.2.0 product tour and verified full-stack proof</strong></summary>
+<p><strong>Public-data boundary:</strong> The sanitized live captures use Kevin's isolated account and show his already-public name/avatar plus default recommendations (12 words, one oral practice and 10 minutes); they contain no private study history, credential, token, provider result or production database record.</p>
+<p><strong>Visual evidence boundary:</strong> These profile-owned captures passed fresh desktop, mobile and Hebrew RTL browser QA on 2026-07-18 against the live 2.2.0 interface at runtime build 66d68a3c44ac, using release baseline c8c928661bdc. The upstream project manifest remains independently review-gated.</p>
 <picture>
   <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/ivrit-sheli-2-mobile.png" />
   <source media="(max-width: 640px)" srcset="./assets/ivrit-sheli-2-mobile.png" />
   <source media="(prefers-reduced-motion: reduce)" srcset="./assets/ivrit-sheli-2-dashboard.png" />
-  <img src="./assets/ivrit-sheli-product-tour.gif" width="100%" alt="Archived Ivrit Sheli 2.1.x product tour moving from the responsive learning dashboard to mobile and Hebrew RTL views; these frames are not visual proof of the live 2.2.0 interface" />
+  <img src="./assets/ivrit-sheli-product-tour.gif" width="100%" alt="Current Ivrit Sheli 2.2.0 live product tour showing the responsive Spanish dashboard, compact mobile layout and fully mirrored Hebrew right-to-left interface" />
 </picture>
-<p><strong>Archived Ivrit Sheli 2.1.x interface:</strong> These pre-2.2 frames document the earlier desktop, mobile and Hebrew RTL interface. They remain useful interaction history but do not claim visual proof of the verified live 2.2.0 deployment.</p>
+<p><strong>Ivrit Sheli 2.2.0 live interface:</strong> Fresh browser QA of the verified live 2.2.0 deployment documents desktop, 390-pixel mobile and Hebrew RTL behavior. The animation is assembled from those current captures and keeps a static reduced-motion path.</p>
 <p><strong>Verified v2.2.0 evidence:</strong> 139 backend + 48 frontend = 187 passing tests · Railway production · PostgreSQL 17 ready · live/ready health checks true · production commit <code>c8c928661bdc</code> · tenant RLS · Alembic · non-root Docker · redacted structured JSON logs.</p>
 <p><strong>OAuth boundary:</strong> Consent handoff and cancellation are verified; the final live authorization-code exchange, authenticated refresh persistence and logout are not verified end to end.</p>
 <p><strong>Publication boundary:</strong> the verified deployment, Git tag and GitHub Release now agree on v2.2.0.</p>
-<p><a href="https://github.com/LiriothTeltanion/IvritSheli">Inspect the Ivrit Sheli source</a> · <a href="https://github.com/LiriothTeltanion/IvritSheli/blob/main/TEST_REPORT.md">Review the test contract</a> · <a href="./data/project-snapshots/ivrit-sheli.json">Inspect the reviewed project snapshot</a> · <a href="./assets/ivrit-sheli-2-hebrew-rtl.png">Open the archived Hebrew RTL frame</a> · <a href="https://ivritsheli-production.up.railway.app">Open verified live deployment</a></p>
+<p><a href="https://github.com/LiriothTeltanion/IvritSheli">Inspect the Ivrit Sheli source</a> · <a href="https://github.com/LiriothTeltanion/IvritSheli/blob/main/TEST_REPORT.md">Review the test contract</a> · <a href="./data/project-snapshots/ivrit-sheli.json">Inspect the reviewed upstream project snapshot</a> · <a href="./assets/ivrit-sheli-2-hebrew-rtl.png">Open the current Hebrew RTL frame</a> · <a href="https://ivritsheli-production.up.railway.app">Open verified live deployment</a></p>
 </details>
 
 ### 💙 NovaFit

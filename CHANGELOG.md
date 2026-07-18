@@ -5,6 +5,40 @@ The profile follows Semantic Versioning: major for a structural identity or
 presentation generation, minor for a contained feature or visual upgrade, and
 patch for a narrow correction.
 
+## [2.4.0] — 2026-07-18 · Recruiter Visual Evidence Edition — released
+
+### Added
+
+- Fresh live Ivrit Sheli 2.2.0 desktop, 390-pixel mobile and Hebrew RTL
+  captures, inspected against the deployed Railway interface.
+- A current 2.2 social-preview SVG/PNG pair with the verified 187-test claim.
+- Regression coverage that keeps stronger profile-owned visual evidence when
+  the independently review-gated upstream manifest still reports older media.
+- Live deployment evidence records Railway runtime build `66d68a3c44ac` and its
+  verified release application baseline `c8c928661bdc`; captures carry both
+  commit provenance and the visual-QA date.
+
+### Improved
+
+- Corrected the external-link extractor so Markdown inline-code backticks can
+  no longer create false 404 results for verified public profile URLs.
+- Rebuilt the Ivrit product-tour GIF from three current live frames at a much
+  smaller payload while retaining static reduced-motion fallbacks.
+- Reduced the NovaFit tour from 3,914,571 to 548,594 bytes while preserving its
+  960 x 595 canvas, nine-second duration and five core recruiter-facing scenes.
+- Updated English, Spanish and Hebrew visual-evidence wording without changing
+  the honest OAuth exchange, session-refresh or logout boundary.
+- Published independently versioned visual upgrades for CV 1.1.0, Christopher
+  Rodríguez Portfolio 1.1.0 and Fullstack2026 1.1.1, including the latter's
+  forward security correction after its initial 1.1.0 release.
+
+### Release status
+
+- Published as the stable `v2.4.0` GitHub Release from the exact finalized and
+  validated release commit after Kevin's explicit approval.
+- Applied and publicly verified repository descriptions, websites and topics,
+  seven 1280 x 640 social previews and the fourth Exophase account link.
+
 ## [2.3.1] — 2026-07-18 · Release Integrity & Review-Gated Automation Patch
 
 ### Release status

@@ -21,6 +21,9 @@ class ReleaseIntegrityVerifierTests(unittest.TestCase):
         cls.powershell = shutil.which("powershell") or shutil.which("pwsh")
         if cls.powershell is None:
             raise unittest.SkipTest("PowerShell is required for release-integrity tests.")
+        profile = json.loads((ROOT / "profile.json").read_text(encoding="utf-8"))
+        cls.profile_version = profile["profile_version"]
+        cls.release_tag = f"v{cls.profile_version}"
 
     def git(self, repository: Path, *arguments: str) -> subprocess.CompletedProcess[str]:
         return subprocess.run(
@@ -65,9 +68,16 @@ class ReleaseIntegrityVerifierTests(unittest.TestCase):
 
     def tag(self, repository: Path, *, annotated: bool) -> None:
         if annotated:
-            self.git(repository, "tag", "-a", "v2.3.1", "-m", "Profile 2.3.1")
+            self.git(
+                repository,
+                "tag",
+                "-a",
+                self.release_tag,
+                "-m",
+                f"Profile {self.profile_version}",
+            )
         else:
-            self.git(repository, "tag", "v2.3.1")
+            self.git(repository, "tag", self.release_tag)
 
     def verify(self, repository: Path) -> subprocess.CompletedProcess[str]:
         return subprocess.run(
@@ -96,7 +106,7 @@ class ReleaseIntegrityVerifierTests(unittest.TestCase):
             result = self.verify(repository)
 
         self.assertEqual(result.returncode, 0, msg=result.stdout + result.stderr)
-        self.assertIn("local tag 'v2.3.1' is available", result.stdout)
+        self.assertIn(f"local tag '{self.release_tag}' is available", result.stdout)
 
     def test_candidate_cannot_reuse_existing_tag(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -105,7 +115,9 @@ class ReleaseIntegrityVerifierTests(unittest.TestCase):
             result = self.verify(repository)
 
         self.assertNotEqual(result.returncode, 0)
-        self.assertIn("cannot reuse the existing local tag 'v2.3.1'", result.stdout)
+        self.assertIn(
+            f"cannot reuse the existing local tag '{self.release_tag}'", result.stdout
+        )
 
     def test_released_profile_requires_a_tag(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -113,7 +125,10 @@ class ReleaseIntegrityVerifierTests(unittest.TestCase):
             result = self.verify(repository)
 
         self.assertNotEqual(result.returncode, 0)
-        self.assertIn("requires the matching annotated local tag 'v2.3.1'", result.stdout)
+        self.assertIn(
+            f"requires the matching annotated local tag '{self.release_tag}'",
+            result.stdout,
+        )
 
     def test_released_profile_rejects_lightweight_tag(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -159,7 +174,9 @@ class ReleaseIntegrityVerifierTests(unittest.TestCase):
             result = self.verify(repository)
 
         self.assertEqual(result.returncode, 0, msg=result.stdout + result.stderr)
-        self.assertIn("Release integrity confirmed: annotated v2.3.1", result.stdout)
+        self.assertIn(
+            f"Release integrity confirmed: annotated {self.release_tag}", result.stdout
+        )
 
 
 if __name__ == "__main__":

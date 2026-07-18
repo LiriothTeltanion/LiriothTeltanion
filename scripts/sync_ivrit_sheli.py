@@ -461,6 +461,7 @@ def apply_manifest(profile: Mapping[str, Any], manifest: Mapping[str, Any]) -> d
         raise ValueError("Profile must contain exactly one canonical Ivrit Sheli project.")
 
     project = matches[0]
+    existing_media = copy.deepcopy(project.get("media"))
     tests = validated["tests"]
     deployment = validated["deployment"]
     publication = validated["publication"]
@@ -473,7 +474,7 @@ def apply_manifest(profile: Mapping[str, Any], manifest: Mapping[str, Any]) -> d
     project["stack"] = " · ".join(validated["stack"])
     project["demo"] = validated["demo_url"]
     project["evidence"] = (
-        f"Verified Railway production and PostgreSQL readiness at commit "
+        f"Verified Railway production and PostgreSQL readiness for release baseline "
         f"{deployment['production_commit'][:12]}, with {tests['backend_unique']} backend + "
         f"{tests['frontend']} frontend = {tests['total_unique']} passing tests; GitHub OAuth "
         "consent handoff and cancellation are verified, while final live code exchange, "
@@ -531,40 +532,45 @@ def apply_manifest(profile: Mapping[str, Any], manifest: Mapping[str, Any]) -> d
         "logout_verified": oauth["logout_verified"],
         "oauth_boundary": oauth["boundary"],
     }
-    media = project.get("media")
-    if not isinstance(media, dict):
+    if not isinstance(existing_media, dict):
         raise ValueError("Canonical Ivrit Sheli project must retain its media mapping.")
-    media.update(
-        {
-            "version": visual["readme_screenshot_version"],
-            "current_release_visual_proof": visual[
-                "readme_screenshots_match_live_version"
-            ],
-            "alt": (
-                "Archived Ivrit Sheli 2.1.x product tour moving from the responsive "
-                "learning dashboard to mobile and Hebrew RTL views; these frames are "
-                "not visual proof of the live 2.2.0 interface"
-            ),
-            "static_alt": (
-                "Archived Ivrit Sheli 2.1.x dashboard with adaptive Hebrew learning "
-                "and authenticated cloud controls"
-            ),
-            "mobile_alt": (
-                "Archived Ivrit Sheli 2.1.x compact mobile dashboard with focused "
-                "learning navigation"
-            ),
-            "rtl_alt": (
-                "Archived Ivrit Sheli 2.1.x Hebrew right-to-left workspace using the "
-                "synthetic demo learner"
-            ),
-            "description": (
-                "These pre-2.2 frames document the earlier desktop, mobile and Hebrew "
-                "RTL interface. They remain useful interaction history but do not claim "
-                "visual proof of the verified live 2.2.0 deployment."
-            ),
-            "caption": "Archived Ivrit Sheli 2.1.x interface:",
-        }
+    project["media"] = existing_media
+    media = project["media"]
+    retain_current_profile_media = (
+        existing_media.get("current_release_visual_proof") is True
+        and existing_media.get("version") == live_version
+        and existing_media.get("captured_release_commit")
+        == deployment["production_commit"]
     )
+    if media.get("current_release_visual_proof") is True and not retain_current_profile_media:
+        media.update(
+            {
+                "current_release_visual_proof": False,
+                "alt": (
+                    f"Archived Ivrit Sheli {media['version']} product tour captured at "
+                    f"runtime build {media['captured_runtime_commit'][:12]}; these frames are "
+                    f"not visual proof of the live {live_version} deployment at commit "
+                    f"{deployment['production_commit'][:12]}"
+                ),
+                "static_alt": (
+                    f"Archived Ivrit Sheli {media['version']} responsive learning dashboard"
+                ),
+                "mobile_alt": (
+                    f"Archived Ivrit Sheli {media['version']} compact "
+                    "mobile learning dashboard"
+                ),
+                "rtl_alt": (
+                    f"Archived Ivrit Sheli {media['version']} Hebrew "
+                    "right-to-left workspace"
+                ),
+                "description": (
+                    f"These frames document the deployment captured on "
+                    f"{media['captured_on']} and do not claim visual proof of the newer "
+                    f"production commit {deployment['production_commit'][:12]}."
+                ),
+                "caption": f"Archived Ivrit Sheli {media['version']} interface:",
+            }
+        )
     build_profile._validate_profile_data(updated)
     return updated
 
@@ -600,7 +606,7 @@ def _load_source(args: argparse.Namespace) -> dict[str, Any]:
 def prevent_publication_regression(
     reviewed: Mapping[str, Any], incoming: Mapping[str, Any]
 ) -> None:
-    """Reject a same-version remote manifest that loses reviewed publication proof."""
+    """Reject same-version remote evidence that contradicts reviewed deployment proof."""
     reviewed_publication = _mapping(reviewed.get("publication"), "reviewed.publication")
     incoming_publication = _mapping(incoming.get("publication"), "incoming.publication")
     if reviewed.get("source_version") != incoming.get("source_version"):
@@ -614,6 +620,16 @@ def prevent_publication_regression(
     if incoming_rank < reviewed_rank:
         raise ValueError(
             "Remote manifest would regress the reviewed same-version publication state."
+        )
+    reviewed_deployment = _mapping(reviewed.get("deployment"), "reviewed.deployment")
+    incoming_deployment = _mapping(incoming.get("deployment"), "incoming.deployment")
+    if (
+        reviewed_deployment.get("production_commit")
+        != incoming_deployment.get("production_commit")
+    ):
+        raise ValueError(
+            "Remote manifest would replace the reviewed same-version production commit; "
+            "publish a new Ivrit semantic version or perform an explicit evidence review."
         )
 
 

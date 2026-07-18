@@ -1,20 +1,20 @@
 {
-  "profile_version": "2.3.1",
+  "profile_version": "2.4.0",
   "release": {
-    "title": "Profile 2.3.1 — Release Integrity & Review-Gated Automation Patch",
-    "tag": "v2.3.1",
+    "title": "Profile 2.4.0 — Recruiter Visual Evidence Edition",
+    "tag": "v2.4.0",
     "status": "released",
     "prepared_on": "2026-07-18",
-    "baseline": "Profile 2.3 — Verified Ivrit Synchronization Edition",
-    "summary": "A narrow governance patch that repairs release-state drift, makes scheduled project synchronization detection-only and codifies Kevin's read-only, versioning, beta/stable and publication boundaries.",
+    "baseline": "Profile 2.3.1 — Release Integrity & Review-Gated Automation Patch",
+    "summary": "A recruiter-facing visual refresh with current Ivrit Sheli 2.2 desktop, mobile and Hebrew RTL proof, lighter motion assets and synchronized portfolio evidence across Kevin's featured work.",
     "focus": [
-      "Forward-only repair for the Profile 2.3 tag and finalized-metadata mismatch",
-      "Read-only scheduled Ivrit Sheli and NovaFit manifest drift detection",
-      "Explicit read-only and GO authority boundaries for Codex work",
-      "Deliberate Semantic Versioning and exact-tag release verification",
-      "Stable public releases with labeled beta and preview experimentation in non-critical contexts"
+      "Current live Ivrit Sheli 2.2 desktop, mobile and Hebrew RTL visual evidence",
+      "Smaller recruiter-facing animations with static reduced-motion fallbacks",
+      "Versioned CV, learning archive and collaboration-case-study presentation",
+      "Reproducible social-preview assets ready for explicit GitHub upload",
+      "Stable public claims with honest OAuth, privacy and release boundaries"
     ],
-    "public_data_boundary": "Only public repository facts and deterministic or synthetic demonstration visuals are included; no private learning history, wellness history, runtime database, secrets, provider credentials or personal exports are published."
+    "public_data_boundary": "Only public repository facts, deterministic or synthetic demonstration visuals and reviewed sanitized live captures are included; no private learning history, wellness history, runtime database record, secret, provider credential or personal export is published."
   },
   "identity": {
     "name": "Kevin Cusnir",
@@ -75,7 +75,7 @@
       "problem": "Hebrew learners need focused practice, progress and multilingual guidance without surrendering private study data or depending on a fragile cloud service.",
       "solution": "A private-first trilingual Hebrew-learning product with local SQLite, authenticated PostgreSQL, native RTL, accessible motion and a synthetic read-only public demo.",
       "stack": "React 19 · TypeScript · FastAPI · Python · PostgreSQL 17 · SQLite · Alembic · Docker · Railway",
-      "evidence": "Verified Railway production and PostgreSQL readiness at commit c8c928661bdc, with 139 backend + 48 frontend = 187 passing tests; GitHub OAuth consent handoff and cancellation are verified, while final live code exchange, session refresh and logout remain unverified end to end",
+      "evidence": "Verified Railway production and PostgreSQL readiness for release baseline c8c928661bdc, with 139 backend + 48 frontend = 187 passing tests; GitHub OAuth consent handoff and cancellation are verified, while final live code exchange, session refresh and logout remain unverified end to end",
       "source": "https://github.com/LiriothTeltanion/IvritSheli",
       "demo": "https://ivritsheli-production.up.railway.app",
       "role_signal": "Full-stack architecture · backend security · PostgreSQL ownership · integration testing · multilingual RTL UX",
@@ -97,15 +97,18 @@
         "static": "assets/ivrit-sheli-2-dashboard.png",
         "mobile_static": "assets/ivrit-sheli-2-mobile.png",
         "rtl_static": "assets/ivrit-sheli-2-hebrew-rtl.png",
-        "alt": "Archived Ivrit Sheli 2.1.x product tour moving from the responsive learning dashboard to mobile and Hebrew RTL views; these frames are not visual proof of the live 2.2.0 interface",
-        "static_alt": "Archived Ivrit Sheli 2.1.x dashboard with adaptive Hebrew learning and authenticated cloud controls",
-        "mobile_alt": "Archived Ivrit Sheli 2.1.x compact mobile dashboard with focused learning navigation",
-        "rtl_alt": "Archived Ivrit Sheli 2.1.x Hebrew right-to-left workspace using the synthetic demo learner",
-        "description": "These pre-2.2 frames document the earlier desktop, mobile and Hebrew RTL interface. They remain useful interaction history but do not claim visual proof of the verified live 2.2.0 deployment.",
-        "caption": "Archived Ivrit Sheli 2.1.x interface:",
-        "public_data_boundary": "Every frame uses the repository's synthetic read-only demo learner; it contains no private study history, credential, token, provider result or production database record.",
-        "version": "2.1.x",
-        "current_release_visual_proof": false
+        "alt": "Current Ivrit Sheli 2.2.0 live product tour showing the responsive Spanish dashboard, compact mobile layout and fully mirrored Hebrew right-to-left interface",
+        "static_alt": "Current Ivrit Sheli 2.2.0 live Spanish dashboard with cloud mode, responsive navigation and default learning recommendations",
+        "mobile_alt": "Current Ivrit Sheli 2.2.0 live compact mobile dashboard at a 390-pixel viewport",
+        "rtl_alt": "Current Ivrit Sheli 2.2.0 live Hebrew right-to-left dashboard with mirrored navigation and layout",
+        "description": "Fresh browser QA of the verified live 2.2.0 deployment documents desktop, 390-pixel mobile and Hebrew RTL behavior. The animation is assembled from those current captures and keeps a static reduced-motion path.",
+        "caption": "Ivrit Sheli 2.2.0 live interface:",
+        "public_data_boundary": "The sanitized live captures use Kevin's isolated account and show his already-public name/avatar plus default recommendations (12 words, one oral practice and 10 minutes); they contain no private study history, credential, token, provider result or production database record.",
+        "captured_on": "2026-07-18",
+        "captured_release_commit": "c8c928661bdcf179ed1d9df88b9f2e4d730ffea3",
+        "captured_runtime_commit": "66d68a3c44ac2500fb400eef88d5f77da0c1c1e1",
+        "version": "2.2.0",
+        "current_release_visual_proof": true
       },
       "portfolio_sync": {
         "schema": "ivrit-sheli-portfolio-project-v1",

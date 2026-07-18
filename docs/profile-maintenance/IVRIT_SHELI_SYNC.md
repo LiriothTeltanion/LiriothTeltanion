@@ -30,6 +30,10 @@ fails on drift without writing, committing or pushing. The fallback never turns
 invalid remote data into an accepted update. A same-version remote payload also
 cannot regress a reviewed `published-and-deployed` state while an upstream
 publication-sync change is propagating.
+The reviewed snapshot also rejects a different production commit under the same
+Ivrit semantic version. That situation requires an explicit evidence review or
+a new Ivrit version; scheduled automation cannot silently redefine which build
+the live proof belongs to.
 
 ## Current verified contract
 
@@ -38,11 +42,13 @@ publication-sync change is propagating.
 | Source and live version | `2.2.0` |
 | Tests | 139 backend + 48 frontend = 187 unique tests |
 | Live service | Railway production at `https://ivritsheli-production.up.railway.app` |
-| Production commit | `c8c928661bdcf179ed1d9df88b9f2e4d730ffea3` |
+| Release application baseline | `c8c928661bdcf179ed1d9df88b9f2e4d730ffea3` |
+| Live runtime build observed during visual QA | `66d68a3c44ac2500fb400eef88d5f77da0c1c1e1` (release-synchronization documentation commit; application UI baseline unchanged) |
 | Readiness | live, ready, PostgreSQL and dictionary checks true |
 | Publication | deployment, Git tag and GitHub Release all `v2.2.0` |
 | OAuth | consent/cancellation verified; final exchange, session refresh and logout not verified E2E |
-| README interface media | archived `2.1.x`; not visual proof of the live 2.2.0 UI |
+| Profile-owned interface media | current `2.2.0`; live desktop, 390 px mobile and Hebrew RTL browser QA passed on 2026-07-18 |
+| Upstream manifest visual state | conservatively `partial` / `2.1.x`; independently review-gated and not allowed to regress stronger same-version profile-owned captures |
 
 ## Managed outputs
 
@@ -56,6 +62,10 @@ canonical Ivrit Sheli project plus these deterministic generated outputs:
 
 It does not rewrite Kevin's identity, Nova Music Lab, NovaFit, localized prose,
 assets, repository settings, tags, releases or deployment configuration.
+When profile-owned media has already passed current-version browser QA, a
+same-version upstream manifest with older visual metadata cannot downgrade that
+local evidence. A future live-version advance naturally expires that exception
+until a matching capture set is reviewed.
 Spanish and Hebrew remain human-written, then the localized validator checks
 their canonical fact marker and visible Ivrit version/test/deployment tokens.
 

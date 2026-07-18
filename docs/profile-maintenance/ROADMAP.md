@@ -149,6 +149,23 @@ independently managed.
 This is a narrow release-integrity and automation-safety correction with no
 presentation expansion, so the profile increments from 2.3.0 to 2.3.1.
 
+## Profile 2.4.0 — Recruiter Visual Evidence Edition — released
+
+- Replace the archived Ivrit Sheli 2.1.x tour with current live 2.2.0 desktop,
+  390-pixel mobile and Hebrew RTL evidence.
+- Refresh the Ivrit social-preview pair from 2.1/127 tests to 2.2/187 tests.
+- Preserve the independently review-gated upstream manifest while preventing a
+  same-version partial visual record from downgrading stronger profile-owned QA.
+- Reduce the NovaFit tour payload by more than 85% without changing its verified
+  4.2.0 public-demo boundary or nine-second story.
+- Publish independently versioned CV 1.1.0, Fullstack2026 1.1.1 and Christopher
+  Rodríguez 1.1.0 visual upgrades in a coordinated verified release.
+- Apply repository About metadata, seven social previews and the fourth public
+  Exophase account link after Kevin's explicit publication approval.
+
+This is a contained visual-evidence and portfolio synchronization expansion, so
+the profile increments from 2.3.1 to 2.4.0.
+
 ## Priority 1 — reliability
 
 - Keep every local image and SVG reference valid.
@@ -173,14 +190,13 @@ presentation expansion, so the profile increments from 2.3.0 to 2.3.1.
 - Improve project screenshots and demonstrations.
 - Earn GitHub achievements through genuine collaboration and useful work.
 
-## Best next depth after Profile 2.3.1
+## Best next depth after Profile 2.4.0
 
 - Complete and verify Ivrit's final OAuth authorization-code exchange; keep the
   current consent/cancellation evidence separate until code exchange, session
   refresh and logout all pass live E2E checks.
-- Capture fresh 2.2 desktop, mobile and Hebrew RTL media only after interactive
-  browser QA, then replace the archived tour and 2.1/127-test social-preview pair
-  as one synchronized visual update.
+- Monitor the released social cards and repository metadata when project
+  positioning changes; keep future uploads individually reviewed.
 - Keep future Ivrit deployment, tag and GitHub Release changes synchronized from
   their own evidence; do not infer publication state from Railway health.
 - Add operational evidence from real monitoring and SLOs, backup/restore drills,

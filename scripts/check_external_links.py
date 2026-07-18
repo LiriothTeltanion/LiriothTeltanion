@@ -28,7 +28,7 @@ DEFAULT_FILES = (
     ROOT / "PROFILE_HE.md",
     ROOT / "profile.json",
 )
-URL_PATTERN = re.compile(r"https?://[^\s<>\"')\]]+")
+URL_PATTERN = re.compile(r"https?://[^\s<>\"'`)\]]+")
 TRANSIENT_OR_RESTRICTED_STATUSES = {
     401,
     403,

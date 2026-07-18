@@ -196,11 +196,18 @@ def validate_localized_profiles(
     fact_marker = localized_project_facts_marker(data)
     visible_ivrit_tokens = (
         _text(ivrit_sync.get("live_version"), "ivrit.live_version"),
+        _text(ivrit_media.get("version"), "ivrit.media.version"),
+        _text(
+            ivrit_media.get("captured_runtime_commit"),
+            "ivrit.media.captured_runtime_commit",
+        )[:12],
         str(ivrit_evidence.get("backend_tests")),
         str(ivrit_evidence.get("frontend_tests")),
         str(ivrit_evidence.get("total_tests")),
         _text(ivrit_sync.get("provider"), "ivrit.provider"),
         "PostgreSQL",
+        "OAuth",
+        "E2E",
     )
 
     stable_urls = {
@@ -309,6 +316,14 @@ def localized_project_facts_marker(data: Mapping[str, Any]) -> str:
             f"{str(sync.get('oauth_final_live_code_exchange_verified')).lower()}"
         ),
         f"ivrit_media={_text(media.get('version'), 'ivrit.media.version')}",
+        (
+            "ivrit_media_current="
+            f"{str(media.get('current_release_visual_proof')).lower()}"
+        ),
+        (
+            "ivrit_capture_commit="
+            f"{_text(media.get('captured_runtime_commit'), 'ivrit.media.captured_runtime_commit')}"
+        ),
         f"novafit={_text(novafit_sync.get('version'), 'novafit.version')}",
     )
     return f"<!-- canonical-project-facts: {'; '.join(facts)} -->"

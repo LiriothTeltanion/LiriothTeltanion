@@ -16,7 +16,7 @@ The following families are referenced by both `README.md` and
 | Personal signature | `brand/kc-lt-signature-animated.svg`, `brand/kc-lt-signature.svg` |
 | Nova Music Lab live preview | `nova-music-live-preview.jpg`, `nova-music-live-preview-mobile.jpg` |
 | Nova Music Lab journey | `nova-music-journey-animated.svg`, `nova-music-journey-static.svg`, `nova-music-journey-mobile.svg`, `nova-music-journey-mobile-static.svg` |
-| Ivrit Sheli archived 2.1.x interface evidence | `ivrit-sheli-product-tour.gif`, `ivrit-sheli-2-dashboard.png`, `ivrit-sheli-2-mobile.png`, `ivrit-sheli-2-hebrew-rtl.png` |
+| Ivrit Sheli current 2.2.0 live interface evidence | `ivrit-sheli-product-tour.gif`, `ivrit-sheli-2-dashboard.png`, `ivrit-sheli-2-mobile.png`, `ivrit-sheli-2-hebrew-rtl.png` |
 | NovaFit evidence | `novafit-product-tour.gif`, `novafit-product-tour-static.png`, `analytics-training-atlas.png`, `theme-spectrum.png`, `novafit-trust-system-animated.svg`, `novafit-trust-system-mobile.svg` |
 | Engineering and growth | `engineering-orbit-animated.svg`, `engineering-orbit-mobile.svg`, `engineering-orbit-mobile-static.svg`, `learning-roadmap-animated.svg`, `learning-roadmap-mobile.svg` |
 | Global journey atlas | `world-globe-animated.svg`, `world-globe-static.svg`, `world-globe-mobile.svg`, `world-globe-mobile-static.svg` |
@@ -54,15 +54,15 @@ authoritative check for missing local assets.
   and reduced-motion fallback. Both must tell the same recruiter-facing story,
   use clearly labeled seeded demo profiles and deterministic synthetic records,
   and exclude real wellness history, runtime databases, secrets and private
-  exports.
+  exports. Profile 2.4 reduces the GIF to five deliberate scenes over the same
+  nine-second, 960 x 595 tour: 548,594 bytes instead of 3,914,571 bytes.
 - `assets/ivrit-sheli-product-tour.gif` was introduced as the concise Profile
-  2.1 motion proof and is retained in Profile 2.3 as archived 2.1.x interface
-  history. It is not visual proof of the verified live 2.2.0 interface. The
-  three matching PNGs preserve desktop, narrow/mobile and Hebrew RTL evidence
-  and provide static reduced-motion fallbacks. All four visuals must
-  come from the public read-only demonstration experience, contain synthetic
-  learner records only and exclude private learning history, provider tokens,
-  runtime databases, secrets and personal exports. Keep the GIF aggressively
+  2.1 motion proof and is rebuilt in Profile 2.4 from fresh live 2.2.0 desktop,
+  390-pixel mobile and Hebrew RTL captures. The three matching PNGs provide
+  inspectable static and reduced-motion fallbacks. The sanitized captures use
+  Kevin's isolated account and show only his already-public name/avatar plus
+  default recommendations; they exclude private learning history, provider tokens, runtime
+  database records, secrets and personal exports. Keep the GIF aggressively
   optimized so the combined README visual payload remains below the verifier's
   8 MiB ceiling.
 - `assets/motivation-center-animated.svg` and
@@ -84,7 +84,7 @@ mechanically rebuilding its output.
 the profile, Nova Music Lab, Ivrit Sheli, NovaFit, Christopher Rodríguez
 Portfolio and Fullstack2026. They are tracked preparation assets; GitHub does
 not use them until a matching, current PNG is uploaded manually in the target
-repository settings. The Ivrit pair has the explicit archive exception below.
+repository settings.
 
 The Ivrit SVG must reference `../projects/ivrit-sheli-logo.svg` and inline the
 same canonical eight-stroke, luminous one-star compact KC ✦ LT signature used
@@ -95,10 +95,9 @@ The exact repository-to-file mapping and publication order live in
 `PUBLIC_METADATA.md`. Keep the SVG and PNG pairs together, preserve the verified
 claims in their text and confirm dimensions before any upload.
 
-The local Ivrit social-preview pair still contains its earlier 2.1/127-test
-copy. Preserve it as provenance, but do not upload or describe that pair as a
-current 2.2 preview. A replacement requires fresh 2.2 visual QA, synchronized
-SVG/PNG text and the same deterministic compact KC ✦ LT signature contract.
+The local Ivrit social-preview pair now contains current 2.2/187-test copy and
+has passed local visual QA. It is ready for review but GitHub will not use it
+until Kevin explicitly authorizes a manual repository-settings upload.
 
 ## Retained preview archive
 

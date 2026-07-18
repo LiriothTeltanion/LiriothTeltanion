@@ -1,4 +1,4 @@
-# Profile 2.3.1 — Release Integrity & Review-Gated Automation Patch 🌍✨
+# Profile 2.4.0 — Recruiter Visual Evidence Edition 🌍✨
 
 This folder is a complete, generated replacement for the GitHub profile repository presentation.
 
@@ -8,15 +8,15 @@ This folder is a complete, generated replacement for the GitHub profile reposito
 - optional expanded README;
 - Spanish and Hebrew summaries;
 - canonical `profile.json`;
-- Profile `2.3.1` released metadata and changelog;
+- Profile `2.4.0` released metadata and changelog;
 - compact/expanded generator;
 - validator;
 - Windows build/verify launchers;
 - responsive animated professional banner with mobile and reduced-motion variants;
 - responsive animated portfolio command center without arbitrary progress bars;
 - Nova Music Lab museum-journey spotlight;
-- Ivrit Sheli 2.2.0 live full-stack product card plus honestly labeled archived
-  2.1.x desktop/mobile/Hebrew RTL captures and reduced-motion-safe tour;
+- Ivrit Sheli 2.2.0 live full-stack product card plus current live
+  desktop/mobile/Hebrew RTL captures and a reduced-motion-safe tour;
 - verified Ivrit evidence: 139 backend + 48 frontend = 187 passing tests,
   GitHub OAuth with PKCE, PostgreSQL/RLS, Alembic, Docker and structured logs;
 - verified Railway production, live/ready and PostgreSQL/dictionary readiness at
@@ -38,9 +38,11 @@ This folder is a complete, generated replacement for the GitHub profile reposito
 - exact release-tag integrity checks and forward-only patch repair discipline;
 - reusable KC ✦ LT identity generated from eight pen strokes and one larger,
   lowered four-point star with a brighter blue glow;
-- retained Ivrit project/social-preview provenance, explicitly marked as
-  pre-2.2 until a synchronized 2.2 SVG/PNG pair passes fresh visual QA;
+- refreshed Ivrit social-preview SVG/PNG pair at 2.2 with its verified
+  187-test release baseline;
 - migration guide.
+- visual before/after and readiness report at
+  `docs/profile-maintenance/PROFILE_2_4_0_VISUAL_REPORT.md`.
 
 ## Regenerate
 
@@ -66,4 +68,4 @@ verify_profile.bat
 
 Use compact mode for the public profile. It keeps the deeper engineering approach, education and creative identity in `<details>` blocks while preserving a fast recruiter path led by Nova Music Lab and Ivrit Sheli.
 
-Update `profile.json` through the strict project synchronizers rather than editing repeated claims in generated Markdown. Keep both Ivrit's public source and verified Railway demo visible. Do not describe OAuth as end-to-end verified until the final authorization-code exchange, authenticated session refresh and logout pass; consent and cancellation are the completed checks in this release. Ivrit's deployment, Git tag and GitHub Release now agree on 2.2.0, while archived README media remains separately labeled 2.1.x.
+Update `profile.json` through the strict project synchronizers rather than editing repeated claims in generated Markdown. Keep both Ivrit's public source and verified Railway demo visible. Do not describe OAuth as end-to-end verified until the final authorization-code exchange, authenticated session refresh and logout pass; consent and cancellation are the completed checks in this release. Ivrit's deployment, Git tag and GitHub Release agree on 2.2.0, and the profile-owned live captures now match that interface version. The upstream project manifest remains independently review-gated and may conservatively retain its older visual-proof state.

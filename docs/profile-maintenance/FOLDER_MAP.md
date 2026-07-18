@@ -15,6 +15,9 @@ LiriothTeltanion/
 │   └── profile-maintenance/
 │       ├── ASSET_MANIFEST.md       # Public, retained and removed asset policy
 │       ├── FOLDER_MAP.md
+│       ├── IVRIT_SHELI_SYNC.md     # Strict project evidence synchronization
+│       ├── NOVAFIT_SYNC.md         # NovaFit manifest synchronization
+│       ├── PROFILE_2_4_0_VISUAL_REPORT.md # Released before/after report
 │       ├── PUBLIC_METADATA.md
 │       ├── ROADMAP.md
 │       └── WORKFLOW.md
@@ -29,7 +32,9 @@ LiriothTeltanion/
 │   ├── check_external_links.py     # Conservative scheduled URL audit
 │   └── validate_profile.py         # Lightweight generated-profile checks
 ├── tests/
-│   └── test_profile_tooling.py     # Generator/validator regressions
+│   ├── test_ivrit_sheli_sync.py    # Ivrit evidence and media regressions
+│   ├── test_profile_tooling.py     # Generator/validator regressions
+│   └── test_release_integrity.py   # Candidate/tag integrity tests
 ├── tools/
 │   └── profile/
 │       ├── backup-readme.ps1       # Local README snapshot

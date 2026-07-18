@@ -1,11 +1,9 @@
-# Approved GitHub metadata blueprint
+# Published GitHub metadata record
 
-This file is the exact, evidence-based configuration for Kevin's public GitHub
-presence. The account profile fields and five-project pin order were applied
-and publicly verified on 2026-07-18 under Kevin's explicit Profile 2.3.1
-publication approval. Repository About metadata and social previews remain a
-reviewed blueprint until each repository receives its own update and public
-verification pass.
+This file records the exact, evidence-based configuration applied to Kevin's
+public GitHub presence. Account fields, the five-project pin order, seven
+repository About panels and seven social previews were publicly verified on
+2026-07-18 under Kevin's explicit Profile 2.3.1 and 2.4.0 publication approvals.
 
 ## GitHub account profile
 
@@ -42,6 +40,11 @@ https://liriothteltanion.github.io/NovaMusicLab/
 1. LinkedIn — `https://www.linkedin.com/in/kevin-cusnir-883173b4/`
 2. Facebook — `https://www.facebook.com/kevincusnir/`
 3. YouTube — `https://www.youtube.com/@KevinCusnir`
+4. Exophase — `https://www.exophase.com/user/LiriothTeltanion/`
+
+The fourth slot uses Kevin's verified public `LiriothTeltanion` gaming identity
+rather than an invented professional network. It adds personality and creative-
+technology context without displacing LinkedIn from the first position.
 
 Remove the duplicate LinkedIn variants ending in `/kevin-cusnir` and
 `/kevincusnir/`; they do not match the canonical profile link used by the
@@ -49,9 +52,10 @@ GitHub profile, CV and LinkedIn command center. Keep **Available for hire**
 enabled. Leave public email visibility unchanged unless Kevin separately asks
 to change that privacy choice.
 
-This account section was applied and publicly verified on 2026-07-18 under
-Kevin's explicit Profile 2.3.1 publication approval. Public email visibility
-and every unrelated account setting were left unchanged.
+The first three social links and the other account fields were applied under
+Profile 2.3.1. The fourth Exophase link was added and verified after reload
+under Profile 2.4.0. Public email visibility and every unrelated account
+setting remain unchanged.
 
 ## Profile repository: `LiriothTeltanion/LiriothTeltanion`
 
@@ -90,7 +94,7 @@ docker
 rtl
 ```
 
-**Social preview after upload**
+**Uploaded social preview**
 
 ```text
 assets/social/profile-social-preview.png
@@ -136,7 +140,7 @@ vitest
 github-pages
 ```
 
-**Social preview after upload**
+**Uploaded social preview**
 
 ```text
 assets/social/novamusiclab-social-preview.png
@@ -158,7 +162,9 @@ https://ivritsheli-production.up.railway.app
 
 This is the verified Railway deployment. `/health/live`, `/health/ready`,
 `/version`, the PostgreSQL-backed runtime and dictionary readiness passed public
-QA at production commit `c8c928661bdcf179ed1d9df88b9f2e4d730ffea3`. OAuth
+QA at live runtime build `66d68a3c44ac2500fb400eef88d5f77da0c1c1e1`,
+which uses release application baseline
+`c8c928661bdcf179ed1d9df88b9f2e4d730ffea3`. OAuth
 consent and safe cancellation passed; the final authorization-code exchange,
 authenticated session refresh and logout remain pending end-to-end checks.
 
@@ -183,15 +189,16 @@ local-first
 pwa
 ```
 
-**Archived social preview — do not upload as current 2.2 proof**
+**Uploaded current social preview**
 
 ```text
 assets/social/ivrit-sheli-social-preview.png
 ```
 
-The tracked SVG/PNG pair still displays 2.1 and 127-test copy. Keep it as
-provenance until a synchronized 2.2 replacement is rendered and visually
-checked. The metadata below is the target for that future current preview.
+The tracked 1280 x 640 SVG/PNG pair displays 2.2 and the verified 187-test
+release baseline. It passed local visual QA and was uploaded through repository
+settings after Kevin's explicit approval; the persisted **Remove image** action
+confirmed GitHub stored the preview.
 
 **Alt text**
 
@@ -201,12 +208,12 @@ Ivrit Sheli 2.2.0 product card presenting a live trilingual Hebrew-learning serv
 
 **Public boundary**
 
-The archived profile tour uses the shared read-only demonstration experience
-and synthetic learner records. It contains no private learning history,
-provider token, secret, runtime database or personal export, but it represents
-the 2.1.x interface rather than current 2.2 visual proof. The live label is
-limited to the verified Railway service; the final OAuth authorization-code
-exchange, session refresh and logout remain explicitly pending.
+The current profile tour uses Kevin's isolated account and shows only his
+already-public name/avatar plus default recommendations. It contains no private
+learning history, provider token, secret, runtime database record or personal export and
+represents the verified live 2.2 interface on desktop, mobile and Hebrew RTL.
+The final OAuth authorization-code exchange, session refresh and logout remain
+explicitly pending.
 
 ## `LiriothTeltanion/NovaFit`
 
@@ -243,7 +250,7 @@ github-pages
 pwa
 ```
 
-**Social preview after upload**
+**Uploaded social preview**
 
 ```text
 assets/social/novafit-social-preview.png
@@ -288,7 +295,7 @@ framer-motion
 github-pages
 ```
 
-**Social preview after upload**
+**Uploaded social preview**
 
 ```text
 assets/social/christopherrodriguezcvonline-social-preview.png
@@ -319,11 +326,55 @@ testing
 github-actions
 ```
 
-**Social preview after upload**
+**Uploaded social preview**
 
 ```text
 assets/social/fullstack2026-social-preview.png
 ```
+
+The repository was published as 1.1.0 and immediately corrected forward to
+1.1.1 after GitHub reported a high-severity development-tool `minimatch` alert.
+The patched lockfile resolves `minimatch` 9.0.7 or newer and `npm audit` reports
+zero known vulnerabilities; the 65 honest curriculum lint findings remain
+documented separately.
+
+## `LiriothTeltanion/CV`
+
+**Description**
+
+```text
+Multilingual recruiter-facing CV for Kevin Cusnir in English, Spanish and Hebrew, with verified project evidence and accessible presentation.
+```
+
+**Website**
+
+```text
+https://github.com/LiriothTeltanion
+```
+
+**Topics**
+
+```text
+cv
+resume
+developer-portfolio
+multilingual
+english
+spanish
+hebrew
+frontend-development
+full-stack
+accessibility
+```
+
+**Uploaded social preview**
+
+```text
+CV repository: assets/social/cv-social-preview.png
+```
+
+The CV 1.1.0 banner and 1280 x 640 card preserve the same verified EN/ES/HE
+professional evidence and KC ✦ LT identity.
 
 ## Recommended profile pins
 
@@ -345,17 +396,21 @@ surface instead of adding stronger evidence.
 
 This five-project order was applied and publicly verified on 2026-07-18.
 
-## Publication checklist
+## Publication verification record
 
-1. Obtain Kevin's explicit final publish approval.
-2. Commit and push the validated local profile changes.
-3. Update each About panel with the exact description, website and topics above.
-   Keep Ivrit's verified Railway website URL visible.
-4. Upload only a matching, current 1280 x 640 PNG under **Settings → General → Social preview**. Do not upload the archived Ivrit 2.1/127-test pair as current 2.2 proof.
-5. Reorder the five profile pins to Nova Music Lab, Ivrit Sheli, NovaFit,
-   Christopher Rodríguez Portfolio and CV, then unpin the profile repository.
-6. Refresh every public repository in a signed-out window and confirm the
-   descriptions, preview crops, working websites and pin order.
+1. Kevin explicitly approved Profile 2.4.0 publication.
+2. CV 1.1.0, Christopher Rodríguez Portfolio 1.1.0 and Fullstack2026 1.1.1
+   were committed, tagged, pushed and published with GitHub Releases.
+3. The seven About panels now expose the exact descriptions, websites and
+   topics above; Ivrit retains its verified Railway URL.
+4. Seven reviewed 1280 x 640 PNGs were uploaded under **Settings → General →
+   Social preview**, and each persisted upload exposed GitHub's **Remove image**
+   action.
+5. The five-project pin order remains Nova Music Lab, Ivrit Sheli, NovaFit,
+   Christopher Rodríguez Portfolio and CV; the profile repository remains
+   unpinned.
+6. Public links, Christopher's deployed Pages metadata and the account's fourth
+   Exophase link were rechecked after publication.
 
 Do not replace a verified URL with a placeholder and do not add employment,
 adoption, certification, user-count or performance claims without evidence.

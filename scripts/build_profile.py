@@ -137,6 +137,9 @@ IVRIT_SYNC_FIELDS = (
 IVRIT_MEDIA_FIELDS = (
     "alt",
     "animation",
+    "captured_on",
+    "captured_release_commit",
+    "captured_runtime_commit",
     "caption",
     "current_release_visual_proof",
     "description",
@@ -456,12 +459,23 @@ def _validate_profile_data(data: Mapping[str, Any]) -> None:
     )
     if social_preview_version != ivrit_version:
         raise ValueError(f"{sync_path}.social_preview_version must match the source version.")
-    if (
+    if ivrit_sync["readme_screenshots_match_live_version"]:
+        if (
+            ivrit_sync["visual_proof_state"] != "current"
+            or ivrit_sync["live_2_2_interactive_browser_qa"] != "verified"
+            or ivrit_sync["readme_screenshot_version"] != ivrit_sync["live_version"]
+        ):
+            raise ValueError(
+                f"{sync_path} current upstream screenshots require matching live-version "
+                "media and verified browser QA."
+            )
+    elif (
         ivrit_sync["visual_proof_state"] != "partial"
-        or ivrit_sync["readme_screenshots_match_live_version"] is not False
         or ivrit_sync["live_2_2_interactive_browser_qa"] != "pending"
     ):
-        raise ValueError(f"{sync_path} must preserve the partial pre-2.2 visual boundary.")
+        raise ValueError(
+            f"{sync_path} stale upstream screenshots require the partial/pending boundary."
+        )
     if not re.fullmatch(
         r"[0-9]+\.[0-9]+\.(?:[0-9]+|x)",
         ivrit_sync["readme_screenshot_version"],
@@ -483,6 +497,8 @@ def _validate_profile_data(data: Mapping[str, Any]) -> None:
     for field in (
         "alt",
         "caption",
+        "captured_release_commit",
+        "captured_runtime_commit",
         "description",
         "mobile_alt",
         "public_data_boundary",
@@ -491,18 +507,34 @@ def _validate_profile_data(data: Mapping[str, Any]) -> None:
         "version",
     ):
         _require_text(ivrit_media[field], f"profile.projects[Ivrit Sheli].media.{field}")
+    _require_iso_date(
+        ivrit_media["captured_on"],
+        "profile.projects[Ivrit Sheli].media.captured_on",
+    )
+    for field in ("captured_release_commit", "captured_runtime_commit"):
+        if not re.fullmatch(r"[0-9a-f]{40}", ivrit_media[field]):
+            raise ValueError(
+                f"profile.projects[Ivrit Sheli].media.{field} must be a full "
+                "lowercase SHA-1."
+            )
+    if not re.fullmatch(r"[0-9]+\.[0-9]+\.(?:[0-9]+|x)", ivrit_media["version"]):
+        raise ValueError(
+            "profile.projects[Ivrit Sheli].media.version must be a semantic version "
+            "or x patch series."
+        )
     _require_boolean(
         ivrit_media["current_release_visual_proof"],
         "profile.projects[Ivrit Sheli].media.current_release_visual_proof",
     )
-    if ivrit_media["current_release_visual_proof"] is not False:
-        raise ValueError(
-            "profile.projects[Ivrit Sheli].media must remain explicitly pre-2.2 visual proof."
-        )
-    if ivrit_media["version"] != ivrit_sync["readme_screenshot_version"]:
-        raise ValueError(
-            "profile.projects[Ivrit Sheli].media.version must match the manifest screenshot version."
-        )
+    if ivrit_media["current_release_visual_proof"]:
+        if ivrit_media["version"] != ivrit_sync["live_version"]:
+            raise ValueError(
+                "Current profile-owned Ivrit media must match the verified live version."
+            )
+        if ivrit_media["captured_release_commit"] != ivrit_sync["production_commit"]:
+            raise ValueError(
+                "Current profile-owned Ivrit media must match the verified release baseline."
+            )
     for field in ("animation", "mobile_static", "rtl_static", "static"):
         _require_asset_path(
             ivrit_media[field], f"profile.projects[Ivrit Sheli].media.{field}"
@@ -1104,7 +1136,7 @@ def _render_nova_music_spotlight(project: Mapping[str, Any]) -> list[str]:
 
 
 def _render_ivrit_spotlight(project: Mapping[str, Any]) -> list[str]:
-    """Render current engineering proof beside honestly versioned archived media."""
+    """Render current engineering proof beside honestly versioned visual media."""
 
     media = project["media"]
     evidence = project["release_evidence"]
@@ -1124,18 +1156,34 @@ def _render_ivrit_spotlight(project: Mapping[str, Any]) -> list[str]:
             "current release package is pending."
         )
     )
+    if media["current_release_visual_proof"]:
+        summary = (
+            f"א Open the current Ivrit Sheli {media['version']} product tour and "
+            f"verified full-stack proof"
+        )
+        visual_boundary = (
+            f"These profile-owned captures passed fresh desktop, mobile and Hebrew RTL "
+            f"browser QA on {media['captured_on']} against the live {sync['live_version']} "
+            f"interface at runtime build {media['captured_runtime_commit'][:12]}, using "
+            f"release baseline {media['captured_release_commit'][:12]}. The upstream "
+            "project manifest remains independently review-gated."
+        )
+        rtl_label = "Open the current Hebrew RTL frame"
+    else:
+        summary = (
+            f"א Open the archived Ivrit Sheli {media['version']} product tour and "
+            f"verified {evidence['version']} full-stack proof"
+        )
+        visual_boundary = (
+            f"These {media['version']} screens are interaction history, not visual proof "
+            f"of the live {sync['live_version']} interface."
+        )
+        rtl_label = "Open the archived Hebrew RTL frame"
     return [
         "<details>",
-        (
-            f"<summary><strong>א Open the archived Ivrit Sheli {media['version']} "
-            f"product tour and verified {evidence['version']} full-stack proof</strong></summary>"
-        ),
+        f"<summary><strong>{summary}</strong></summary>",
         f"<p><strong>Public-data boundary:</strong> {media['public_data_boundary']}</p>",
-        (
-            f"<p><strong>Visual evidence boundary:</strong> these {media['version']} "
-            f"screens are interaction history, not visual proof of the live "
-            f"{sync['live_version']} interface.</p>"
-        ),
+        f"<p><strong>Visual evidence boundary:</strong> {visual_boundary}</p>",
         "<picture>",
         f'  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./{media["mobile_static"]}" />',
         f'  <source media="(max-width: 640px)" srcset="./{media["mobile_static"]}" />',
@@ -1156,7 +1204,7 @@ def _render_ivrit_spotlight(project: Mapping[str, Any]) -> list[str]:
         (
             f"<p><strong>Publication boundary:</strong> {publication_text}</p>"
         ),
-        f'<p><a href="{project["source"]}">Inspect the Ivrit Sheli source</a> · <a href="{evidence["test_report"]}">Review the test contract</a> · <a href="./data/project-snapshots/ivrit-sheli.json">Inspect the reviewed project snapshot</a> · <a href="./{media["rtl_static"]}">Open the archived Hebrew RTL frame</a>{live_link}</p>',
+        f'<p><a href="{project["source"]}">Inspect the Ivrit Sheli source</a> · <a href="{evidence["test_report"]}">Review the test contract</a> · <a href="./data/project-snapshots/ivrit-sheli.json">Inspect the reviewed upstream project snapshot</a> · <a href="./{media["rtl_static"]}">{rtl_label}</a>{live_link}</p>',
         "</details>",
         "",
     ]

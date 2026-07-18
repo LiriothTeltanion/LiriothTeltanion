@@ -157,10 +157,10 @@ python tools/profile/generate_signature_assets.py --check
 The star reveal runs once and must become static when reduced motion is
 requested. The monochrome variant intentionally keeps the star without blur.
 
-Ivrit's visual family was introduced in Profile 2.1 from the 2.1.x public
-read-only demo. In Profile 2.3 these files are retained as an explicitly
-versioned archive; they are not visual proof of the live 2.2.0 interface. They
-must contain synthetic learner records only:
+Ivrit's visual family was introduced in Profile 2.1. Profile 2.4 rebuilds the
+tour from fresh live 2.2.0 desktop, 390-pixel mobile and Hebrew RTL captures.
+They use Kevin's isolated account, may show only his already-public name/avatar
+plus default recommendations, and must not contain private learning history:
 
 ```text
 assets/ivrit-sheli-product-tour.gif

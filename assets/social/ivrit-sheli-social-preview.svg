@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
-  <title id="title">Ivrit Sheli 2.1 live social preview</title>
-  <desc id="desc">A dark blue production product card for Kevin Cusnir's live trilingual Hebrew learning application, with Railway, authentication, PostgreSQL, Docker, tests and structured logs. The card includes the luminous KC ✦ LT signature. The card includes the KC star LT signature.</desc>
+  <title id="title">Ivrit Sheli 2.2 live social preview</title>
+  <desc id="desc">A dark blue production product card for Kevin Cusnir's live trilingual Hebrew learning application, with Railway, authentication, PostgreSQL, Docker, 187 tests, structured logs and the luminous KC star LT signature.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop stop-color="#06101f"/>
@@ -35,7 +35,7 @@
 
   <image href="../projects/ivrit-sheli-logo.svg" x="56" y="42" width="520" height="145" preserveAspectRatio="xMinYMid meet"/>
   <rect x="62" y="194" width="182" height="32" rx="16" fill="#17264b" stroke="#5f84ff"/>
-  <text x="153" y="216" text-anchor="middle" fill="#dce7ff" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="800">VERSION 2.1 · LIVE</text>
+  <text x="153" y="216" text-anchor="middle" fill="#dce7ff" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="800">VERSION 2.2 · LIVE</text>
 
   <text x="62" y="288" fill="#f1f7ff" font-family="Inter,Arial,sans-serif" font-size="46" font-weight="850">Learn Hebrew from real life.</text>
   <text x="62" y="336" fill="#aabbdc" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="550">Private-first locally · authenticated and isolated in the cloud</text>
@@ -46,7 +46,7 @@
       <circle cx="30" cy="33" r="11" fill="#43ddd5"/>
       <path d="m24 33 5 5 10-13" fill="none" stroke="#06111f" stroke-width="4" stroke-linecap="round"/>
       <text x="54" y="28" fill="#edf7ff" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="800">GitHub OAuth</text>
-      <text x="54" y="48" fill="#91a8cb" font-family="Inter,Arial,sans-serif" font-size="13">PKCE · secure sessions</text>
+      <text x="54" y="48" fill="#91a8cb" font-family="Inter,Arial,sans-serif" font-size="13">PKCE · consent verified</text>
     </g>
     <g transform="translate(236)">
       <rect width="218" height="66" rx="18" fill="#141f45" stroke="#7188ff" stroke-opacity=".75"/>
@@ -59,7 +59,7 @@
       <rect width="218" height="66" rx="18" fill="#171d43" stroke="#a36cff" stroke-opacity=".75"/>
       <path d="M20 23h22v22H20zM24 18h14M24 50h14" fill="none" stroke="#bd8aff" stroke-width="3"/>
       <text x="54" y="28" fill="#edf7ff" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="800">Docker + CI</text>
-      <text x="54" y="48" fill="#91a8cb" font-family="Inter,Arial,sans-serif" font-size="13">127 tests · non-root image</text>
+      <text x="54" y="48" fill="#91a8cb" font-family="Inter,Arial,sans-serif" font-size="13">187 tests · non-root image</text>
     </g>
   </g>
 

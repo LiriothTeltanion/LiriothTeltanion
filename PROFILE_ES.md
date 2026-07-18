@@ -1,6 +1,6 @@
 # Kevin Cusnir · Lirioth Teltanion ✨
 
-<!-- canonical-project-facts: profile=2.3.1; ivrit_source=2.2.0; ivrit_live=2.2.0; ivrit_backend=139; ivrit_frontend=48; ivrit_total=187; ivrit_postgresql_ready=true; ivrit_oauth_exchange_e2e=false; ivrit_media=2.1.x; novafit=4.2.0 -->
+<!-- canonical-project-facts: profile=2.4.0; ivrit_source=2.2.0; ivrit_live=2.2.0; ivrit_backend=139; ivrit_frontend=48; ivrit_total=187; ivrit_postgresql_ready=true; ivrit_oauth_exchange_e2e=false; ivrit_media=2.2.0; ivrit_media_current=true; ivrit_capture_commit=66d68a3c44ac2500fb400eef88d5f77da0c1c1e1; novafit=4.2.0 -->
 
 [English](./README.md) · **Español** · [עברית](./PROFILE_HE.md)
 
@@ -25,8 +25,8 @@ Ivrit Sheli 2.2.0 es un producto full-stack trilingüe para aprender hebreo desd
 
 - [Abrir demo público en Railway](https://ivritsheli-production.up.railway.app)
 - [Código fuente y guía de ejecución](https://github.com/LiriothTeltanion/IvritSheli)
-- Railway informa la versión 2.2.0 en producción, con las comprobaciones live/ready y PostgreSQL preparadas en el commit verificado `c8c928661bdc`. El consentimiento y la cancelación de GitHub OAuth también se verificaron; el intercambio final del código, la actualización de sesión autenticada y el cierre de sesión continúan pendientes de verificación E2E.
-- El despliegue, la etiqueta Git y el GitHub Release públicos ya coinciden en v2.2.0. Las imágenes del perfil corresponden a la interfaz 2.1.x y se presentan como archivo visual, no como prueba de la interfaz 2.2.0.
+- Railway informa la versión 2.2.0 en producción en el build runtime `66d68a3c44ac`, basado en la línea de release verificada `c8c928661bdc`, con las comprobaciones live/ready y PostgreSQL preparadas. El consentimiento y la cancelación de GitHub OAuth también se verificaron; el intercambio final del código, la actualización de sesión autenticada y el cierre de sesión continúan pendientes de verificación E2E.
+- El despliegue, la etiqueta Git y el GitHub Release públicos coinciden en v2.2.0. Las capturas sanitizadas verifican la interfaz 2.2.0 en escritorio, móvil de 390 px y hebreo RTL; usan una cuenta aislada y muestran solo la identidad pública y recomendaciones predeterminadas, sin historial privado de estudio.
 
 ### 💙 NovaFit
 
