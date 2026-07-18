@@ -285,10 +285,11 @@ Use this order so the strongest working evidence appears first:
 2. `IvritSheli` — live authenticated full-stack product with PostgreSQL.
 3. `NovaFit` — complete Python desktop and SQLite product.
 4. `ChristopherRodriguezCVOnline` — accessible real-world collaboration.
+5. `CV` — recruiter-ready multilingual EN/ES/HE professional summary.
 
 Keep `Fullstack2026` public and linked from the README as transparent learning
-progression, but outside the top four pins now that stronger product evidence is
-available.
+progression, but outside the pins now that stronger product and recruiter-facing
+evidence is available.
 
 Unpin the profile repository itself; its README is already the page recruiters
 are viewing and that pin currently consumes a higher-value project slot.
@@ -300,8 +301,8 @@ are viewing and that pin currently consumes a higher-value project slot.
 3. Update each About panel with the exact description, website and topics above.
    Keep Ivrit's verified Railway website URL visible.
 4. Upload only a matching, current 1280 x 640 PNG under **Settings → General → Social preview**. Do not upload the archived Ivrit 2.1/127-test pair as current 2.2 proof.
-5. Reorder the four profile pins to Nova Music Lab, Ivrit Sheli, NovaFit and
-   Christopher Rodríguez Portfolio, then unpin the profile repository.
+5. Reorder the five profile pins to Nova Music Lab, Ivrit Sheli, NovaFit,
+   Christopher Rodríguez Portfolio and CV, then unpin the profile repository.
 6. Refresh every public repository in a signed-out window and confirm the
    descriptions, preview crops, working websites and pin order.
 

@@ -8,7 +8,7 @@ This folder is a complete, generated replacement for the GitHub profile reposito
 - optional expanded README;
 - Spanish and Hebrew summaries;
 - canonical `profile.json`;
-- Profile `2.3.0` release-candidate metadata and changelog;
+- Profile `2.3.0` released metadata and changelog;
 - compact/expanded generator;
 - validator;
 - Windows build/verify launchers;

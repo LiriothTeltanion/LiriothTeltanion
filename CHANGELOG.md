@@ -9,9 +9,8 @@ patch for a narrow correction.
 
 ### Release status
 
-- Prepared as a fully validated release candidate on
-  `codex/profile-v2.3-ivrit-sync`. No `v2.3.0` tag or GitHub Release has been
-  created yet; publication remains a separate approved action.
+- Published from the fully validated `codex/profile-v2.3-ivrit-sync` candidate
+  as Git tag and GitHub Release `v2.3.0` after both repository checks passed.
 - Keeps Nova Music Lab first and preserves the complete Profile 2.2 visual and
   identity system without replacing or deleting public assets.
 
@@ -39,9 +38,9 @@ patch for a narrow correction.
 
 ### Evidence boundaries
 
-- The live deployment, public Git tag and GitHub Release now agree on Ivrit
-  Sheli 2.2.0. This does not change Profile 2.3's own release-candidate status;
-  no profile tag or release is claimed yet.
+- The live deployment, public Git tag and GitHub Release agree on Ivrit Sheli
+  2.2.0, while Profile 2.3 is independently published as tag and GitHub Release
+  `v2.3.0`.
 - Existing Ivrit GIF/PNG interface media remains labeled as a 2.1.x archive and
   is not presented as visual proof of the live 2.2.0 interface.
 
