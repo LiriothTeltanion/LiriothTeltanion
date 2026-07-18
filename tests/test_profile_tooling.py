@@ -358,7 +358,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
 
         self.assertEqual(version, "2.3.0")
         self.assertEqual(release["tag"], f"v{version}")
-        self.assertEqual(release["status"], "release-candidate")
+        self.assertEqual(release["status"], "released")
         for mode in ("compact", "expanded"):
             self.assertTrue(
                 build_profile.render_profile(self.data, mode).startswith(expected_marker)

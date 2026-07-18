@@ -3,10 +3,10 @@
   "release": {
     "title": "Profile 2.3 — Verified Ivrit Synchronization Edition",
     "tag": "v2.3.0",
-    "status": "release-candidate",
+    "status": "released",
     "prepared_on": "2026-07-18",
     "baseline": "Profile 2.2 — Luminous Signature & Live Ivrit Edition",
-    "summary": "A focused evidence and maintenance release candidate that synchronizes Ivrit Sheli 2.2.0 from one strict public manifest, verifies the 187-test Railway and PostgreSQL proof, protects multilingual semantic parity and labels older interface media without overstating it.",
+    "summary": "A focused evidence and maintenance release that synchronizes Ivrit Sheli 2.2.0 from one strict public manifest, verifies the 187-test Railway and PostgreSQL proof, protects multilingual semantic parity and labels older interface media without overstating it.",
     "focus": [
       "Strict allow-listed Ivrit Sheli project-manifest synchronization and offline drift detection",
       "Verified live Ivrit Sheli 2.2.0 Railway deployment and PostgreSQL readiness",
