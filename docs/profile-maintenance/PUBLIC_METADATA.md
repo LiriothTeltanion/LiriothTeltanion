@@ -99,7 +99,7 @@ assets/social/novamusiclab-social-preview.png
 **Description**
 
 ```text
-Ivrit Sheli 2.1 is a live trilingual Hebrew-learning PWA with GitHub OAuth, FastAPI, PostgreSQL/RLS, Docker, structured logging and 127 tests.
+Ivrit Sheli 2.2.0 is a live trilingual Hebrew-learning PWA with FastAPI, PostgreSQL/RLS, Docker, structured logging and 187 verified tests.
 ```
 
 **Website**
@@ -108,10 +108,11 @@ Ivrit Sheli 2.1 is a live trilingual Hebrew-learning PWA with GitHub OAuth, Fast
 https://ivritsheli-production.up.railway.app
 ```
 
-This is the verified Railway deployment. `/health/ready`, `/version`, the
-PostgreSQL-backed runtime, the read-only synthetic demo, OAuth consent and safe
-OAuth cancellation passed public QA. The final authorization-code exchange is
-still documented as a pending end-to-end check.
+This is the verified Railway deployment. `/health/live`, `/health/ready`,
+`/version`, the PostgreSQL-backed runtime and dictionary readiness passed public
+QA at production commit `c8c928661bdcf179ed1d9df88b9f2e4d730ffea3`. OAuth
+consent and safe cancellation passed; the final authorization-code exchange,
+authenticated session refresh and logout remain pending end-to-end checks.
 
 **Topics**
 
@@ -134,25 +135,30 @@ local-first
 pwa
 ```
 
-**Social preview after upload**
+**Archived social preview — do not upload as current 2.2 proof**
 
 ```text
 assets/social/ivrit-sheli-social-preview.png
 ```
 
+The tracked SVG/PNG pair still displays 2.1 and 127-test copy. Keep it as
+provenance until a synchronized 2.2 replacement is rendered and visually
+checked. The metadata below is the target for that future current preview.
+
 **Alt text**
 
 ```text
-Ivrit Sheli 2.1 live product card showing a trilingual Hebrew-learning workspace with GitHub OAuth, PostgreSQL tenant isolation, Docker, structured logging and 127 passing tests.
+Ivrit Sheli 2.2.0 product card presenting a live trilingual Hebrew-learning service with Railway, PostgreSQL tenant isolation, Docker, structured logging and 187 verified tests.
 ```
 
 **Public boundary**
 
-The preview and profile tour use the shared read-only demonstration experience
-and synthetic learner records. They contain no private learning history,
-provider token, secret, runtime database or personal export. The live label is
-limited to the verified Railway service and its public read-only demo; the final
-OAuth authorization-code exchange remains explicitly pending.
+The archived profile tour uses the shared read-only demonstration experience
+and synthetic learner records. It contains no private learning history,
+provider token, secret, runtime database or personal export, but it represents
+the 2.1.x interface rather than current 2.2 visual proof. The live label is
+limited to the verified Railway service; the final OAuth authorization-code
+exchange, session refresh and logout remain explicitly pending.
 
 ## `LiriothTeltanion/NovaFit`
 
@@ -293,7 +299,7 @@ are viewing and that pin currently consumes a higher-value project slot.
 2. Commit and push the validated local profile changes.
 3. Update each About panel with the exact description, website and topics above.
    Keep Ivrit's verified Railway website URL visible.
-4. Upload the matching 1280 x 640 PNG under **Settings → General → Social preview**.
+4. Upload only a matching, current 1280 x 640 PNG under **Settings → General → Social preview**. Do not upload the archived Ivrit 2.1/127-test pair as current 2.2 proof.
 5. Reorder the four profile pins to Nova Music Lab, Ivrit Sheli, NovaFit and
    Christopher Rodríguez Portfolio, then unpin the profile repository.
 6. Refresh every public repository in a signed-out window and confirm the

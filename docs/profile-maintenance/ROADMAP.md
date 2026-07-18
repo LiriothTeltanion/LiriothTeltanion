@@ -98,6 +98,36 @@ This is a contained visual and live-project-evidence upgrade, so the profile
 increments from 2.1.0 to 2.2.0. Featured project versions remain independently
 managed; Ivrit Sheli advances from 2.0.0 to 2.1.0.
 
+## Profile 2.3.0 — Verified Ivrit Synchronization Edition — release candidate
+
+- Keep the Profile 2.2 identity, portrait, luminous KC ✦ LT signature, globe,
+  accessible motion and recruiter-first project hierarchy unchanged.
+- Synchronize Ivrit Sheli through one exact allow-listed public manifest and a
+  reviewed offline snapshot, with bounded input, strict keys, atomic writes and
+  drift checks for both generated README modes.
+- Advance the verified source/live evidence to 2.2.0 with 139 backend and 48
+  frontend tests, for 187 unique automated tests in total.
+- Record Railway production, live/ready, PostgreSQL and dictionary readiness at
+  the verified production commit without turning service health into a broader
+  release or OAuth claim.
+- Record the independently verified publication state: the live deployment,
+  public Ivrit Git tag and GitHub Release all agree on v2.2.0.
+- Keep the OAuth boundary visible: consent/cancellation are verified; final
+  live code exchange, authenticated session refresh and logout are not verified
+  end to end.
+- Label existing Ivrit desktop/mobile/RTL GIF/PNG media as archived 2.1.x
+  interface history, not visual proof of the live 2.2.0 interface.
+- Enforce current canonical Ivrit and NovaFit facts in the human-written Spanish
+  and Hebrew profiles through a deterministic parity marker and visible tokens.
+- Present responsible preview/beta testing as an early-adopter strength focused
+  on non-critical use, reproducibility and useful future-release feedback.
+- Create `v2.3.0` and its GitHub Release only after candidate review, merge,
+  public rendering and Kevin's explicit publication approval.
+
+This is a contained content and maintenance-system release, so the profile
+increments from 2.2.0 to 2.3.0 while featured product versions remain
+independently managed.
+
 ## Priority 1 — reliability
 
 - Keep every local image and SVG reference valid.
@@ -122,10 +152,16 @@ managed; Ivrit Sheli advances from 2.0.0 to 2.1.0.
 - Improve project screenshots and demonstrations.
 - Earn GitHub achievements through genuine collaboration and useful work.
 
-## Best next depth after Profile 2.2
+## Best next depth after Profile 2.3
 
 - Complete and verify Ivrit's final OAuth authorization-code exchange; keep the
-  current consent/cancellation evidence separate until that E2E check passes.
+  current consent/cancellation evidence separate until code exchange, session
+  refresh and logout all pass live E2E checks.
+- Capture fresh 2.2 desktop, mobile and Hebrew RTL media only after interactive
+  browser QA, then replace the archived tour and 2.1/127-test social-preview pair
+  as one synchronized visual update.
+- Keep future Ivrit deployment, tag and GitHub Release changes synchronized from
+  their own evidence; do not infer publication state from Railway health.
 - Add operational evidence from real monitoring and SLOs, backup/restore drills,
   authorization E2E tests, cost controls and incident procedures.
 - Refresh social previews only when a project's positioning materially changes.

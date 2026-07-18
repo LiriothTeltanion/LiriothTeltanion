@@ -1,0 +1,80 @@
+{
+  "schema": "ivrit-sheli-portfolio-project-v1",
+  "slug": "ivrit-sheli",
+  "name": "Ivrit Sheli — העברית שלי",
+  "source_version": "2.2.0",
+  "live_version": "2.2.0",
+  "status": "live",
+  "default_branch": "main",
+  "repository_url": "https://github.com/LiriothTeltanion/IvritSheli",
+  "demo_url": "https://ivritsheli-production.up.railway.app",
+  "summary": "A private-first trilingual Hebrew-learning product with local SQLite, authenticated PostgreSQL, native RTL, accessible motion and a synthetic read-only public demo.",
+  "languages": [
+    "en",
+    "es",
+    "he"
+  ],
+  "stack": [
+    "React 19",
+    "TypeScript",
+    "FastAPI",
+    "Python",
+    "PostgreSQL 17",
+    "SQLite",
+    "Alembic",
+    "Docker",
+    "Railway"
+  ],
+  "tests": {
+    "backend_unique": 139,
+    "frontend": 48,
+    "frontend_files": 12,
+    "total_unique": 187,
+    "ordinary_backend_passed": 138,
+    "ordinary_backend_skipped": 1,
+    "postgresql_gate_passed": 3,
+    "evidence": "TEST_REPORT.md"
+  },
+  "deployment": {
+    "provider": "Railway",
+    "runtime": "Docker",
+    "database": "PostgreSQL 17",
+    "status": "verified",
+    "production_commit": "c8c928661bdcf179ed1d9df88b9f2e4d730ffea3",
+    "verified_on": "2026-07-18",
+    "environment": "production",
+    "health_live": true,
+    "health_ready": true,
+    "postgresql_ready": true,
+    "dictionary_ready": true
+  },
+  "publication": {
+    "latest_git_tag": "v2.2.0",
+    "latest_github_release": "v2.2.0",
+    "source_version_tagged": true,
+    "source_version_github_release_published": true,
+    "release_state": "published-and-deployed"
+  },
+  "visual_proof": {
+    "state": "partial",
+    "social_preview_version": "2.2.0",
+    "readme_screenshot_version": "2.1.x",
+    "readme_screenshots_match_live_version": false,
+    "live_2_2_interactive_browser_qa": "pending"
+  },
+  "oauth": {
+    "provider": "GitHub",
+    "consent_handoff_verified": true,
+    "cancellation_verified": true,
+    "final_live_code_exchange_verified": false,
+    "authenticated_session_refresh_verified": false,
+    "logout_verified": false,
+    "boundary": "Consent handoff and cancellation are verified; the final live authorization-code exchange, authenticated refresh persistence and logout are not verified end to end."
+  },
+  "privacy": {
+    "local_first": true,
+    "public_demo_data": "synthetic",
+    "public_demo_mutations": "server-blocked",
+    "contains_secrets": false
+  }
+}

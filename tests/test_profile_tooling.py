@@ -141,7 +141,7 @@ class ProfileDataValidationTests(unittest.TestCase):
         data = copy.deepcopy(self.valid_data)
         data["release"]["tag"] = "v2.0.0"
 
-        with self.assertRaisesRegex(ValueError, r"release\.tag.*v2\.2\.0"):
+        with self.assertRaisesRegex(ValueError, r"release\.tag.*v2\.3\.0"):
             self.load(data)
 
     def test_release_prepared_date_must_be_iso_calendar_date(self) -> None:
@@ -197,7 +197,7 @@ class ProfileDataValidationTests(unittest.TestCase):
     def test_ivrit_live_status_and_media_are_strict(self) -> None:
         data = copy.deepcopy(self.valid_data)
         ivrit = next(project for project in data["projects"] if project["name"] == "Ivrit Sheli")
-        ivrit["status"] = "Public v2.1.0 full-stack release · live deployment pending"
+        ivrit["status"] = "Public v2.2.0 full-stack release · live deployment pending"
         with self.assertRaisesRegex(ValueError, r"Ivrit Sheli.*status.*verified live demo"):
             self.load(data)
 
@@ -205,6 +205,18 @@ class ProfileDataValidationTests(unittest.TestCase):
         ivrit = next(project for project in data["projects"] if project["name"] == "Ivrit Sheli")
         ivrit["media"]["rtl_static"] = ivrit["media"]["static"]
         with self.assertRaisesRegex(ValueError, r"distinct animation, desktop, mobile and RTL"):
+            self.load(data)
+
+        data = copy.deepcopy(self.valid_data)
+        ivrit = next(project for project in data["projects"] if project["name"] == "Ivrit Sheli")
+        ivrit["portfolio_sync"]["live_version"] = "2.2.1"
+        with self.assertRaisesRegex(ValueError, r"source/live versions.*release_evidence"):
+            self.load(data)
+
+        data = copy.deepcopy(self.valid_data)
+        ivrit = next(project for project in data["projects"] if project["name"] == "Ivrit Sheli")
+        ivrit["portfolio_sync"]["oauth_final_live_code_exchange_verified"] = True
+        with self.assertRaisesRegex(ValueError, r"OAuth exchange.*must remain unverified"):
             self.load(data)
 
 
@@ -280,7 +292,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
 
         self.assertLessEqual(len(content.splitlines()), 300)
         for expected in (
-            "profile-version: 2.2.0",
+            "profile-version: 2.3.0",
             "profile-banner-mobile-static.svg",
             "nova-music-live-preview-mobile.jpg",
             "nova-music-journey-static.svg",
@@ -306,10 +318,14 @@ class GeneratedProfileContractTests(unittest.TestCase):
             "58 public visual assets",
             "Download the verified v4.2.0 release",
             "Nova Music Lab source",
-            "110 backend + 17 frontend = 127 passing tests",
-            "GitHub OAuth/PKCE",
-            "PostgreSQL tenant RLS",
-            "Verified v2.1.0 evidence",
+            "139 backend + 48 frontend = 187 passing tests",
+            "Railway production",
+            "PostgreSQL 17 ready",
+            "Verified v2.2.0 evidence",
+            "Archived Ivrit Sheli 2.1.x interface",
+            "not visual proof of the live 2.2.0 interface",
+            "final live authorization-code exchange",
+            "deployment, Git tag and GitHub Release now agree on v2.2.0",
             "https://ivritsheli-production.up.railway.app",
             "[א Ivrit Sheli live](https://ivritsheli-production.up.railway.app)",
             "Open Ivrit Sheli live demo",
@@ -340,8 +356,9 @@ class GeneratedProfileContractTests(unittest.TestCase):
             f"release-title: {release['title']} -->"
         )
 
-        self.assertEqual(version, "2.2.0")
+        self.assertEqual(version, "2.3.0")
         self.assertEqual(release["tag"], f"v{version}")
+        self.assertEqual(release["status"], "release-candidate")
         for mode in ("compact", "expanded"):
             self.assertTrue(
                 build_profile.render_profile(self.data, mode).startswith(expected_marker)
@@ -379,9 +396,16 @@ class GeneratedProfileContractTests(unittest.TestCase):
         )
         self.assertEqual(
             projects["Ivrit Sheli"]["status"],
-            "Live v2.1.0 dual-mode full-stack product",
+            "Live v2.2.0 dual-mode full-stack product",
         )
-        self.assertEqual(projects["Ivrit Sheli"]["release_evidence"]["version"], "2.1.0")
+        self.assertEqual(projects["Ivrit Sheli"]["release_evidence"]["version"], "2.2.0")
+        self.assertEqual(projects["Ivrit Sheli"]["release_evidence"]["total_tests"], 187)
+        self.assertEqual(projects["Ivrit Sheli"]["portfolio_sync"]["backend_tests"], 139)
+        self.assertFalse(
+            projects["Ivrit Sheli"]["portfolio_sync"][
+                "oauth_final_live_code_exchange_verified"
+            ]
+        )
         self.assertEqual(
             projects["Ivrit Sheli"]["source"],
             "https://github.com/LiriothTeltanion/IvritSheli",
@@ -550,6 +574,34 @@ class GeneratedProfileContractTests(unittest.TestCase):
 
     def test_localized_profiles_keep_canonical_identity_and_links(self) -> None:
         self.assertEqual(validate_profile.validate_localized_profiles(), [])
+
+    def test_localized_profiles_reject_stale_fact_markers_and_visible_counts(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            spanish = root / "PROFILE_ES.md"
+            hebrew = root / "PROFILE_HE.md"
+            spanish.write_text(
+                (ROOT / "PROFILE_ES.md")
+                .read_text(encoding="utf-8")
+                .replace("ivrit_total=187", "ivrit_total=127", 1),
+                encoding="utf-8",
+            )
+            hebrew.write_text(
+                (ROOT / "PROFILE_HE.md")
+                .read_text(encoding="utf-8")
+                .replace("187 בדיקות אוטומטיות", "127 בדיקות אוטומטיות", 1),
+                encoding="utf-8",
+            )
+            problems = validate_profile.validate_localized_profiles(
+                localized_profiles={"es": spanish, "he": hebrew}
+            )
+
+        self.assertTrue(
+            any("canonical project-facts marker" in problem for problem in problems)
+        )
+        self.assertTrue(
+            any("missing canonical fact token: 187" in problem for problem in problems)
+        )
 
     def test_builder_check_mode_detects_drift_without_overwriting(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

@@ -5,6 +5,46 @@ The profile follows Semantic Versioning: major for a structural identity or
 presentation generation, minor for a contained feature or visual upgrade, and
 patch for a narrow correction.
 
+## [2.3.0] — 2026-07-18 · Verified Ivrit Synchronization Edition
+
+### Release status
+
+- Prepared as a fully validated release candidate on
+  `codex/profile-v2.3-ivrit-sync`. No `v2.3.0` tag or GitHub Release has been
+  created yet; publication remains a separate approved action.
+- Keeps Nova Music Lab first and preserves the complete Profile 2.2 visual and
+  identity system without replacing or deleting public assets.
+
+### Added
+
+- Strict allow-listed synchronization from Ivrit Sheli's canonical
+  `portfolio/project.json`, including a reviewed local snapshot, atomic writes,
+  offline drift checks, regression tests and a scheduled/manual workflow.
+- Machine-readable semantic parity checks for the Spanish and Hebrew profiles,
+  covering profile/project versions, 139 backend tests, 48 frontend tests, 187
+  total tests, PostgreSQL readiness, OAuth E2E status and archived media version.
+- Shared workflow concurrency for NovaFit and Ivrit project synchronization so
+  automated profile updates cannot race each other.
+
+### Changed
+
+- Advanced Ivrit Sheli public evidence from 2.1.0 to the verified live 2.2.0
+  Railway deployment at commit `c8c928661bdcf179ed1d9df88b9f2e4d730ffea3`.
+- Updated the verified test contract to 139 backend plus 48 frontend tests, for
+  187 unique automated tests in total, with live/ready, dictionary and
+  PostgreSQL readiness reported healthy in production.
+- Updated English, Spanish and Hebrew recruiter-facing facts while keeping the
+  final live OAuth code exchange, authenticated session refresh and logout
+  explicitly unverified end to end.
+
+### Evidence boundaries
+
+- The live deployment, public Git tag and GitHub Release now agree on Ivrit
+  Sheli 2.2.0. This does not change Profile 2.3's own release-candidate status;
+  no profile tag or release is claimed yet.
+- Existing Ivrit GIF/PNG interface media remains labeled as a 2.1.x archive and
+  is not presented as visual proof of the live 2.2.0 interface.
+
 ## [2.2.0] — 2026-07-16 · Luminous Signature & Live Ivrit Edition
 
 ### Release status

@@ -33,15 +33,13 @@ NovaFit's version, verified capability and quality facts are synchronized from
 its public project manifest. See [`NOVAFIT_SYNC.md`](./NOVAFIT_SYNC.md) before
 changing the managed NovaFit fields by hand.
 
-Ivrit Sheli 2.1.0 currently uses a reviewed release-evidence contract rather than
-a remote synchronization script. Keep its source fixed to
-`https://github.com/LiriothTeltanion/IvritSheli` and verify the arithmetic before
-publication: 110 backend tests + 17 frontend tests = 127 unique passing tests.
-Keep its verified live URL fixed to
-`https://ivritsheli-production.up.railway.app`. HTTPS, readiness/version,
-PostgreSQL and the public read-only synthetic demo are verified. GitHub OAuth
-consent and cancellation are verified; keep the final authorization-code
-exchange marked pending until its E2E check passes.
+Ivrit Sheli's version, deployment, publication, test and boundary facts are also
+manifest-backed. Read [`IVRIT_SHELI_SYNC.md`](./IVRIT_SHELI_SYNC.md) before
+changing its managed fields. The current reviewed contract is source/live
+2.2.0, 139 backend + 48 frontend = 187 tests, healthy Railway/PostgreSQL
+readiness and matching public v2.2.0 Git tag and GitHub Release. The final live
+OAuth code exchange, authenticated session refresh and logout remain unverified
+E2E.
 
 ## Before a large change
 
@@ -84,9 +82,10 @@ For the complete local generation and QA pipeline on Windows, run
 the localized profiles, compiles the tooling, runs doctests and unit tests, and
 finishes with the PowerShell verifier.
 
-Confirm the checked-in NovaFit snapshot and both generated README modes agree:
+Confirm both checked-in project snapshots and generated README modes agree:
 
 ```powershell
+python scripts/sync_ivrit_sheli.py --check
 python scripts/sync_novafit.py --check
 ```
 
@@ -122,8 +121,10 @@ python tools/profile/generate_signature_assets.py --check
 The star reveal runs once and must become static when reduced motion is
 requested. The monochrome variant intentionally keeps the star without blur.
 
-Ivrit's visual family was introduced in Profile 2.1 and is now sourced from the
-live 2.1.0 public read-only demo. It must contain synthetic learner records only:
+Ivrit's visual family was introduced in Profile 2.1 from the 2.1.x public
+read-only demo. In Profile 2.3 these files are retained as an explicitly
+versioned archive; they are not visual proof of the live 2.2.0 interface. They
+must contain synthetic learner records only:
 
 ```text
 assets/ivrit-sheli-product-tour.gif
@@ -143,11 +144,13 @@ paths and star before running `generate_signature_assets.py --check`.
 
 Do not publish a Railway or other live link until its HTTPS page, read-only demo,
 `/health/ready`, `/version` and backing database have been tested. For the
-current Ivrit deployment, those checks and PostgreSQL are verified, as are the
-GitHub OAuth consent and cancellation paths. The final authorization-code
-exchange remains pending and must not be described as end-to-end verified.
-When deployment evidence changes, update the canonical project data, both
-localized profiles and public metadata in the same patch.
+current Ivrit 2.2.0 deployment, live/ready, dictionary and PostgreSQL checks are
+verified at the manifest-recorded production commit. GitHub OAuth consent and
+cancellation are verified. The final authorization-code exchange,
+authenticated session refresh and logout remain pending and must not be
+described as end-to-end verified. When deployment evidence changes, refresh the
+strict manifest snapshot, canonical project data, both localized profiles and
+public metadata in the same patch.
 
 The global journey atlas is generated from pinned Natural Earth 1:110m public-
 domain country data. Rebuild its desktop, mobile and reduced-motion variants

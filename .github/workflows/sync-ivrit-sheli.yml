@@ -1,0 +1,105 @@
+name: Sync Ivrit Sheli portfolio facts
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "31 4 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-project-sync-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Refresh verified Ivrit Sheli profile evidence
+    if: github.repository == 'LiriothTeltanion/LiriothTeltanion'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      MANIFEST_URL: https://raw.githubusercontent.com/LiriothTeltanion/IvritSheli/main/portfolio/project.json
+
+    steps:
+      - name: Check out profile repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: "3.13"
+
+      - name: Check whether the canonical upstream manifest exists
+        id: upstream
+        shell: bash
+        run: |
+          python - <<'PY'
+          import os
+          import time
+          from urllib.error import HTTPError
+          from urllib.request import Request, urlopen
+
+          from scripts.sync_ivrit_sheli import DEFAULT_MANIFEST_URL
+
+          url = os.environ["MANIFEST_URL"]
+          if url != DEFAULT_MANIFEST_URL:
+              raise SystemExit("Refusing a noncanonical Ivrit Sheli manifest URL.")
+          try:
+              request = Request(
+                  f"{url}?profile-sync={time.time_ns()}",
+                  headers={
+                      "User-Agent": "Lirioth-profile-sync/2.3",
+                      "Cache-Control": "no-cache, no-store, max-age=0",
+                      "Pragma": "no-cache",
+                  },
+              )
+              with urlopen(request, timeout=15) as response:  # exact allow-listed URL
+                  response.read(1)
+          except HTTPError as error:
+              if error.code != 404:
+                  raise
+              print("::warning::Ivrit Sheli has not published portfolio/project.json yet; validating the reviewed local snapshot only.")
+              available = "false"
+          else:
+              available = "true"
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"available={available}\n")
+          PY
+
+      - name: Refresh from the strict allow-listed manifest
+        if: steps.upstream.outputs.available == 'true'
+        run: python scripts/sync_ivrit_sheli.py --url "$MANIFEST_URL" --write
+
+      - name: Validate reviewed local snapshot while upstream is pending
+        if: steps.upstream.outputs.available != 'true'
+        run: python scripts/sync_ivrit_sheli.py --check
+
+      - name: Verify synchronized profile outputs
+        run: |
+          python scripts/sync_ivrit_sheli.py --check
+          python scripts/sync_novafit.py --check
+          python scripts/build_profile.py --mode compact --output README.md --check
+          python scripts/build_profile.py --mode expanded --output README_EXPANDED.md --check
+          python scripts/validate_profile.py --readme README.md --max-lines 300 --mode compact --check-localized
+          python scripts/validate_profile.py --readme README_EXPANDED.md --max-lines 300 --mode expanded
+          python -m unittest discover -s tests -v
+          git diff --check
+
+      - name: Commit verified generated changes
+        if: steps.upstream.outputs.available == 'true'
+        shell: bash
+        run: |
+          git add -- \
+            data/project-snapshots/ivrit-sheli.json \
+            profile.json \
+            README.md \
+            README_EXPANDED.md
+          if git diff --cached --quiet; then
+            echo "Ivrit Sheli profile facts are already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(profile): sync Ivrit Sheli portfolio facts"
+          git push origin HEAD:main
