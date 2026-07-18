@@ -1,4 +1,4 @@
-<!-- profile-version: 2.3.0; release-tag: v2.3.0; release-title: Profile 2.3 — Verified Ivrit Synchronization Edition -->
+<!-- profile-version: 2.3.1; release-tag: v2.3.1; release-title: Profile 2.3.1 — Release Integrity & Review-Gated Automation Patch -->
 
 <a id="top"></a>
 <div align="center">

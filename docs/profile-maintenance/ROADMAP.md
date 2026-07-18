@@ -98,7 +98,7 @@ This is a contained visual and live-project-evidence upgrade, so the profile
 increments from 2.1.0 to 2.2.0. Featured project versions remain independently
 managed; Ivrit Sheli advances from 2.0.0 to 2.1.0.
 
-## Profile 2.3.0 — Verified Ivrit Synchronization Edition — release candidate
+## Profile 2.3.0 — Verified Ivrit Synchronization Edition — published
 
 - Keep the Profile 2.2 identity, portrait, luminous KC ✦ LT signature, globe,
   accessible motion and recruiter-first project hierarchy unchanged.
@@ -121,12 +121,33 @@ managed; Ivrit Sheli advances from 2.0.0 to 2.1.0.
   and Hebrew profiles through a deterministic parity marker and visible tokens.
 - Present responsible preview/beta testing as an early-adopter strength focused
   on non-critical use, reproducibility and useful future-release feedback.
-- Create `v2.3.0` and its GitHub Release only after candidate review, merge,
-  public rendering and Kevin's explicit publication approval.
+- Published `v2.3.0` and its GitHub Release after candidate review and Kevin's
+  explicit publication approval. The later main-branch metadata finalization is
+  corrected forward by Profile 2.3.1; the published tag remains immutable.
 
 This is a contained content and maintenance-system release, so the profile
 increments from 2.2.0 to 2.3.0 while featured product versions remain
 independently managed.
+
+## Profile 2.3.1 — Release Integrity & Review-Gated Automation Patch — published
+
+- Preserve every public Profile 2.3 visual, project claim and multilingual
+  recruiter path.
+- Correct the Profile 2.3 candidate/published documentation drift without
+  moving or deleting the existing public tag.
+- Replace scheduled direct-main project synchronization with read-only Ivrit
+  Sheli and NovaFit manifest drift detection.
+- Require explicit review, version selection and publication approval before a
+  detected project-fact change can modify the public profile.
+- Codify `read only`, `GO`, dirty-worktree, beta/preview and external-publication
+  boundaries for future Codex work.
+- Verify that any profile marked `released` is checked out at the exact matching
+  tag commit and that tagged `profile.json` also says `released`.
+- Published `v2.3.1` and its stable GitHub Release from the exact finalized,
+  validated and explicitly approved release commit.
+
+This is a narrow release-integrity and automation-safety correction with no
+presentation expansion, so the profile increments from 2.3.0 to 2.3.1.
 
 ## Priority 1 — reliability
 
@@ -152,7 +173,7 @@ independently managed.
 - Improve project screenshots and demonstrations.
 - Earn GitHub achievements through genuine collaboration and useful work.
 
-## Best next depth after Profile 2.3
+## Best next depth after Profile 2.3.1
 
 - Complete and verify Ivrit's final OAuth authorization-code exchange; keep the
   current consent/cancellation evidence separate until code exchange, session

@@ -141,7 +141,7 @@ class ProfileDataValidationTests(unittest.TestCase):
         data = copy.deepcopy(self.valid_data)
         data["release"]["tag"] = "v2.0.0"
 
-        with self.assertRaisesRegex(ValueError, r"release\.tag.*v2\.3\.0"):
+        with self.assertRaisesRegex(ValueError, r"release\.tag.*v2\.3\.1"):
             self.load(data)
 
     def test_release_prepared_date_must_be_iso_calendar_date(self) -> None:
@@ -292,7 +292,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
 
         self.assertLessEqual(len(content.splitlines()), 300)
         for expected in (
-            "profile-version: 2.3.0",
+            "profile-version: 2.3.1",
             "profile-banner-mobile-static.svg",
             "nova-music-live-preview-mobile.jpg",
             "nova-music-journey-static.svg",
@@ -356,7 +356,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
             f"release-title: {release['title']} -->"
         )
 
-        self.assertEqual(version, "2.3.0")
+        self.assertEqual(version, "2.3.1")
         self.assertEqual(release["tag"], f"v{version}")
         self.assertEqual(release["status"], "released")
         for mode in ("compact", "expanded"):

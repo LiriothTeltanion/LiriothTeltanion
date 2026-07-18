@@ -1,6 +1,6 @@
 # Kevin Cusnir · Lirioth Teltanion ✨
 
-<!-- canonical-project-facts: profile=2.3.0; ivrit_source=2.2.0; ivrit_live=2.2.0; ivrit_backend=139; ivrit_frontend=48; ivrit_total=187; ivrit_postgresql_ready=true; ivrit_oauth_exchange_e2e=false; ivrit_media=2.1.x; novafit=4.2.0 -->
+<!-- canonical-project-facts: profile=2.3.1; ivrit_source=2.2.0; ivrit_live=2.2.0; ivrit_backend=139; ivrit_frontend=48; ivrit_total=187; ivrit_postgresql_ready=true; ivrit_oauth_exchange_e2e=false; ivrit_media=2.1.x; novafit=4.2.0 -->
 
 [English](./README.md) · [Español](./PROFILE_ES.md) · **עברית**
 

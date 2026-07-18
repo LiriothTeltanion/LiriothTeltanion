@@ -10,7 +10,7 @@ manifest instead of being repeated manually across the generated profile.
 - Required schema: `ivrit-sheli-portfolio-project-v1`
 - Reviewed local snapshot: `data/project-snapshots/ivrit-sheli.json`
 - Synchronizer: `scripts/sync_ivrit_sheli.py`
-- Scheduled/manual workflow: `.github/workflows/sync-ivrit-sheli.yml`
+- Scheduled/manual read-only audit: `.github/workflows/sync-ivrit-sheli.yml`
 
 The URL is an exact allow-list, not a user-selectable remote. Downloads are
 bounded to 512 KiB, require UTF-8 JSON and reject missing or extra fields,
@@ -24,9 +24,11 @@ still cannot supply another host, path or query string.
 
 The local snapshot is the reviewed offline source of truth. A `404` in the
 GitHub workflow produces a warning and runs the complete offline drift check;
-other network errors and every invalid manifest fail closed. The fallback never
-turns invalid remote data into an accepted update. A same-version remote payload
-also cannot regress a reviewed `published-and-deployed` state while an upstream
+other network errors and every invalid manifest fail closed. When the upstream
+manifest exists, the workflow compares it against the reviewed snapshot and
+fails on drift without writing, committing or pushing. The fallback never turns
+invalid remote data into an accepted update. A same-version remote payload also
+cannot regress a reviewed `published-and-deployed` state while an upstream
 publication-sync change is propagating.
 
 ## Current verified contract
@@ -97,5 +99,6 @@ git diff --check
 6. Verify Git tags and GitHub Releases independently; never infer them or OAuth
    completion from a healthy Railway deployment.
 
-The Ivrit and NovaFit workflows share one concurrency group so they cannot
-write generated profile files at the same time.
+The Ivrit and NovaFit workflows share one concurrency group so their read-only
+remote drift audits do not compete for the same generated-profile validation.
+Every actual synchronization remains a local, reviewed and versioned change.

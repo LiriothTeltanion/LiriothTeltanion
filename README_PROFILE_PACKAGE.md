@@ -1,4 +1,4 @@
-# Profile 2.3 — Verified Ivrit Synchronization Edition 🌍✨
+# Profile 2.3.1 — Release Integrity & Review-Gated Automation Patch 🌍✨
 
 This folder is a complete, generated replacement for the GitHub profile repository presentation.
 
@@ -8,7 +8,7 @@ This folder is a complete, generated replacement for the GitHub profile reposito
 - optional expanded README;
 - Spanish and Hebrew summaries;
 - canonical `profile.json`;
-- Profile `2.3.0` released metadata and changelog;
+- Profile `2.3.1` released metadata and changelog;
 - compact/expanded generator;
 - validator;
 - Windows build/verify launchers;
@@ -32,7 +32,10 @@ This folder is a complete, generated replacement for the GitHub profile reposito
 - profile-independent Training Atlas and anonymized seeded-demo theme evidence;
 - allow-listed NovaFit project-manifest synchronization with offline drift checks;
 - strict allow-listed Ivrit project-manifest synchronization with a reviewed
-  offline snapshot, semantic parity checks and safe 404 workflow fallback;
+  offline snapshot, semantic parity checks and safe read-only drift auditing;
+- review-gated scheduled automation that cannot commit or push to public
+  `main`;
+- exact release-tag integrity checks and forward-only patch repair discipline;
 - reusable KC ✦ LT identity generated from eight pen strokes and one larger,
   lowered four-point star with a brighter blue glow;
 - retained Ivrit project/social-preview provenance, explicitly marked as
@@ -63,4 +66,4 @@ verify_profile.bat
 
 Use compact mode for the public profile. It keeps the deeper engineering approach, education and creative identity in `<details>` blocks while preserving a fast recruiter path led by Nova Music Lab and Ivrit Sheli.
 
-Update `profile.json` through the strict project synchronizers rather than editing repeated claims in generated Markdown. Keep both Ivrit's public source and verified Railway demo visible. Do not describe OAuth as end-to-end verified until the final authorization-code exchange, authenticated session refresh and logout pass; consent and cancellation are the completed checks in this candidate. Ivrit's deployment, Git tag and GitHub Release now agree on 2.2.0, while archived README media remains separately labeled 2.1.x.
+Update `profile.json` through the strict project synchronizers rather than editing repeated claims in generated Markdown. Keep both Ivrit's public source and verified Railway demo visible. Do not describe OAuth as end-to-end verified until the final authorization-code exchange, authenticated session refresh and logout pass; consent and cancellation are the completed checks in this release. Ivrit's deployment, Git tag and GitHub Release now agree on 2.2.0, while archived README media remains separately labeled 2.1.x.

@@ -1,6 +1,7 @@
 [CmdletBinding()]
 param(
-    [string]$RepositoryPath = ""
+    [string]$RepositoryPath = "",
+    [switch]$ReleaseOnly
 )
 
 Set-StrictMode -Version 2.0
@@ -145,6 +146,151 @@ if (Test-Path -LiteralPath (Join-Path $RepositoryPath ".git") -PathType Any) {
 }
 else {
     Fail ".git metadata is missing."
+}
+
+# A release candidate may be validated before a tag exists. Once profile.json
+# says "released", however, the working commit, tag target and tagged metadata
+# must describe the same exact final state. This prevents a public tag from
+# pointing at candidate metadata while a later untagged commit claims release.
+$profileDataPath = Join-Path $RepositoryPath "profile.json"
+if (-not (Test-Path -LiteralPath $profileDataPath -PathType Leaf)) {
+    Fail "profile.json is missing."
+}
+else {
+    try {
+        $profileData = Get-Content -LiteralPath $profileDataPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        $profileVersion = [string]$profileData.profile_version
+        $releaseTag = [string]$profileData.release.tag
+        $releaseStatus = [string]$profileData.release.status
+        $expectedReleaseTag = "v$profileVersion"
+
+        if ($profileVersion -notmatch '^\d+\.\d+\.\d+$') {
+            Fail "profile.json profile_version must use Semantic Versioning (X.Y.Z)."
+        }
+        elseif ($releaseTag -cne $expectedReleaseTag) {
+            Fail "profile.json release tag '$releaseTag' must equal '$expectedReleaseTag'."
+        }
+        elseif ($releaseStatus -eq "release-candidate") {
+            & git -C $RepositoryPath show-ref --verify --quiet "refs/tags/$releaseTag" 2>$null
+            $candidateTagExitCode = $LASTEXITCODE
+            if ($candidateTagExitCode -eq 0) {
+                Fail "Release candidate $profileVersion cannot reuse the existing local tag '$releaseTag'."
+            }
+            elseif ($candidateTagExitCode -ne 1) {
+                Fail "Local tag availability could not be checked for release candidate $profileVersion."
+            }
+            else {
+                Pass "Release metadata is a $profileVersion candidate and local tag '$releaseTag' is available."
+            }
+        }
+        elseif ($releaseStatus -ne "released") {
+            Fail "profile.json release status must be 'release-candidate' or 'released'."
+        }
+        else {
+            $releaseFailureCountBefore = $script:failureCount
+
+            $headOutput = & git -C $RepositoryPath rev-parse HEAD 2>$null
+            $headExitCode = $LASTEXITCODE
+            $headCommit = ($headOutput | Out-String).Trim()
+            if ($headExitCode -ne 0 -or [string]::IsNullOrWhiteSpace($headCommit)) {
+                Fail "The current Git commit could not be resolved for release verification."
+            }
+
+            $trackedStatusOutput = & git -C $RepositoryPath status --porcelain=v1 --untracked-files=no 2>$null
+            $trackedStatusExitCode = $LASTEXITCODE
+            $trackedStatus = ($trackedStatusOutput | Out-String).Trim()
+            if ($trackedStatusExitCode -ne 0) {
+                Fail "Tracked release-state cleanliness could not be checked."
+            }
+            elseif (-not [string]::IsNullOrWhiteSpace($trackedStatus)) {
+                Fail "Released profile $profileVersion requires a clean tracked worktree and index."
+            }
+
+            $tagReference = "refs/tags/$releaseTag"
+            & git -C $RepositoryPath show-ref --verify --quiet $tagReference 2>$null
+            $releasedTagExists = $LASTEXITCODE -eq 0
+            if (-not $releasedTagExists) {
+                Fail "Released profile $profileVersion requires the matching annotated local tag '$releaseTag'."
+            }
+            else {
+                $tagTypeOutput = & git -C $RepositoryPath cat-file -t $tagReference 2>$null
+                $tagTypeExitCode = $LASTEXITCODE
+                $tagObjectType = ($tagTypeOutput | Out-String).Trim()
+                if ($tagTypeExitCode -ne 0 -or [string]::IsNullOrWhiteSpace($tagObjectType)) {
+                    Fail "Release tag '$releaseTag' could not be inspected."
+                }
+                elseif ($tagObjectType -cne "tag") {
+                    Fail "Release tag '$releaseTag' must be annotated; lightweight tags are not accepted."
+                }
+
+                $tagCommitReference = "$tagReference^{commit}"
+                $tagCommitOutput = & git -C $RepositoryPath rev-parse --verify --quiet $tagCommitReference 2>$null
+                $tagCommitExitCode = $LASTEXITCODE
+                $tagCommit = ($tagCommitOutput | Out-String).Trim()
+                if ($tagCommitExitCode -ne 0 -or [string]::IsNullOrWhiteSpace($tagCommit)) {
+                    Fail "Release tag '$releaseTag' could not be resolved to a commit."
+                }
+                elseif (-not [string]::IsNullOrWhiteSpace($headCommit) -and $tagCommit -cne $headCommit) {
+                    Fail "Release tag '$releaseTag' points to $tagCommit, but the checked-out commit is $headCommit."
+                }
+
+                $taggedProfileSpec = "${releaseTag}:profile.json"
+                $taggedProfileBlobOutput = & git -C $RepositoryPath rev-parse --verify --quiet $taggedProfileSpec 2>$null
+                $taggedProfileBlobExitCode = $LASTEXITCODE
+                $taggedProfileBlob = ($taggedProfileBlobOutput | Out-String).Trim()
+                $workingProfileBlobOutput = & git -C $RepositoryPath hash-object --path=profile.json $profileDataPath 2>$null
+                $workingProfileBlobExitCode = $LASTEXITCODE
+                $workingProfileBlob = ($workingProfileBlobOutput | Out-String).Trim()
+                if ($taggedProfileBlobExitCode -ne 0 -or [string]::IsNullOrWhiteSpace($taggedProfileBlob)) {
+                    Fail "Tag '$releaseTag' does not contain profile.json."
+                }
+                elseif ($workingProfileBlobExitCode -ne 0 -or [string]::IsNullOrWhiteSpace($workingProfileBlob)) {
+                    Fail "The working profile.json content could not be hashed."
+                }
+                elseif ($taggedProfileBlob -cne $workingProfileBlob) {
+                    Fail "Working profile.json is not byte-equivalent to the profile.json stored in tag '$releaseTag'."
+                }
+
+                if ($taggedProfileBlobExitCode -eq 0 -and -not [string]::IsNullOrWhiteSpace($taggedProfileBlob)) {
+                    $taggedProfileJsonOutput = & git -C $RepositoryPath show $taggedProfileSpec 2>$null
+                    $taggedProfileJsonExitCode = $LASTEXITCODE
+                    $taggedProfileJson = ($taggedProfileJsonOutput | Out-String).Trim()
+                    if ($taggedProfileJsonExitCode -ne 0 -or [string]::IsNullOrWhiteSpace($taggedProfileJson)) {
+                        Fail "Tag '$releaseTag' does not contain a readable profile.json."
+                    }
+                    else {
+                        $taggedProfileData = $taggedProfileJson | ConvertFrom-Json
+                        $taggedVersion = [string]$taggedProfileData.profile_version
+                        $taggedReleaseTag = [string]$taggedProfileData.release.tag
+                        $taggedReleaseStatus = [string]$taggedProfileData.release.status
+                        if ($taggedVersion -cne $profileVersion -or
+                            $taggedReleaseTag -cne $releaseTag -or
+                            $taggedReleaseStatus -cne "released") {
+                            Fail "Tag '$releaseTag' contains profile metadata that is not the finalized released $profileVersion state."
+                        }
+                    }
+                }
+            }
+
+            if ($script:failureCount -eq $releaseFailureCountBefore) {
+                Pass "Release integrity confirmed: annotated $releaseTag, commit $headCommit, clean tracked state and exact tagged released metadata agree."
+            }
+        }
+    }
+    catch {
+        Fail "Release metadata verification could not be completed: $($_.Exception.Message)"
+    }
+}
+
+if ($ReleaseOnly) {
+    Write-Host ""
+    if ($script:failureCount -gt 0) {
+        Write-Host "RELEASE VERIFICATION FAILED ($($script:failureCount) failure(s))" -ForegroundColor Red
+        exit 1
+    }
+
+    Write-Host "RELEASE VERIFICATION PASSED (0 failures)" -ForegroundColor Green
+    exit 0
 }
 
 $readmePath = Join-Path $RepositoryPath "README.md"

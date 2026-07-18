@@ -307,7 +307,7 @@ class IvritSheliSyncTests(unittest.TestCase):
             )
         )
 
-    def test_workflow_has_safe_bootstrap_and_serialized_generated_writes(self) -> None:
+    def test_workflows_detect_drift_without_writing_or_pushing(self) -> None:
         workflow = (
             ROOT / ".github" / "workflows" / "sync-ivrit-sheli.yml"
         ).read_text(encoding="utf-8")
@@ -320,11 +320,25 @@ class IvritSheliSyncTests(unittest.TestCase):
         self.assertIn("validating the reviewed local snapshot only", workflow)
         self.assertIn("python scripts/sync_ivrit_sheli.py --check", workflow)
         self.assertIn("if: steps.upstream.outputs.available == 'true'", workflow)
-        self.assertIn("data/project-snapshots/ivrit-sheli.json", workflow)
+        self.assertIn(
+            'python scripts/sync_ivrit_sheli.py --url "$MANIFEST_URL" --check',
+            workflow,
+        )
+        self.assertIn(
+            'python scripts/sync_novafit.py --url "$MANIFEST_URL" --check',
+            novafit_workflow,
+        )
         self.assertNotIn("secrets.", workflow)
         concurrency = "group: profile-project-sync-${{ github.repository }}"
         self.assertIn(concurrency, workflow)
         self.assertIn(concurrency, novafit_workflow)
+        for configured_workflow in (workflow, novafit_workflow):
+            self.assertIn("contents: read", configured_workflow)
+            self.assertIn("persist-credentials: false", configured_workflow)
+            self.assertNotIn("contents: write", configured_workflow)
+            self.assertNotIn("--write", configured_workflow)
+            self.assertNotIn("git commit", configured_workflow)
+            self.assertNotIn("git push", configured_workflow)
 
 
 if __name__ == "__main__":

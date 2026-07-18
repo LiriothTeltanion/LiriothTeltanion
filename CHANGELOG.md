@@ -5,12 +5,51 @@ The profile follows Semantic Versioning: major for a structural identity or
 presentation generation, minor for a contained feature or visual upgrade, and
 patch for a narrow correction.
 
+## [2.3.1] — 2026-07-18 · Release Integrity & Review-Gated Automation Patch
+
+### Release status
+
+- Published as the stable forward correction from the immutable public
+  `v2.3.0` tag, using one exact finalized commit, annotated `v2.3.1` tag and
+  matching non-draft, non-prerelease GitHub Release.
+- Preserves the complete Profile 2.3 public identity, project evidence,
+  multilingual content and visual assets.
+
+### Fixed
+
+- Recorded the exact Profile 2.3 release defect: public tag `v2.3.0` points to
+  candidate commit `66f0436`, whose own metadata still says
+  `release-candidate`, while release-state finalization reached `main` later in
+  commit `44f0318`. The old tag remains immutable and this patch repairs
+  forward.
+- Added exact release-integrity verification so `released` metadata requires
+  the current tag to point to the same finalized commit and contain matching
+  released `profile.json` data.
+
+### Changed
+
+- Converted the scheduled Ivrit Sheli and NovaFit synchronization workflows
+  from direct writes and pushes to read-only manifest drift audits.
+- Added explicit read-only, `GO`, dirty-worktree, Semantic Versioning,
+  beta/preview and publication boundaries to the repository workflow.
+- Applied Kevin-approved GitHub account bio, canonical social-link cleanup and
+  recruiter-first pin order, then verified the resulting public profile state.
+
+### Publication boundary
+
+- Scheduled automation can now detect stale evidence but cannot rewrite public
+  profile content or publish claims under an unchanged version.
+- The existing `v2.3.0` tag is not moved or deleted. Approved `v2.3.1`
+  publication tags the exact finalized commit and requires public verification.
+
 ## [2.3.0] — 2026-07-18 · Verified Ivrit Synchronization Edition
 
 ### Release status
 
-- Published from the fully validated `codex/profile-v2.3-ivrit-sync` candidate
-  as Git tag and GitHub Release `v2.3.0` after both repository checks passed.
+- Public tag and GitHub Release `v2.3.0` were created at candidate commit
+  `66f0436` after repository checks. The tag retained candidate release
+  metadata; commit `44f0318` finalized that bookkeeping on `main` afterward.
+  Profile 2.3.1 preserves both commits and corrects the release process forward.
 - Keeps Nova Music Lab first and preserves the complete Profile 2.2 visual and
   identity system without replacing or deleting public assets.
 

@@ -30,6 +30,27 @@ The root `README.md` is rendered publicly on Kevin's GitHub profile.
 - Avoid unnecessary dependencies and externally hosted widgets that are unreliable.
 - Do not expose secrets, tokens, private documents, medical information, financial information or `.env` values.
 
+## Authority and release discipline
+
+- A `read only` request forbids file writes, backups, generators in write mode,
+  dependency installation, branch or configuration changes, staging, commits,
+  pushes, tags, releases, deployments and public-account updates.
+- `GO` authorizes complete implementation and validation of the already agreed
+  scope. It does not broaden that scope or authorize commit, push, release,
+  deployment or another external publication action.
+- Treat every pre-existing worktree change as Kevin's work. Never stash, reset,
+  clean, overwrite or discard it to make the repository easier to edit.
+- Before repository-changing work, identify the current canonical profile
+  version, choose the smallest justified Semantic Versioning increment and
+  report the intended old → new version.
+- Preview and beta tools are welcome in labeled, non-critical experiments with
+  a rollback path. Public profile claims, links and releases must represent
+  stable, verified evidence.
+- Never move, delete or reuse a published tag. Correct release mistakes forward
+  with a new patch version and tag the exact finalized release commit.
+- Scheduled automation may detect and report project-fact drift, but it must not
+  rewrite, commit or push public profile content without Kevin's review.
+
 ## Required workflow
 
 Before editing:

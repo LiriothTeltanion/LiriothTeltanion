@@ -1,4 +1,9 @@
-# GitHub Profile 2.3 Release-Candidate Guide 🧭
+# Historical GitHub Profile 2.3 Candidate Guide 🧭
+
+> **Historical record:** Profile 2.3 has been published. Do not reuse this
+> candidate-copy procedure for current work. Follow
+> [`docs/profile-maintenance/WORKFLOW.md`](./docs/profile-maintenance/WORKFLOW.md)
+> for review-gated, versioned maintenance and exact-tag release publication.
 
 ## Objective
 

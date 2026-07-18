@@ -29,6 +29,20 @@ Do not pull, switch branches, commit or push merely to begin a maintenance
 session. Those are separate actions that require an explicit reason and, for
 publishing, Kevin's approval.
 
+## Authority boundaries
+
+- `read only` means zero writes: do not create backups, run generators in write
+  mode, install dependencies, change branches/configuration/refs, stage, commit,
+  push, tag, release, deploy or edit public account settings.
+- `GO` authorizes complete implementation and validation of the scope already
+  reviewed with Kevin. It does not authorize a broader redesign or any external
+  publication action.
+- Existing worktree changes belong to Kevin. Never stash, reset, clean,
+  overwrite or discard them; work around them or stop and explain the overlap.
+- Preview and beta tools may be used in clearly labeled non-critical contexts
+  with rollback. Public links, screenshots, claims and releases must remain
+  stable and verified.
+
 NovaFit's version, verified capability and quality facts are synchronized from
 its public project manifest. See [`NOVAFIT_SYNC.md`](./NOVAFIT_SYNC.md) before
 changing the managed NovaFit fields by hand.
@@ -51,6 +65,28 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\tools\profile\backup-r
 
 The backup is placed in `.local-backups/` and ignored by Git. A focused metadata,
 documentation or one-section edit does not require a new backup.
+
+## Versioning and release integrity
+
+Before implementation, read `profile.json`, classify the change and announce
+the intended version:
+
+- structural identity or presentation generation: increment `X.0.0`;
+- contained feature, visual or functional expansion: increment `X.Y.0`;
+- narrow correction without presentation expansion: increment `X.Y.Z`.
+
+Set new work to `release-candidate` until publication is explicitly approved.
+Never move, delete or reuse a published tag. If a tag or release contains stale
+metadata, correct forward with a new patch version.
+
+For a final release, first validate the `release-candidate`. After Kevin's
+explicit publication approval, set the in-tree status to `released`, run the
+deterministic build and data checks, commit that exact final state, create the
+annotated tag at the same commit, and run the complete verifier again. Only then
+push the commit and tag atomically, create the GitHub Release and verify the
+public state. The verifier rejects `released` metadata when the matching tag is
+absent, points elsewhere or contains non-final metadata. A local unpublished
+tag may be removed if this pre-push gate fails; a published tag is immutable.
 
 ## Editing guardrails
 
@@ -211,10 +247,13 @@ Before handoff, report:
 3. Commands and visual checks executed, including their result.
 4. Any limitation that remains unresolved.
 5. Confirmation that no commit or push was performed unless requested.
+6. The previous and new profile version, or why no increment was needed.
 
 ## Publish with GitHub Desktop
 
 Publishing happens only after Kevin explicitly approves it.
+
+### Desktop review and final commit
 
 1. Inspect every changed file.
 2. Confirm that no secret or personal document is included.
@@ -222,11 +261,77 @@ Publishing happens only after Kevin explicitly approves it.
    - `fix: prevent profile banner text clipping`
    - `docs: refresh featured project evidence`
    - `design: improve mobile readability`
-4. Commit to the current branch.
-5. Push origin.
-6. Apply the documented About metadata, social previews and pin order.
-7. Open the public profile in signed-in and signed-out views and inspect the
+4. Confirm `profile.json` says `released`, regenerate both READMEs and run the
+   deterministic data/build checks.
+5. Commit the exact final state to `main` in GitHub Desktop.
+6. Do **not** click **Push origin** yet. GitHub Desktop cannot guarantee the
+   required atomic branch-plus-tag publication by itself.
+
+### Approved terminal release handoff
+
+Open PowerShell in this repository only after Kevin has approved publication.
+These commands fetch public tags, reject reuse, create an annotated tag, run the
+exact-tag verifier, push branch and tag atomically, and create a stable Release:
+
+```powershell
+$profile = Get-Content -Raw -LiteralPath .\profile.json | ConvertFrom-Json
+$tag = [string]$profile.release.tag
+$title = [string]$profile.release.title
+if ($profile.release.status -ne 'released') { throw 'profile.json is not finalized.' }
+
+git fetch origin --tags --prune
+if ($LASTEXITCODE -ne 0) { throw 'Could not refresh public tags.' }
+git show-ref --verify --quiet "refs/tags/$tag"
+if ($LASTEXITCODE -eq 0) { throw "Tag $tag already exists; increment the patch version." }
+if ($LASTEXITCODE -ne 1) { throw "Could not check tag $tag." }
+
+$dirty = @(git status --porcelain=v1)
+if ($LASTEXITCODE -ne 0 -or $dirty.Count -gt 0) { throw 'The repository is not clean.' }
+$head = (git rev-parse HEAD).Trim()
+git tag -a $tag $head -m $title
+if ($LASTEXITCODE -ne 0) { throw "Could not create annotated tag $tag." }
+
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\profile\verify-profile.ps1
+if ($LASTEXITCODE -ne 0) { throw 'Release verification failed; do not push.' }
+git push --atomic origin "HEAD:refs/heads/main" "refs/tags/$tag"
+if ($LASTEXITCODE -ne 0) { throw 'Atomic branch and tag push failed.' }
+
+gh release create $tag --verify-tag --title $title --generate-notes
+if ($LASTEXITCODE -ne 0) { throw 'GitHub Release creation failed.' }
+```
+
+The tag-availability check is deliberately performed after `git fetch --tags`,
+so an existing public version cannot be accidentally reused. If verification
+fails before the push, the new tag is still local and unpublished; inspect the
+failure before removing or recreating it. Never move or delete a published tag.
+
+### Public verification
+
+Run the following checks after publication:
+
+```powershell
+$remoteMain = ((git ls-remote origin refs/heads/main) -split '\s+')[0]
+$peeled = @(git ls-remote origin "refs/tags/$tag^{}")
+if ($peeled.Count -ne 1) { throw 'The annotated remote tag could not be peeled.' }
+$remoteTagCommit = (($peeled[0] -split '\s+')[0]).Trim()
+if ($remoteMain -ne $head -or $remoteTagCommit -ne $head) {
+    throw 'Public main, the release tag and the finalized local commit differ.'
+}
+
+$release = gh release view $tag --json tagName,isDraft,isPrerelease,url | ConvertFrom-Json
+if ($release.tagName -ne $tag -or $release.isDraft -or $release.isPrerelease) {
+    throw 'The GitHub Release is missing or is not a stable published release.'
+}
+$release.url
+```
+
+Then:
+
+1. Apply the separately approved About metadata, social previews and pin order.
+2. Open the public profile in signed-in and signed-out views and inspect the
    rendered result at desktop and narrow/mobile widths.
+3. Confirm the README marker, tag page and stable GitHub Release all show the
+   same profile version.
 
 ## Recovery
 

@@ -1,18 +1,18 @@
 {
-  "profile_version": "2.3.0",
+  "profile_version": "2.3.1",
   "release": {
-    "title": "Profile 2.3 — Verified Ivrit Synchronization Edition",
-    "tag": "v2.3.0",
+    "title": "Profile 2.3.1 — Release Integrity & Review-Gated Automation Patch",
+    "tag": "v2.3.1",
     "status": "released",
     "prepared_on": "2026-07-18",
-    "baseline": "Profile 2.2 — Luminous Signature & Live Ivrit Edition",
-    "summary": "A focused evidence and maintenance release that synchronizes Ivrit Sheli 2.2.0 from one strict public manifest, verifies the 187-test Railway and PostgreSQL proof, protects multilingual semantic parity and labels older interface media without overstating it.",
+    "baseline": "Profile 2.3 — Verified Ivrit Synchronization Edition",
+    "summary": "A narrow governance patch that repairs release-state drift, makes scheduled project synchronization detection-only and codifies Kevin's read-only, versioning, beta/stable and publication boundaries.",
     "focus": [
-      "Strict allow-listed Ivrit Sheli project-manifest synchronization and offline drift detection",
-      "Verified live Ivrit Sheli 2.2.0 Railway deployment and PostgreSQL readiness",
-      "Updated 139-backend plus 48-frontend equals 187-test engineering evidence",
-      "Explicit GitHub release, OAuth end-to-end and pre-2.2 visual-proof boundaries",
-      "Machine-checked English, Spanish and Hebrew project-fact parity"
+      "Forward-only repair for the Profile 2.3 tag and finalized-metadata mismatch",
+      "Read-only scheduled Ivrit Sheli and NovaFit manifest drift detection",
+      "Explicit read-only and GO authority boundaries for Codex work",
+      "Deliberate Semantic Versioning and exact-tag release verification",
+      "Stable public releases with labeled beta and preview experimentation in non-critical contexts"
     ],
     "public_data_boundary": "Only public repository facts and deterministic or synthetic demonstration visuals are included; no private learning history, wellness history, runtime database, secrets, provider credentials or personal exports are published."
   },

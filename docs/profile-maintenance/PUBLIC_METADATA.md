@@ -1,9 +1,57 @@
 # Approved GitHub metadata blueprint
 
 This file is the exact, evidence-based configuration for Kevin's public GitHub
-repositories. Keeping the blueprint here does not apply account settings by
-itself: About metadata, social previews and pinned repositories still require a
-reviewed GitHub update and a public verification pass.
+presence. The account profile fields and five-project pin order were applied
+and publicly verified on 2026-07-18 under Kevin's explicit Profile 2.3.1
+publication approval. Repository About metadata and social previews remain a
+reviewed blueprint until each repository receives its own update and public
+verification pass.
+
+## GitHub account profile
+
+**Name**
+
+```text
+Kevin Cusnir
+```
+
+**Bio**
+
+```text
+Junior Frontend & Full-Stack Developer · Creative Technologist · React, TypeScript, Python & SQL · Accessible multilingual UX
+```
+
+This 125-character bio keeps the target role first, preserves Kevin's creative
+identity and adds the SQL and multilingual-accessibility signals supported by
+the public portfolio.
+
+**Location**
+
+```text
+Beersheba, Israel
+```
+
+**Website**
+
+```text
+https://liriothteltanion.github.io/NovaMusicLab/
+```
+
+**Canonical social-account order**
+
+1. LinkedIn — `https://www.linkedin.com/in/kevin-cusnir-883173b4/`
+2. Facebook — `https://www.facebook.com/kevincusnir/`
+3. YouTube — `https://www.youtube.com/@KevinCusnir`
+
+Remove the duplicate LinkedIn variants ending in `/kevin-cusnir` and
+`/kevincusnir/`; they do not match the canonical profile link used by the
+GitHub profile, CV and LinkedIn command center. Keep **Available for hire**
+enabled. Leave public email visibility unchanged unless Kevin separately asks
+to change that privacy choice.
+
+This account section was applied and publicly verified on 2026-07-18 under
+Kevin's explicit Profile 2.3.1 publication approval. Public email visibility
+and every unrelated account setting were left unchanged.
 
 ## Profile repository: `LiriothTeltanion/LiriothTeltanion`
 
@@ -291,8 +339,11 @@ Keep `Fullstack2026` public and linked from the README as transparent learning
 progression, but outside the pins now that stronger product and recruiter-facing
 evidence is available.
 
-Unpin the profile repository itself; its README is already the page recruiters
-are viewing and that pin currently consumes a higher-value project slot.
+Keep the profile repository itself unpinned; its README is already the page
+recruiters are viewing, so a future profile-repository pin would duplicate that
+surface instead of adding stronger evidence.
+
+This five-project order was applied and publicly verified on 2026-07-18.
 
 ## Publication checklist
 

@@ -1,4 +1,4 @@
-name: Sync NovaFit portfolio facts
+name: Audit NovaFit portfolio facts
 
 on:
   workflow_dispatch:
@@ -6,15 +6,15 @@ on:
     - cron: "17 4 * * *"
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: profile-project-sync-${{ github.repository }}
   cancel-in-progress: false
 
 jobs:
-  sync:
-    name: Refresh generated NovaFit profile evidence
+  audit:
+    name: Detect NovaFit profile evidence drift
     if: github.repository == 'LiriothTeltanion/LiriothTeltanion'
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -24,14 +24,16 @@ jobs:
     steps:
       - name: Check out profile repository
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
           python-version: "3.13"
 
-      - name: Refresh the allow-listed NovaFit manifest
-        run: python scripts/sync_novafit.py --url "$MANIFEST_URL" --write
+      - name: Detect drift from the allow-listed NovaFit manifest
+        run: python scripts/sync_novafit.py --url "$MANIFEST_URL" --check
 
       - name: Verify synchronized profile outputs
         run: |
@@ -43,20 +45,3 @@ jobs:
           python scripts/validate_profile.py --readme README_EXPANDED.md --max-lines 300 --mode expanded
           python -m unittest discover -s tests -v
           git diff --check
-
-      - name: Commit verified generated changes
-        shell: bash
-        run: |
-          git add -- \
-            data/project-snapshots/novafit.json \
-            profile.json \
-            README.md \
-            README_EXPANDED.md
-          if git diff --cached --quiet; then
-            echo "NovaFit profile facts are already current."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore(profile): sync NovaFit portfolio facts"
-          git push origin HEAD:main
