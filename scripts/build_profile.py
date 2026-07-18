@@ -99,10 +99,46 @@ IVRIT_RELEASE_EVIDENCE_FIELDS = (
     "total_tests",
     "version",
 )
+IVRIT_SYNC_FIELDS = (
+    "authenticated_session_refresh_verified",
+    "backend_tests",
+    "database",
+    "demo_url",
+    "dictionary_ready",
+    "environment",
+    "frontend_tests",
+    "health_live",
+    "health_ready",
+    "latest_git_tag",
+    "latest_github_release",
+    "live_2_2_interactive_browser_qa",
+    "live_version",
+    "logout_verified",
+    "oauth_boundary",
+    "oauth_final_live_code_exchange_verified",
+    "postgresql_ready",
+    "production_commit",
+    "provider",
+    "readme_screenshot_version",
+    "readme_screenshots_match_live_version",
+    "release_state",
+    "runtime",
+    "schema",
+    "social_preview_version",
+    "source",
+    "source_version",
+    "source_version_github_release_published",
+    "source_version_tagged",
+    "test_report",
+    "total_tests",
+    "verified_on",
+    "visual_proof_state",
+)
 IVRIT_MEDIA_FIELDS = (
     "alt",
     "animation",
     "caption",
+    "current_release_visual_proof",
     "description",
     "mobile_alt",
     "mobile_static",
@@ -111,6 +147,7 @@ IVRIT_MEDIA_FIELDS = (
     "rtl_static",
     "static",
     "static_alt",
+    "version",
 )
 SEMVER_PATTERN = re.compile(
     r"^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)"
@@ -303,6 +340,141 @@ def _validate_profile_data(data: Mapping[str, Any]) -> None:
             "profile.projects[Ivrit Sheli].status must agree with release_evidence.version "
             "and the presence of a verified live demo URL."
         )
+    ivrit_sync = _require_mapping(
+        ivrit.get("portfolio_sync"),
+        "profile.projects[Ivrit Sheli].portfolio_sync",
+        IVRIT_SYNC_FIELDS,
+    )
+    sync_path = "profile.projects[Ivrit Sheli].portfolio_sync"
+    if ivrit_sync["schema"] != "ivrit-sheli-portfolio-project-v1":
+        raise ValueError(f"{sync_path}.schema must use the canonical Ivrit contract.")
+    if ivrit_sync["source"] != (
+        "https://raw.githubusercontent.com/"
+        "LiriothTeltanion/IvritSheli/main/portfolio/project.json"
+    ):
+        raise ValueError(f"{sync_path}.source must use the allow-listed raw manifest URL.")
+    sync_source_version = _require_semver(
+        ivrit_sync["source_version"], f"{sync_path}.source_version"
+    )
+    sync_live_version = _require_semver(
+        ivrit_sync["live_version"], f"{sync_path}.live_version"
+    )
+    if sync_source_version != ivrit_version or sync_live_version != ivrit_version:
+        raise ValueError(
+            f"{sync_path} source/live versions must match release_evidence.version."
+        )
+    for field in ("backend_tests", "frontend_tests", "total_tests"):
+        _require_positive_integer(ivrit_sync[field], f"{sync_path}.{field}")
+    if (
+        ivrit_sync["backend_tests"] != release_evidence["backend_tests"]
+        or ivrit_sync["frontend_tests"] != release_evidence["frontend_tests"]
+        or ivrit_sync["total_tests"] != release_evidence["total_tests"]
+        or ivrit_sync["test_report"] != release_evidence["test_report"]
+    ):
+        raise ValueError(f"{sync_path} test evidence must match release_evidence.")
+    for field in ("demo_url", "source", "test_report"):
+        _require_https_url(ivrit_sync[field], f"{sync_path}.{field}")
+    if ivrit_sync["demo_url"] != ivrit["demo"]:
+        raise ValueError(f"{sync_path}.demo_url must match the verified project demo URL.")
+    if ivrit_sync["test_report"] != (
+        "https://github.com/LiriothTeltanion/IvritSheli/blob/main/TEST_REPORT.md"
+    ):
+        raise ValueError(f"{sync_path}.test_report must use the canonical evidence URL.")
+    for field in (
+        "database",
+        "environment",
+        "latest_git_tag",
+        "latest_github_release",
+        "live_2_2_interactive_browser_qa",
+        "oauth_boundary",
+        "production_commit",
+        "provider",
+        "readme_screenshot_version",
+        "release_state",
+        "runtime",
+        "schema",
+        "social_preview_version",
+        "visual_proof_state",
+    ):
+        _require_text(ivrit_sync[field], f"{sync_path}.{field}")
+    _require_iso_date(ivrit_sync["verified_on"], f"{sync_path}.verified_on")
+    if not re.fullmatch(r"[0-9a-f]{40}", ivrit_sync["production_commit"]):
+        raise ValueError(f"{sync_path}.production_commit must be a full lowercase SHA-1.")
+    if (
+        ivrit_sync["provider"] != "Railway"
+        or ivrit_sync["runtime"] != "Docker"
+        or ivrit_sync["database"] != "PostgreSQL 17"
+        or ivrit_sync["environment"] != "production"
+    ):
+        raise ValueError(f"{sync_path} deployment identity is inconsistent.")
+    for field in ("health_live", "health_ready", "postgresql_ready", "dictionary_ready"):
+        if _require_boolean(ivrit_sync[field], f"{sync_path}.{field}") is not True:
+            raise ValueError(f"{sync_path}.{field} must be true for verified readiness.")
+    for field in (
+        "source_version_tagged",
+        "source_version_github_release_published",
+        "readme_screenshots_match_live_version",
+        "oauth_final_live_code_exchange_verified",
+        "authenticated_session_refresh_verified",
+        "logout_verified",
+    ):
+        _require_boolean(ivrit_sync[field], f"{sync_path}.{field}")
+    if ivrit_sync["release_state"] not in {
+        "deployment-ahead-of-github-release",
+        "published-and-deployed",
+    }:
+        raise ValueError(f"{sync_path}.release_state is unsupported.")
+    for field in ("latest_git_tag", "latest_github_release"):
+        tag = ivrit_sync[field]
+        if not tag.startswith("v"):
+            raise ValueError(f"{sync_path}.{field} must be a v-prefixed semantic version.")
+        _require_semver(tag[1:], f"{sync_path}.{field}")
+    if ivrit_sync["release_state"] == "deployment-ahead-of-github-release":
+        if (
+            ivrit_sync["source_version_tagged"] is not False
+            or ivrit_sync["source_version_github_release_published"] is not False
+        ):
+            raise ValueError(
+                f"{sync_path} deployment-ahead state cannot claim a current tag or release."
+            )
+        if any(
+            ivrit_sync[field] == f"v{ivrit_version}"
+            for field in ("latest_git_tag", "latest_github_release")
+        ):
+            raise ValueError(f"{sync_path} cannot claim the unpublished source version.")
+    elif (
+        ivrit_sync["source_version_tagged"] is not True
+        or ivrit_sync["source_version_github_release_published"] is not True
+        or ivrit_sync["latest_git_tag"] != f"v{ivrit_version}"
+        or ivrit_sync["latest_github_release"] != f"v{ivrit_version}"
+    ):
+        raise ValueError(
+            f"{sync_path} published-and-deployed state must match the source version."
+        )
+    social_preview_version = _require_semver(
+        ivrit_sync["social_preview_version"], f"{sync_path}.social_preview_version"
+    )
+    if social_preview_version != ivrit_version:
+        raise ValueError(f"{sync_path}.social_preview_version must match the source version.")
+    if (
+        ivrit_sync["visual_proof_state"] != "partial"
+        or ivrit_sync["readme_screenshots_match_live_version"] is not False
+        or ivrit_sync["live_2_2_interactive_browser_qa"] != "pending"
+    ):
+        raise ValueError(f"{sync_path} must preserve the partial pre-2.2 visual boundary.")
+    if not re.fullmatch(
+        r"[0-9]+\.[0-9]+\.(?:[0-9]+|x)",
+        ivrit_sync["readme_screenshot_version"],
+    ):
+        raise ValueError(f"{sync_path}.readme_screenshot_version is invalid.")
+    if (
+        ivrit_sync["oauth_final_live_code_exchange_verified"] is not False
+        or ivrit_sync["authenticated_session_refresh_verified"] is not False
+        or ivrit_sync["logout_verified"] is not False
+    ):
+        raise ValueError(
+            f"{sync_path} OAuth exchange, session refresh and logout must remain unverified."
+        )
     ivrit_media = _require_mapping(
         ivrit.get("media"),
         "profile.projects[Ivrit Sheli].media",
@@ -316,8 +488,21 @@ def _validate_profile_data(data: Mapping[str, Any]) -> None:
         "public_data_boundary",
         "rtl_alt",
         "static_alt",
+        "version",
     ):
         _require_text(ivrit_media[field], f"profile.projects[Ivrit Sheli].media.{field}")
+    _require_boolean(
+        ivrit_media["current_release_visual_proof"],
+        "profile.projects[Ivrit Sheli].media.current_release_visual_proof",
+    )
+    if ivrit_media["current_release_visual_proof"] is not False:
+        raise ValueError(
+            "profile.projects[Ivrit Sheli].media must remain explicitly pre-2.2 visual proof."
+        )
+    if ivrit_media["version"] != ivrit_sync["readme_screenshot_version"]:
+        raise ValueError(
+            "profile.projects[Ivrit Sheli].media.version must match the manifest screenshot version."
+        )
     for field in ("animation", "mobile_static", "rtl_static", "static"):
         _require_asset_path(
             ivrit_media[field], f"profile.projects[Ivrit Sheli].media.{field}"
@@ -492,6 +677,13 @@ def _require_positive_integer(value: Any, path: str) -> int:
     """Return a positive integer while rejecting booleans."""
     if not isinstance(value, int) or isinstance(value, bool) or value < 1:
         raise ValueError(f"{path} must be a positive integer.")
+    return value
+
+
+def _require_boolean(value: Any, path: str) -> bool:
+    """Return a JSON boolean while rejecting truthy strings and integers."""
+    if not isinstance(value, bool):
+        raise ValueError(f"{path} must be boolean.")
     return value
 
 
@@ -912,20 +1104,38 @@ def _render_nova_music_spotlight(project: Mapping[str, Any]) -> list[str]:
 
 
 def _render_ivrit_spotlight(project: Mapping[str, Any]) -> list[str]:
-    """Render authentic Ivrit Sheli product motion with accessible static evidence."""
+    """Render current engineering proof beside honestly versioned archived media."""
 
     media = project["media"]
     evidence = project["release_evidence"]
+    sync = project["portfolio_sync"]
     live_link = (
-        f'<p><a href="{project["demo"]}">Open verified live deployment</a></p>'
+        f' · <a href="{project["demo"]}">Open verified live deployment</a>'
         if project.get("demo")
-        else "<p><strong>Live deployment pending:</strong> source and local/Docker paths are public now.</p>"
+        else " · <strong>Live deployment pending:</strong> source and local/Docker paths are public now."
+    )
+    publication_text = (
+        f"the verified deployment, Git tag and GitHub Release now agree on "
+        f"v{sync['live_version']}."
+        if sync["release_state"] == "published-and-deployed"
+        else (
+            f"the verified deployment runs v{sync['live_version']}; the latest Git "
+            f"tag and GitHub release remain {sync['latest_git_tag']} while the "
+            "current release package is pending."
+        )
     )
     return [
         "<details>",
-        f"<summary><strong>א Open the Ivrit Sheli {evidence['version']} product tour and full-stack proof</strong></summary>",
-        "",
+        (
+            f"<summary><strong>א Open the archived Ivrit Sheli {media['version']} "
+            f"product tour and verified {evidence['version']} full-stack proof</strong></summary>"
+        ),
         f"<p><strong>Public-data boundary:</strong> {media['public_data_boundary']}</p>",
+        (
+            f"<p><strong>Visual evidence boundary:</strong> these {media['version']} "
+            f"screens are interaction history, not visual proof of the live "
+            f"{sync['live_version']} interface.</p>"
+        ),
         "<picture>",
         f'  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./{media["mobile_static"]}" />',
         f'  <source media="(max-width: 640px)" srcset="./{media["mobile_static"]}" />',
@@ -936,11 +1146,17 @@ def _render_ivrit_spotlight(project: Mapping[str, Any]) -> list[str]:
         (
             f"<p><strong>Verified v{evidence['version']} evidence:</strong> {evidence['backend_tests']} backend + "
             f"{evidence['frontend_tests']} frontend = {evidence['total_tests']} passing tests · "
-            "GitHub OAuth/PKCE · PostgreSQL tenant RLS · Alembic · non-root Docker · "
-            "redacted structured JSON logs.</p>"
+            f"Railway {sync['environment']} · {sync['database']} ready · live/ready health "
+            f"checks true · production commit <code>{sync['production_commit'][:12]}</code> · "
+            "tenant RLS · Alembic · non-root Docker · redacted structured JSON logs.</p>"
         ),
-        f'<p><a href="{project["source"]}">Inspect the Ivrit Sheli source</a> · <a href="{evidence["test_report"]}">Review the test contract</a> · <a href="./{media["rtl_static"]}">Open the full Hebrew RTL frame</a></p>',
-        live_link,
+        (
+            f"<p><strong>OAuth boundary:</strong> {sync['oauth_boundary']}</p>"
+        ),
+        (
+            f"<p><strong>Publication boundary:</strong> {publication_text}</p>"
+        ),
+        f'<p><a href="{project["source"]}">Inspect the Ivrit Sheli source</a> · <a href="{evidence["test_report"]}">Review the test contract</a> · <a href="./data/project-snapshots/ivrit-sheli.json">Inspect the reviewed project snapshot</a> · <a href="./{media["rtl_static"]}">Open the archived Hebrew RTL frame</a>{live_link}</p>',
         "</details>",
         "",
     ]

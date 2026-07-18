@@ -151,10 +151,11 @@ def validate_localized_profiles(
     profile_data: Path = DEFAULT_PROFILE_DATA,
     localized_profiles: Mapping[str, Path] = DEFAULT_LOCALIZED_PROFILES,
 ) -> list[str]:
-    """Check stable identity and link parity across Spanish and Hebrew profiles.
+    """Check identity, links and machine-readable project fact parity.
 
-    Translated prose remains intentionally human-owned. This contract checks only
-    facts that can be compared safely without pretending to translate text.
+    Translated prose remains human-owned. The hidden fact marker and visible
+    section tokens make version, test, deployment and boundary drift detectable
+    without pretending that this validator can translate Spanish or Hebrew.
     """
     if not profile_data.exists():
         raise FileNotFoundError(f"Profile data not found: {profile_data}")
@@ -167,6 +168,40 @@ def validate_localized_profiles(
     projects = data.get("projects")
     if not isinstance(projects, list) or not projects:
         raise ValueError("profile.projects must be a non-empty array.")
+
+    ivrit_matches = [
+        _mapping(project, "profile.projects[Ivrit Sheli]")
+        for project in projects
+        if isinstance(project, Mapping) and project.get("name") == "Ivrit Sheli"
+    ]
+    novafit_matches = [
+        _mapping(project, "profile.projects[NovaFit]")
+        for project in projects
+        if isinstance(project, Mapping) and project.get("name") == "NovaFit"
+    ]
+    if len(ivrit_matches) != 1 or len(novafit_matches) != 1:
+        raise ValueError("Localized parity requires one Ivrit Sheli and one NovaFit project.")
+    ivrit = ivrit_matches[0]
+    ivrit_evidence = _mapping(
+        ivrit.get("release_evidence"), "profile.projects[Ivrit Sheli].release_evidence"
+    )
+    ivrit_sync = _mapping(
+        ivrit.get("portfolio_sync"), "profile.projects[Ivrit Sheli].portfolio_sync"
+    )
+    ivrit_media = _mapping(ivrit.get("media"), "profile.projects[Ivrit Sheli].media")
+    novafit_sync = _mapping(
+        novafit_matches[0].get("portfolio_sync"),
+        "profile.projects[NovaFit].portfolio_sync",
+    )
+    fact_marker = localized_project_facts_marker(data)
+    visible_ivrit_tokens = (
+        _text(ivrit_sync.get("live_version"), "ivrit.live_version"),
+        str(ivrit_evidence.get("backend_tests")),
+        str(ivrit_evidence.get("frontend_tests")),
+        str(ivrit_evidence.get("total_tests")),
+        _text(ivrit_sync.get("provider"), "ivrit.provider"),
+        "PostgreSQL",
+    )
 
     stable_urls = {
         _text(links.get("github"), "profile.links.github"),
@@ -193,6 +228,24 @@ def validate_localized_profiles(
         )
         if content.count(heading) != 1:
             problems.append(f"{path.name} must contain exactly one canonical identity heading.")
+        if content.count(fact_marker) != 1:
+            problems.append(
+                f"{path.name} must contain exactly one current canonical project-facts marker."
+            )
+
+        ivrit_start = content.find("### א Ivrit Sheli")
+        ivrit_end = content.find("### 💙 NovaFit", ivrit_start + 1)
+        if ivrit_start < 0 or ivrit_end < 0:
+            problems.append(f"{path.name} is missing the bounded Ivrit Sheli project section.")
+        else:
+            ivrit_section = content[ivrit_start:ivrit_end]
+            for token in visible_ivrit_tokens:
+                if token not in ivrit_section:
+                    problems.append(
+                        f"{path.name} Ivrit Sheli section is missing canonical fact token: {token}"
+                    )
+            if "Ivrit Sheli 2.1.0" in ivrit_section:
+                problems.append(f"{path.name} still presents Ivrit Sheli 2.1.0 as current.")
 
         present_urls = set(HTTP_URL.findall(content))
         mailto = _text(links.get("email"), "profile.links.email")
@@ -214,6 +267,51 @@ def validate_localized_profiles(
                 problems.append(f"{path.name} is missing language navigation: {navigation_target}")
 
     return problems
+
+
+def localized_project_facts_marker(data: Mapping[str, Any]) -> str:
+    """Render the exact cross-language project facts that must not drift."""
+    projects = data.get("projects")
+    if not isinstance(projects, list):
+        raise ValueError("profile.projects must be an array.")
+    ivrit = next(
+        (
+            _mapping(project, "profile.projects[Ivrit Sheli]")
+            for project in projects
+            if isinstance(project, Mapping) and project.get("name") == "Ivrit Sheli"
+        ),
+        None,
+    )
+    novafit = next(
+        (
+            _mapping(project, "profile.projects[NovaFit]")
+            for project in projects
+            if isinstance(project, Mapping) and project.get("name") == "NovaFit"
+        ),
+        None,
+    )
+    if ivrit is None or novafit is None:
+        raise ValueError("Canonical localized facts require Ivrit Sheli and NovaFit.")
+    evidence = _mapping(ivrit.get("release_evidence"), "ivrit.release_evidence")
+    sync = _mapping(ivrit.get("portfolio_sync"), "ivrit.portfolio_sync")
+    media = _mapping(ivrit.get("media"), "ivrit.media")
+    novafit_sync = _mapping(novafit.get("portfolio_sync"), "novafit.portfolio_sync")
+    facts = (
+        f"profile={_text(data.get('profile_version'), 'profile.profile_version')}",
+        f"ivrit_source={_text(sync.get('source_version'), 'ivrit.source_version')}",
+        f"ivrit_live={_text(sync.get('live_version'), 'ivrit.live_version')}",
+        f"ivrit_backend={evidence.get('backend_tests')}",
+        f"ivrit_frontend={evidence.get('frontend_tests')}",
+        f"ivrit_total={evidence.get('total_tests')}",
+        f"ivrit_postgresql_ready={str(sync.get('postgresql_ready')).lower()}",
+        (
+            "ivrit_oauth_exchange_e2e="
+            f"{str(sync.get('oauth_final_live_code_exchange_verified')).lower()}"
+        ),
+        f"ivrit_media={_text(media.get('version'), 'ivrit.media.version')}",
+        f"novafit={_text(novafit_sync.get('version'), 'novafit.version')}",
+    )
+    return f"<!-- canonical-project-facts: {'; '.join(facts)} -->"
 
 
 def _mapping(value: Any, path: str) -> Mapping[str, Any]:

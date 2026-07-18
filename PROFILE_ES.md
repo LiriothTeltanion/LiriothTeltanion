@@ -1,5 +1,7 @@
 # Kevin Cusnir · Lirioth Teltanion ✨
 
+<!-- canonical-project-facts: profile=2.3.0; ivrit_source=2.2.0; ivrit_live=2.2.0; ivrit_backend=139; ivrit_frontend=48; ivrit_total=187; ivrit_postgresql_ready=true; ivrit_oauth_exchange_e2e=false; ivrit_media=2.1.x; novafit=4.2.0 -->
+
 [English](./README.md) · **Español** · [עברית](./PROFILE_HE.md)
 
 ## Desarrollador Frontend y Full-Stack Junior · Tecnólogo Creativo
@@ -19,11 +21,12 @@ Aplicación React/TypeScript local-first que transforma exportaciones de Spotify
 
 ### א Ivrit Sheli
 
-Ivrit Sheli 2.1.0 es un producto full-stack trilingüe para aprender hebreo desde situaciones reales. Conserva un modo local privado con SQLite y añade una experiencia React 19/TypeScript autenticada con FastAPI, GitHub OAuth con PKCE, PostgreSQL 17 y aislamiento por usuario mediante RLS, migraciones Alembic, Docker no-root, logging JSON estructurado y controles operativos. Su base verificada suma **110 pruebas de backend + 17 de frontend = 127 pruebas automatizadas**. La interfaz funciona en inglés, español y hebreo con RTL; el demo público usa datos sintéticos y es de solo lectura.
+Ivrit Sheli 2.2.0 es un producto full-stack trilingüe para aprender hebreo desde situaciones reales. Conserva un modo local privado con SQLite y añade una experiencia React 19/TypeScript autenticada con FastAPI, GitHub OAuth con PKCE, PostgreSQL 17 y aislamiento por usuario mediante RLS, migraciones Alembic, Docker no-root, logging JSON estructurado y controles operativos. Su base verificada suma **139 pruebas únicas de backend + 48 de frontend = 187 pruebas automatizadas**. La interfaz funciona en inglés, español y hebreo con RTL; el demo público usa datos sintéticos, bloquea mutaciones en el servidor y es de solo lectura.
 
 - [Abrir demo público en Railway](https://ivritsheli-production.up.railway.app)
 - [Código fuente y guía de ejecución](https://github.com/LiriothTeltanion/IvritSheli)
-- El servicio HTTPS, PostgreSQL y el demo de solo lectura se verificaron en el despliegue público. El consentimiento y la cancelación de GitHub OAuth también se verificaron; el intercambio final del código OAuth continúa pendiente.
+- Railway informa la versión 2.2.0 en producción, con las comprobaciones live/ready y PostgreSQL preparadas en el commit verificado `c8c928661bdc`. El consentimiento y la cancelación de GitHub OAuth también se verificaron; el intercambio final del código, la actualización de sesión autenticada y el cierre de sesión continúan pendientes de verificación E2E.
+- El despliegue, la etiqueta Git y el GitHub Release públicos ya coinciden en v2.2.0. Las imágenes del perfil corresponden a la interfaz 2.1.x y se presentan como archivo visual, no como prueba de la interfaz 2.2.0.
 
 ### 💙 NovaFit
 
@@ -53,10 +56,11 @@ Archivo auditado de seis semanas que conserva la progresión desde Python y prog
 - Validación, pruebas unitarias y de integración, CI, Docker, logging estructurado, auditorías y documentación técnica.
 - Tratamiento honesto de datos incompletos e inferencias.
 - Depuración persistente y comunicación con usuarios no técnicos.
+- Mentalidad de early adopter responsable: pruebo software preview/beta en contextos no críticos, reproduzco problemas y preparo feedback útil para futuras versiones.
 
 ## Próxima profundidad
 
-Ivrit Sheli 2.1.0 ya convierte ese objetivo full-stack en evidencia pública y desplegada. La siguiente profundidad es completar el intercambio OAuth E2E y operar productos con monitoreo y SLOs claros, simulacros de copia y restauración, pruebas de límites de autorización, controles de costo y abuso, y procedimientos de respuesta ante incidentes.
+Ivrit Sheli 2.2.0 ya convierte ese objetivo full-stack en evidencia pública y desplegada. La siguiente profundidad es completar el flujo OAuth E2E y operar productos con monitoreo y SLOs claros, simulacros de copia y restauración, pruebas de límites de autorización, controles de costo y abuso, y procedimientos de respuesta ante incidentes.
 
 ## Idiomas
 

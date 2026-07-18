@@ -58,6 +58,11 @@ No personal access token or cross-repository secret is required. If branch
 protection blocks direct automation commits, the workflow fails visibly without
 force-pushing; run the same local refresh and publish the reviewed diff.
 
+NovaFit and Ivrit Sheli use the shared
+`profile-project-sync-${{ github.repository }}` concurrency group. This prevents
+their workflows from updating `profile.json` and generated READMEs at the same
+time.
+
 ## NovaFit publishing contract
 
 NovaFit owns the upstream facts. Its release workflow should run

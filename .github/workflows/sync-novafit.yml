@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: sync-novafit-${{ github.repository }}
+  group: profile-project-sync-${{ github.repository }}
   cancel-in-progress: false
 
 jobs:
@@ -35,6 +35,7 @@ jobs:
 
       - name: Verify synchronized profile outputs
         run: |
+          python scripts/sync_ivrit_sheli.py --check
           python scripts/sync_novafit.py --check
           python scripts/build_profile.py --mode compact --output README.md --check
           python scripts/build_profile.py --mode expanded --output README_EXPANDED.md --check
