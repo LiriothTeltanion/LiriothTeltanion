@@ -50,10 +50,20 @@ changing the managed NovaFit fields by hand.
 Ivrit Sheli's version, deployment, publication, test and boundary facts are also
 manifest-backed. Read [`IVRIT_SHELI_SYNC.md`](./IVRIT_SHELI_SYNC.md) before
 changing its managed fields. The current reviewed contract is source/live
-2.2.0, 139 backend + 48 frontend = 187 tests, healthy Railway/PostgreSQL
-readiness and matching public v2.2.0 Git tag and GitHub Release. The final live
-OAuth code exchange, authenticated session refresh and logout remain unverified
-E2E.
+2.4.0, 151 backend + 62 frontend = 213 tests, healthy Railway/PostgreSQL
+readiness and matching public v2.4.0 Git tag and GitHub Release. Google live
+sign-in, session refresh, onboarding persistence and logout are verified. A
+successful live GitHub session and re-login after logout remain unverified E2E.
+
+Nova Music Lab release visuals use a strict deployment-attestation boundary. Read
+[`NOVA_MUSIC_LAB_SYNC.md`](./NOVA_MUSIC_LAB_SYNC.md) before refreshing its
+desktop image, mobile image, animated tour, reduced-motion fallback, social
+preview or public claims. **Nova Music Lab 1.5.0 — deployed 2026-08-01** is read
+from its cache-bypassed GitHub Pages manifest; package and media bytes are then
+verified from the declared immutable commit. The normal audit is read-only; its
+explicit write mode can only stage ignored local evidence from that deployed,
+commit-pinned and checksum-verified manifest while the profile is on a non-main
+review branch.
 
 ## Before a large change
 
@@ -125,6 +135,17 @@ python scripts/sync_ivrit_sheli.py --check
 python scripts/sync_novafit.py --check
 ```
 
+Include Nova Music Lab's read-only deployed-evidence audit:
+
+```powershell
+python scripts/sync_nova_music_lab.py
+```
+
+Its default source is the deployed Pages manifest, not the tracked candidate in
+the app repository. A private candidate is never valid profile evidence. Any
+future schedule must remain read-only and should be enabled only after its
+frequency and failure-notification behavior are reviewed.
+
 Then inspect the patch itself:
 
 ```powershell
@@ -180,11 +201,11 @@ paths and star before running `generate_signature_assets.py --check`.
 
 Do not publish a Railway or other live link until its HTTPS page, read-only demo,
 `/health/ready`, `/version` and backing database have been tested. For the
-current Ivrit 2.2.0 deployment, live/ready, dictionary and PostgreSQL checks are
-verified at the manifest-recorded production commit. GitHub OAuth consent and
-cancellation are verified. The final authorization-code exchange,
-authenticated session refresh and logout remain pending and must not be
-described as end-to-end verified. When deployment evidence changes, refresh the
+current Ivrit 2.4.0 deployment, live/ready, dictionary and PostgreSQL checks are
+verified at the manifest-recorded release implementation commit. Identity-only
+Google sign-in, session refresh, onboarding persistence, logout and signed-out
+reload are verified. A successful live GitHub session and re-login after logout
+remain pending and must not be described as end-to-end verified. When deployment evidence changes, refresh the
 strict manifest snapshot, canonical project data, both localized profiles and
 public metadata in the same patch.
 

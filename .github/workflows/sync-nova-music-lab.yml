@@ -1,0 +1,38 @@
+name: Audit Nova Music Lab profile release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: profile-project-sync-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    name: Detect deployed Nova Music Lab evidence drift
+    if: github.repository == 'LiriothTeltanion/LiriothTeltanion'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out profile repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: "3.13"
+
+      - name: Audit the live Pages manifest and commit-pinned media
+        run: python scripts/sync_nova_music_lab.py
+
+      - name: Verify the read-only sync contract
+        run: |
+          python -m unittest tests.test_nova_music_lab_sync -v
+          git diff --exit-code
+          git diff --check

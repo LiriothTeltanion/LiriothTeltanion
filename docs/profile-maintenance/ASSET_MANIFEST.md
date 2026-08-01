@@ -15,8 +15,8 @@ The following families are referenced by both `README.md` and
 | Identity banner | `profile-banner-animated.svg`, `profile-banner-static.svg`, `profile-banner-mobile-animated.svg`, `profile-banner-mobile-static.svg` |
 | Personal signature | `brand/kc-lt-signature-animated.svg`, `brand/kc-lt-signature.svg` |
 | Nova Music Lab live preview | `nova-music-live-preview.jpg`, `nova-music-live-preview-mobile.jpg` |
-| Nova Music Lab journey | `nova-music-journey-animated.svg`, `nova-music-journey-static.svg`, `nova-music-journey-mobile.svg`, `nova-music-journey-mobile-static.svg` |
-| Ivrit Sheli current 2.2.0 live interface evidence | `ivrit-sheli-product-tour.gif`, `ivrit-sheli-2-dashboard.png`, `ivrit-sheli-2-mobile.png`, `ivrit-sheli-2-hebrew-rtl.png` |
+| Nova Music Lab 1.5.0 release tour | `nova-music-product-tour.gif`, `nova-music-product-tour-static.jpg` |
+| Ivrit Sheli archived 2.2.0 interface history | `ivrit-sheli-product-tour.gif`, `ivrit-sheli-2-dashboard.png`, `ivrit-sheli-2-mobile.png`, `ivrit-sheli-2-hebrew-rtl.png` |
 | NovaFit evidence | `novafit-product-tour.gif`, `novafit-product-tour-static.png`, `analytics-training-atlas.png`, `theme-spectrum.png`, `novafit-trust-system-animated.svg`, `novafit-trust-system-mobile.svg` |
 | Engineering and growth | `engineering-orbit-animated.svg`, `engineering-orbit-mobile.svg`, `engineering-orbit-mobile-static.svg`, `learning-roadmap-animated.svg`, `learning-roadmap-mobile.svg` |
 | Global journey atlas | `world-globe-animated.svg`, `world-globe-static.svg`, `world-globe-mobile.svg`, `world-globe-mobile-static.svg` |
@@ -41,6 +41,9 @@ authoritative check for missing local assets.
 - The four `portfolio-command-center-*.svg` files are retained layout
   provenance. They were removed from the recruiter-first README to bring the
   flagship project above the fold, not because the artwork became disposable.
+- The four `nova-music-journey-*.svg` files are retained Profile 2.4 layout
+  provenance. Profile 2.5 replaces their README slot with exact Nova Music Lab
+  1.5.0 release media; the older diagrams are preserved rather than deleted.
 - `assets/brand/` contains the master, animated, compact, light, monochrome and
   transparent PNG versions of the KC ✦ LT signature plus the optimized avatar
   cameo embedded by the four responsive banner variants. The same eight blue
@@ -95,9 +98,10 @@ The exact repository-to-file mapping and publication order live in
 `PUBLIC_METADATA.md`. Keep the SVG and PNG pairs together, preserve the verified
 claims in their text and confirm dimensions before any upload.
 
-The local Ivrit social-preview pair now contains current 2.2/187-test copy and
-has passed local visual QA. It is ready for review but GitHub will not use it
-until Kevin explicitly authorizes a manual repository-settings upload.
+The local Nova Music Lab social preview is pinned to the 1.5.0 release package.
+The Ivrit pair remains 2.2/187-test historical art and must not be uploaded as a
+current 2.4/213-test card until its editable source and raster are refreshed and
+reviewed together.
 
 ## Retained preview archive
 

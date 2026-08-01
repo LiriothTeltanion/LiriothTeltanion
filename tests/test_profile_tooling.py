@@ -95,6 +95,55 @@ class ProfileDataValidationTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, r"Nova Music Lab.*first"):
             self.load(data)
 
+    def test_nova_music_release_and_media_contract_is_strict(self) -> None:
+        data = copy.deepcopy(self.valid_data)
+        nova = data["projects"][0]
+        nova["portfolio_sync"]["status"] = "private-candidate"
+        with self.assertRaisesRegex(ValueError, r"status must be deployed"):
+            self.load(data)
+
+        data = copy.deepcopy(self.valid_data)
+        nova = data["projects"][0]
+        nova["portfolio_sync"]["source"] = (
+            "https://raw.githubusercontent.com/LiriothTeltanion/NovaMusicLab/"
+            "main/public/release-profile-manifest.json"
+        )
+        with self.assertRaisesRegex(ValueError, r"canonical live deployment manifest"):
+            self.load(data)
+
+        data = copy.deepcopy(self.valid_data)
+        nova = data["projects"][0]
+        nova["portfolio_sync"]["commit"] = "abc123"
+        with self.assertRaisesRegex(ValueError, r"full lowercase SHA-1"):
+            self.load(data)
+
+        data = copy.deepcopy(self.valid_data)
+        nova = data["projects"][0]
+        nova["portfolio_sync"]["media"]["profile-tour"] = (
+            "assets/nova-music-product-tour.png"
+        )
+        with self.assertRaisesRegex(ValueError, r"profile-tour must be a GIF"):
+            self.load(data)
+
+        data = copy.deepcopy(self.valid_data)
+        nova = data["projects"][0]
+        nova["portfolio_sync"]["unreviewed_claim"] = True
+        with self.assertRaisesRegex(ValueError, r"Unexpected fields.*unreviewed_claim"):
+            self.load(data)
+
+    def test_nova_music_media_roles_must_be_distinct_local_assets(self) -> None:
+        data = copy.deepcopy(self.valid_data)
+        media = data["projects"][0]["portfolio_sync"]["media"]
+        media["profile-hero-mobile"] = media["profile-hero-desktop"]
+        with self.assertRaisesRegex(ValueError, r"distinct assets"):
+            self.load(data)
+
+        data = copy.deepcopy(self.valid_data)
+        media = data["projects"][0]["portfolio_sync"]["media"]
+        media["profile-hero-desktop"] = "https://example.com/hero.png"
+        with self.assertRaisesRegex(ValueError, r"repository-relative"):
+            self.load(data)
+
     def test_public_links_must_use_https(self) -> None:
         data = copy.deepcopy(self.valid_data)
         data["links"]["github"] = "http://github.com/LiriothTeltanion"
@@ -141,7 +190,8 @@ class ProfileDataValidationTests(unittest.TestCase):
         data = copy.deepcopy(self.valid_data)
         data["release"]["tag"] = "v2.0.0"
 
-        with self.assertRaisesRegex(ValueError, r"release\.tag.*v2\.4\.0"):
+        expected_version = re.escape(self.valid_data["profile_version"])
+        with self.assertRaisesRegex(ValueError, rf"release\.tag.*v{expected_version}"):
             self.load(data)
 
     def test_release_prepared_date_must_be_iso_calendar_date(self) -> None:
@@ -197,7 +247,7 @@ class ProfileDataValidationTests(unittest.TestCase):
     def test_ivrit_live_status_and_media_are_strict(self) -> None:
         data = copy.deepcopy(self.valid_data)
         ivrit = next(project for project in data["projects"] if project["name"] == "Ivrit Sheli")
-        ivrit["status"] = "Public v2.2.0 full-stack release · live deployment pending"
+        ivrit["status"] = "Public v2.4.0 full-stack release · live deployment pending"
         with self.assertRaisesRegex(ValueError, r"Ivrit Sheli.*status.*verified live demo"):
             self.load(data)
 
@@ -215,8 +265,8 @@ class ProfileDataValidationTests(unittest.TestCase):
 
         data = copy.deepcopy(self.valid_data)
         ivrit = next(project for project in data["projects"] if project["name"] == "Ivrit Sheli")
-        ivrit["portfolio_sync"]["oauth_final_live_code_exchange_verified"] = True
-        with self.assertRaisesRegex(ValueError, r"OAuth exchange.*must remain unverified"):
+        ivrit["portfolio_sync"]["github_live_successful_session_verified"] = True
+        with self.assertRaisesRegex(ValueError, r"GitHub live session.*must remain"):
             self.load(data)
 
 
@@ -292,11 +342,11 @@ class GeneratedProfileContractTests(unittest.TestCase):
 
         self.assertLessEqual(len(content.splitlines()), 300)
         for expected in (
-            "profile-version: 2.4.0",
+            "profile-version: 2.5.0",
             "profile-banner-mobile-static.svg",
             "nova-music-live-preview-mobile.jpg",
-            "nova-music-journey-static.svg",
-            "nova-music-journey-mobile-static.svg",
+            "nova-music-product-tour.gif",
+            "nova-music-product-tour-static.jpg",
             "ivrit-sheli-product-tour.gif",
             "ivrit-sheli-2-mobile.png",
             "ivrit-sheli-2-hebrew-rtl.png",
@@ -318,18 +368,21 @@ class GeneratedProfileContractTests(unittest.TestCase):
             "58 public visual assets",
             "Download the verified v4.2.0 release",
             "Nova Music Lab source",
-            "139 backend + 48 frontend = 187 passing tests",
+            "151 backend + 62 frontend = 213 passing tests",
             "Railway production",
             "PostgreSQL 17 ready",
-            "Verified v2.2.0 evidence",
-            "Ivrit Sheli 2.2.0 live interface",
-            "passed fresh desktop, mobile and Hebrew RTL browser QA",
-            "final live authorization-code exchange",
-            "deployment, Git tag and GitHub Release now agree on v2.2.0",
+            "Verified v2.4.0 evidence",
+            "Archived Ivrit Sheli 2.2.0 interface",
+            "interaction history, not visual proof of the live 2.4.0 interface",
+            "a live GitHub account session",
+            "deployment, Git tag and GitHub Release now agree on v2.4.0",
             "https://ivritsheli-production.up.railway.app",
             "[א Ivrit Sheli live](https://ivritsheli-production.up.railway.app)",
             "Open Ivrit Sheli live demo",
             "Open verified live deployment",
+            "deployed 2026-08-01",
+            "final private candidate before publication",
+            "static frame above replaces animation",
         ):
             self.assertIn(expected, content)
         for forbidden in (
@@ -342,6 +395,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
             "img.shields.io",
             "The next portfolio milestone is a deployed full-stack product",
             "Live deployment pending",
+            "nova-music-journey-",
         ):
             self.assertNotIn(forbidden, content)
         self.assertIn("San Cristóbal, Venezuela", content)
@@ -356,9 +410,9 @@ class GeneratedProfileContractTests(unittest.TestCase):
             f"release-title: {release['title']} -->"
         )
 
-        self.assertEqual(version, "2.4.0")
+        self.assertEqual(version, "2.5.0")
         self.assertEqual(release["tag"], f"v{version}")
-        self.assertEqual(release["status"], "released")
+        self.assertIn(release["status"], {"release-candidate", "released"})
         for mode in ("compact", "expanded"):
             self.assertTrue(
                 build_profile.render_profile(self.data, mode).startswith(expected_marker)
@@ -387,6 +441,31 @@ class GeneratedProfileContractTests(unittest.TestCase):
             content.index("novafit-product-tour.gif"),
         )
 
+    def test_nova_music_render_uses_profile_configured_release_media(self) -> None:
+        data = copy.deepcopy(self.data)
+        media = data["projects"][0]["portfolio_sync"]["media"]
+        media.update(
+            {
+                "profile-hero-desktop": "assets/custom-nova-desktop.png",
+                "profile-hero-mobile": "assets/custom-nova-mobile.png",
+                "profile-tour": "assets/custom-nova-tour.gif",
+                "profile-tour-static": "assets/custom-nova-tour-static.png",
+                "social-preview": "assets/social/custom-nova-preview.png",
+            }
+        )
+
+        content = build_profile.render_profile(data, "compact")
+
+        for media_id in (
+            "profile-hero-desktop",
+            "profile-hero-mobile",
+            "profile-tour",
+            "profile-tour-static",
+        ):
+            self.assertIn(f'./{media[media_id]}', content)
+        self.assertNotIn("nova-music-live-preview.jpg", content)
+        self.assertNotIn("nova-music-journey-", content)
+
     def test_project_demo_urls_stay_with_the_correct_project(self) -> None:
         projects = {project["name"]: project for project in self.data["projects"]}
 
@@ -396,14 +475,14 @@ class GeneratedProfileContractTests(unittest.TestCase):
         )
         self.assertEqual(
             projects["Ivrit Sheli"]["status"],
-            "Live v2.2.0 dual-mode full-stack product",
+            "Live v2.4.0 dual-mode full-stack product",
         )
-        self.assertEqual(projects["Ivrit Sheli"]["release_evidence"]["version"], "2.2.0")
-        self.assertEqual(projects["Ivrit Sheli"]["release_evidence"]["total_tests"], 187)
-        self.assertEqual(projects["Ivrit Sheli"]["portfolio_sync"]["backend_tests"], 139)
+        self.assertEqual(projects["Ivrit Sheli"]["release_evidence"]["version"], "2.4.0")
+        self.assertEqual(projects["Ivrit Sheli"]["release_evidence"]["total_tests"], 213)
+        self.assertEqual(projects["Ivrit Sheli"]["portfolio_sync"]["backend_tests"], 151)
         self.assertFalse(
             projects["Ivrit Sheli"]["portfolio_sync"][
-                "oauth_final_live_code_exchange_verified"
+                "github_live_successful_session_verified"
             ]
         )
         self.assertEqual(
@@ -583,13 +662,13 @@ class GeneratedProfileContractTests(unittest.TestCase):
             spanish.write_text(
                 (ROOT / "PROFILE_ES.md")
                 .read_text(encoding="utf-8")
-                .replace("ivrit_total=187", "ivrit_total=127", 1),
+                .replace("ivrit_total=213", "ivrit_total=127", 1),
                 encoding="utf-8",
             )
             hebrew.write_text(
                 (ROOT / "PROFILE_HE.md")
                 .read_text(encoding="utf-8")
-                .replace("187 בדיקות אוטומטיות", "127 בדיקות אוטומטיות", 1),
+                .replace("213 בדיקות אוטומטיות", "127 בדיקות אוטומטיות", 1),
                 encoding="utf-8",
             )
             problems = validate_profile.validate_localized_profiles(
@@ -600,7 +679,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
             any("canonical project-facts marker" in problem for problem in problems)
         )
         self.assertTrue(
-            any("missing canonical fact token: 187" in problem for problem in problems)
+            any("missing canonical fact token: 213" in problem for problem in problems)
         )
 
     def test_builder_check_mode_detects_drift_without_overwriting(self) -> None:

@@ -1,6 +1,6 @@
 # Kevin Cusnir · Lirioth Teltanion ✨
 
-<!-- canonical-project-facts: profile=2.4.0; ivrit_source=2.2.0; ivrit_live=2.2.0; ivrit_backend=139; ivrit_frontend=48; ivrit_total=187; ivrit_postgresql_ready=true; ivrit_oauth_exchange_e2e=false; ivrit_media=2.2.0; ivrit_media_current=true; ivrit_capture_commit=66d68a3c44ac2500fb400eef88d5f77da0c1c1e1; novafit=4.2.0 -->
+<!-- canonical-project-facts: profile=2.5.0; nova=1.5.0; nova_status=deployed; nova_deployed=2026-08-01; nova_commit=5c1d57048b52d41819a7d0af4d577a4bbe60064d; ivrit_source=2.4.0; ivrit_live=2.4.0; ivrit_backend=151; ivrit_frontend=62; ivrit_total=213; ivrit_postgresql_ready=true; ivrit_google_signin_live=true; ivrit_github_session_live=false; ivrit_media=2.2.0; ivrit_media_current=false; ivrit_capture_commit=66d68a3c44ac2500fb400eef88d5f77da0c1c1e1; novafit=4.2.0 -->
 
 [English](./README.md) · [Español](./PROFILE_ES.md) · **עברית**
 
@@ -14,19 +14,20 @@
 
 ### 🎧 Nova Music Lab
 
-אפליקציית React ו־TypeScript בגישת local-first, ההופכת ייצואי היסטוריית האזנה מ־Spotify, Last.fm, Apple Music, ListenBrainz ו־YouTube למוזיאון מוזיקלי אינטראקטיבי. המערכת כוללת נרמול נתונים, הסרת כפילויות, אנליטיקה שקופה, טעינה עצלה, מגבלות bundle, ‏14 ערכות נושא, חוויית EN/ES, תמיכה ב־reduced motion, כלי משאבים בעברית, בדיקות, CI ופריסה אוטומטית.
+**Nova Music Lab 1.5.0**, שנפרסה ב־**2026-08-01**, היא אפליקציית React 19 ו־TypeScript בגישת local-first, ההופכת ייצואי היסטוריית האזנה למוזיאון מוזיקלי אינטראקטיבי. Living Artist Atlas מחבר בין דיוקנאות, קשרים, ז׳אנרים, תתי־ז׳אנרים ומקור הנתונים. ה־snapshot הציבורי כולל 6,413 שורות קטלוג, ול־94.1% מההשמעות ההיסטוריות קיימת משפחת ז׳אנר אנליטית, בלי להציג סיווג אוטומטי כאוצרות אנושית. ייבוא פרטי נשאר בדפדפן.
 
 - [דמו ציבורי](https://liriothteltanion.github.io/NovaMusicLab/)
 - [קוד מקור](https://github.com/LiriothTeltanion/NovaMusicLab)
+- ראיות מאומתות: commit הפריסה `5c1d57048b52`, ‏711 בדיקות יחידה ואינטגרציה שעברו, דילוג מכוון אחד, ‏18 מסלולי Playwright שעברו ובקרות פרטיות, נגישות, קישורים, מדיה ותקציב bundle. צילומי הפרופיל שומרים את תווית מועמדת ה־release שלפני הפריסה; ה־manifest החי מאמת בנפרד ש־1.5.0 נפרסה.
 
 ### א Ivrit Sheli
 
-Ivrit Sheli 2.2.0 הוא מוצר Full-Stack תלת־לשוני ללימוד עברית מתוך מצבים אמיתיים. הוא שומר על מצב מקומי ופרטי עם SQLite, ומוסיף חוויית React 19 ו־TypeScript מאומתת עם FastAPI, ‏GitHub OAuth עם PKCE, ‏PostgreSQL 17 ובידוד משתמשים באמצעות RLS, מיגרציות Alembic, קונטיינר Docker ללא משתמש root, לוגים מובנים ב־JSON ובקרות תפעול. בסיס האיכות המאומת כולל **139 בדיקות backend ייחודיות ועוד 48 בדיקות frontend — בסך הכול 187 בדיקות אוטומטיות**. הממשק פועל באנגלית, בספרדית ובעברית עם RTL; הדמו הציבורי משתמש בנתונים סינתטיים וחוסם שינויים בצד השרת.
+**Ivrit Sheli 2.4.0** הוא מוצר Full-Stack תלת־לשוני ללימוד עברית מתוך מצבים אמיתיים. הוא שומר על מצב מקומי ופרטי עם SQLite ומוסיף React 19, ‏TypeScript, ‏FastAPI, ‏PostgreSQL 17, ‏Alembic ו־Docker עם גבולות אימות מפורשים. בסיס האיכות המאומת כולל **151 בדיקות backend ועוד 62 בדיקות frontend — בסך הכול 213 בדיקות אוטומטיות**. הממשק פועל באנגלית, בספרדית ובעברית עם RTL; הסיור הציבורי ב־Railway משתמש בנתונים סינתטיים ומשאיר קריאות ספק בתשלום כבויות כברירת מחדל.
 
 - [פתיחת הדמו הציבורי ב־Railway](https://ivritsheli-production.up.railway.app)
 - [קוד מקור והוראות הרצה](https://github.com/LiriothTeltanion/IvritSheli)
-- Railway מדווח על גרסה 2.2.0 בסביבת production בבניית runtime ‏`66d68a3c44ac`, המבוססת על קו ה־release המאומת `c8c928661bdc`, עם בדיקות live/ready ו־PostgreSQL במצב מוכן. מסכי ההסכמה והביטול של GitHub OAuth אומתו; החלפת הקוד הסופית, רענון session מאומת ו־logout עדיין ממתינים לאימות E2E.
-- הפריסה, תג ה־Git וה־GitHub Release הציבוריים תואמים לגרסה v2.2.0. הצילומים המסוננים מאמתים את ממשק 2.2.0 בשולחן עבודה, במובייל ברוחב 390 פיקסלים ובעברית RTL; הם משתמשים בחשבון מבודד ומציגים רק זהות ציבורית והמלצות ברירת מחדל, ללא היסטוריית לימוד פרטית.
+- Railway מדווח על **2.4.0** ב־production, עם health live/ready ו־PostgreSQL מוכנים; הפריסה, תג ה־Git וה־GitHub Release תואמים ל־v2.4.0. ‏Google Sign-In, שמירת session, ‏onboarding, ‏logout והישארות מחוץ לחשבון לאחר רענון אומתו. session חי ומוצלח עם GitHub OAuth והתחברות מחדש לאחר logout עדיין ממתינים לאימות E2E.
+- ה־GIF והצילומים המסוננים הקיימים מתעדים את ממשק **2.2.0** הארכיוני, runtime ‏`66d68a3c44ac`; הם אינם מוצגים כראיה חזותית לממשק החי של 2.4.0. אין בהם היסטוריית לימוד פרטית, tokens או רשומות production.
 
 ### 💙 NovaFit
 

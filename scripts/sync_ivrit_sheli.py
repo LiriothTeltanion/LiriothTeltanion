@@ -35,11 +35,11 @@ DEFAULT_MANIFEST_URL = (
 EXPECTED_REPOSITORY = "https://github.com/LiriothTeltanion/IvritSheli"
 EXPECTED_DEMO = "https://ivritsheli-production.up.railway.app"
 EXPECTED_MANIFEST_NAME = "Ivrit Sheli — העברית שלי"
-EXPECTED_SCHEMA = "ivrit-sheli-portfolio-project-v1"
+EXPECTED_SCHEMA = "ivrit-sheli-portfolio-project-v2"
 EXPECTED_TEST_REPORT = f"{EXPECTED_REPOSITORY}/blob/main/TEST_REPORT.md"
 MAX_MANIFEST_BYTES = 512 * 1024
 REQUEST_HEADERS = {
-    "User-Agent": "Lirioth-profile-sync/2.3",
+    "User-Agent": "Lirioth-profile-sync/2.5",
     "Cache-Control": "no-cache, no-store, max-age=0",
     "Pragma": "no-cache",
 }
@@ -67,6 +67,7 @@ TOP_LEVEL_FIELDS = {
     "privacy",
 }
 TEST_FIELDS = {
+    "version",
     "backend_unique",
     "frontend",
     "frontend_files",
@@ -77,17 +78,21 @@ TEST_FIELDS = {
     "evidence",
 }
 DEPLOYMENT_FIELDS = {
+    "version",
     "provider",
     "runtime",
     "database",
     "status",
-    "production_commit",
+    "release_implementation_commit",
     "verified_on",
     "environment",
     "health_live",
     "health_ready",
     "postgresql_ready",
     "dictionary_ready",
+    "dictionary_entries",
+    "english_entry_verified",
+    "read_only_tour_verified",
 }
 PUBLICATION_FIELDS = {
     "latest_git_tag",
@@ -100,22 +105,28 @@ VISUAL_PROOF_FIELDS = {
     "state",
     "social_preview_version",
     "readme_screenshot_version",
-    "readme_screenshots_match_live_version",
-    "live_2_2_interactive_browser_qa",
+    "readme_screenshots_match_source_version",
+    "interactive_browser_qa",
 }
 OAUTH_FIELDS = {
-    "provider",
-    "consent_handoff_verified",
-    "cancellation_verified",
-    "final_live_code_exchange_verified",
+    "providers",
+    "source_contract_tested",
+    "google_live_configured",
+    "google_live_sign_in_verified",
+    "github_live_successful_session_verified",
     "authenticated_session_refresh_verified",
+    "onboarding_persistence_across_reload_verified",
     "logout_verified",
+    "signed_out_reload_verified",
+    "relogin_after_logout_verified",
     "boundary",
 }
 PRIVACY_FIELDS = {
     "local_first",
     "public_demo_data",
     "public_demo_mutations",
+    "self_service_export_in_source",
+    "self_service_deletion_in_source",
     "contains_secrets",
 }
 
@@ -191,7 +202,7 @@ def validate_manifest(raw: Mapping[str, Any]) -> dict[str, Any]:
     _expect(raw.get("schema") == EXPECTED_SCHEMA, "Unexpected manifest schema.")
     _expect(raw.get("slug") == "ivrit-sheli", "Unexpected project slug.")
     _expect(raw.get("name") == EXPECTED_MANIFEST_NAME, "Unexpected project name.")
-    _expect(raw.get("status") == "live", "Ivrit Sheli manifest is not live.")
+    _expect(raw.get("status") == "production", "Ivrit Sheli manifest is not production.")
     _expect(raw.get("default_branch") == "main", "Default branch must be main.")
     _expect(
         raw.get("repository_url") == EXPECTED_REPOSITORY,
@@ -213,6 +224,10 @@ def validate_manifest(raw: Mapping[str, Any]) -> dict[str, Any]:
 
     tests = _mapping(raw.get("tests"), "tests")
     _exact_keys(tests, TEST_FIELDS, "tests")
+    _expect(
+        _semantic_version(tests.get("version"), "tests.version") == source_version,
+        "Test evidence version must match source_version.",
+    )
     backend = _bounded_int(tests.get("backend_unique"), "tests.backend_unique", 1, 100_000)
     frontend = _bounded_int(tests.get("frontend"), "tests.frontend", 1, 100_000)
     total = _bounded_int(tests.get("total_unique"), "tests.total_unique", 1, 200_000)
@@ -244,20 +259,38 @@ def validate_manifest(raw: Mapping[str, Any]) -> dict[str, Any]:
 
     deployment = _mapping(raw.get("deployment"), "deployment")
     _exact_keys(deployment, DEPLOYMENT_FIELDS, "deployment")
+    _expect(
+        _semantic_version(deployment.get("version"), "deployment.version")
+        == source_version,
+        "Deployment version must match source_version.",
+    )
     for field, expected in (
         ("provider", "Railway"),
         ("runtime", "Docker"),
         ("database", "PostgreSQL 17"),
-        ("status", "verified"),
+        ("status", "verified-live"),
         ("environment", "production"),
     ):
         _expect(deployment.get(field) == expected, f"Unexpected deployment.{field}.")
     commit = _plain_text(
-        deployment.get("production_commit"), "deployment.production_commit", 40
+        deployment.get("release_implementation_commit"),
+        "deployment.release_implementation_commit",
+        40,
     )
-    _expect(bool(COMMIT_PATTERN.fullmatch(commit)), "Production commit must be a full SHA-1.")
+    _expect(
+        bool(COMMIT_PATTERN.fullmatch(commit)),
+        "Release implementation commit must be a full SHA-1.",
+    )
     _iso_date(deployment.get("verified_on"), "deployment.verified_on")
     for field in ("health_live", "health_ready", "postgresql_ready", "dictionary_ready"):
+        _expect(deployment.get(field) is True, f"deployment.{field} must be true.")
+    _bounded_int(
+        deployment.get("dictionary_entries"),
+        "deployment.dictionary_entries",
+        1,
+        100_000,
+    )
+    for field in ("english_entry_verified", "read_only_tour_verified"):
         _expect(deployment.get(field) is True, f"deployment.{field} must be true.")
 
     publication = _mapping(raw.get("publication"), "publication")
@@ -271,42 +304,28 @@ def validate_manifest(raw: Mapping[str, Any]) -> dict[str, Any]:
         _boolean(publication.get(field), f"publication.{field}")
     release_state = publication.get("release_state")
     _expect(
-        release_state
-        in {"deployment-ahead-of-github-release", "published-and-deployed"},
+        release_state == f"{source_version}-live-and-published",
         "Unexpected publication.release_state.",
     )
-    if release_state == "deployment-ahead-of-github-release":
-        _expect(
-            publication["source_version_tagged"] is False
-            and publication["source_version_github_release_published"] is False,
-            "Deployment-ahead state requires unpublished source tag and release flags.",
-        )
-        _expect(
-            latest_tag != f"v{source_version}" and latest_release != f"v{source_version}",
-            "Deployment-ahead state cannot claim a current tag or release.",
-        )
-    else:
-        _expect(
-            publication["source_version_tagged"] is True
-            and publication["source_version_github_release_published"] is True,
-            "Published-and-deployed state requires current tag and release flags.",
-        )
-        _expect(
-            latest_tag == f"v{source_version}"
-            and latest_release == f"v{source_version}",
-            "Published-and-deployed state must match the source version.",
-        )
+    _expect(
+        publication["source_version_tagged"] is True
+        and publication["source_version_github_release_published"] is True,
+        "Live-and-published state requires current tag and release flags.",
+    )
+    _expect(
+        latest_tag == f"v{source_version}" and latest_release == f"v{source_version}",
+        "Live-and-published state must match the source version.",
+    )
 
     visual = _mapping(raw.get("visual_proof"), "visual_proof")
     _exact_keys(visual, VISUAL_PROOF_FIELDS, "visual_proof")
-    _expect(visual.get("state") in {"partial", "current"}, "Unexpected visual proof state.")
-    social_preview_version = _semantic_version(
+    _expect(
+        visual.get("state") == "live-english-journey-verified",
+        "Unexpected visual proof state.",
+    )
+    _semantic_version(
         visual.get("social_preview_version"),
         "visual_proof.social_preview_version",
-    )
-    _expect(
-        social_preview_version == source_version,
-        "Social preview version must match the source version.",
     )
     screenshot_version = _plain_text(
         visual.get("readme_screenshot_version"),
@@ -318,37 +337,42 @@ def validate_manifest(raw: Mapping[str, Any]) -> dict[str, Any]:
         "README screenshot version must be a semantic version or x patch series.",
     )
     _boolean(
-        visual.get("readme_screenshots_match_live_version"),
-        "visual_proof.readme_screenshots_match_live_version",
+        visual.get("readme_screenshots_match_source_version"),
+        "visual_proof.readme_screenshots_match_source_version",
     )
     _expect(
-        visual.get("live_2_2_interactive_browser_qa") in {"pending", "verified"},
-        "Unexpected live 2.2 browser QA state.",
+        visual.get("interactive_browser_qa")
+        == "verified-english-entry-and-read-only-tour",
+        "Unexpected interactive browser QA state.",
     )
-    if visual["readme_screenshots_match_live_version"]:
+    if visual["readme_screenshots_match_source_version"]:
         _expect(
-            screenshot_version == live_version,
-            "Screenshots marked current must match the live semantic version.",
+            screenshot_version == source_version,
+            "Screenshots marked current must match the source semantic version.",
         )
-        _expect(visual["state"] == "current", "Current screenshots require current visual proof.")
-        _expect(
-            visual["live_2_2_interactive_browser_qa"] == "verified",
-            "Current screenshots require verified interactive browser QA.",
-        )
-    else:
-        _expect(visual["state"] == "partial", "Stale screenshots require partial visual proof.")
 
     oauth = _mapping(raw.get("oauth"), "oauth")
     _exact_keys(oauth, OAUTH_FIELDS, "oauth")
-    _expect(oauth.get("provider") == "GitHub", "Unexpected OAuth provider.")
-    _expect(oauth.get("consent_handoff_verified") is True, "OAuth consent handoff must be verified.")
-    _expect(oauth.get("cancellation_verified") is True, "OAuth cancellation must be verified.")
+    providers = _plain_text_list(oauth.get("providers"), "oauth.providers", 4, 30)
+    _expect(set(providers) == {"Google", "GitHub"}, "OAuth providers must be Google and GitHub.")
     for field in (
-        "final_live_code_exchange_verified",
+        "source_contract_tested",
+        "google_live_configured",
+        "google_live_sign_in_verified",
         "authenticated_session_refresh_verified",
+        "onboarding_persistence_across_reload_verified",
         "logout_verified",
+        "signed_out_reload_verified",
     ):
-        _expect(oauth.get(field) is False, f"oauth.{field} must remain false until verified.")
+        _expect(oauth.get(field) is True, f"oauth.{field} must be true.")
+    for field in (
+        "github_live_successful_session_verified",
+        "relogin_after_logout_verified",
+    ):
+        _expect(
+            oauth.get(field) is False,
+            f"oauth.{field} must remain false until explicitly reviewed.",
+        )
     _plain_text(oauth.get("boundary"), "oauth.boundary", 500)
 
     privacy = _mapping(raw.get("privacy"), "privacy")
@@ -359,6 +383,8 @@ def validate_manifest(raw: Mapping[str, Any]) -> dict[str, Any]:
         privacy.get("public_demo_mutations") == "server-blocked",
         "Public demo mutations must be server-blocked.",
     )
+    for field in ("self_service_export_in_source", "self_service_deletion_in_source"):
+        _expect(privacy.get(field) is True, f"privacy.{field} must be true.")
     _expect(privacy.get("contains_secrets") is False, "Manifest must not contain secrets.")
     return copy.deepcopy(dict(raw))
 
@@ -474,11 +500,12 @@ def apply_manifest(profile: Mapping[str, Any], manifest: Mapping[str, Any]) -> d
     project["stack"] = " · ".join(validated["stack"])
     project["demo"] = validated["demo_url"]
     project["evidence"] = (
-        f"Verified Railway production and PostgreSQL readiness for release baseline "
-        f"{deployment['production_commit'][:12]}, with {tests['backend_unique']} backend + "
-        f"{tests['frontend']} frontend = {tests['total_unique']} passing tests; GitHub OAuth "
-        "consent handoff and cancellation are verified, while final live code exchange, "
-        "session refresh and logout remain unverified end to end"
+        f"Verified Railway production and PostgreSQL readiness for release implementation "
+        f"{deployment['release_implementation_commit'][:12]}, with "
+        f"{tests['backend_unique']} backend + {tests['frontend']} frontend = "
+        f"{tests['total_unique']} passing tests; identity-only Google sign-in, session "
+        "refresh, onboarding persistence, logout and signed-out reload are verified, while "
+        "a successful live GitHub session and re-login after logout remain unverified"
     )
     project["release_evidence"] = {
         "version": source_version,
@@ -500,13 +527,18 @@ def apply_manifest(profile: Mapping[str, Any], manifest: Mapping[str, Any]) -> d
         "provider": deployment["provider"],
         "runtime": deployment["runtime"],
         "database": deployment["database"],
-        "production_commit": deployment["production_commit"],
+        "release_implementation_commit": deployment[
+            "release_implementation_commit"
+        ],
         "verified_on": deployment["verified_on"],
         "environment": deployment["environment"],
         "health_live": deployment["health_live"],
         "health_ready": deployment["health_ready"],
         "postgresql_ready": deployment["postgresql_ready"],
         "dictionary_ready": deployment["dictionary_ready"],
+        "dictionary_entries": deployment["dictionary_entries"],
+        "english_entry_verified": deployment["english_entry_verified"],
+        "read_only_tour_verified": deployment["read_only_tour_verified"],
         "latest_git_tag": publication["latest_git_tag"],
         "latest_github_release": publication["latest_github_release"],
         "source_version_tagged": publication["source_version_tagged"],
@@ -517,20 +549,37 @@ def apply_manifest(profile: Mapping[str, Any], manifest: Mapping[str, Any]) -> d
         "visual_proof_state": visual["state"],
         "social_preview_version": visual["social_preview_version"],
         "readme_screenshot_version": visual["readme_screenshot_version"],
-        "readme_screenshots_match_live_version": visual[
-            "readme_screenshots_match_live_version"
+        "readme_screenshots_match_source_version": visual[
+            "readme_screenshots_match_source_version"
         ],
-        "live_2_2_interactive_browser_qa": visual[
-            "live_2_2_interactive_browser_qa"
+        "interactive_browser_qa": visual["interactive_browser_qa"],
+        "oauth_providers": oauth["providers"],
+        "source_contract_tested": oauth["source_contract_tested"],
+        "google_live_configured": oauth["google_live_configured"],
+        "google_live_sign_in_verified": oauth[
+            "google_live_sign_in_verified"
         ],
-        "oauth_final_live_code_exchange_verified": oauth[
-            "final_live_code_exchange_verified"
+        "github_live_successful_session_verified": oauth[
+            "github_live_successful_session_verified"
         ],
         "authenticated_session_refresh_verified": oauth[
             "authenticated_session_refresh_verified"
         ],
+        "onboarding_persistence_across_reload_verified": oauth[
+            "onboarding_persistence_across_reload_verified"
+        ],
         "logout_verified": oauth["logout_verified"],
+        "signed_out_reload_verified": oauth["signed_out_reload_verified"],
+        "relogin_after_logout_verified": oauth[
+            "relogin_after_logout_verified"
+        ],
         "oauth_boundary": oauth["boundary"],
+        "self_service_export_in_source": validated["privacy"][
+            "self_service_export_in_source"
+        ],
+        "self_service_deletion_in_source": validated["privacy"][
+            "self_service_deletion_in_source"
+        ],
     }
     if not isinstance(existing_media, dict):
         raise ValueError("Canonical Ivrit Sheli project must retain its media mapping.")
@@ -540,7 +589,7 @@ def apply_manifest(profile: Mapping[str, Any], manifest: Mapping[str, Any]) -> d
         existing_media.get("current_release_visual_proof") is True
         and existing_media.get("version") == live_version
         and existing_media.get("captured_release_commit")
-        == deployment["production_commit"]
+        == deployment["release_implementation_commit"]
     )
     if media.get("current_release_visual_proof") is True and not retain_current_profile_media:
         media.update(
@@ -550,7 +599,7 @@ def apply_manifest(profile: Mapping[str, Any], manifest: Mapping[str, Any]) -> d
                     f"Archived Ivrit Sheli {media['version']} product tour captured at "
                     f"runtime build {media['captured_runtime_commit'][:12]}; these frames are "
                     f"not visual proof of the live {live_version} deployment at commit "
-                    f"{deployment['production_commit'][:12]}"
+                    f"{deployment['release_implementation_commit'][:12]}"
                 ),
                 "static_alt": (
                     f"Archived Ivrit Sheli {media['version']} responsive learning dashboard"
@@ -566,7 +615,8 @@ def apply_manifest(profile: Mapping[str, Any], manifest: Mapping[str, Any]) -> d
                 "description": (
                     f"These frames document the deployment captured on "
                     f"{media['captured_on']} and do not claim visual proof of the newer "
-                    f"production commit {deployment['production_commit'][:12]}."
+                    f"release implementation "
+                    f"{deployment['release_implementation_commit'][:12]}."
                 ),
                 "caption": f"Archived Ivrit Sheli {media['version']} interface:",
             }
@@ -611,9 +661,10 @@ def prevent_publication_regression(
     incoming_publication = _mapping(incoming.get("publication"), "incoming.publication")
     if reviewed.get("source_version") != incoming.get("source_version"):
         return
+    version = reviewed.get("source_version")
     ranks = {
-        "deployment-ahead-of-github-release": 0,
-        "published-and-deployed": 1,
+        f"{version}-deployment-ahead-of-github-release": 0,
+        f"{version}-live-and-published": 1,
     }
     reviewed_rank = ranks.get(reviewed_publication.get("release_state"), -1)
     incoming_rank = ranks.get(incoming_publication.get("release_state"), -1)
@@ -624,11 +675,12 @@ def prevent_publication_regression(
     reviewed_deployment = _mapping(reviewed.get("deployment"), "reviewed.deployment")
     incoming_deployment = _mapping(incoming.get("deployment"), "incoming.deployment")
     if (
-        reviewed_deployment.get("production_commit")
-        != incoming_deployment.get("production_commit")
+        reviewed_deployment.get("release_implementation_commit")
+        != incoming_deployment.get("release_implementation_commit")
     ):
         raise ValueError(
-            "Remote manifest would replace the reviewed same-version production commit; "
+            "Remote manifest would replace the reviewed same-version release "
+            "implementation commit; "
             "publish a new Ivrit semantic version or perform an explicit evidence review."
         )
 

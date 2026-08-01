@@ -179,8 +179,25 @@ def validate_localized_profiles(
         for project in projects
         if isinstance(project, Mapping) and project.get("name") == "NovaFit"
     ]
-    if len(ivrit_matches) != 1 or len(novafit_matches) != 1:
-        raise ValueError("Localized parity requires one Ivrit Sheli and one NovaFit project.")
+    nova_matches = [
+        _mapping(project, "profile.projects[Nova Music Lab]")
+        for project in projects
+        if isinstance(project, Mapping) and project.get("name") == "Nova Music Lab"
+    ]
+    if (
+        len(nova_matches) != 1
+        or len(ivrit_matches) != 1
+        or len(novafit_matches) != 1
+    ):
+        raise ValueError(
+            "Localized parity requires one Nova Music Lab, one Ivrit Sheli and one "
+            "NovaFit project."
+        )
+    nova = nova_matches[0]
+    nova_sync = _mapping(
+        nova.get("portfolio_sync"),
+        "profile.projects[Nova Music Lab].portfolio_sync",
+    )
     ivrit = ivrit_matches[0]
     ivrit_evidence = _mapping(
         ivrit.get("release_evidence"), "profile.projects[Ivrit Sheli].release_evidence"
@@ -208,6 +225,10 @@ def validate_localized_profiles(
         "PostgreSQL",
         "OAuth",
         "E2E",
+    )
+    visible_nova_tokens = (
+        _text(nova_sync.get("version"), "nova.version"),
+        _text(nova_sync.get("deployed_on"), "nova.deployed_on"),
     )
 
     stable_urls = {
@@ -239,6 +260,21 @@ def validate_localized_profiles(
             problems.append(
                 f"{path.name} must contain exactly one current canonical project-facts marker."
             )
+
+        nova_start = content.find("### 🎧 Nova Music Lab")
+        nova_end = content.find("### א Ivrit Sheli", nova_start + 1)
+        if nova_start < 0 or nova_end < 0:
+            problems.append(
+                f"{path.name} is missing the bounded Nova Music Lab project section."
+            )
+        else:
+            nova_section = content[nova_start:nova_end]
+            for token in visible_nova_tokens:
+                if token not in nova_section:
+                    problems.append(
+                        f"{path.name} Nova Music Lab section is missing canonical fact "
+                        f"token: {token}"
+                    )
 
         ivrit_start = content.find("### א Ivrit Sheli")
         ivrit_end = content.find("### 💙 NovaFit", ivrit_start + 1)
@@ -297,14 +333,29 @@ def localized_project_facts_marker(data: Mapping[str, Any]) -> str:
         ),
         None,
     )
-    if ivrit is None or novafit is None:
-        raise ValueError("Canonical localized facts require Ivrit Sheli and NovaFit.")
+    nova = next(
+        (
+            _mapping(project, "profile.projects[Nova Music Lab]")
+            for project in projects
+            if isinstance(project, Mapping) and project.get("name") == "Nova Music Lab"
+        ),
+        None,
+    )
+    if nova is None or ivrit is None or novafit is None:
+        raise ValueError(
+            "Canonical localized facts require Nova Music Lab, Ivrit Sheli and NovaFit."
+        )
+    nova_sync = _mapping(nova.get("portfolio_sync"), "nova.portfolio_sync")
     evidence = _mapping(ivrit.get("release_evidence"), "ivrit.release_evidence")
     sync = _mapping(ivrit.get("portfolio_sync"), "ivrit.portfolio_sync")
     media = _mapping(ivrit.get("media"), "ivrit.media")
     novafit_sync = _mapping(novafit.get("portfolio_sync"), "novafit.portfolio_sync")
     facts = (
         f"profile={_text(data.get('profile_version'), 'profile.profile_version')}",
+        f"nova={_text(nova_sync.get('version'), 'nova.version')}",
+        f"nova_status={_text(nova_sync.get('status'), 'nova.status')}",
+        f"nova_deployed={_text(nova_sync.get('deployed_on'), 'nova.deployed_on')}",
+        f"nova_commit={_text(nova_sync.get('commit'), 'nova.commit')}",
         f"ivrit_source={_text(sync.get('source_version'), 'ivrit.source_version')}",
         f"ivrit_live={_text(sync.get('live_version'), 'ivrit.live_version')}",
         f"ivrit_backend={evidence.get('backend_tests')}",
@@ -312,8 +363,12 @@ def localized_project_facts_marker(data: Mapping[str, Any]) -> str:
         f"ivrit_total={evidence.get('total_tests')}",
         f"ivrit_postgresql_ready={str(sync.get('postgresql_ready')).lower()}",
         (
-            "ivrit_oauth_exchange_e2e="
-            f"{str(sync.get('oauth_final_live_code_exchange_verified')).lower()}"
+            "ivrit_google_signin_live="
+            f"{str(sync.get('google_live_sign_in_verified')).lower()}"
+        ),
+        (
+            "ivrit_github_session_live="
+            f"{str(sync.get('github_live_successful_session_verified')).lower()}"
         ),
         f"ivrit_media={_text(media.get('version'), 'ivrit.media.version')}",
         (

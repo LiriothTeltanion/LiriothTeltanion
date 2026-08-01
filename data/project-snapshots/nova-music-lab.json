@@ -1,0 +1,141 @@
+{
+  "default_branch": "main",
+  "live_url": "https://liriothteltanion.github.io/NovaMusicLab/",
+  "media": [
+    {
+      "bytes": 162198,
+      "height": 900,
+      "id": "profile-hero-desktop",
+      "lang": "en",
+      "path": "assets/releases/v1.5.0/home-desktop-en-cyber.jpg",
+      "sha256": "a0cb8527c679d7fa1b2e605731486ab6ff50edddffe93da360ad753dedbdffd9",
+      "theme": "cyber",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "width": 1440
+    },
+    {
+      "bytes": 53487,
+      "height": 844,
+      "id": "profile-hero-mobile",
+      "lang": "es",
+      "path": "assets/releases/v1.5.0/home-mobile-es-cyber.jpg",
+      "sha256": "b4e953afa906f26d54022e3a171f0356bdc90e8e65c9bd83f34c0abcff513421",
+      "theme": "cyber",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "width": 390
+    },
+    {
+      "bytes": 63086,
+      "height": 844,
+      "id": "genres-mobile",
+      "lang": "en",
+      "path": "assets/releases/v1.5.0/genres-mobile-en-cyber.jpg",
+      "sha256": "b475fecdfd607a5ca6afc766e8e54fed22a48e10a5965dfc1e5aa58377f2af51",
+      "theme": "cyber",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "width": 390
+    },
+    {
+      "bytes": 169405,
+      "height": 900,
+      "id": "artist-atlas-desktop",
+      "lang": "en",
+      "path": "assets/releases/v1.5.0/artist-atlas-desktop-en-cyber.jpg",
+      "sha256": "706d6fa4fc67fc500ae484f3bdf7c4444d9fc10864a8c05256ab4c09f1d2f1d0",
+      "theme": "cyber",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "width": 1440
+    },
+    {
+      "bytes": 149494,
+      "height": 900,
+      "id": "guest-museum-desktop",
+      "lang": "en",
+      "path": "assets/releases/v1.5.0/guest-museum-desktop-en-cyber.jpg",
+      "sha256": "30198082147f1c5ff7ad6264f42d163eecda92080f7b3f118fd1fc272ad6588a",
+      "theme": "cyber",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "width": 1440
+    },
+    {
+      "bytes": 48660,
+      "height": 844,
+      "id": "hebrew-mobile",
+      "lang": "he",
+      "path": "assets/releases/v1.5.0/share-he-mobile-daylight.jpg",
+      "sha256": "0c0a64792b5539ea40f4222377adf0929e5caeea11d9c58c4ac5a415ee0fa465",
+      "theme": "daylight",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "width": 390
+    },
+    {
+      "bytes": 107188,
+      "height": 600,
+      "id": "profile-tour-static",
+      "lang": "en",
+      "path": "assets/releases/v1.5.0/product-tour-static-en-cyber.jpg",
+      "sha256": "18cb738931b8692ffd20f8aaa0bf6618a789260fc708c241f5cd38b0b59214ba",
+      "theme": "cyber",
+      "viewport": {
+        "height": 600,
+        "width": 960
+      },
+      "width": 960
+    },
+    {
+      "bytes": 668283,
+      "height": 350,
+      "id": "profile-tour",
+      "lang": "en",
+      "path": "assets/releases/v1.5.0/product-tour-animated-en-cyber.gif",
+      "sha256": "c82de080e7997fbacda8c618c7d06ef2b9f23f4d32dbc1a5705d64130222989e",
+      "theme": "cyber",
+      "viewport": {
+        "height": 600,
+        "width": 960
+      },
+      "width": 560
+    },
+    {
+      "bytes": 546767,
+      "height": 640,
+      "id": "social-preview",
+      "lang": "en",
+      "path": "assets/releases/v1.5.0/social-preview.png",
+      "sha256": "aa86adc15d1166db3d86f3dc96b925bc85867eb9581872551010867fc25656b7",
+      "theme": "cyber",
+      "viewport": {
+        "height": 640,
+        "width": 1280
+      },
+      "width": 1280
+    }
+  ],
+  "release": {
+    "captured_on": "2026-08-01",
+    "commit": "5c1d57048b52d41819a7d0af4d577a4bbe60064d",
+    "deployed_on": "2026-08-01",
+    "status": "deployed",
+    "version": "1.5.0"
+  },
+  "repository": "LiriothTeltanion/NovaMusicLab",
+  "schema": "nova-music-profile-release-v1"
+}

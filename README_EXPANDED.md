@@ -1,4 +1,4 @@
-<!-- profile-version: 2.4.0; release-tag: v2.4.0; release-title: Profile 2.4.0 — Recruiter Visual Evidence Edition -->
+<!-- profile-version: 2.5.0; release-tag: v2.5.0; release-title: Profile 2.5.0 — Living Flagship Evidence Edition -->
 
 <a id="top"></a>
 <div align="center">
@@ -37,9 +37,9 @@ I’m **Kevin Cusnir**, born in **San Cristóbal, Venezuela** and now based in *
 | What I can prove publicly | Strongest evidence |
 |---|---|
 | React and TypeScript product work | Nova Music Lab, Ivrit Sheli and Christopher Rodríguez Portfolio |
-| Full-stack, Python and data persistence | Ivrit Sheli v2.2.0 with FastAPI/PostgreSQL; NovaFit v4.2.0 with Python/SQLite |
+| Full-stack, Python and data persistence | Ivrit Sheli v2.4.0 with FastAPI/PostgreSQL; NovaFit v4.2.0 with Python/SQLite |
 | Data, accessibility and multilingual UX | Honest source-aware analytics; EN/ES/HE, RTL, keyboard and reduced-motion work |
-| Delivery discipline | 187-test full-stack proof, Docker, CI, live deployments, bundle budgets and release checks |
+| Delivery discipline | 213-test full-stack proof, Docker, CI, live deployments, bundle budgets and release checks |
 
 **Review path:** **30 seconds**: Read the snapshot and role positioning · **2 minutes**: Open Nova Music Lab and Ivrit Sheli · **5 minutes**: Inspect tests, CI, security architecture and recent releases · **15 minutes**: Run Ivrit Sheli or NovaFit, or explore the live music museum.
 
@@ -49,29 +49,29 @@ I’m **Kevin Cusnir**, born in **San Cristóbal, Venezuela** and now based in *
 
 ### 🎧 Nova Music Lab
 
-**Status:** Live local-first flagship · **Stack:** React · TypeScript · Vite · Vitest · Recharts · GitHub Actions<br>
-**Problem → solution:** Listening exports are fragmented, hard to compare and easy to misrepresent. A local-first music museum that turns exports from five listening ecosystems into source-aware analytics, visual stories and a portable personal archive.<br>
-**Evidence:** Five import families, source normalization, deduplication, automated tests, bundle budgets, CI and a live GitHub Pages build · **Role signal:** Frontend engineering · data visualization · privacy-aware product thinking<br>
+**Status:** Deployed v1.5.0 local-first flagship · **Stack:** React 19 · TypeScript · Vite · Dexie/IndexedDB · Recharts · Vitest · Playwright<br>
+**Problem → solution:** Listening exports are fragmented, hard to compare and easy to misrepresent. A local-first music museum that turns listening exports into a Living Artist Atlas, source-aware genre evidence, emotional stories and a portable archive while keeping private imports in the browser.<br>
+**Evidence:** Deployed on 2026-08-01 at commit 5c1d57048b52, with 711 passing unit/integration tests, 18 passing Playwright journeys, privacy audits, bundle budgets and a verified GitHub Pages smoke test · **Role signal:** Frontend engineering · data visualization · privacy-aware product thinking<br>
 [Open Nova Music Lab live demo](https://liriothteltanion.github.io/NovaMusicLab/) · [Nova Music Lab source](https://github.com/LiriothTeltanion/NovaMusicLab)
 
 <a href="https://liriothteltanion.github.io/NovaMusicLab/">
 <picture>
   <source media="(max-width: 640px)" srcset="./assets/nova-music-live-preview-mobile.jpg" />
-  <img src="./assets/nova-music-live-preview.jpg" width="100%" alt="Current Nova Music Lab hero showing the bundled demonstration museum, navigation and live product calls to action" />
+  <img src="./assets/nova-music-live-preview.jpg" width="100%" alt="Nova Music Lab 1.5.0 final release-candidate capture showing the bundled demonstration museum, navigation and product calls to action" />
 </picture>
 </a>
 
-**Live product preview:** responsive React interface, bundled demonstration museum and a direct path to the working deployment.
+**Released product — v1.5.0, deployed 2026-08-01:** the preview was captured from the final private candidate before publication; the live manifest, exact commit and CI verify the working deployment.
 
 <details>
-<summary><strong>🎧 Open the Nova Music Lab data journey</strong></summary>
+<summary><strong>🎧 Open the Nova Music Lab 1.5.0 product tour</strong></summary>
 
 <picture>
-  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/nova-music-journey-mobile-static.svg" />
-  <source media="(max-width: 640px)" srcset="./assets/nova-music-journey-mobile.svg" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/nova-music-journey-static.svg" />
-  <img src="./assets/nova-music-journey-animated.svg" width="100%" alt="Private listening files move through normalization, analytics, emotion mapping and identity into an exportable museum report" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/nova-music-product-tour-static.jpg" />
+  <img src="./assets/nova-music-product-tour.gif" width="100%" alt="Nova Music Lab 1.5.0 product tour moving from the home museum to the Living Artist Atlas and genre discovery" />
 </picture>
+
+**Release evidence:** candidate media captured 2026-08-01 and included in deployed commit `5c1d57048b52`; the static frame above replaces animation when reduced motion is preferred.
 
 Five import families become one deduplicated, source-aware listening history. Missing fields remain visible as gaps, and raw exports stay in the browser.
 
@@ -81,26 +81,26 @@ Five import families become one deduplicated, source-aware listening history. Mi
 
 ### א Ivrit Sheli
 
-**Status:** Live v2.2.0 dual-mode full-stack product · **Stack:** React 19 · TypeScript · FastAPI · Python · PostgreSQL 17 · SQLite · Alembic · Docker · Railway<br>
-**Problem → solution:** Hebrew learners need focused practice, progress and multilingual guidance without surrendering private study data or depending on a fragile cloud service. A private-first trilingual Hebrew-learning product with local SQLite, authenticated PostgreSQL, native RTL, accessible motion and a synthetic read-only public demo.<br>
-**Evidence:** Verified Railway production and PostgreSQL readiness for release baseline c8c928661bdc, with 139 backend + 48 frontend = 187 passing tests; GitHub OAuth consent handoff and cancellation are verified, while final live code exchange, session refresh and logout remain unverified end to end · **Role signal:** Full-stack architecture · backend security · PostgreSQL ownership · integration testing · multilingual RTL UX<br>
+**Status:** Live v2.4.0 dual-mode full-stack product · **Stack:** React 19 · TypeScript · FastAPI · Python · PostgreSQL 17 · SQLite · Alembic · Docker · Railway<br>
+**Problem → solution:** Hebrew learners need focused practice, progress and multilingual guidance without surrendering private study data or depending on a fragile cloud service. A private-first trilingual Hebrew-learning product with a guided contest tour, 48 reviewed visual concepts, local SQLite, authenticated PostgreSQL, native RTL and accessible motion.<br>
+**Evidence:** Verified Railway production and PostgreSQL readiness for release implementation 03bf84b9268f, with 151 backend + 62 frontend = 213 passing tests; identity-only Google sign-in, session refresh, onboarding persistence, logout and signed-out reload are verified, while a successful live GitHub session and re-login after logout remain unverified · **Role signal:** Full-stack architecture · backend security · PostgreSQL ownership · integration testing · multilingual RTL UX<br>
 [Open Ivrit Sheli live demo](https://ivritsheli-production.up.railway.app) · [Ivrit Sheli source](https://github.com/LiriothTeltanion/IvritSheli)
 
 <details>
-<summary><strong>א Open the current Ivrit Sheli 2.2.0 product tour and verified full-stack proof</strong></summary>
+<summary><strong>א Open the archived Ivrit Sheli 2.2.0 product tour and verified 2.4.0 full-stack proof</strong></summary>
 <p><strong>Public-data boundary:</strong> The sanitized live captures use Kevin's isolated account and show his already-public name/avatar plus default recommendations (12 words, one oral practice and 10 minutes); they contain no private study history, credential, token, provider result or production database record.</p>
-<p><strong>Visual evidence boundary:</strong> These profile-owned captures passed fresh desktop, mobile and Hebrew RTL browser QA on 2026-07-18 against the live 2.2.0 interface at runtime build 66d68a3c44ac, using release baseline c8c928661bdc. The upstream project manifest remains independently review-gated.</p>
+<p><strong>Visual evidence boundary:</strong> These 2.2.0 screens are interaction history, not visual proof of the live 2.4.0 interface.</p>
 <picture>
   <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/ivrit-sheli-2-mobile.png" />
   <source media="(max-width: 640px)" srcset="./assets/ivrit-sheli-2-mobile.png" />
   <source media="(prefers-reduced-motion: reduce)" srcset="./assets/ivrit-sheli-2-dashboard.png" />
-  <img src="./assets/ivrit-sheli-product-tour.gif" width="100%" alt="Current Ivrit Sheli 2.2.0 live product tour showing the responsive Spanish dashboard, compact mobile layout and fully mirrored Hebrew right-to-left interface" />
+  <img src="./assets/ivrit-sheli-product-tour.gif" width="100%" alt="Archived Ivrit Sheli 2.2.0 product tour captured at runtime build 66d68a3c44ac; these frames are not visual proof of the live 2.4.0 deployment at commit 03bf84b9268f" />
 </picture>
-<p><strong>Ivrit Sheli 2.2.0 live interface:</strong> Fresh browser QA of the verified live 2.2.0 deployment documents desktop, 390-pixel mobile and Hebrew RTL behavior. The animation is assembled from those current captures and keeps a static reduced-motion path.</p>
-<p><strong>Verified v2.2.0 evidence:</strong> 139 backend + 48 frontend = 187 passing tests · Railway production · PostgreSQL 17 ready · live/ready health checks true · production commit <code>c8c928661bdc</code> · tenant RLS · Alembic · non-root Docker · redacted structured JSON logs.</p>
-<p><strong>OAuth boundary:</strong> Consent handoff and cancellation are verified; the final live authorization-code exchange, authenticated refresh persistence and logout are not verified end to end.</p>
-<p><strong>Publication boundary:</strong> the verified deployment, Git tag and GitHub Release now agree on v2.2.0.</p>
-<p><a href="https://github.com/LiriothTeltanion/IvritSheli">Inspect the Ivrit Sheli source</a> · <a href="https://github.com/LiriothTeltanion/IvritSheli/blob/main/TEST_REPORT.md">Review the test contract</a> · <a href="./data/project-snapshots/ivrit-sheli.json">Inspect the reviewed upstream project snapshot</a> · <a href="./assets/ivrit-sheli-2-hebrew-rtl.png">Open the current Hebrew RTL frame</a> · <a href="https://ivritsheli-production.up.railway.app">Open verified live deployment</a></p>
+<p><strong>Archived Ivrit Sheli 2.2.0 interface:</strong> These frames document the deployment captured on 2026-07-18 and do not claim visual proof of the newer release implementation 03bf84b9268f.</p>
+<p><strong>Verified v2.4.0 evidence:</strong> 151 backend + 62 frontend = 213 passing tests · Railway production · PostgreSQL 17 ready · live/ready health checks true · release implementation commit <code>03bf84b9268f</code> · tenant RLS · Alembic · non-root Docker · redacted structured JSON logs.</p>
+<p><strong>OAuth boundary:</strong> Identity-only Google sign-in, onboarding/session persistence across reload, logout and signed-out persistence after reload are verified in production. Re-login after logout, a live GitHub account session, live OpenAI or Google Workspace connector calls, two-real-user isolation and backup restoration remain unverified; Google sign-in grants no Gmail, Drive or Calendar scope.</p>
+<p><strong>Publication boundary:</strong> the verified deployment, Git tag and GitHub Release now agree on v2.4.0.</p>
+<p><a href="https://github.com/LiriothTeltanion/IvritSheli">Inspect the Ivrit Sheli source</a> · <a href="https://github.com/LiriothTeltanion/IvritSheli/blob/main/TEST_REPORT.md">Review the test contract</a> · <a href="./data/project-snapshots/ivrit-sheli.json">Inspect the reviewed upstream project snapshot</a> · <a href="./assets/ivrit-sheli-2-hebrew-rtl.png">Open the archived Hebrew RTL frame</a> · <a href="https://ivritsheli-production.up.railway.app">Open verified live deployment</a></p>
 </details>
 
 ### 💙 NovaFit

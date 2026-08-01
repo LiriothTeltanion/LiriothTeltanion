@@ -17,19 +17,19 @@ ROOT = Path(__file__).resolve().parent.parent
 def valid_manifest() -> dict[str, object]:
     """Return the complete current Ivrit Sheli public manifest contract."""
     return {
-        "schema": "ivrit-sheli-portfolio-project-v1",
+        "schema": "ivrit-sheli-portfolio-project-v2",
         "slug": "ivrit-sheli",
         "name": "Ivrit Sheli — העברית שלי",
-        "source_version": "2.2.0",
-        "live_version": "2.2.0",
-        "status": "live",
+        "source_version": "2.4.0",
+        "live_version": "2.4.0",
+        "status": "production",
         "default_branch": "main",
         "repository_url": "https://github.com/LiriothTeltanion/IvritSheli",
         "demo_url": "https://ivritsheli-production.up.railway.app",
         "summary": (
-            "A private-first trilingual Hebrew-learning product with local SQLite, "
-            "authenticated PostgreSQL, native RTL, accessible motion and a synthetic "
-            "read-only public demo."
+            "A private-first trilingual Hebrew-learning product with a guided contest "
+            "tour, 48 reviewed visual concepts, local SQLite, authenticated PostgreSQL, "
+            "native RTL and accessible motion."
         ),
         "languages": ["en", "es", "he"],
         "stack": [
@@ -43,59 +43,77 @@ def valid_manifest() -> dict[str, object]:
             "Railway",
         ],
         "tests": {
-            "backend_unique": 139,
-            "frontend": 48,
-            "frontend_files": 12,
-            "total_unique": 187,
-            "ordinary_backend_passed": 138,
+            "version": "2.4.0",
+            "backend_unique": 151,
+            "frontend": 62,
+            "frontend_files": 16,
+            "total_unique": 213,
+            "ordinary_backend_passed": 150,
             "ordinary_backend_skipped": 1,
             "postgresql_gate_passed": 3,
             "evidence": "TEST_REPORT.md",
         },
         "deployment": {
+            "version": "2.4.0",
             "provider": "Railway",
             "runtime": "Docker",
             "database": "PostgreSQL 17",
-            "status": "verified",
-            "production_commit": "c8c928661bdcf179ed1d9df88b9f2e4d730ffea3",
-            "verified_on": "2026-07-18",
+            "status": "verified-live",
+            "release_implementation_commit": (
+                "03bf84b9268ff8be528c0fab3c670f9652ee23b0"
+            ),
+            "verified_on": "2026-07-21",
             "environment": "production",
             "health_live": True,
             "health_ready": True,
             "postgresql_ready": True,
             "dictionary_ready": True,
+            "dictionary_entries": 48,
+            "english_entry_verified": True,
+            "read_only_tour_verified": True,
         },
         "publication": {
-            "latest_git_tag": "v2.2.0",
-            "latest_github_release": "v2.2.0",
+            "latest_git_tag": "v2.4.0",
+            "latest_github_release": "v2.4.0",
             "source_version_tagged": True,
             "source_version_github_release_published": True,
-            "release_state": "published-and-deployed",
+            "release_state": "2.4.0-live-and-published",
         },
         "visual_proof": {
-            "state": "partial",
+            "state": "live-english-journey-verified",
             "social_preview_version": "2.2.0",
             "readme_screenshot_version": "2.1.x",
-            "readme_screenshots_match_live_version": False,
-            "live_2_2_interactive_browser_qa": "pending",
+            "readme_screenshots_match_source_version": False,
+            "interactive_browser_qa": (
+                "verified-english-entry-and-read-only-tour"
+            ),
         },
         "oauth": {
-            "provider": "GitHub",
-            "consent_handoff_verified": True,
-            "cancellation_verified": True,
-            "final_live_code_exchange_verified": False,
-            "authenticated_session_refresh_verified": False,
-            "logout_verified": False,
+            "providers": ["Google", "GitHub"],
+            "source_contract_tested": True,
+            "google_live_configured": True,
+            "google_live_sign_in_verified": True,
+            "github_live_successful_session_verified": False,
+            "authenticated_session_refresh_verified": True,
+            "onboarding_persistence_across_reload_verified": True,
+            "logout_verified": True,
+            "signed_out_reload_verified": True,
+            "relogin_after_logout_verified": False,
             "boundary": (
-                "Consent handoff and cancellation are verified; the final live "
-                "authorization-code exchange, authenticated refresh persistence and "
-                "logout are not verified end to end."
+                "Identity-only Google sign-in, onboarding/session persistence across "
+                "reload, logout and signed-out persistence after reload are verified in "
+                "production. Re-login after logout, a live GitHub account session, live "
+                "OpenAI or Google Workspace connector calls, two-real-user isolation and "
+                "backup restoration remain unverified; Google sign-in grants no Gmail, "
+                "Drive or Calendar scope."
             ),
         },
         "privacy": {
             "local_first": True,
             "public_demo_data": "synthetic",
             "public_demo_mutations": "server-blocked",
+            "self_service_export_in_source": True,
+            "self_service_deletion_in_source": True,
             "contains_secrets": False,
         },
     }
@@ -131,52 +149,62 @@ class IvritSheliSyncTests(unittest.TestCase):
         self.assertEqual(updated["projects"][0], original["projects"][0])
         self.assertEqual(updated["projects"][2:], original["projects"][2:])
         self.assertNotEqual(updated_ivrit["solution"], original_ivrit["solution"])
-        self.assertEqual(updated_ivrit["status"], "Live v2.2.0 dual-mode full-stack product")
-        self.assertEqual(updated_ivrit["release_evidence"]["total_tests"], 187)
-        self.assertEqual(updated_ivrit["portfolio_sync"]["backend_tests"], 139)
-        self.assertEqual(updated_ivrit["portfolio_sync"]["frontend_tests"], 48)
+        self.assertEqual(updated_ivrit["status"], "Live v2.4.0 dual-mode full-stack product")
+        self.assertEqual(updated_ivrit["release_evidence"]["total_tests"], 213)
+        self.assertEqual(updated_ivrit["portfolio_sync"]["backend_tests"], 151)
+        self.assertEqual(updated_ivrit["portfolio_sync"]["frontend_tests"], 62)
         self.assertTrue(updated_ivrit["portfolio_sync"]["postgresql_ready"])
         self.assertFalse(
-            updated_ivrit["portfolio_sync"]["oauth_final_live_code_exchange_verified"]
+            updated_ivrit["portfolio_sync"][
+                "github_live_successful_session_verified"
+            ]
         )
         self.assertEqual(
             updated_ivrit["portfolio_sync"]["release_state"],
-            "published-and-deployed",
+            "2.4.0-live-and-published",
         )
         self.assertEqual(updated_ivrit["media"]["version"], "2.2.0")
-        self.assertTrue(updated_ivrit["media"]["current_release_visual_proof"])
+        self.assertFalse(updated_ivrit["media"]["current_release_visual_proof"])
 
         readme = build_profile.render_profile(updated, "compact")
-        self.assertIn("139 backend + 48 frontend = 187 passing tests", readme)
+        self.assertIn("151 backend + 62 frontend = 213 passing tests", readme)
         self.assertIn("PostgreSQL 17 ready", readme)
-        self.assertIn("passed fresh desktop, mobile and Hebrew RTL browser QA", readme)
-        self.assertIn("final live authorization-code exchange", readme)
+        self.assertIn("interaction history, not visual proof", readme)
+        self.assertIn("a live GitHub account session", readme)
 
-    def test_partial_upstream_manifest_cannot_regress_current_profile_media(self) -> None:
+    def test_new_live_version_archives_older_profile_media(self) -> None:
         source_profile = copy.deepcopy(self.profile)
         source_ivrit = next(
             project
             for project in source_profile["projects"]
             if project["name"] == "Ivrit Sheli"
         )
-        expected_media = copy.deepcopy(source_ivrit["media"])
+        source_ivrit["media"]["current_release_visual_proof"] = True
+        self.assertTrue(source_ivrit["media"]["current_release_visual_proof"])
 
         updated = sync_ivrit_sheli.apply_manifest(source_profile, valid_manifest())
         updated_ivrit = next(
             project for project in updated["projects"] if project["name"] == "Ivrit Sheli"
         )
 
-        self.assertEqual(updated_ivrit["media"], expected_media)
-        self.assertEqual(updated_ivrit["portfolio_sync"]["visual_proof_state"], "partial")
+        self.assertEqual(updated_ivrit["media"]["version"], "2.2.0")
+        self.assertFalse(updated_ivrit["media"]["current_release_visual_proof"])
+        self.assertIn("not visual proof of the live 2.4.0", updated_ivrit["media"]["alt"])
+        self.assertEqual(
+            updated_ivrit["portfolio_sync"]["visual_proof_state"],
+            "live-english-journey-verified",
+        )
 
-    def test_current_upstream_manifest_is_schema_valid_and_keeps_reviewed_media(self) -> None:
+    def test_current_upstream_screenshots_do_not_promote_profile_owned_media(self) -> None:
         manifest = valid_manifest()
         manifest["visual_proof"] = {
-            "state": "current",
+            "state": "live-english-journey-verified",
             "social_preview_version": "2.2.0",
-            "readme_screenshot_version": "2.2.0",
-            "readme_screenshots_match_live_version": True,
-            "live_2_2_interactive_browser_qa": "verified",
+            "readme_screenshot_version": "2.4.0",
+            "readme_screenshots_match_source_version": True,
+            "interactive_browser_qa": (
+                "verified-english-entry-and-read-only-tour"
+            ),
         }
 
         updated = sync_ivrit_sheli.apply_manifest(self.profile, manifest)
@@ -184,15 +212,31 @@ class IvritSheliSyncTests(unittest.TestCase):
             project for project in updated["projects"] if project["name"] == "Ivrit Sheli"
         )
 
-        self.assertEqual(updated_ivrit["portfolio_sync"]["visual_proof_state"], "current")
-        self.assertTrue(updated_ivrit["media"]["current_release_visual_proof"])
+        self.assertTrue(
+            updated_ivrit["portfolio_sync"][
+                "readme_screenshots_match_source_version"
+            ]
+        )
+        self.assertFalse(updated_ivrit["media"]["current_release_visual_proof"])
         self.assertEqual(updated_ivrit["media"]["version"], "2.2.0")
 
-    def test_new_same_version_production_commit_expires_profile_captures(self) -> None:
+    def test_new_same_version_release_commit_expires_profile_captures(self) -> None:
         manifest = valid_manifest()
-        manifest["deployment"]["production_commit"] = "a" * 40
+        reviewed_commit = str(
+            manifest["deployment"]["release_implementation_commit"]
+        )
+        source_profile = copy.deepcopy(self.profile)
+        source_ivrit = next(
+            project
+            for project in source_profile["projects"]
+            if project["name"] == "Ivrit Sheli"
+        )
+        source_ivrit["media"]["version"] = "2.4.0"
+        source_ivrit["media"]["captured_release_commit"] = reviewed_commit
+        source_ivrit["media"]["current_release_visual_proof"] = True
+        manifest["deployment"]["release_implementation_commit"] = "a" * 40
 
-        updated = sync_ivrit_sheli.apply_manifest(self.profile, manifest)
+        updated = sync_ivrit_sheli.apply_manifest(source_profile, manifest)
         updated_ivrit = next(
             project for project in updated["projects"] if project["name"] == "Ivrit Sheli"
         )
@@ -201,7 +245,7 @@ class IvritSheliSyncTests(unittest.TestCase):
         self.assertIn("not visual proof", updated_ivrit["media"]["alt"])
         self.assertEqual(
             updated_ivrit["media"]["captured_release_commit"],
-            "c8c928661bdcf179ed1d9df88b9f2e4d730ffea3",
+            reviewed_commit,
         )
 
     def test_manifest_rejects_unknown_fields_injection_and_identity_drift(self) -> None:
@@ -237,13 +281,12 @@ class IvritSheliSyncTests(unittest.TestCase):
             sync_ivrit_sheli.validate_manifest(unready)
 
         optimistic_oauth = valid_manifest()
-        optimistic_oauth["oauth"]["final_live_code_exchange_verified"] = True
-        with self.assertRaisesRegex(ValueError, "must remain false until verified"):
+        optimistic_oauth["oauth"]["github_live_successful_session_verified"] = True
+        with self.assertRaisesRegex(ValueError, "must remain false until explicitly reviewed"):
             sync_ivrit_sheli.validate_manifest(optimistic_oauth)
 
         optimistic_media = valid_manifest()
-        optimistic_media["visual_proof"]["readme_screenshots_match_live_version"] = True
-        optimistic_media["visual_proof"]["state"] = "partial"
+        optimistic_media["visual_proof"]["readme_screenshots_match_source_version"] = True
         with self.assertRaisesRegex(ValueError, "Screenshots marked current"):
             sync_ivrit_sheli.validate_manifest(optimistic_media)
 
@@ -255,20 +298,21 @@ class IvritSheliSyncTests(unittest.TestCase):
             "latest_github_release": "v2.1.0",
             "source_version_tagged": False,
             "source_version_github_release_published": False,
-            "release_state": "deployment-ahead-of-github-release",
+            "release_state": "2.4.0-deployment-ahead-of-github-release",
         }
-        incoming = sync_ivrit_sheli.validate_manifest(incoming)
 
         with self.assertRaisesRegex(ValueError, "regress.*publication state"):
             sync_ivrit_sheli.prevent_publication_regression(reviewed, incoming)
 
-    def test_same_version_remote_cannot_replace_reviewed_production_commit(self) -> None:
+    def test_same_version_remote_cannot_replace_reviewed_release_commit(self) -> None:
         reviewed = sync_ivrit_sheli.validate_manifest(valid_manifest())
         incoming = valid_manifest()
-        incoming["deployment"]["production_commit"] = "b" * 40
+        incoming["deployment"]["release_implementation_commit"] = "b" * 40
         incoming = sync_ivrit_sheli.validate_manifest(incoming)
 
-        with self.assertRaisesRegex(ValueError, "reviewed same-version production commit"):
+        with self.assertRaisesRegex(
+            ValueError, "reviewed same-version release implementation commit"
+        ):
             sync_ivrit_sheli.prevent_publication_regression(reviewed, incoming)
 
     def test_write_then_offline_check_detects_readme_drift(self) -> None:
@@ -355,7 +399,10 @@ class IvritSheliSyncTests(unittest.TestCase):
             )
 
         request = captured["request"]
-        self.assertEqual(manifest["publication"]["release_state"], "published-and-deployed")
+        self.assertEqual(
+            manifest["publication"]["release_state"],
+            "2.4.0-live-and-published",
+        )
         self.assertEqual(
             request.get_header("Cache-control"),
             "no-cache, no-store, max-age=0",

@@ -1,14 +1,14 @@
 {
-  "schema": "ivrit-sheli-portfolio-project-v1",
+  "schema": "ivrit-sheli-portfolio-project-v2",
   "slug": "ivrit-sheli",
   "name": "Ivrit Sheli — העברית שלי",
-  "source_version": "2.2.0",
-  "live_version": "2.2.0",
-  "status": "live",
+  "source_version": "2.4.0",
+  "live_version": "2.4.0",
+  "status": "production",
   "default_branch": "main",
   "repository_url": "https://github.com/LiriothTeltanion/IvritSheli",
   "demo_url": "https://ivritsheli-production.up.railway.app",
-  "summary": "A private-first trilingual Hebrew-learning product with local SQLite, authenticated PostgreSQL, native RTL, accessible motion and a synthetic read-only public demo.",
+  "summary": "A private-first trilingual Hebrew-learning product with a guided contest tour, 48 reviewed visual concepts, local SQLite, authenticated PostgreSQL, native RTL and accessible motion.",
   "languages": [
     "en",
     "es",
@@ -26,55 +26,69 @@
     "Railway"
   ],
   "tests": {
-    "backend_unique": 139,
-    "frontend": 48,
-    "frontend_files": 12,
-    "total_unique": 187,
-    "ordinary_backend_passed": 138,
+    "version": "2.4.0",
+    "backend_unique": 151,
+    "frontend": 62,
+    "frontend_files": 16,
+    "total_unique": 213,
+    "ordinary_backend_passed": 150,
     "ordinary_backend_skipped": 1,
     "postgresql_gate_passed": 3,
     "evidence": "TEST_REPORT.md"
   },
   "deployment": {
+    "version": "2.4.0",
     "provider": "Railway",
     "runtime": "Docker",
     "database": "PostgreSQL 17",
-    "status": "verified",
-    "production_commit": "c8c928661bdcf179ed1d9df88b9f2e4d730ffea3",
-    "verified_on": "2026-07-18",
+    "status": "verified-live",
+    "release_implementation_commit": "03bf84b9268ff8be528c0fab3c670f9652ee23b0",
+    "verified_on": "2026-07-21",
     "environment": "production",
     "health_live": true,
     "health_ready": true,
     "postgresql_ready": true,
-    "dictionary_ready": true
+    "dictionary_ready": true,
+    "dictionary_entries": 48,
+    "english_entry_verified": true,
+    "read_only_tour_verified": true
   },
   "publication": {
-    "latest_git_tag": "v2.2.0",
-    "latest_github_release": "v2.2.0",
+    "latest_git_tag": "v2.4.0",
+    "latest_github_release": "v2.4.0",
     "source_version_tagged": true,
     "source_version_github_release_published": true,
-    "release_state": "published-and-deployed"
+    "release_state": "2.4.0-live-and-published"
   },
   "visual_proof": {
-    "state": "partial",
+    "state": "live-english-journey-verified",
     "social_preview_version": "2.2.0",
     "readme_screenshot_version": "2.1.x",
-    "readme_screenshots_match_live_version": false,
-    "live_2_2_interactive_browser_qa": "pending"
+    "readme_screenshots_match_source_version": false,
+    "interactive_browser_qa": "verified-english-entry-and-read-only-tour"
   },
   "oauth": {
-    "provider": "GitHub",
-    "consent_handoff_verified": true,
-    "cancellation_verified": true,
-    "final_live_code_exchange_verified": false,
-    "authenticated_session_refresh_verified": false,
-    "logout_verified": false,
-    "boundary": "Consent handoff and cancellation are verified; the final live authorization-code exchange, authenticated refresh persistence and logout are not verified end to end."
+    "providers": [
+      "Google",
+      "GitHub"
+    ],
+    "source_contract_tested": true,
+    "google_live_configured": true,
+    "google_live_sign_in_verified": true,
+    "github_live_successful_session_verified": false,
+    "authenticated_session_refresh_verified": true,
+    "onboarding_persistence_across_reload_verified": true,
+    "logout_verified": true,
+    "signed_out_reload_verified": true,
+    "relogin_after_logout_verified": false,
+    "boundary": "Identity-only Google sign-in, onboarding/session persistence across reload, logout and signed-out persistence after reload are verified in production. Re-login after logout, a live GitHub account session, live OpenAI or Google Workspace connector calls, two-real-user isolation and backup restoration remain unverified; Google sign-in grants no Gmail, Drive or Calendar scope."
   },
   "privacy": {
     "local_first": true,
     "public_demo_data": "synthetic",
     "public_demo_mutations": "server-blocked",
+    "self_service_export_in_source": true,
+    "self_service_deletion_in_source": true,
     "contains_secrets": false
   }
 }

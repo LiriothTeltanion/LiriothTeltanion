@@ -5,6 +5,50 @@ The profile follows Semantic Versioning: major for a structural identity or
 presentation generation, minor for a contained feature or visual upgrade, and
 patch for a narrow correction.
 
+## [2.5.0] — 2026-08-01 · Living Flagship Evidence Edition — release candidate
+
+### Added
+
+- A strict Nova Music Lab deployed-release contract sourced from the live
+  GitHub Pages manifest, with cache bypass, exact commit pinning, bounded media
+  downloads, SHA-256 and raster-dimension verification, an ignored review
+  candidate and a read-only drift workflow.
+- Nova Music Lab 1.5.0 desktop, mobile, animated, reduced-motion and social-card
+  media selected from the deployed release package.
+- Regression coverage for stale manifests, candidate/deployed boundaries,
+  invalid dates, media tampering, unsafe paths and manual workflow behavior.
+
+### Changed
+
+- Advanced the flagship to Nova Music Lab 1.5.0, deployed 2026-08-01 at commit
+  `5c1d57048b52d41819a7d0af4d577a4bbe60064d`, with 711 passing tests, one
+  intentional skip, 18 passing Playwright journeys and successful CI, privacy,
+  media, bundle and Pages smoke gates.
+- Reframed the product around its Living Artist Atlas, transparent genre
+  provenance, 6,413 catalog rows, 94.1% analytical play coverage and local-only
+  private imports.
+- Advanced Ivrit Sheli evidence to the deployed and published 2.4.0 contract:
+  151 backend + 62 frontend = 213 passing tests, with Google live sign-in and
+  the remaining GitHub-session/re-login boundaries stated explicitly.
+- Synchronized the generated English profile and the human-reviewed Spanish
+  and Hebrew summaries without replacing the established identity system.
+
+### Evidence boundaries
+
+- Nova release media was captured from the final private candidate before
+  publication. The live manifest, deployed commit and CI prove the later public
+  state; the candidate label remains visible rather than being edited away.
+- Ivrit Sheli 2.2.0 screenshots remain archived interaction history and are not
+  presented as visual proof of the live 2.4.0 interface.
+- All project synchronization remains review-gated; scheduled workflows detect
+  drift but never commit or publish public-profile changes automatically.
+
+### Release status
+
+- Prepared as `v2.5.0` release candidate after Kevin approved publication.
+- The status changes to `released` only in the exact final commit that receives
+  the annotated tag and stable GitHub Release.
+
 ## [2.4.0] — 2026-07-18 · Recruiter Visual Evidence Edition — released
 
 ### Added

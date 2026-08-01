@@ -166,6 +166,28 @@ presentation expansion, so the profile increments from 2.3.0 to 2.3.1.
 This is a contained visual-evidence and portfolio synchronization expansion, so
 the profile increments from 2.3.1 to 2.4.0.
 
+## Profile 2.5.0 — Living Flagship Evidence Edition — release candidate
+
+- Keep the portrait, luminous KC ✦ LT signature, globe and recruiter-first
+  hierarchy stable while replacing Nova Music Lab's older journey diagram with
+  reviewed release media from the deployed 1.5.0 package.
+- Present the Living Artist Atlas, genre provenance, 6,413 catalog rows and
+  94.1% analytical play coverage as understandable product evidence rather than
+  unexplained technical metrics.
+- Pin Nova Music Lab claims and media to the exact Pages manifest, deployed
+  commit, SHA-256 hashes and capture/deployment dates.
+- Advance Ivrit Sheli to the independently verified 2.4.0 release with 151
+  backend and 62 frontend tests, while keeping its 2.2.0 visual archive clearly
+  separate from current engineering proof.
+- Keep EN/ES/HE project facts aligned and add read-only drift detection for the
+  flagship without granting automation permission to rewrite public content.
+- Publish only after candidate verification, visual QA, an exact final
+  `released` commit, annotated `v2.5.0` tag and stable GitHub Release agree.
+
+This is a contained flagship-evidence and synchronization expansion, so the
+profile increments from 2.4.0 to 2.5.0 while project versions remain
+independently managed.
+
 ## Priority 1 — reliability
 
 - Keep every local image and SVG reference valid.
@@ -190,7 +212,7 @@ the profile increments from 2.3.1 to 2.4.0.
 - Improve project screenshots and demonstrations.
 - Earn GitHub achievements through genuine collaboration and useful work.
 
-## Best next depth after Profile 2.4.0
+## Best next depth after Profile 2.5.0
 
 - Complete and verify Ivrit's final OAuth authorization-code exchange; keep the
   current consent/cancellation evidence separate until code exchange, session
@@ -204,6 +226,10 @@ the profile increments from 2.3.1 to 2.4.0.
 - Refresh social previews only when a project's positioning materially changes.
 - Keep the portrait, luminous KC ✦ LT signature, globe and first-screen
   hierarchy stable so the identity remains recognizable across releases.
+- Capture fresh Ivrit Sheli 2.4 desktop, mobile and Hebrew RTL proof before
+  replacing its archived 2.2 visual history.
+- Keep Nova Music Lab release media and profile evidence synchronized from the
+  live deployed manifest after each future release.
 
 ## Review rhythm
 

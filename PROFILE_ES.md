@@ -1,6 +1,6 @@
 # Kevin Cusnir · Lirioth Teltanion ✨
 
-<!-- canonical-project-facts: profile=2.4.0; ivrit_source=2.2.0; ivrit_live=2.2.0; ivrit_backend=139; ivrit_frontend=48; ivrit_total=187; ivrit_postgresql_ready=true; ivrit_oauth_exchange_e2e=false; ivrit_media=2.2.0; ivrit_media_current=true; ivrit_capture_commit=66d68a3c44ac2500fb400eef88d5f77da0c1c1e1; novafit=4.2.0 -->
+<!-- canonical-project-facts: profile=2.5.0; nova=1.5.0; nova_status=deployed; nova_deployed=2026-08-01; nova_commit=5c1d57048b52d41819a7d0af4d577a4bbe60064d; ivrit_source=2.4.0; ivrit_live=2.4.0; ivrit_backend=151; ivrit_frontend=62; ivrit_total=213; ivrit_postgresql_ready=true; ivrit_google_signin_live=true; ivrit_github_session_live=false; ivrit_media=2.2.0; ivrit_media_current=false; ivrit_capture_commit=66d68a3c44ac2500fb400eef88d5f77da0c1c1e1; novafit=4.2.0 -->
 
 [English](./README.md) · **Español** · [עברית](./PROFILE_HE.md)
 
@@ -14,19 +14,20 @@ Nací en **San Cristóbal, Venezuela**, y actualmente vivo en **Beersheba, Israe
 
 ### 🎧 Nova Music Lab
 
-Aplicación React/TypeScript local-first que transforma exportaciones de Spotify, Last.fm, Apple Music, ListenBrainz y YouTube en un museo musical interactivo. Incluye normalización, deduplicación, analítica verificable, carga diferida, límites de bundle, 14 temas, experiencia EN/ES, reduced motion, herramientas de recursos en hebreo, pruebas, CI y despliegue automatizado.
+**Nova Music Lab 1.5.0**, desplegada el **2026-08-01**, es una aplicación React 19/TypeScript local-first que convierte exportaciones de escucha en un museo musical interactivo. Su Living Artist Atlas conecta retratos, relaciones, géneros, subgéneros y procedencia de los datos; el snapshot público contiene 6.413 filas de catálogo y el 94,1 % de las reproducciones históricas tiene una familia analítica, sin presentar una clasificación automática como curaduría humana. Las importaciones privadas permanecen en el navegador.
 
 - [Demo pública](https://liriothteltanion.github.io/NovaMusicLab/)
 - [Código fuente](https://github.com/LiriothTeltanion/NovaMusicLab)
+- Evidencia verificada: commit desplegado `5c1d57048b52`, 711 pruebas unitarias/de integración aprobadas, una omisión intencional, 18 recorridos Playwright aprobados y controles de privacidad, accesibilidad, enlaces, medios y presupuesto de bundle. Las capturas del perfil conservan la etiqueta de candidata previa al despliegue; el manifiesto live confirma por separado el estado desplegado de 1.5.0.
 
 ### א Ivrit Sheli
 
-Ivrit Sheli 2.2.0 es un producto full-stack trilingüe para aprender hebreo desde situaciones reales. Conserva un modo local privado con SQLite y añade una experiencia React 19/TypeScript autenticada con FastAPI, GitHub OAuth con PKCE, PostgreSQL 17 y aislamiento por usuario mediante RLS, migraciones Alembic, Docker no-root, logging JSON estructurado y controles operativos. Su base verificada suma **139 pruebas únicas de backend + 48 de frontend = 187 pruebas automatizadas**. La interfaz funciona en inglés, español y hebreo con RTL; el demo público usa datos sintéticos, bloquea mutaciones en el servidor y es de solo lectura.
+**Ivrit Sheli 2.4.0** es un producto full-stack trilingüe para aprender hebreo desde situaciones reales. Conserva un modo local privado con SQLite y añade React 19/TypeScript, FastAPI, PostgreSQL 17, Alembic, Docker y una experiencia autenticada con límites explícitos. Su base verificada suma **151 pruebas de backend + 62 de frontend = 213 pruebas automatizadas**. La interfaz funciona en inglés, español y hebreo con RTL; el recorrido público de Railway usa datos sintéticos y mantiene desactivadas por defecto las llamadas pagadas a proveedores.
 
 - [Abrir demo público en Railway](https://ivritsheli-production.up.railway.app)
 - [Código fuente y guía de ejecución](https://github.com/LiriothTeltanion/IvritSheli)
-- Railway informa la versión 2.2.0 en producción en el build runtime `66d68a3c44ac`, basado en la línea de release verificada `c8c928661bdc`, con las comprobaciones live/ready y PostgreSQL preparadas. El consentimiento y la cancelación de GitHub OAuth también se verificaron; el intercambio final del código, la actualización de sesión autenticada y el cierre de sesión continúan pendientes de verificación E2E.
-- El despliegue, la etiqueta Git y el GitHub Release públicos coinciden en v2.2.0. Las capturas sanitizadas verifican la interfaz 2.2.0 en escritorio, móvil de 390 px y hebreo RTL; usan una cuenta aislada y muestran solo la identidad pública y recomendaciones predeterminadas, sin historial privado de estudio.
+- Railway informa **2.4.0** en producción con health live/ready y PostgreSQL preparados; el despliegue, la etiqueta Git y el GitHub Release coinciden en v2.4.0. Google Sign-In, persistencia de sesión, onboarding, logout y estado cerrado tras recarga fueron verificados. Una sesión live exitosa con GitHub OAuth y el reingreso después del logout siguen pendientes de verificación E2E.
+- El GIF y las capturas sanitizadas existentes corresponden a la interfaz archivada **2.2.0**, runtime `66d68a3c44ac`; documentan una etapa anterior y no se presentan como evidencia visual de la interfaz live 2.4.0. No contienen historial privado, tokens ni registros de producción.
 
 ### 💙 NovaFit
 

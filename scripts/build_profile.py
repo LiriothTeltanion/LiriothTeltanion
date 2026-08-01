@@ -92,6 +92,27 @@ NOVAFIT_MEDIA_FIELDS = (
     "reduced_motion_static",
     "static",
 )
+NOVA_MUSIC_SYNC_FIELDS = (
+    "captured_on",
+    "commit",
+    "deployed_on",
+    "media",
+    "schema",
+    "source",
+    "status",
+    "version",
+)
+NOVA_MUSIC_MEDIA_FIELDS = (
+    "profile-hero-desktop",
+    "profile-hero-mobile",
+    "profile-tour",
+    "profile-tour-static",
+    "social-preview",
+)
+NOVA_MUSIC_MANIFEST_URL = (
+    "https://liriothteltanion.github.io/NovaMusicLab/"
+    "release-profile-manifest.json"
+)
 IVRIT_RELEASE_EVIDENCE_FIELDS = (
     "backend_tests",
     "frontend_tests",
@@ -104,28 +125,40 @@ IVRIT_SYNC_FIELDS = (
     "backend_tests",
     "database",
     "demo_url",
+    "dictionary_entries",
     "dictionary_ready",
+    "english_entry_verified",
     "environment",
     "frontend_tests",
+    "github_live_successful_session_verified",
+    "google_live_configured",
+    "google_live_sign_in_verified",
     "health_live",
     "health_ready",
+    "interactive_browser_qa",
     "latest_git_tag",
     "latest_github_release",
-    "live_2_2_interactive_browser_qa",
     "live_version",
     "logout_verified",
     "oauth_boundary",
-    "oauth_final_live_code_exchange_verified",
+    "oauth_providers",
+    "onboarding_persistence_across_reload_verified",
     "postgresql_ready",
-    "production_commit",
     "provider",
+    "read_only_tour_verified",
     "readme_screenshot_version",
-    "readme_screenshots_match_live_version",
+    "readme_screenshots_match_source_version",
+    "release_implementation_commit",
     "release_state",
+    "relogin_after_logout_verified",
     "runtime",
     "schema",
+    "self_service_deletion_in_source",
+    "self_service_export_in_source",
+    "signed_out_reload_verified",
     "social_preview_version",
     "source",
+    "source_contract_tested",
     "source_version",
     "source_version_github_release_published",
     "source_version_tagged",
@@ -298,6 +331,86 @@ def _validate_profile_data(data: Mapping[str, Any]) -> None:
             "uses the first project's demo URL."
         )
     _require_text(flagship["demo"], "profile.projects[0].demo")
+    if flagship["source"] != "https://github.com/LiriothTeltanion/NovaMusicLab":
+        raise ValueError(
+            "profile.projects[Nova Music Lab].source must use the canonical repository URL."
+        )
+    if flagship["demo"] != "https://liriothteltanion.github.io/NovaMusicLab/":
+        raise ValueError(
+            "profile.projects[Nova Music Lab].demo must use the canonical Pages URL."
+        )
+    nova_sync_path = "profile.projects[Nova Music Lab].portfolio_sync"
+    nova_sync = _require_mapping(
+        flagship.get("portfolio_sync"),
+        nova_sync_path,
+        NOVA_MUSIC_SYNC_FIELDS,
+    )
+    unexpected_sync_fields = sorted(set(nova_sync) - set(NOVA_MUSIC_SYNC_FIELDS))
+    if unexpected_sync_fields:
+        raise ValueError(
+            f"Unexpected fields in {nova_sync_path}: "
+            f"{', '.join(unexpected_sync_fields)}"
+        )
+    if nova_sync["schema"] != "nova-music-profile-release-v1":
+        raise ValueError(
+            f"{nova_sync_path}.schema must use the canonical Nova Music Lab contract."
+        )
+    if nova_sync["source"] != NOVA_MUSIC_MANIFEST_URL:
+        raise ValueError(
+            f"{nova_sync_path}.source must use the canonical live deployment manifest."
+        )
+    nova_version = _require_semver(
+        nova_sync["version"], f"{nova_sync_path}.version"
+    )
+    if nova_sync["status"] != "deployed":
+        raise ValueError(
+            f"{nova_sync_path}.status must be deployed before profile publication."
+        )
+    if f"v{nova_version}" not in flagship["status"]:
+        raise ValueError(
+            "profile.projects[Nova Music Lab].status must include the deployed "
+            "portfolio_sync version."
+        )
+    commit = _require_text(nova_sync["commit"], f"{nova_sync_path}.commit")
+    if not re.fullmatch(r"[0-9a-f]{40}", commit):
+        raise ValueError(f"{nova_sync_path}.commit must be a full lowercase SHA-1.")
+    captured_on = _require_iso_date(
+        nova_sync["captured_on"], f"{nova_sync_path}.captured_on"
+    )
+    deployed_on = _require_iso_date(
+        nova_sync["deployed_on"], f"{nova_sync_path}.deployed_on"
+    )
+    if captured_on > deployed_on:
+        raise ValueError(
+            f"{nova_sync_path}.captured_on cannot be later than deployed_on."
+        )
+    nova_media_path = f"{nova_sync_path}.media"
+    nova_media = _require_mapping(
+        nova_sync["media"], nova_media_path, NOVA_MUSIC_MEDIA_FIELDS
+    )
+    unexpected_media_fields = sorted(set(nova_media) - set(NOVA_MUSIC_MEDIA_FIELDS))
+    if unexpected_media_fields:
+        raise ValueError(
+            f"Unexpected fields in {nova_media_path}: "
+            f"{', '.join(unexpected_media_fields)}"
+        )
+    for field in NOVA_MUSIC_MEDIA_FIELDS:
+        _require_asset_path(nova_media[field], f"{nova_media_path}.{field}")
+    if len(set(nova_media.values())) != len(NOVA_MUSIC_MEDIA_FIELDS):
+        raise ValueError(
+            f"{nova_media_path} must use distinct assets for every media role."
+        )
+    if not nova_media["profile-tour"].casefold().endswith(".gif"):
+        raise ValueError(f"{nova_media_path}.profile-tour must be a GIF.")
+    for field in (
+        "profile-hero-desktop",
+        "profile-hero-mobile",
+        "profile-tour-static",
+    ):
+        if not nova_media[field].casefold().endswith((".jpg", ".jpeg", ".png")):
+            raise ValueError(f"{nova_media_path}.{field} must be a static raster image.")
+    if not nova_media["social-preview"].casefold().endswith(".png"):
+        raise ValueError(f"{nova_media_path}.social-preview must be a PNG.")
 
     ivrit_projects = [project for project in projects if project["name"] == "Ivrit Sheli"]
     if len(ivrit_projects) != 1:
@@ -349,7 +462,7 @@ def _validate_profile_data(data: Mapping[str, Any]) -> None:
         IVRIT_SYNC_FIELDS,
     )
     sync_path = "profile.projects[Ivrit Sheli].portfolio_sync"
-    if ivrit_sync["schema"] != "ivrit-sheli-portfolio-project-v1":
+    if ivrit_sync["schema"] != "ivrit-sheli-portfolio-project-v2":
         raise ValueError(f"{sync_path}.schema must use the canonical Ivrit contract.")
     if ivrit_sync["source"] != (
         "https://raw.githubusercontent.com/"
@@ -386,13 +499,13 @@ def _validate_profile_data(data: Mapping[str, Any]) -> None:
     for field in (
         "database",
         "environment",
+        "interactive_browser_qa",
         "latest_git_tag",
         "latest_github_release",
-        "live_2_2_interactive_browser_qa",
         "oauth_boundary",
-        "production_commit",
         "provider",
         "readme_screenshot_version",
+        "release_implementation_commit",
         "release_state",
         "runtime",
         "schema",
@@ -401,8 +514,12 @@ def _validate_profile_data(data: Mapping[str, Any]) -> None:
     ):
         _require_text(ivrit_sync[field], f"{sync_path}.{field}")
     _require_iso_date(ivrit_sync["verified_on"], f"{sync_path}.verified_on")
-    if not re.fullmatch(r"[0-9a-f]{40}", ivrit_sync["production_commit"]):
-        raise ValueError(f"{sync_path}.production_commit must be a full lowercase SHA-1.")
+    if not re.fullmatch(
+        r"[0-9a-f]{40}", ivrit_sync["release_implementation_commit"]
+    ):
+        raise ValueError(
+            f"{sync_path}.release_implementation_commit must be a full lowercase SHA-1."
+        )
     if (
         ivrit_sync["provider"] != "Railway"
         or ivrit_sync["runtime"] != "Docker"
@@ -410,84 +527,95 @@ def _validate_profile_data(data: Mapping[str, Any]) -> None:
         or ivrit_sync["environment"] != "production"
     ):
         raise ValueError(f"{sync_path} deployment identity is inconsistent.")
-    for field in ("health_live", "health_ready", "postgresql_ready", "dictionary_ready"):
+    _require_positive_integer(
+        ivrit_sync["dictionary_entries"], f"{sync_path}.dictionary_entries"
+    )
+    for field in (
+        "health_live",
+        "health_ready",
+        "postgresql_ready",
+        "dictionary_ready",
+        "english_entry_verified",
+        "read_only_tour_verified",
+    ):
         if _require_boolean(ivrit_sync[field], f"{sync_path}.{field}") is not True:
             raise ValueError(f"{sync_path}.{field} must be true for verified readiness.")
     for field in (
         "source_version_tagged",
         "source_version_github_release_published",
-        "readme_screenshots_match_live_version",
-        "oauth_final_live_code_exchange_verified",
+        "readme_screenshots_match_source_version",
+        "source_contract_tested",
+        "google_live_configured",
+        "google_live_sign_in_verified",
+        "github_live_successful_session_verified",
         "authenticated_session_refresh_verified",
+        "onboarding_persistence_across_reload_verified",
         "logout_verified",
+        "signed_out_reload_verified",
+        "relogin_after_logout_verified",
+        "self_service_export_in_source",
+        "self_service_deletion_in_source",
     ):
         _require_boolean(ivrit_sync[field], f"{sync_path}.{field}")
-    if ivrit_sync["release_state"] not in {
-        "deployment-ahead-of-github-release",
-        "published-and-deployed",
-    }:
-        raise ValueError(f"{sync_path}.release_state is unsupported.")
+    providers = _require_text_list(ivrit_sync["oauth_providers"], f"{sync_path}.oauth_providers")
+    if set(providers) != {"Google", "GitHub"}:
+        raise ValueError(f"{sync_path}.oauth_providers must be Google and GitHub.")
     for field in ("latest_git_tag", "latest_github_release"):
         tag = ivrit_sync[field]
         if not tag.startswith("v"):
             raise ValueError(f"{sync_path}.{field} must be a v-prefixed semantic version.")
         _require_semver(tag[1:], f"{sync_path}.{field}")
-    if ivrit_sync["release_state"] == "deployment-ahead-of-github-release":
-        if (
-            ivrit_sync["source_version_tagged"] is not False
-            or ivrit_sync["source_version_github_release_published"] is not False
-        ):
-            raise ValueError(
-                f"{sync_path} deployment-ahead state cannot claim a current tag or release."
-            )
-        if any(
-            ivrit_sync[field] == f"v{ivrit_version}"
-            for field in ("latest_git_tag", "latest_github_release")
-        ):
-            raise ValueError(f"{sync_path} cannot claim the unpublished source version.")
-    elif (
-        ivrit_sync["source_version_tagged"] is not True
+    if (
+        ivrit_sync["release_state"] != f"{ivrit_version}-live-and-published"
+        or ivrit_sync["source_version_tagged"] is not True
         or ivrit_sync["source_version_github_release_published"] is not True
         or ivrit_sync["latest_git_tag"] != f"v{ivrit_version}"
         or ivrit_sync["latest_github_release"] != f"v{ivrit_version}"
     ):
         raise ValueError(
-            f"{sync_path} published-and-deployed state must match the source version."
+            f"{sync_path} live-and-published state must match the source version."
         )
-    social_preview_version = _require_semver(
+    _require_semver(
         ivrit_sync["social_preview_version"], f"{sync_path}.social_preview_version"
     )
-    if social_preview_version != ivrit_version:
-        raise ValueError(f"{sync_path}.social_preview_version must match the source version.")
-    if ivrit_sync["readme_screenshots_match_live_version"]:
-        if (
-            ivrit_sync["visual_proof_state"] != "current"
-            or ivrit_sync["live_2_2_interactive_browser_qa"] != "verified"
-            or ivrit_sync["readme_screenshot_version"] != ivrit_sync["live_version"]
-        ):
-            raise ValueError(
-                f"{sync_path} current upstream screenshots require matching live-version "
-                "media and verified browser QA."
-            )
-    elif (
-        ivrit_sync["visual_proof_state"] != "partial"
-        or ivrit_sync["live_2_2_interactive_browser_qa"] != "pending"
+    if ivrit_sync["readme_screenshots_match_source_version"] and (
+        ivrit_sync["readme_screenshot_version"] != ivrit_sync["source_version"]
     ):
         raise ValueError(
-            f"{sync_path} stale upstream screenshots require the partial/pending boundary."
+            f"{sync_path} current upstream screenshots must match the source version."
         )
+    if ivrit_sync["visual_proof_state"] != "live-english-journey-verified":
+        raise ValueError(f"{sync_path}.visual_proof_state is unsupported.")
+    if (
+        ivrit_sync["interactive_browser_qa"]
+        != "verified-english-entry-and-read-only-tour"
+    ):
+        raise ValueError(f"{sync_path}.interactive_browser_qa is unsupported.")
     if not re.fullmatch(
         r"[0-9]+\.[0-9]+\.(?:[0-9]+|x)",
         ivrit_sync["readme_screenshot_version"],
     ):
         raise ValueError(f"{sync_path}.readme_screenshot_version is invalid.")
+    for field in (
+        "source_contract_tested",
+        "google_live_configured",
+        "google_live_sign_in_verified",
+        "authenticated_session_refresh_verified",
+        "onboarding_persistence_across_reload_verified",
+        "logout_verified",
+        "signed_out_reload_verified",
+        "self_service_export_in_source",
+        "self_service_deletion_in_source",
+    ):
+        if ivrit_sync[field] is not True:
+            raise ValueError(f"{sync_path}.{field} must be verified true.")
     if (
-        ivrit_sync["oauth_final_live_code_exchange_verified"] is not False
-        or ivrit_sync["authenticated_session_refresh_verified"] is not False
-        or ivrit_sync["logout_verified"] is not False
+        ivrit_sync["github_live_successful_session_verified"] is not False
+        or ivrit_sync["relogin_after_logout_verified"] is not False
     ):
         raise ValueError(
-            f"{sync_path} OAuth exchange, session refresh and logout must remain unverified."
+            f"{sync_path} GitHub live session and re-login after logout must remain "
+            "unverified until explicitly reviewed."
         )
     ivrit_media = _require_mapping(
         ivrit.get("media"),
@@ -531,7 +659,10 @@ def _validate_profile_data(data: Mapping[str, Any]) -> None:
             raise ValueError(
                 "Current profile-owned Ivrit media must match the verified live version."
             )
-        if ivrit_media["captured_release_commit"] != ivrit_sync["production_commit"]:
+        if (
+            ivrit_media["captured_release_commit"]
+            != ivrit_sync["release_implementation_commit"]
+        ):
             raise ValueError(
                 "Current profile-owned Ivrit media must match the verified release baseline."
             )
@@ -1105,26 +1236,37 @@ def _render_project(project: Mapping[str, Any]) -> list[str]:
 
 
 def _render_nova_music_spotlight(project: Mapping[str, Any]) -> list[str]:
-    """Render the live flagship preview and its data journey."""
+    """Render the manifest-backed flagship preview and release tour."""
+    sync = project["portfolio_sync"]
+    media = sync["media"]
+    version = sync["version"]
     return [
         f'<a href="{project["demo"]}">',
         "<picture>",
-        '  <source media="(max-width: 640px)" srcset="./assets/nova-music-live-preview-mobile.jpg" />',
-        '  <img src="./assets/nova-music-live-preview.jpg" width="100%" alt="Current Nova Music Lab hero showing the bundled demonstration museum, navigation and live product calls to action" />',
+        f'  <source media="(max-width: 640px)" srcset="./{media["profile-hero-mobile"]}" />',
+        f'  <img src="./{media["profile-hero-desktop"]}" width="100%" alt="Nova Music Lab {version} final release-candidate capture showing the bundled demonstration museum, navigation and product calls to action" />',
         "</picture>",
         "</a>",
         "",
-        "**Live product preview:** responsive React interface, bundled demonstration museum and a direct path to the working deployment.",
+        (
+            f"**Released product — v{version}, deployed {sync['deployed_on']}:** "
+            "the preview was captured from the final private candidate before publication; "
+            "the live manifest, exact commit and CI verify the working deployment."
+        ),
         "",
         "<details>",
-        "<summary><strong>🎧 Open the Nova Music Lab data journey</strong></summary>",
+        f"<summary><strong>🎧 Open the Nova Music Lab {version} product tour</strong></summary>",
         "",
         "<picture>",
-        '  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/nova-music-journey-mobile-static.svg" />',
-        '  <source media="(max-width: 640px)" srcset="./assets/nova-music-journey-mobile.svg" />',
-        '  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/nova-music-journey-static.svg" />',
-        '  <img src="./assets/nova-music-journey-animated.svg" width="100%" alt="Private listening files move through normalization, analytics, emotion mapping and identity into an exportable museum report" />',
+        f'  <source media="(prefers-reduced-motion: reduce)" srcset="./{media["profile-tour-static"]}" />',
+        f'  <img src="./{media["profile-tour"]}" width="100%" alt="Nova Music Lab {version} product tour moving from the home museum to the Living Artist Atlas and genre discovery" />',
         "</picture>",
+        "",
+        (
+            f"**Release evidence:** candidate media captured {sync['captured_on']} and "
+            f"included in deployed commit `{sync['commit'][:12]}`; the static frame above replaces animation "
+            "when reduced motion is preferred."
+        ),
         "",
         "Five import families become one deduplicated, source-aware listening history. Missing fields remain visible as gaps, and raw exports stay in the browser.",
         "",
@@ -1149,7 +1291,7 @@ def _render_ivrit_spotlight(project: Mapping[str, Any]) -> list[str]:
     publication_text = (
         f"the verified deployment, Git tag and GitHub Release now agree on "
         f"v{sync['live_version']}."
-        if sync["release_state"] == "published-and-deployed"
+        if sync["release_state"] == f"{sync['live_version']}-live-and-published"
         else (
             f"the verified deployment runs v{sync['live_version']}; the latest Git "
             f"tag and GitHub release remain {sync['latest_git_tag']} while the "
@@ -1195,7 +1337,8 @@ def _render_ivrit_spotlight(project: Mapping[str, Any]) -> list[str]:
             f"<p><strong>Verified v{evidence['version']} evidence:</strong> {evidence['backend_tests']} backend + "
             f"{evidence['frontend_tests']} frontend = {evidence['total_tests']} passing tests · "
             f"Railway {sync['environment']} · {sync['database']} ready · live/ready health "
-            f"checks true · production commit <code>{sync['production_commit'][:12]}</code> · "
+            "checks true · release implementation commit "
+            f"<code>{sync['release_implementation_commit'][:12]}</code> · "
             "tenant RLS · Alembic · non-root Docker · redacted structured JSON logs.</p>"
         ),
         (

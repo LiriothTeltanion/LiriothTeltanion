@@ -5,7 +5,8 @@ LiriothTeltanion/
 ├── .github/
 │   └── workflows/
 │       ├── external-link-audit.yml # Weekly/manual public-link audit
-│       └── profile-validation.yml  # Automated profile checks
+│       ├── profile-validation.yml  # Automated profile checks
+│       └── sync-nova-music-lab.yml # Manual read-only release/media audit
 ├── assets/                         # Public banners and visual assets
 │   ├── brand/                      # KC ✦ LT signature and avatar derivatives
 │   ├── projects/                   # Featured-project cards
@@ -16,6 +17,7 @@ LiriothTeltanion/
 │       ├── ASSET_MANIFEST.md       # Public, retained and removed asset policy
 │       ├── FOLDER_MAP.md
 │       ├── IVRIT_SHELI_SYNC.md     # Strict project evidence synchronization
+│       ├── NOVA_MUSIC_LAB_SYNC.md  # Live deployment and commit-pinned media audit
 │       ├── NOVAFIT_SYNC.md         # NovaFit manifest synchronization
 │       ├── PROFILE_2_4_0_VISUAL_REPORT.md # Released before/after report
 │       ├── PUBLIC_METADATA.md
@@ -30,9 +32,11 @@ LiriothTeltanion/
 ├── scripts/
 │   ├── build_profile.py            # Compact/expanded README generator
 │   ├── check_external_links.py     # Conservative scheduled URL audit
+│   ├── sync_nova_music_lab.py      # Read-only release/media drift checker
 │   └── validate_profile.py         # Lightweight generated-profile checks
 ├── tests/
 │   ├── test_ivrit_sheli_sync.py    # Ivrit evidence and media regressions
+│   ├── test_nova_music_lab_sync.py # Nova release, hash and branch gates
 │   ├── test_profile_tooling.py     # Generator/validator regressions
 │   └── test_release_integrity.py   # Candidate/tag integrity tests
 ├── tools/

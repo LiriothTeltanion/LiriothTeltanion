@@ -1,16 +1,18 @@
 # Published GitHub metadata record
 
 This file records the exact, evidence-based configuration applied to Kevin's
-public GitHub presence. Account fields, the five-project pin order, seven
-repository About panels and seven social previews were publicly verified on
-2026-07-18 under Kevin's explicit Profile 2.3.1 and 2.4.0 publication approvals.
+public GitHub presence. Account fields, the original five-project pin order,
+seven repository About panels and seven social previews were publicly verified
+on 2026-07-18 under Kevin's explicit Profile 2.3.1 and 2.4.0 publication
+approvals. Profile 2.5.0 records the independently verified sixth Jetstream89
+pin and the Nova Music Lab 1.5.0 / Ivrit Sheli 2.4.0 metadata refresh.
 
 ## GitHub account profile
 
 **Name**
 
 ```text
-Kevin Cusnir
+Kevin Cusnir (Lirioth Teltanion)
 ```
 
 **Bio**
@@ -117,7 +119,7 @@ in the profile, personal documents, private metrics or unverified claims.
 **Description**
 
 ```text
-Local-first React and TypeScript music museum that turns Spotify, Last.fm, Apple Music, ListenBrainz, and YouTube exports into source-aware analytics.
+Local-first React + TypeScript music museum for private listening-history imports, Living Artist Atlas and genre discovery, evidence-aware visual analytics, and accessible EN/ES/HE RTL UX.
 ```
 
 **Website**
@@ -137,7 +139,18 @@ local-first
 accessibility
 vite
 vitest
-github-pages
+indexeddb
+internationalization
+lastfm
+listenbrainz
+music-discovery
+musicbee
+playwright
+privacy-first
+pwa
+rtl
+spotify
+frontend-development
 ```
 
 **Uploaded social preview**
@@ -146,12 +159,16 @@ github-pages
 assets/social/novamusiclab-social-preview.png
 ```
 
+Profile 2.5.0 replaces the previous custom preview with the audited 1280 x 640
+PNG from Nova Music Lab 1.5.0. GitHub may re-encode the stored image, so visual
+comparison and the rendered `og:image` are the final public checks.
+
 ## `LiriothTeltanion/IvritSheli`
 
 **Description**
 
 ```text
-Ivrit Sheli 2.2.0 is a live trilingual Hebrew-learning PWA with FastAPI, PostgreSQL/RLS, Docker, structured logging and 187 verified tests.
+Ivrit Sheli 2.4.0 is a live trilingual Hebrew-learning PWA with React 19, FastAPI, PostgreSQL/RLS, Docker, accessible RTL UX and 213 verified tests.
 ```
 
 **Website**
@@ -161,12 +178,11 @@ https://ivritsheli-production.up.railway.app
 ```
 
 This is the verified Railway deployment. `/health/live`, `/health/ready`,
-`/version`, the PostgreSQL-backed runtime and dictionary readiness passed public
-QA at live runtime build `66d68a3c44ac2500fb400eef88d5f77da0c1c1e1`,
-which uses release application baseline
-`c8c928661bdcf179ed1d9df88b9f2e4d730ffea3`. OAuth
-consent and safe cancellation passed; the final authorization-code exchange,
-authenticated session refresh and logout remain pending end-to-end checks.
+`/version`, PostgreSQL and dictionary readiness passed public QA for release
+implementation `03bf84b9268ff8be528c0fab3c670f9652ee23b0`. Identity-only Google
+sign-in, session refresh, onboarding persistence, logout and signed-out reload
+are verified. A successful live GitHub session and re-login after logout remain
+pending E2E checks.
 
 **Topics**
 
@@ -189,31 +205,30 @@ local-first
 pwa
 ```
 
-**Uploaded current social preview**
+**Uploaded archived social preview**
 
 ```text
 assets/social/ivrit-sheli-social-preview.png
 ```
 
-The tracked 1280 x 640 SVG/PNG pair displays 2.2 and the verified 187-test
-release baseline. It passed local visual QA and was uploaded through repository
-settings after Kevin's explicit approval; the persisted **Remove image** action
-confirmed GitHub stored the preview.
+The tracked 1280 x 640 SVG/PNG pair displays the earlier 2.2 / 187-test release
+baseline. It remains historical public art until a new 2.4 / 213-test source and
+raster are generated, visually reviewed and uploaded together.
 
 **Alt text**
 
 ```text
-Ivrit Sheli 2.2.0 product card presenting a live trilingual Hebrew-learning service with Railway, PostgreSQL tenant isolation, Docker, structured logging and 187 verified tests.
+Archived Ivrit Sheli 2.2.0 product card presenting the earlier 187-test release baseline; current written evidence is Ivrit Sheli 2.4.0 with 213 verified tests.
 ```
 
 **Public boundary**
 
-The current profile tour uses Kevin's isolated account and shows only his
+The archived profile tour uses Kevin's isolated account and shows only his
 already-public name/avatar plus default recommendations. It contains no private
 learning history, provider token, secret, runtime database record or personal export and
-represents the verified live 2.2 interface on desktop, mobile and Hebrew RTL.
-The final OAuth authorization-code exchange, session refresh and logout remain
-explicitly pending.
+represents the verified 2.2 interface on desktop, mobile and Hebrew RTL. It is
+not current visual proof of 2.4. Google identity flow checks are recorded
+separately; a successful live GitHub session and re-login remain pending.
 
 ## `LiriothTeltanion/NovaFit`
 
@@ -385,6 +400,7 @@ Use this order so the strongest working evidence appears first:
 3. `NovaFit` — complete Python desktop and SQLite product.
 4. `ChristopherRodriguezCVOnline` — accessible real-world collaboration.
 5. `CV` — recruiter-ready multilingual EN/ES/HE professional summary.
+6. `Jetstream89` — bilingual music discovery and web-audio product personality.
 
 Keep `Fullstack2026` public and linked from the README as transparent learning
 progression, but outside the pins now that stronger product and recruiter-facing
@@ -394,7 +410,8 @@ Keep the profile repository itself unpinned; its README is already the page
 recruiters are viewing, so a future profile-repository pin would duplicate that
 surface instead of adding stronger evidence.
 
-This five-project order was applied and publicly verified on 2026-07-18.
+The first five-project order was verified on 2026-07-18. Jetstream89 was
+independently verified as the sixth public pin on 2026-08-01.
 
 ## Publication verification record
 
