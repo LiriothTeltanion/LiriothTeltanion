@@ -166,7 +166,7 @@ presentation expansion, so the profile increments from 2.3.0 to 2.3.1.
 This is a contained visual-evidence and portfolio synchronization expansion, so
 the profile increments from 2.3.1 to 2.4.0.
 
-## Profile 2.5.0 — Living Flagship Evidence Edition — release candidate
+## Profile 2.5.0 — Living Flagship Evidence Edition — released
 
 - Keep the portrait, luminous KC ✦ LT signature, globe and recruiter-first
   hierarchy stable while replacing Nova Music Lab's older journey diagram with
@@ -181,8 +181,8 @@ the profile increments from 2.3.1 to 2.4.0.
   separate from current engineering proof.
 - Keep EN/ES/HE project facts aligned and add read-only drift detection for the
   flagship without granting automation permission to rewrite public content.
-- Publish only after candidate verification, visual QA, an exact final
-  `released` commit, annotated `v2.5.0` tag and stable GitHub Release agree.
+- Published only after candidate verification, visual QA, an exact final
+  `released` commit, annotated `v2.5.0` tag and stable GitHub Release agreed.
 
 This is a contained flagship-evidence and synchronization expansion, so the
 profile increments from 2.4.0 to 2.5.0 while project versions remain

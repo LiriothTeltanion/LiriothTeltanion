@@ -20,7 +20,7 @@ candidate under the ignored `.cache/nova-music-lab-profile-candidates/`
 directory.
 
 This kept **Profile 2.4.0 — released 2026-07-18** unchanged while the candidate
-was reviewed. **Profile 2.5.0 — prepared 2026-08-01** promotes the evidence only
+was reviewed. **Profile 2.5.0 — released 2026-08-01** promotes the evidence only
 after its own complete profile gate. The accepted upstream evidence is **Nova
 Music Lab 1.5.0 — deployed 2026-08-01**. A tracked private-candidate
 manifest is never acceptable profile evidence, even when its version matches

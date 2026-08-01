@@ -415,6 +415,21 @@ independently verified as the sixth public pin on 2026-08-01.
 
 ## Publication verification record
 
+### Profile 2.5.0 — 2026-08-01
+
+1. Kevin explicitly approved Profile 2.5.0 publication.
+2. Nova Music Lab 1.5.0 evidence is pinned to its deployed Pages manifest,
+   commit `5c1d57048b52d41819a7d0af4d577a4bbe60064d` and reviewed release media.
+3. Ivrit Sheli written evidence is synchronized to 2.4.0 and 213 tests; its 2.2
+   screenshots remain labeled as archived visual history.
+4. English, Spanish and Hebrew content, responsive/reduced-motion media, project
+   synchronizers, the full Python suite and the profile verifier passed before
+   the exact annotated `v2.5.0` release publication.
+5. The Nova Music Lab social preview is applied separately through GitHub's
+   supported repository Settings UI and verified against the rendered card.
+
+### Profile 2.4.0 — 2026-07-18
+
 1. Kevin explicitly approved Profile 2.4.0 publication.
 2. CV 1.1.0, Christopher Rodríguez Portfolio 1.1.0 and Fullstack2026 1.1.1
    were committed, tagged, pushed and published with GitHub Releases.

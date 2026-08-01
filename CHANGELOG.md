@@ -5,7 +5,7 @@ The profile follows Semantic Versioning: major for a structural identity or
 presentation generation, minor for a contained feature or visual upgrade, and
 patch for a narrow correction.
 
-## [2.5.0] — 2026-08-01 · Living Flagship Evidence Edition — release candidate
+## [2.5.0] — 2026-08-01 · Living Flagship Evidence Edition — released
 
 ### Added
 
@@ -45,9 +45,10 @@ patch for a narrow correction.
 
 ### Release status
 
-- Prepared as `v2.5.0` release candidate after Kevin approved publication.
-- The status changes to `released` only in the exact final commit that receives
-  the annotated tag and stable GitHub Release.
+- Finalized after Kevin's explicit publication approval as the exact `released`
+  commit for annotated tag `v2.5.0` and its stable GitHub Release.
+- Candidate and GitHub Actions validation passed before finalization; the tag,
+  branch and release are published together only after the exact-tag verifier.
 
 ## [2.4.0] — 2026-07-18 · Recruiter Visual Evidence Edition — released
 

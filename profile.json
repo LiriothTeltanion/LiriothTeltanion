@@ -3,7 +3,7 @@
   "release": {
     "title": "Profile 2.5.0 — Living Flagship Evidence Edition",
     "tag": "v2.5.0",
-    "status": "release-candidate",
+    "status": "released",
     "prepared_on": "2026-08-01",
     "baseline": "Profile 2.4.0 — Recruiter Visual Evidence Edition",
     "summary": "A recruiter-facing evidence release led by the deployed Nova Music Lab 1.5.0 living archive, current Ivrit Sheli 2.4.0 engineering proof and review-gated multilingual synchronization.",
