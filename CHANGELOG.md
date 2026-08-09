@@ -5,6 +5,48 @@ The profile follows Semantic Versioning: major for a structural identity or
 presentation generation, minor for a contained feature or visual upgrade, and
 patch for a narrow correction.
 
+## [2.6.0] — 2026-08-09 · Living Archive Clarity Edition — released
+
+### Added
+
+- Nova Music Lab 1.6.0 desktop, mobile, animated, reduced-motion and social-card
+  media promoted from its checksum-verified deployed release contract.
+- Recruiter-facing evidence for the complete Artist Atlas navigator, clearer
+  public-museum/build-your-own journey and more understandable interpretive
+  boundaries.
+
+### Changed
+
+- Advanced the flagship to Nova Music Lab 1.6.0, deployed 2026-08-09. GitHub
+  Pages serves commit `eb7b27cd08c19634ab5c1976facb4b221701ea43`; the product
+  tag points to commit `e0d49d2940343fe2ebd7cfb4eee4cbd4d8d39cae`.
+- Updated the public archive evidence to 82,661 plays, 20,908 tracks and 6,593
+  exact-name catalog entries without presenting catalog variants as unique
+  people.
+- Updated genre evidence to 94.2% classified plays and 457 entries with
+  detailed evidence, kept separate from automatic classification.
+- Updated engineering evidence to 803 passing tests, one intentional private-
+  fixture skip and 18/18 passing Playwright journeys.
+- Synchronized the generated English profile and reviewed Spanish and Hebrew
+  summaries while preserving every unrelated Ivrit Sheli, NovaFit and identity
+  claim.
+
+### Evidence boundaries
+
+- Only the five release-manifest media IDs consumed by the public profile are
+  duplicated here. Atlas, Genres, Guest Museum and Hebrew Share captures remain
+  in Nova Music Lab's own release gallery.
+- Private listening exports remain in the browser; this profile publishes only
+  aggregate public evidence and sanitized release visuals.
+- The served Pages commit and product tag commit are recorded separately rather
+  than being presented as the same artifact.
+
+### Release status
+
+- Kevin explicitly approved publication on 2026-08-09. The exact `released`
+  commit is promoted only after the full profile gate and pull-request checks;
+  annotated tag `v2.6.0` and its GitHub Release must target that same commit.
+
 ## [2.5.0] — 2026-08-01 · Living Flagship Evidence Edition — released
 
 ### Added

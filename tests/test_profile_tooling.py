@@ -342,7 +342,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
 
         self.assertLessEqual(len(content.splitlines()), 300)
         for expected in (
-            "profile-version: 2.5.0",
+            "profile-version: 2.6.0",
             "profile-banner-mobile-static.svg",
             "nova-music-live-preview-mobile.jpg",
             "nova-music-product-tour.gif",
@@ -380,7 +380,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
             "[א Ivrit Sheli live](https://ivritsheli-production.up.railway.app)",
             "Open Ivrit Sheli live demo",
             "Open verified live deployment",
-            "deployed 2026-08-01",
+            "deployed 2026-08-09",
             "final private candidate before publication",
             "static frame above replaces animation",
         ):
@@ -410,7 +410,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
             f"release-title: {release['title']} -->"
         )
 
-        self.assertEqual(version, "2.5.0")
+        self.assertEqual(version, "2.6.0")
         self.assertEqual(release["tag"], f"v{version}")
         self.assertIn(release["status"], {"release-candidate", "released"})
         for mode in ("compact", "expanded"):

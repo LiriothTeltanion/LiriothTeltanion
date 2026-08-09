@@ -1,4 +1,4 @@
-<!-- profile-version: 2.5.0; release-tag: v2.5.0; release-title: Profile 2.5.0 — Living Flagship Evidence Edition -->
+<!-- profile-version: 2.6.0; release-tag: v2.6.0; release-title: Profile 2.6.0 — Living Archive Clarity Edition -->
 
 <a id="top"></a>
 <div align="center">
@@ -49,29 +49,29 @@ I’m **Kevin Cusnir**, born in **San Cristóbal, Venezuela** and now based in *
 
 ### 🎧 Nova Music Lab
 
-**Status:** Deployed v1.5.0 local-first flagship · **Stack:** React 19 · TypeScript · Vite · Dexie/IndexedDB · Recharts · Vitest · Playwright<br>
-**Problem → solution:** Listening exports are fragmented, hard to compare and easy to misrepresent. A local-first music museum that turns listening exports into a Living Artist Atlas, source-aware genre evidence, emotional stories and a portable archive while keeping private imports in the browser.<br>
-**Evidence:** Deployed on 2026-08-01 at commit 5c1d57048b52, with 711 passing unit/integration tests, 18 passing Playwright journeys, privacy audits, bundle budgets and a verified GitHub Pages smoke test · **Role signal:** Frontend engineering · data visualization · privacy-aware product thinking<br>
+**Status:** Deployed v1.6.0 local-first flagship · **Stack:** React 19 · TypeScript · Vite · Dexie/IndexedDB · Recharts · Vitest · Playwright<br>
+**Problem → solution:** Listening exports are fragmented, hard to compare and easy to misrepresent. A local-first music museum where Kevin / Lirioth's public archive demonstrates the experience and visitors can turn supported listening-history exports into their own Living Artist Atlas, source-aware genre evidence and emotional stories while private imports stay in the browser.<br>
+**Evidence:** Deployed on 2026-08-09 with live Pages evidence at commit eb7b27cd08c1 and product tag commit e0d49d294034, with 803 passing tests, 1 intentional private-fixture skip, 18/18 Playwright journeys, privacy audits, bundle budgets and verified GitHub Pages metadata · **Role signal:** Frontend engineering · data visualization · privacy-aware product thinking<br>
 [Open Nova Music Lab live demo](https://liriothteltanion.github.io/NovaMusicLab/) · [Nova Music Lab source](https://github.com/LiriothTeltanion/NovaMusicLab)
 
 <a href="https://liriothteltanion.github.io/NovaMusicLab/">
 <picture>
   <source media="(max-width: 640px)" srcset="./assets/nova-music-live-preview-mobile.jpg" />
-  <img src="./assets/nova-music-live-preview.jpg" width="100%" alt="Nova Music Lab 1.5.0 final release-candidate capture showing the bundled demonstration museum, navigation and product calls to action" />
+  <img src="./assets/nova-music-live-preview.jpg" width="100%" alt="Nova Music Lab 1.6.0 final release-candidate capture showing the bundled demonstration museum, navigation and product calls to action" />
 </picture>
 </a>
 
-**Released product — v1.5.0, deployed 2026-08-01:** the preview was captured from the final private candidate before publication; the live manifest, exact commit and CI verify the working deployment.
+**Released product — v1.6.0, deployed 2026-08-09:** the preview was captured from the final private candidate before publication; the live manifest, exact commit and CI verify the working deployment.
 
 <details>
-<summary><strong>🎧 Open the Nova Music Lab 1.5.0 product tour</strong></summary>
+<summary><strong>🎧 Open the Nova Music Lab 1.6.0 product tour</strong></summary>
 
 <picture>
   <source media="(prefers-reduced-motion: reduce)" srcset="./assets/nova-music-product-tour-static.jpg" />
-  <img src="./assets/nova-music-product-tour.gif" width="100%" alt="Nova Music Lab 1.5.0 product tour moving from the home museum to the Living Artist Atlas and genre discovery" />
+  <img src="./assets/nova-music-product-tour.gif" width="100%" alt="Nova Music Lab 1.6.0 product tour moving from the home museum to the Living Artist Atlas and genre discovery" />
 </picture>
 
-**Release evidence:** candidate media captured 2026-08-01 and included in deployed commit `5c1d57048b52`; the static frame above replaces animation when reduced motion is preferred.
+**Release evidence:** candidate media captured 2026-08-09 and included in deployed commit `eb7b27cd08c1`; the static frame above replaces animation when reduced motion is preferred.
 
 Five import families become one deduplicated, source-aware listening history. Missing fields remain visible as gaps, and raw exports stay in the browser.
 

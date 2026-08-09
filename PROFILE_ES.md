@@ -1,6 +1,6 @@
 # Kevin Cusnir · Lirioth Teltanion ✨
 
-<!-- canonical-project-facts: profile=2.5.0; nova=1.5.0; nova_status=deployed; nova_deployed=2026-08-01; nova_commit=5c1d57048b52d41819a7d0af4d577a4bbe60064d; ivrit_source=2.4.0; ivrit_live=2.4.0; ivrit_backend=151; ivrit_frontend=62; ivrit_total=213; ivrit_postgresql_ready=true; ivrit_google_signin_live=true; ivrit_github_session_live=false; ivrit_media=2.2.0; ivrit_media_current=false; ivrit_capture_commit=66d68a3c44ac2500fb400eef88d5f77da0c1c1e1; novafit=4.2.0 -->
+<!-- canonical-project-facts: profile=2.6.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.4.0; ivrit_live=2.4.0; ivrit_backend=151; ivrit_frontend=62; ivrit_total=213; ivrit_postgresql_ready=true; ivrit_google_signin_live=true; ivrit_github_session_live=false; ivrit_media=2.2.0; ivrit_media_current=false; ivrit_capture_commit=66d68a3c44ac2500fb400eef88d5f77da0c1c1e1; novafit=4.2.0 -->
 
 [English](./README.md) · **Español** · [עברית](./PROFILE_HE.md)
 
@@ -14,11 +14,11 @@ Nací en **San Cristóbal, Venezuela**, y actualmente vivo en **Beersheba, Israe
 
 ### 🎧 Nova Music Lab
 
-**Nova Music Lab 1.5.0**, desplegada el **2026-08-01**, es una aplicación React 19/TypeScript local-first que convierte exportaciones de escucha en un museo musical interactivo. Su Living Artist Atlas conecta retratos, relaciones, géneros, subgéneros y procedencia de los datos; el snapshot público contiene 6.413 filas de catálogo y el 94,1 % de las reproducciones históricas tiene una familia analítica, sin presentar una clasificación automática como curaduría humana. Las importaciones privadas permanecen en el navegador.
+**Nova Music Lab 1.6.0**, desplegada el **2026-08-09**, es una aplicación React 19/TypeScript local-first que presenta el archivo musical público de Kevin / Lirioth y permite que cada visitante convierta exportaciones compatibles de su propio historial en un museo privado dentro del navegador. El Living Artist Atlas puede recorrerse por escuchas o de la A a la Z, con biografías legibles, retratos, relaciones, géneros y procedencia transparente. El snapshot público contiene **82.661 reproducciones**, **20.908 canciones** y **6.593 entradas de nombres de artista** —no una afirmación de 6.593 personas únicas—; el **94,2 %** de las reproducciones tiene una familia analítica y 457 entradas cuentan con evidencia detallada separada de la clasificación automática.
 
 - [Demo pública](https://liriothteltanion.github.io/NovaMusicLab/)
 - [Código fuente](https://github.com/LiriothTeltanion/NovaMusicLab)
-- Evidencia verificada: commit desplegado `5c1d57048b52`, 711 pruebas unitarias/de integración aprobadas, una omisión intencional, 18 recorridos Playwright aprobados y controles de privacidad, accesibilidad, enlaces, medios y presupuesto de bundle. Las capturas del perfil conservan la etiqueta de candidata previa al despliegue; el manifiesto live confirma por separado el estado desplegado de 1.5.0.
+- Evidencia verificada: Pages sirve el commit `eb7b27cd08c1` y la etiqueta del producto apunta al commit `e0d49d294034`; 803 pruebas están aprobadas, existe una omisión intencional de fixture privado, Playwright pasa 18/18 recorridos y también pasan los controles de privacidad, accesibilidad, enlaces, medios y presupuesto de bundle.
 
 ### א Ivrit Sheli
 

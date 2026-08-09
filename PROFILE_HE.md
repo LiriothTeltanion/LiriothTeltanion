@@ -1,6 +1,6 @@
 # Kevin Cusnir · Lirioth Teltanion ✨
 
-<!-- canonical-project-facts: profile=2.5.0; nova=1.5.0; nova_status=deployed; nova_deployed=2026-08-01; nova_commit=5c1d57048b52d41819a7d0af4d577a4bbe60064d; ivrit_source=2.4.0; ivrit_live=2.4.0; ivrit_backend=151; ivrit_frontend=62; ivrit_total=213; ivrit_postgresql_ready=true; ivrit_google_signin_live=true; ivrit_github_session_live=false; ivrit_media=2.2.0; ivrit_media_current=false; ivrit_capture_commit=66d68a3c44ac2500fb400eef88d5f77da0c1c1e1; novafit=4.2.0 -->
+<!-- canonical-project-facts: profile=2.6.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.4.0; ivrit_live=2.4.0; ivrit_backend=151; ivrit_frontend=62; ivrit_total=213; ivrit_postgresql_ready=true; ivrit_google_signin_live=true; ivrit_github_session_live=false; ivrit_media=2.2.0; ivrit_media_current=false; ivrit_capture_commit=66d68a3c44ac2500fb400eef88d5f77da0c1c1e1; novafit=4.2.0 -->
 
 [English](./README.md) · [Español](./PROFILE_ES.md) · **עברית**
 
@@ -14,11 +14,11 @@
 
 ### 🎧 Nova Music Lab
 
-**Nova Music Lab 1.5.0**, שנפרסה ב־**2026-08-01**, היא אפליקציית React 19 ו־TypeScript בגישת local-first, ההופכת ייצואי היסטוריית האזנה למוזיאון מוזיקלי אינטראקטיבי. Living Artist Atlas מחבר בין דיוקנאות, קשרים, ז׳אנרים, תתי־ז׳אנרים ומקור הנתונים. ה־snapshot הציבורי כולל 6,413 שורות קטלוג, ול־94.1% מההשמעות ההיסטוריות קיימת משפחת ז׳אנר אנליטית, בלי להציג סיווג אוטומטי כאוצרות אנושית. ייבוא פרטי נשאר בדפדפן.
+**Nova Music Lab 1.6.0**, שנפרסה ב־**2026-08-09**, היא אפליקציית React 19 ו־TypeScript בגישת local-first. היא מציגה את הארכיון המוזיקלי הציבורי של Kevin / Lirioth ומאפשרת לכל מבקר להפוך ייצוא נתמך מהיסטוריית ההאזנה שלו למוזיאון פרטי שנשאר בדפדפן. אפשר לנווט ב־Living Artist Atlas לפי מספר ההשמעות או מא׳ עד ת׳, עם ביוגרפיות קריאות, דיוקנאות, קשרים, ז׳אנרים ומקור נתונים שקוף. ה־snapshot הציבורי כולל **82,661 השמעות**, **20,908 שירים** ו־**6,593 רשומות של שמות אמנים** — בלי לטעון שמדובר ב־6,593 אנשים ייחודיים. ל־**94.2%** מההשמעות קיימת משפחה אנליטית, ול־457 רשומות יש ראיות מפורטות שנשמרות בנפרד מהסיווג האוטומטי.
 
 - [דמו ציבורי](https://liriothteltanion.github.io/NovaMusicLab/)
 - [קוד מקור](https://github.com/LiriothTeltanion/NovaMusicLab)
-- ראיות מאומתות: commit הפריסה `5c1d57048b52`, ‏711 בדיקות יחידה ואינטגרציה שעברו, דילוג מכוון אחד, ‏18 מסלולי Playwright שעברו ובקרות פרטיות, נגישות, קישורים, מדיה ותקציב bundle. צילומי הפרופיל שומרים את תווית מועמדת ה־release שלפני הפריסה; ה־manifest החי מאמת בנפרד ש־1.5.0 נפרסה.
+- ראיות מאומתות: Pages מגיש את commit ‏`eb7b27cd08c1`, ותג המוצר מצביע על commit ‏`e0d49d294034`; ‏803 בדיקות עברו, יש דילוג מכוון אחד עבור fixture פרטי, Playwright עבר 18/18 מסלולים וגם בדיקות הפרטיות, הנגישות, הקישורים, המדיה ותקציב ה־bundle עברו.
 
 ### א Ivrit Sheli
 

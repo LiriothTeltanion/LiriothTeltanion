@@ -15,7 +15,7 @@ The following families are referenced by both `README.md` and
 | Identity banner | `profile-banner-animated.svg`, `profile-banner-static.svg`, `profile-banner-mobile-animated.svg`, `profile-banner-mobile-static.svg` |
 | Personal signature | `brand/kc-lt-signature-animated.svg`, `brand/kc-lt-signature.svg` |
 | Nova Music Lab live preview | `nova-music-live-preview.jpg`, `nova-music-live-preview-mobile.jpg` |
-| Nova Music Lab 1.5.0 release tour | `nova-music-product-tour.gif`, `nova-music-product-tour-static.jpg` |
+| Nova Music Lab 1.6.0 release tour | `nova-music-product-tour.gif`, `nova-music-product-tour-static.jpg` |
 | Ivrit Sheli archived 2.2.0 interface history | `ivrit-sheli-product-tour.gif`, `ivrit-sheli-2-dashboard.png`, `ivrit-sheli-2-mobile.png`, `ivrit-sheli-2-hebrew-rtl.png` |
 | NovaFit evidence | `novafit-product-tour.gif`, `novafit-product-tour-static.png`, `analytics-training-atlas.png`, `theme-spectrum.png`, `novafit-trust-system-animated.svg`, `novafit-trust-system-mobile.svg` |
 | Engineering and growth | `engineering-orbit-animated.svg`, `engineering-orbit-mobile.svg`, `engineering-orbit-mobile-static.svg`, `learning-roadmap-animated.svg`, `learning-roadmap-mobile.svg` |
@@ -98,7 +98,8 @@ The exact repository-to-file mapping and publication order live in
 `PUBLIC_METADATA.md`. Keep the SVG and PNG pairs together, preserve the verified
 claims in their text and confirm dimensions before any upload.
 
-The local Nova Music Lab social preview is pinned to the 1.5.0 release package.
+The local Nova Music Lab social preview is pinned to the checksum-verified 1.6.0
+release package captured and deployed on 2026-08-09.
 The Ivrit pair remains 2.2/187-test historical art and must not be uploaded as a
 current 2.4/213-test card until its editable source and raster are refreshed and
 reviewed together.

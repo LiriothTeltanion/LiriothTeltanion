@@ -5,7 +5,10 @@ public GitHub presence. Account fields, the original five-project pin order,
 seven repository About panels and seven social previews were publicly verified
 on 2026-07-18 under Kevin's explicit Profile 2.3.1 and 2.4.0 publication
 approvals. Profile 2.5.0 records the independently verified sixth Jetstream89
-pin and the Nova Music Lab 1.5.0 / Ivrit Sheli 2.4.0 metadata refresh.
+pin and the Nova Music Lab 1.5.0 / Ivrit Sheli 2.4.0 metadata refresh. Profile
+2.6.0 publishes the checksum-verified Nova Music Lab 1.6.0 media and evidence;
+the unchanged account identity, repository description, website, topics and pin
+order remain valid.
 
 ## GitHub account profile
 
@@ -159,8 +162,8 @@ frontend-development
 assets/social/novamusiclab-social-preview.png
 ```
 
-Profile 2.5.0 replaces the previous custom preview with the audited 1280 x 640
-PNG from Nova Music Lab 1.5.0. GitHub may re-encode the stored image, so visual
+Profile 2.6.0 refreshes the audited 1280 x 640 PNG from Nova Music Lab 1.6.0.
+GitHub may re-encode the stored image, so visual
 comparison and the rendered `og:image` are the final public checks.
 
 ## `LiriothTeltanion/IvritSheli`
@@ -414,6 +417,21 @@ The first five-project order was verified on 2026-07-18. Jetstream89 was
 independently verified as the sixth public pin on 2026-08-01.
 
 ## Publication verification record
+
+### Profile 2.6.0 — 2026-08-09
+
+1. Kevin explicitly approved Profile 2.6.0 publication.
+2. Nova Music Lab 1.6.0 evidence is pinned to its deployed Pages manifest,
+   served commit `eb7b27cd08c19634ab5c1976facb4b221701ea43`, product tag commit
+   `e0d49d2940343fe2ebd7cfb4eee4cbd4d8d39cae` and checksum-verified release
+   media.
+3. The public evidence records 82,661 plays, 20,908 tracks, 6,593 exact-name
+   catalog entries, 94.2% classified plays, 457 detailed-evidence entries, 803
+   passing tests, one intentional skip and 18/18 Playwright journeys.
+4. Ivrit Sheli, NovaFit, the account identity, About fields, topics and pin order
+   are intentionally unchanged.
+5. The complete profile gate passes before merge; the annotated tag and GitHub
+   Release are then verified against the exact released commit.
 
 ### Profile 2.5.0 — 2026-08-01
 

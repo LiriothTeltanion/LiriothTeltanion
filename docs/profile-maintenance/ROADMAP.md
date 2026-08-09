@@ -188,6 +188,27 @@ This is a contained flagship-evidence and synchronization expansion, so the
 profile increments from 2.4.0 to 2.5.0 while project versions remain
 independently managed.
 
+## Profile 2.6.0 — Living Archive Clarity Edition — released
+
+- Promote only the five profile-facing assets from Nova Music Lab's deployed
+  1.6.0 manifest, preserving the other four release captures in the upstream
+  project gallery.
+- Explain the public Kevin / Lirioth exhibition and visitor-owned local import
+  path as two complementary uses of the same product.
+- Present 82,661 plays, 20,908 tracks and 6,593 exact-name catalog entries with
+  an explicit identity-variant boundary.
+- Present 94.2% classified plays and 457 detailed-evidence entries without
+  conflating automatic classification with curated metadata.
+- Make the complete A–Z/listening-rank Artist Atlas, human-first biographies,
+  Genres and Obsessions improvements legible to recruiters and non-technical
+  visitors.
+- Published only after its generated English output, reviewed Spanish/Hebrew
+  parity, tests, visual media, annotated tag and remote release all agree.
+
+This is a contained flagship clarity and evidence update, so the profile
+increments from 2.5.0 to 2.6.0 while every other project version remains
+independently managed.
+
 ## Priority 1 — reliability
 
 - Keep every local image and SVG reference valid.
@@ -212,7 +233,7 @@ independently managed.
 - Improve project screenshots and demonstrations.
 - Earn GitHub achievements through genuine collaboration and useful work.
 
-## Best next depth after Profile 2.5.0
+## Best next depth after Profile 2.6.0
 
 - Complete and verify Ivrit's final OAuth authorization-code exchange; keep the
   current consent/cancellation evidence separate until code exchange, session
