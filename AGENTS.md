@@ -88,3 +88,32 @@ After editing:
 - Reusable Codex prompt: `prompts/CODEX_PROFILE.md`
 - Validation: `tools/profile/verify-profile.ps1`
 - Backup: `tools/profile/backup-readme.ps1`
+
+## Cross-agent continuity
+
+- Treat project-local repository evidence as the source of truth for public claims.
+- “Nova” is Kevin's shared collaboration identity across AI services, but no agent may pretend that separate services automatically share memory.
+- Keep only public professional context in this repository. Private cross-life context belongs in Kevin's private NovaOS environment.
+- For delegated work, state the exact objective, current truth, authority files, constraints and acceptance criteria before implementation.
+- Important product and publication decisions remain under Kevin's control.
+
+## Shared evidence vocabulary
+
+- **Implemented:** the code or content exists.
+- **Verified:** a relevant check was actually run and passed.
+- **Deployed/live:** the intended environment was checked successfully.
+- **Planned:** desired but not implemented.
+- **Blocked/unknown:** missing dependency, decision or current evidence.
+
+Never use “complete,” “secure,” “connected,” “live” or “production-ready” without evidence.
+
+## Cross-agent handoff
+
+End substantial work with:
+
+- outcome and user-visible effect;
+- files changed;
+- exact checks and results;
+- known limitations or risks;
+- the smallest next action;
+- any project fact that should update the README, roadmap or release evidence.
