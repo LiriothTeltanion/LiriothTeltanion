@@ -5,6 +5,33 @@ The profile follows Semantic Versioning: major for a structural identity or
 presentation generation, minor for a contained feature or visual upgrade, and
 patch for a narrow correction.
 
+## [2.9.0] — 2026-09-13 · Visible Evidence Edition — release candidate
+
+### Fixed
+
+- **The Ivrit Sheli captures were invisible.** GitHub renders a `<details>`
+  block collapsed, and every frame of the flagship full-stack project lived
+  inside one. Anyone who merely scrolled the profile saw a picture for Nova
+  Music Lab and nothing at all for the project with 1246 tests. The still Today
+  screen now sits outside the toggle; the moving tour stays behind it, so
+  motion is asked for and evidence is not.
+- The visible caption repeated the visual-evidence boundary almost word for
+  word — same version, same date, same commit, twice in one paragraph. It now
+  says what the picture shows and where the other frames are, and leaves the
+  proving to the boundary sentence.
+- The OAuth boundary was printed verbatim twice: once in the header evidence
+  line and again inside the toggle. Stated once now.
+
+### Changed
+
+- Three `<source>` elements were dead. In the Ivrit Sheli picture, the mobile
+  and mobile-plus-reduced-motion sources named the same file, so the narrower
+  one could never win. In NovaFit, all three named the same canonical still —
+  that contract is enforced in the validator — so they collapse into one
+  comma-separated media list that says the same thing.
+- Net line count is unchanged: 300, the same budget. The payload is unchanged
+  too. What moved is placement.
+
 ## [2.8.0] — 2026-09-13 · Live Visual Evidence Edition — released
 
 ### Changed

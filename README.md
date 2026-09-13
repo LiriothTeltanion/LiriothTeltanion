@@ -1,4 +1,4 @@
-<!-- profile-version: 2.8.0; release-tag: v2.8.0; release-title: Profile 2.8.0 — Live Visual Evidence Edition -->
+<!-- profile-version: 2.9.0; release-tag: v2.9.0; release-title: Profile 2.9.0 — Visible Evidence Edition -->
 
 <a id="top"></a>
 <div align="center">
@@ -86,19 +86,21 @@ Five import families become one deduplicated, source-aware listening history. Mi
 **Evidence:** 387 backend + 859 frontend = 1246 tests on the 2.12.3 source; a staging demo verified on 2026-09-12 at render-free; the published release remains v2.12.2 while 2.12.3 is a private candidate. Historical 2.4.0 production evidence verified identity-only Google sign-in, reload continuity, logout and signed-out persistence on 2026-07-21. It does not prove current hosted availability, a live GitHub session, re-login after logout, provider connector calls, two-real-user isolation or backup restoration. · **Role signal:** Full-stack architecture · backend security · PostgreSQL ownership · integration testing · multilingual RTL UX<br>
 [Open Ivrit Sheli live demo](https://ivrit-sheli.onrender.com) · [Ivrit Sheli source](https://github.com/LiriothTeltanion/IvritSheli)
 
+<picture>
+  <source media="(max-width: 640px)" srcset="./assets/ivrit-sheli-2123-today-phone.png" />
+  <img src="./assets/ivrit-sheli-2123-today-desktop.png" width="100%" alt="Ivrit Sheli 2.12.3 Today screen in Spanish on a dark desktop layout: a saved-progress greeting, a semantic scene card pairing two coffee cups with the Hebrew word shtayim, and daily streak, level and accuracy tiles" />
+</picture>
+<p><strong>Current Ivrit Sheli 2.12.3 interface:</strong> The desktop Today screen in Spanish. The phone layout, the Hebrew RTL frame and the moving tour are one click below. <strong>Visual evidence boundary:</strong> These are the reviewed captures the project publishes for its 2.12.3 source, taken on 2026-08-27 at commit ea8aff866e6a. The full browser matrix, provider verification and deployment remain separate gates upstream.</p>
+
 <details>
 <summary><strong>א Open the current Ivrit Sheli 2.12.3 product tour and verified full-stack proof</strong></summary>
 <p><strong>Public-data boundary:</strong> The sanitized live captures use Kevin's isolated account and show his already-public name/avatar plus default recommendations (12 words, one oral practice and 10 minutes); they contain no private study history, credential, token, provider result or production database record.</p>
-<p><strong>Visual evidence boundary:</strong> These are the reviewed captures the project publishes for its 2.12.3 source, taken on 2026-08-27 at commit ea8aff866e6a. The full browser matrix, provider verification and deployment remain separate gates upstream.</p>
 <picture>
   <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/ivrit-sheli-2123-today-phone.png" />
-  <source media="(max-width: 640px)" srcset="./assets/ivrit-sheli-2123-today-phone.png" />
   <source media="(prefers-reduced-motion: reduce)" srcset="./assets/ivrit-sheli-2123-today-desktop.png" />
   <img src="./assets/ivrit-sheli-2123-tour.gif" width="100%" alt="Ivrit Sheli 2.12.3 product tour moving through the Today screen, the semantic scene cards and the guided first lesson" />
 </picture>
-<p><strong>Current Ivrit Sheli 2.12.3 interface:</strong> These frames are the reviewed captures IvritSheli publishes for its 2.12.3 source, taken on 2026-08-27 at commit ea8aff866e6a.</p>
 <p><strong>2.12.3 evidence:</strong> 387 backend + 859 frontend = 1246 tests · staging demo on render-free, checked 2026-09-12 · tenant RLS · Alembic · non-root Docker · redacted structured JSON logs. The retired Railway 2.4.0 deployment is offline; its release implementation commit was <code>03bf84b9268f</code>.</p>
-<p><strong>OAuth boundary:</strong> Historical 2.4.0 production evidence verified identity-only Google sign-in, reload continuity, logout and signed-out persistence on 2026-07-21. It does not prove current hosted availability, a live GitHub session, re-login after logout, provider connector calls, two-real-user isolation or backup restoration.</p>
 <p><strong>Publication boundary:</strong> the 2.12.3 source is a private candidate; the latest Git tag and GitHub release remain v2.12.2.</p>
 <p><a href="https://github.com/LiriothTeltanion/IvritSheli">Inspect the Ivrit Sheli source</a> · <a href="https://github.com/LiriothTeltanion/IvritSheli/blob/main/TEST_REPORT.md">Review the test contract</a> · <a href="./data/project-snapshots/ivrit-sheli.json">Inspect the reviewed upstream project snapshot</a> · <a href="./assets/ivrit-sheli-2123-today-hebrew-rtl.png">Open the current Hebrew RTL frame</a> · <a href="https://ivrit-sheli.onrender.com">Open the staging deployment</a></p>
 </details>
@@ -116,9 +118,7 @@ Five import families become one deduplicated, source-aware listening history. Mi
 > **Public-data boundary:** The tour and static fallback use clearly labeled seeded demo profiles and deterministic synthetic records; they contain no real wellness history, runtime database, secret or private export.
 
 <picture>
-  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/novafit-product-tour-static.png" />
-  <source media="(max-width: 640px)" srcset="./assets/novafit-product-tour-static.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/novafit-product-tour-static.png" />
+  <source media="(max-width: 640px), (prefers-reduced-motion: reduce)" srcset="./assets/novafit-product-tour-static.png" />
   <img src="./assets/novafit-product-tour.gif" width="100%" alt="NovaFit 4.2.0 seeded public demo moving through the Wellness Command Center, Motivation Center, Sport and Data Coach, isolated profiles, English, Spanish and Hebrew, including a Hebrew RTL workspace" />
 </picture>
 

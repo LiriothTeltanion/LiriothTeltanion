@@ -1360,18 +1360,28 @@ def _render_ivrit_spotlight(project: Mapping[str, Any]) -> list[str]:
             f"of the {sync['source_version']} interface."
         )
         rtl_label = "Open the archived Hebrew RTL frame"
+    # El fotograma fijo va FUERA del desplegable. Un `<details>` lo renderiza
+    # GitHub cerrado, asi que mientras estuvo dentro el proyecto insignia no
+    # ensenaba ni una imagen a quien solo recorre la pagina. El tour animado se
+    # queda dentro: el movimiento se pide, la prueba visual no.
     return [
+        "<picture>",
+        f'  <source media="(max-width: 640px)" srcset="./{media["mobile_static"]}" />',
+        f'  <img src="./{media["static"]}" width="100%" alt="{media["static_alt"]}" />',
+        "</picture>",
+        (
+            f"<p><strong>{media['caption']}</strong> {media['description']} "
+            f"<strong>Visual evidence boundary:</strong> {visual_boundary}</p>"
+        ),
+        "",
         "<details>",
         f"<summary><strong>{summary}</strong></summary>",
         f"<p><strong>Public-data boundary:</strong> {media['public_data_boundary']}</p>",
-        f"<p><strong>Visual evidence boundary:</strong> {visual_boundary}</p>",
         "<picture>",
         f'  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./{media["mobile_static"]}" />',
-        f'  <source media="(max-width: 640px)" srcset="./{media["mobile_static"]}" />',
         f'  <source media="(prefers-reduced-motion: reduce)" srcset="./{media["static"]}" />',
         f'  <img src="./{media["animation"]}" width="100%" alt="{media["alt"]}" />',
         "</picture>",
-        f"<p><strong>{media['caption']}</strong> {media['description']}</p>",
         (
             f"<p><strong>{evidence['version']} evidence:</strong> {evidence['backend_tests']} backend + "
             f"{evidence['frontend_tests']} frontend = {evidence['total_tests']} tests · "
@@ -1381,9 +1391,6 @@ def _render_ivrit_spotlight(project: Mapping[str, Any]) -> list[str]:
             f"{sync['historical_provider']} {sync['historical_version']} deployment is "
             "offline; its release implementation commit was "
             f"<code>{sync['release_implementation_commit'][:12]}</code>.</p>"
-        ),
-        (
-            f"<p><strong>OAuth boundary:</strong> {sync['oauth_boundary']}</p>"
         ),
         (
             f"<p><strong>Publication boundary:</strong> {publication_text}</p>"
@@ -1418,13 +1425,14 @@ def _render_novafit_spotlights(project: Mapping[str, Any]) -> list[str]:
         f"> **Public-data boundary:** {media['public_data_boundary']}",
         "",
         "<picture>",
+        # El contrato de NovaFit obliga a que las tres variantes sean el mismo
+        # fichero canonico, asi que emitirlas en tres lineas repetia el mismo
+        # srcset tres veces. Una lista de medios separada por comas es un OR y
+        # dice lo mismo en una: pantalla estrecha o movimiento reducido -> fijo.
         (
-            '  <source media="(max-width: 640px) and '
-            '(prefers-reduced-motion: reduce)" '
-            f'srcset="./{media["mobile_static"]}" />'
+            '  <source media="(max-width: 640px), (prefers-reduced-motion: reduce)" '
+            f'srcset="./{media["static"]}" />'
         ),
-        f'  <source media="(max-width: 640px)" srcset="./{media["mobile_static"]}" />',
-        f'  <source media="(prefers-reduced-motion: reduce)" srcset="./{media["reduced_motion_static"]}" />',
         f'  <img src="./{media["animation"]}" width="100%" alt="{media["alt"]}" />',
         "</picture>",
         "",
