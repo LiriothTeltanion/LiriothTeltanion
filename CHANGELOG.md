@@ -5,6 +5,43 @@ The profile follows Semantic Versioning: major for a structural identity or
 presentation generation, minor for a contained feature or visual upgrade, and
 patch for a narrow correction.
 
+## [2.7.0] — 2026-09-13 · Current Deployment Edition — release candidate
+
+### Fixed
+
+- The Ivrit Sheli synchronizer read a manifest schema the project had already
+  left behind, so it stopped reading anything and failed daily for weeks. The
+  profile kept advertising July: version 2.4.0, 213 tests, and a Railway demo
+  link that answers **HTTP 404**. It now reads the current contract.
+- `PROFILE_ES.md` and `PROFILE_HE.md` are maintained by hand and had drifted the
+  same way. Both carry the reviewed figures again.
+- The external-link audit treated an address the profile itself records as
+  retired as a broken link, so it stayed red for being accurate. A real broken
+  link is easy to miss in that noise, which is what happened. Retired addresses
+  are now skipped by name.
+
+### Changed
+
+- Ivrit Sheli facts: **2.12.3** source, **387 backend + 859 frontend = 1246**
+  verified automated tests, and a reachable demo at `ivrit-sheli.onrender.com`.
+- The project is described as a **private candidate with a staging demo**, not a
+  production release. The published release remains v2.12.2. Updating the facts
+  was not taken as licence to upgrade the claim.
+- Neither the hosting provider, the environment nor the demo address are written
+  into the code any more; every published sentence is built from the manifest.
+  Hard-coding them is what let a retired address survive in public for a month.
+- The validator checks the fields the profile publishes and tolerates fields it
+  does not read, so a future schema that only adds information cannot take the
+  profile offline again. A schema change is still refused outright.
+
+### Added
+
+- A check that refuses to publish, as the live demo, the address the manifest
+  marks as retired.
+- One shared function builds the public status sentence for both the generator
+  and the synchronizer, so the sentence published and the sentence demanded
+  cannot drift apart.
+
 ## [2.6.0] — 2026-08-09 · Living Archive Clarity Edition — released
 
 ### Added

@@ -212,7 +212,7 @@ def validate_localized_profiles(
     )
     fact_marker = localized_project_facts_marker(data)
     visible_ivrit_tokens = (
-        _text(ivrit_sync.get("live_version"), "ivrit.live_version"),
+        _text(ivrit_sync.get("source_version"), "ivrit.source_version"),
         _text(ivrit_media.get("version"), "ivrit.media.version"),
         _text(
             ivrit_media.get("captured_runtime_commit"),
@@ -221,7 +221,7 @@ def validate_localized_profiles(
         str(ivrit_evidence.get("backend_tests")),
         str(ivrit_evidence.get("frontend_tests")),
         str(ivrit_evidence.get("total_tests")),
-        _text(ivrit_sync.get("provider"), "ivrit.provider"),
+        _text(ivrit_sync.get("demo_provider"), "ivrit.demo_provider"),
         "PostgreSQL",
         "OAuth",
         "E2E",
@@ -357,18 +357,22 @@ def localized_project_facts_marker(data: Mapping[str, Any]) -> str:
         f"nova_deployed={_text(nova_sync.get('deployed_on'), 'nova.deployed_on')}",
         f"nova_commit={_text(nova_sync.get('commit'), 'nova.commit')}",
         f"ivrit_source={_text(sync.get('source_version'), 'ivrit.source_version')}",
-        f"ivrit_live={_text(sync.get('live_version'), 'ivrit.live_version')}",
+        f"ivrit_status={_text(sync.get('source_status'), 'ivrit.source_status')}",
+        (
+            "ivrit_published="
+            f"{_text(sync.get('latest_published_release'), 'ivrit.latest_published_release')}"
+        ),
         f"ivrit_backend={evidence.get('backend_tests')}",
         f"ivrit_frontend={evidence.get('frontend_tests')}",
         f"ivrit_total={evidence.get('total_tests')}",
-        f"ivrit_postgresql_ready={str(sync.get('postgresql_ready')).lower()}",
+        f"ivrit_demo={_text(sync.get('demo_status'), 'ivrit.demo_status')}",
         (
-            "ivrit_google_signin_live="
-            f"{str(sync.get('google_live_sign_in_verified')).lower()}"
+            "ivrit_google_signin="
+            f"{str(sync.get('google_sign_in_verified_at_release')).lower()}"
         ),
         (
-            "ivrit_github_session_live="
-            f"{str(sync.get('github_live_successful_session_verified')).lower()}"
+            "ivrit_github_session="
+            f"{str(sync.get('github_successful_session_verified_at_release')).lower()}"
         ),
         f"ivrit_media={_text(media.get('version'), 'ivrit.media.version')}",
         (

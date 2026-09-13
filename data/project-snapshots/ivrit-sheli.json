@@ -1,20 +1,26 @@
 {
-  "schema": "ivrit-sheli-portfolio-project-v2",
+  "schema": "ivrit-sheli-portfolio-project-v3",
   "slug": "ivrit-sheli",
   "name": "Ivrit Sheli — העברית שלי",
-  "source_version": "2.4.0",
-  "live_version": "2.4.0",
-  "status": "production",
+  "source_version": "2.12.3",
+  "source_status": "private-candidate",
+  "latest_published_release": "v2.12.2",
   "default_branch": "main",
   "repository_url": "https://github.com/LiriothTeltanion/IvritSheli",
-  "demo_url": "https://ivritsheli-production.up.railway.app",
-  "summary": "A private-first trilingual Hebrew-learning product with a guided contest tour, 48 reviewed visual concepts, local SQLite, authenticated PostgreSQL, native RTL and accessible motion.",
+  "durable_demo": {
+    "url": "https://ivrit-sheli.onrender.com",
+    "status": "staging-verified",
+    "provider": "render-free",
+    "last_checked_on": "2026-09-12",
+    "boundary": "A free Render service runs the 2.12.3 source as staging for a private pilot, not as production. Moved from Singapore to Frankfurt on 2026-09-12 and renamed, so the URL no longer says staging. Verified against the live host that day: /health/live at 0.149 s against 0.287 s from the old Singapore service, /health/ready with postgresql true and a 240-entry dictionary, /version reporting 2.12.3, a strict production CSP with default-src 'self', HSTS for a year with includeSubDomains, a Secure HttpOnly SameSite=lax session cookie, and a Google OAuth redirect using PKCE with the exact new callback. /health/ready still costs about 2 s in both regions because the database is far from either. The free plan sleeps after 15 minutes and the wake-up is not a fixed cost: two measurements the same day gave 38.6 s and 218 s, so a first request can take minutes. Anyone checking the service should wait before concluding it is down. The human Hebrew-content and first-learner gates remain open, and no v2.12.3 tag exists. The historical Railway service is offline."
+  },
+  "summary": "The 2.12.3 source of a trilingual Hebrew-learning PWA with 240 exact semantic scenes, clearer counting visuals, Alphabet Studio and deterministic coaching, published on main and running as a private-pilot staging service on Render Free. The latest tagged source release remains v2.12.2.",
   "languages": [
     "en",
     "es",
     "he"
   ],
-  "stack": [
+  "standard_stack": [
     "React 19",
     "TypeScript",
     "FastAPI",
@@ -22,50 +28,83 @@
     "PostgreSQL 17",
     "SQLite",
     "Alembic",
-    "Docker",
-    "Railway"
+    "Docker"
+  ],
+  "optional_capabilities": [
+    "Faster Whisper private speech worker",
+    "Web Push reminders"
   ],
   "tests": {
-    "version": "2.4.0",
-    "backend_unique": 151,
-    "frontend": 62,
-    "frontend_files": 16,
-    "total_unique": 213,
-    "ordinary_backend_passed": 150,
+    "version": "2.12.3",
+    "scope": "private-candidate-local-verification",
+    "backend_unique": 387,
+    "frontend": 859,
+    "frontend_files": 49,
+    "total_unique": 1246,
+    "ordinary_backend_passed": 387,
     "ordinary_backend_skipped": 1,
-    "postgresql_gate_passed": 3,
+    "postgresql_gate_passed": 0,
     "evidence": "TEST_REPORT.md"
   },
-  "deployment": {
+  "historical_deployment": {
     "version": "2.4.0",
     "provider": "Railway",
+    "former_demo_url": "https://ivritsheli-production.up.railway.app",
     "runtime": "Docker",
     "database": "PostgreSQL 17",
-    "status": "verified-live",
+    "historical_status": "verified-on-2026-07-21",
     "release_implementation_commit": "03bf84b9268ff8be528c0fab3c670f9652ee23b0",
     "verified_on": "2026-07-21",
     "environment": "production",
-    "health_live": true,
-    "health_ready": true,
-    "postgresql_ready": true,
-    "dictionary_ready": true,
-    "dictionary_entries": 48,
-    "english_entry_verified": true,
-    "read_only_tour_verified": true
+    "health_live_at_verification": true,
+    "health_ready_at_verification": true,
+    "postgresql_ready_at_verification": true,
+    "dictionary_ready_at_verification": true,
+    "dictionary_entries_at_verification": 48,
+    "english_entry_verified_at_verification": true,
+    "read_only_tour_verified_at_verification": true,
+    "current_availability": "offline",
+    "last_checked_on": "2026-08-26",
+    "current_http_status": 404
   },
   "publication": {
-    "latest_git_tag": "v2.4.0",
-    "latest_github_release": "v2.4.0",
-    "source_version_tagged": true,
-    "source_version_github_release_published": true,
-    "release_state": "2.4.0-live-and-published"
+    "latest_git_tag": "v2.12.2",
+    "latest_github_release": "v2.12.2",
+    "source_version_tagged": false,
+    "source_version_github_release_published": false,
+    "release_state": "2.12.3-private-candidate-staging-verified"
+  },
+  "candidate": {
+    "version": "2.12.3",
+    "published": false,
+    "coverage": "Structured A0-A2 with an explicitly experimental B1/B2 Lab",
+    "reviewed_concepts": 240,
+    "learner_experiences": [
+      "Guided",
+      "Explorer",
+      "Experienced"
+    ],
+    "learning_engine": "Deterministic LocalLearningEngine",
+    "personal_coach": "Reviewed deterministic LocalPersonalCoach with bounded feedback",
+    "speech": "Optional self-hosted Faster Whisper small worker for Hebrew CPU INT8 transcription with a 20-second private pilot limit",
+    "reminders": "Optional standards-based Web Push with one reminder per learner/local day",
+    "semantic_visual_recipes": 240,
+    "category_visual_fallbacks": 0,
+    "visual_journey_regions": 6,
+    "alphabet_base_letters": 22,
+    "alphabet_final_forms": 5,
+    "alphabet_progress_persistent": true,
+    "public_google_scope": "openid profile",
+    "local_mode_without_account": true,
+    "verification": "The source version surfaces identify the private 2.12.3 candidate, while TEST_REPORT.md scopes its local runtime, browser and test evidence. The latest published GitHub source release remains v2.12.2; neither version is durable-host or deployment proof.",
+    "release_gate": "The 2.12.3 candidate remains local. Publication and deployment each require separate approval, with isolated HTTPS staging, two-real-account isolation, backup and restore, provider checks, human visual recognition, and the mother pilot still open."
   },
   "visual_proof": {
-    "state": "live-english-journey-verified",
-    "social_preview_version": "2.2.0",
-    "readme_screenshot_version": "2.1.x",
-    "readme_screenshots_match_source_version": false,
-    "interactive_browser_qa": "verified-english-entry-and-read-only-tour"
+    "state": "The private 2.12.3 candidate defines 240 reviewed concepts and 240 exact semantic scenes.",
+    "social_preview_version": "2.12.2",
+    "readme_screenshot_source_version": "2.12.3",
+    "readme_screenshot_status": "verified-current",
+    "interactive_browser_qa": "The privacy-reviewed 2.12.3 candidate README selection represents the 240-scene candidate and is recorded in assets/readme/proof/2.12.3/manifest.json. Its five WebP assets and non-looping GIF passed source-manifest, hash, two-pass byte-identity, full-size, GitHub-scale, privacy and grayscale review on 2026-08-27. A fresh FastAPI-served 2.12.3 process also passed entry-asset discovery and a bounded Playwright smoke before capture. The immutable assets/readme/proof/2.12.2 directory remains historical published-release evidence. The full 2.12.3 Playwright matrix, contact-sheet recognition, provider verification and deployment remain separate gates."
   },
   "oauth": {
     "providers": [
@@ -73,20 +112,21 @@
       "GitHub"
     ],
     "source_contract_tested": true,
-    "google_live_configured": true,
-    "google_live_sign_in_verified": true,
-    "github_live_successful_session_verified": false,
-    "authenticated_session_refresh_verified": true,
-    "onboarding_persistence_across_reload_verified": true,
-    "logout_verified": true,
-    "signed_out_reload_verified": true,
-    "relogin_after_logout_verified": false,
-    "boundary": "Identity-only Google sign-in, onboarding/session persistence across reload, logout and signed-out persistence after reload are verified in production. Re-login after logout, a live GitHub account session, live OpenAI or Google Workspace connector calls, two-real-user isolation and backup restoration remain unverified; Google sign-in grants no Gmail, Drive or Calendar scope."
+    "historical_public_release_version": "2.4.0",
+    "google_sign_in_verified_at_release": true,
+    "github_successful_session_verified_at_release": false,
+    "authenticated_session_refresh_verified_at_release": true,
+    "onboarding_persistence_across_reload_verified_at_release": true,
+    "logout_verified_at_release": true,
+    "signed_out_reload_verified_at_release": true,
+    "relogin_after_logout_verified_at_release": false,
+    "boundary": "Historical 2.4.0 production evidence verified identity-only Google sign-in, reload continuity, logout and signed-out persistence on 2026-07-21. It does not prove current hosted availability, a live GitHub session, re-login after logout, provider connector calls, two-real-user isolation or backup restoration."
   },
   "privacy": {
     "local_first": true,
-    "public_demo_data": "synthetic",
-    "public_demo_mutations": "server-blocked",
+    "demo_data_contract": "synthetic",
+    "demo_mutation_contract": "server-blocked",
+    "durable_demo_currently_available": true,
     "self_service_export_in_source": true,
     "self_service_deletion_in_source": true,
     "contains_secrets": false

@@ -247,8 +247,10 @@ class ProfileDataValidationTests(unittest.TestCase):
     def test_ivrit_live_status_and_media_are_strict(self) -> None:
         data = copy.deepcopy(self.valid_data)
         ivrit = next(project for project in data["projects"] if project["name"] == "Ivrit Sheli")
-        ivrit["status"] = "Public v2.4.0 full-stack release · live deployment pending"
-        with self.assertRaisesRegex(ValueError, r"Ivrit Sheli.*status.*verified live demo"):
+        ivrit["status"] = "Live v9.9.9 dual-mode full-stack product"
+        with self.assertRaisesRegex(
+            ValueError, r"Ivrit Sheli.*status must be the sentence built"
+        ):
             self.load(data)
 
         data = copy.deepcopy(self.valid_data)
@@ -259,13 +261,15 @@ class ProfileDataValidationTests(unittest.TestCase):
 
         data = copy.deepcopy(self.valid_data)
         ivrit = next(project for project in data["projects"] if project["name"] == "Ivrit Sheli")
-        ivrit["portfolio_sync"]["live_version"] = "2.2.1"
-        with self.assertRaisesRegex(ValueError, r"source/live versions.*release_evidence"):
+        ivrit["portfolio_sync"]["source_version"] = "2.2.1"
+        with self.assertRaisesRegex(
+            ValueError, r"source_version must match release_evidence"
+        ):
             self.load(data)
 
         data = copy.deepcopy(self.valid_data)
         ivrit = next(project for project in data["projects"] if project["name"] == "Ivrit Sheli")
-        ivrit["portfolio_sync"]["github_live_successful_session_verified"] = True
+        ivrit["portfolio_sync"]["github_successful_session_verified_at_release"] = True
         with self.assertRaisesRegex(ValueError, r"GitHub live session.*must remain"):
             self.load(data)
 
@@ -342,7 +346,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
 
         self.assertLessEqual(len(content.splitlines()), 300)
         for expected in (
-            "profile-version: 2.6.0",
+            "profile-version: 2.7.0",
             "profile-banner-mobile-static.svg",
             "nova-music-live-preview-mobile.jpg",
             "nova-music-product-tour.gif",
@@ -368,18 +372,18 @@ class GeneratedProfileContractTests(unittest.TestCase):
             "58 public visual assets",
             "Download the verified v4.2.0 release",
             "Nova Music Lab source",
-            "151 backend + 62 frontend = 213 passing tests",
-            "Railway production",
-            "PostgreSQL 17 ready",
-            "Verified v2.4.0 evidence",
+            "387 backend + 859 frontend = 1246 tests",
+            "The retired Railway 2.4.0 deployment is offline",
+            "PostgreSQL 17",
+            "2.12.3 evidence",
             "Archived Ivrit Sheli 2.2.0 interface",
-            "interaction history, not visual proof of the live 2.4.0 interface",
-            "a live GitHub account session",
-            "deployment, Git tag and GitHub Release now agree on v2.4.0",
-            "https://ivritsheli-production.up.railway.app",
-            "[א Ivrit Sheli live](https://ivritsheli-production.up.railway.app)",
+            "interaction history, not visual proof of the 2.12.3 interface",
+            "a live GitHub session",
+            "the latest Git tag and GitHub release remain v2.12.2",
+            "https://ivrit-sheli.onrender.com",
+            "[א Ivrit Sheli live](https://ivrit-sheli.onrender.com)",
             "Open Ivrit Sheli live demo",
-            "Open verified live deployment",
+            "Open the staging deployment",
             "deployed 2026-08-09",
             "final private candidate before publication",
             "static frame above replaces animation",
@@ -410,7 +414,6 @@ class GeneratedProfileContractTests(unittest.TestCase):
             f"release-title: {release['title']} -->"
         )
 
-        self.assertEqual(version, "2.6.0")
         self.assertEqual(release["tag"], f"v{version}")
         self.assertIn(release["status"], {"release-candidate", "released"})
         for mode in ("compact", "expanded"):
@@ -471,18 +474,18 @@ class GeneratedProfileContractTests(unittest.TestCase):
 
         self.assertEqual(
             projects["Ivrit Sheli"]["demo"],
-            "https://ivritsheli-production.up.railway.app",
+            "https://ivrit-sheli.onrender.com",
         )
         self.assertEqual(
             projects["Ivrit Sheli"]["status"],
-            "Live v2.4.0 dual-mode full-stack product",
+            "2.12.3 private candidate · staging demo on render-free",
         )
-        self.assertEqual(projects["Ivrit Sheli"]["release_evidence"]["version"], "2.4.0")
-        self.assertEqual(projects["Ivrit Sheli"]["release_evidence"]["total_tests"], 213)
-        self.assertEqual(projects["Ivrit Sheli"]["portfolio_sync"]["backend_tests"], 151)
+        self.assertEqual(projects["Ivrit Sheli"]["release_evidence"]["version"], "2.12.3")
+        self.assertEqual(projects["Ivrit Sheli"]["release_evidence"]["total_tests"], 1246)
+        self.assertEqual(projects["Ivrit Sheli"]["portfolio_sync"]["backend_tests"], 387)
         self.assertFalse(
             projects["Ivrit Sheli"]["portfolio_sync"][
-                "github_live_successful_session_verified"
+                "github_successful_session_verified_at_release"
             ]
         )
         self.assertEqual(
@@ -662,13 +665,13 @@ class GeneratedProfileContractTests(unittest.TestCase):
             spanish.write_text(
                 (ROOT / "PROFILE_ES.md")
                 .read_text(encoding="utf-8")
-                .replace("ivrit_total=213", "ivrit_total=127", 1),
+                .replace("ivrit_total=1246", "ivrit_total=127", 1),
                 encoding="utf-8",
             )
             hebrew.write_text(
                 (ROOT / "PROFILE_HE.md")
                 .read_text(encoding="utf-8")
-                .replace("213 בדיקות אוטומטיות", "127 בדיקות אוטומטיות", 1),
+                .replace("1246 בדיקות אוטומטיות", "127 בדיקות אוטומטיות", 1),
                 encoding="utf-8",
             )
             problems = validate_profile.validate_localized_profiles(
@@ -679,7 +682,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
             any("canonical project-facts marker" in problem for problem in problems)
         )
         self.assertTrue(
-            any("missing canonical fact token: 213" in problem for problem in problems)
+            any("missing canonical fact token: 1246" in problem for problem in problems)
         )
 
     def test_builder_check_mode_detects_drift_without_overwriting(self) -> None:

@@ -1,6 +1,6 @@
 # Kevin Cusnir · Lirioth Teltanion ✨
 
-<!-- canonical-project-facts: profile=2.6.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.4.0; ivrit_live=2.4.0; ivrit_backend=151; ivrit_frontend=62; ivrit_total=213; ivrit_postgresql_ready=true; ivrit_google_signin_live=true; ivrit_github_session_live=false; ivrit_media=2.2.0; ivrit_media_current=false; ivrit_capture_commit=66d68a3c44ac2500fb400eef88d5f77da0c1c1e1; novafit=4.2.0 -->
+<!-- canonical-project-facts: profile=2.7.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.12.3; ivrit_status=private-candidate; ivrit_published=v2.12.2; ivrit_backend=387; ivrit_frontend=859; ivrit_total=1246; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.2.0; ivrit_media_current=false; ivrit_capture_commit=66d68a3c44ac2500fb400eef88d5f77da0c1c1e1; novafit=4.2.0 -->
 
 [English](./README.md) · **Español** · [עברית](./PROFILE_HE.md)
 
@@ -22,12 +22,13 @@ Nací en **San Cristóbal, Venezuela**, y actualmente vivo en **Beersheba, Israe
 
 ### א Ivrit Sheli
 
-**Ivrit Sheli 2.4.0** es un producto full-stack trilingüe para aprender hebreo desde situaciones reales. Conserva un modo local privado con SQLite y añade React 19/TypeScript, FastAPI, PostgreSQL 17, Alembic, Docker y una experiencia autenticada con límites explícitos. Su base verificada suma **151 pruebas de backend + 62 de frontend = 213 pruebas automatizadas**. La interfaz funciona en inglés, español y hebreo con RTL; el recorrido público de Railway usa datos sintéticos y mantiene desactivadas por defecto las llamadas pagadas a proveedores.
+**Ivrit Sheli 2.12.3** es un producto full-stack trilingüe para aprender hebreo desde situaciones reales. Conserva un modo local privado con SQLite y añade React 19/TypeScript, FastAPI, PostgreSQL 17, Alembic, Docker y una experiencia autenticada con límites explícitos. Su base verificada suma **387 pruebas de backend + 859 de frontend = 1246 pruebas automatizadas**. La interfaz funciona en inglés, español y hebreo con RTL; el recorrido público usa datos sintéticos y mantiene desactivadas por defecto las llamadas pagadas a proveedores.
 
-- [Abrir demo público en Railway](https://ivritsheli-production.up.railway.app)
+- [Abrir el demo público](https://ivrit-sheli.onrender.com)
 - [Código fuente y guía de ejecución](https://github.com/LiriothTeltanion/IvritSheli)
-- Railway informa **2.4.0** en producción con health live/ready y PostgreSQL preparados; el despliegue, la etiqueta Git y el GitHub Release coinciden en v2.4.0. Google Sign-In, persistencia de sesión, onboarding, logout y estado cerrado tras recarga fueron verificados. Una sesión live exitosa con GitHub OAuth y el reingreso después del logout siguen pendientes de verificación E2E.
-- El GIF y las capturas sanitizadas existentes corresponden a la interfaz archivada **2.2.0**, runtime `66d68a3c44ac`; documentan una etapa anterior y no se presentan como evidencia visual de la interfaz live 2.4.0. No contienen historial privado, tokens ni registros de producción.
+- El demo corre en **Render**, plan `render-free`, región Frankfurt, como **staging de un piloto privado, no como producción**. Comprobado el 12 sep 2026: health live y ready con PostgreSQL preparado, diccionario de 240 entradas, CSP estricta y acceso con Google usando PKCE. El plan gratuito duerme, así que la primera carga puede tardar minutos.
+- **2.12.3 es candidato privado**: la última versión publicada sigue siendo v2.12.2, y la etiqueta Git y el GitHub Release coinciden en esa. Una sesión live exitosa con GitHub OAuth y el reingreso después del logout siguen pendientes de verificación E2E.
+- El despliegue histórico de **Railway está apagado**. El GIF y las capturas sanitizadas corresponden a la interfaz archivada **2.2.0**, runtime `66d68a3c44ac`; documentan una etapa anterior y no son evidencia visual de la interfaz 2.12.3. No contienen historial privado, tokens ni registros de producción.
 
 ### 💙 NovaFit
 
