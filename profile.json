@@ -3,7 +3,7 @@
   "release": {
     "title": "Profile 2.9.0 — Visible Evidence Edition",
     "tag": "v2.9.0",
-    "status": "release-candidate",
+    "status": "released",
     "prepared_on": "2026-09-13",
     "baseline": "Profile 2.8.0 — Live Visual Evidence Edition",
     "summary": "GitHub renders a details block collapsed. Every Ivrit Sheli capture lived inside one, so the flagship full-stack project showed no image at all to anyone who merely scrolled the profile. The still frame now sits outside the toggle; the moving tour stays behind it.",
