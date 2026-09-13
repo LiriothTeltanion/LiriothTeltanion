@@ -1,6 +1,6 @@
 # Kevin Cusnir · Lirioth Teltanion ✨
 
-<!-- canonical-project-facts: profile=2.7.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.12.3; ivrit_status=private-candidate; ivrit_published=v2.12.2; ivrit_backend=387; ivrit_frontend=859; ivrit_total=1246; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.2.0; ivrit_media_current=false; ivrit_capture_commit=66d68a3c44ac2500fb400eef88d5f77da0c1c1e1; novafit=4.2.0 -->
+<!-- canonical-project-facts: profile=2.8.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.12.3; ivrit_status=private-candidate; ivrit_published=v2.12.2; ivrit_backend=387; ivrit_frontend=859; ivrit_total=1246; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.12.3; ivrit_media_current=true; ivrit_capture_commit=ea8aff866e6a069ee4d51d7e2872af146eaa1d88; novafit=4.2.0 -->
 
 [English](./README.md) · [Español](./PROFILE_ES.md) · **עברית**
 
@@ -28,7 +28,7 @@
 - [קוד מקור והוראות הרצה](https://github.com/LiriothTeltanion/IvritSheli)
 - הדמו רץ על **Render**, תוכנית `render-free`, באזור פרנקפורט, בתור **staging של פיילוט פרטי ולא production**. נבדק ב־12 בספטמבר 2026: health live ו־ready עם PostgreSQL מוכן, מילון של 240 ערכים, ‏CSP מחמירה וכניסה עם Google באמצעות PKCE. התוכנית החינמית נכנסת לשינה, ולכן הטעינה הראשונה עשויה לקחת דקות.
 - **2.12.3 הוא מועמד פרטי**: הגרסה האחרונה שפורסמה היא v2.12.2, ותג ה־Git וה־GitHub Release תואמים לה. ‏session חי ומוצלח עם GitHub OAuth והתחברות מחדש לאחר logout עדיין ממתינים לאימות E2E.
-- הפריסה ההיסטורית ב־**Railway כבויה**. ה־GIF והצילומים המסוננים מתעדים את ממשק **2.2.0** הארכיוני, runtime ‏`66d68a3c44ac`; הם אינם ראיה חזותית לממשק 2.12.3. אין בהם היסטוריית לימוד פרטית, tokens או רשומות production.
+- ה־GIF והצילומים הם **הצילומים המאומתים של 2.12.3** שהפרויקט עצמו מפרסם, שצולמו ב־27 באוגוסט 2026 בקומיט ‏`ea8aff866e6a`. הם עברו בדיקת פרטיות, בדיקת hash ובדיקת זהות בתים לפני הפרסום. מטריצת הדפדפן המלאה ואימות הספקים נותרו שערים נפרדים. אין בהם היסטוריית לימוד פרטית, tokens או רשומות production. הפריסה ההיסטורית ב־**Railway כבויה**.
 
 ### 💙 NovaFit
 
