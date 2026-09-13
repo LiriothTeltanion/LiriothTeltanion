@@ -345,15 +345,17 @@ class GeneratedProfileContractTests(unittest.TestCase):
         content = build_profile.render_profile(self.data, "compact")
 
         self.assertLessEqual(len(content.splitlines()), 300)
+        # La version se lee del propio perfil: fijarla aqui obliga a tocar este
+        # fichero en cada publicacion y no prueba nada sobre la cabecera.
         for expected in (
-            "profile-version: 2.7.0",
+            f"profile-version: {self.data['profile_version']}",
             "profile-banner-mobile-static.svg",
             "nova-music-live-preview-mobile.jpg",
             "nova-music-product-tour.gif",
             "nova-music-product-tour-static.jpg",
-            "ivrit-sheli-product-tour.gif",
-            "ivrit-sheli-2-mobile.png",
-            "ivrit-sheli-2-hebrew-rtl.png",
+            "ivrit-sheli-2123-tour.gif",
+            "ivrit-sheli-2123-today-phone.png",
+            "ivrit-sheli-2123-today-hebrew-rtl.png",
             "novafit-product-tour.gif",
             "novafit-product-tour-static.png",
             "novafit-trust-system-mobile.svg",
@@ -376,8 +378,8 @@ class GeneratedProfileContractTests(unittest.TestCase):
             "The retired Railway 2.4.0 deployment is offline",
             "PostgreSQL 17",
             "2.12.3 evidence",
-            "Archived Ivrit Sheli 2.2.0 interface",
-            "interaction history, not visual proof of the 2.12.3 interface",
+            "Current Ivrit Sheli 2.12.3 interface",
+            "the reviewed captures the project publishes for its 2.12.3 source",
             "a live GitHub session",
             "the latest Git tag and GitHub release remain v2.12.2",
             "https://ivrit-sheli.onrender.com",
@@ -437,10 +439,10 @@ class GeneratedProfileContractTests(unittest.TestCase):
         )
         self.assertLess(
             content.index("nova-music-live-preview.jpg"),
-            content.index("ivrit-sheli-product-tour.gif"),
+            content.index("ivrit-sheli-2123-tour.gif"),
         )
         self.assertLess(
-            content.index("ivrit-sheli-product-tour.gif"),
+            content.index("ivrit-sheli-2123-tour.gif"),
             content.index("novafit-product-tour.gif"),
         )
 

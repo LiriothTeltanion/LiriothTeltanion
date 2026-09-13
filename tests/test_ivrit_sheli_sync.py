@@ -91,8 +91,10 @@ class IvritSheliSyncTests(unittest.TestCase):
             updated_ivrit["portfolio_sync"]["release_state"],
             manifest["publication"]["release_state"],
         )
-        self.assertEqual(updated_ivrit["media"]["version"], "2.2.0")
-        self.assertFalse(updated_ivrit["media"]["current_release_visual_proof"])
+        self.assertEqual(
+            updated_ivrit["media"]["version"], valid_manifest()["source_version"]
+        )
+        self.assertTrue(updated_ivrit["media"]["current_release_visual_proof"])
 
         readme = build_profile.render_profile(updated, "compact")
         tests = manifest["tests"]
@@ -102,7 +104,7 @@ class IvritSheliSyncTests(unittest.TestCase):
             readme,
         )
         self.assertIn(manifest["durable_demo"]["provider"], readme)
-        self.assertIn("interaction history, not visual proof", readme)
+        self.assertIn("the reviewed captures the project publishes", readme)
         self.assertIn("a live GitHub session", readme)
 
     def test_new_live_version_archives_older_profile_media(self) -> None:
@@ -112,6 +114,7 @@ class IvritSheliSyncTests(unittest.TestCase):
             for project in source_profile["projects"]
             if project["name"] == "Ivrit Sheli"
         )
+        source_ivrit["media"]["version"] = "2.2.0"
         source_ivrit["media"]["current_release_visual_proof"] = True
         self.assertTrue(source_ivrit["media"]["current_release_visual_proof"])
 
@@ -142,7 +145,18 @@ class IvritSheliSyncTests(unittest.TestCase):
             "interactive_browser_qa": "Reviewed browser pass over the candidate.",
         }
 
-        updated = sync_ivrit_sheli.apply_manifest(self.profile, manifest)
+        # El perfil parte de unas capturas de otra version: que las del proyecto
+        # esten al dia no debe ascender por su cuenta los medios del perfil.
+        source_profile = copy.deepcopy(self.profile)
+        source_ivrit = next(
+            project
+            for project in source_profile["projects"]
+            if project["name"] == "Ivrit Sheli"
+        )
+        source_ivrit["media"]["version"] = "2.2.0"
+        source_ivrit["media"]["current_release_visual_proof"] = True
+
+        updated = sync_ivrit_sheli.apply_manifest(source_profile, manifest)
         updated_ivrit = next(
             project for project in updated["projects"] if project["name"] == "Ivrit Sheli"
         )

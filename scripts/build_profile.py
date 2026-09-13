@@ -1344,11 +1344,10 @@ def _render_ivrit_spotlight(project: Mapping[str, Any]) -> list[str]:
             f"verified full-stack proof"
         )
         visual_boundary = (
-            f"These profile-owned captures passed fresh desktop, mobile and Hebrew RTL "
-            f"browser QA on {media['captured_on']} against the {sync['source_version']} "
-            f"interface at runtime build {media['captured_runtime_commit'][:12]}, using "
-            f"release baseline {media['captured_release_commit'][:12]}. The upstream "
-            "project manifest remains independently review-gated."
+            f"These are the reviewed captures the project publishes for its "
+            f"{sync['source_version']} source, taken on {media['captured_on']} at commit "
+            f"{media['captured_runtime_commit'][:12]}. The full browser matrix, provider "
+            "verification and deployment remain separate gates upstream."
         )
         rtl_label = "Open the current Hebrew RTL frame"
     else:

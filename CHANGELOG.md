@@ -5,6 +5,36 @@ The profile follows Semantic Versioning: major for a structural identity or
 presentation generation, minor for a contained feature or visual upgrade, and
 patch for a narrow correction.
 
+## [2.8.0] — 2026-09-13 · Live Visual Evidence Edition — release candidate
+
+### Changed
+
+- The Ivrit Sheli spotlight now shows the **2.12.3** interface. The product
+  tour, the desktop Today screen, the phone layout and the Hebrew RTL frame are
+  the reviewed captures the project publishes in its own README, taken on
+  2026-08-27 at commit `ea8aff866e6a`. Until now the profile argued 2.12.3 in
+  prose and illustrated it with 2.2.0, then explained the gap in a footnote.
+- The three still frames are stored as **PNG**, converted from the upstream
+  WebP. `verify-profile.ps1` only measures and decodes `.svg`, `.png` and
+  `.gif`; a `.webp` would have slipped past the payload budget instead of
+  passing it. The GIF is carried over unchanged.
+- `current_release_visual_proof` is `true` for the first time, so the profile
+  says "current" where it used to say "archived", in all three languages.
+
+### Fixed
+
+- The generated caption claimed these frames "passed fresh desktop, mobile and
+  Hebrew RTL browser QA". Upstream does not claim that: it reviewed them for
+  privacy, hashes and byte identity, and ran a bounded smoke test before
+  capturing. The sentence now states what was reviewed and names the full
+  browser matrix, provider verification and deployment as separate upstream
+  gates. Borrowing evidence means borrowing its limits too.
+- `test_current_upstream_screenshots_do_not_promote_profile_owned_media`
+  asserted that a profile still holding 2.2.0 media would end up labelled with
+  the manifest's source version. That is the opposite of what the test exists to
+  prove: syncing upstream facts must never silently re-badge the profile's own
+  captures as belonging to a release they do not show.
+
 ## [2.7.0] — 2026-09-13 · Current Deployment Edition — released
 
 ### Fixed
