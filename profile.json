@@ -3,7 +3,7 @@
   "release": {
     "title": "Profile 2.8.0 — Live Visual Evidence Edition",
     "tag": "v2.8.0",
-    "status": "release-candidate",
+    "status": "released",
     "prepared_on": "2026-09-13",
     "baseline": "Profile 2.7.0 — Current Deployment Edition",
     "summary": "A visual release. The profile described Ivrit Sheli 2.12.3 in words but illustrated it with 2.2.0 captures from an interface that no longer exists, and said so in small print. It now shows the reviewed 2.12.3 frames the project itself publishes, so the picture and the paragraph are the same release.",

@@ -79,7 +79,9 @@ class ReleaseIntegrityVerifierTests(unittest.TestCase):
         else:
             self.git(repository, "tag", self.release_tag)
 
-    def verify(self, repository: Path) -> subprocess.CompletedProcess[str]:
+    def verify(
+        self, repository: Path, *, allow_pending_tag: bool = False
+    ) -> subprocess.CompletedProcess[str]:
         return subprocess.run(
             [
                 self.powershell,
@@ -91,6 +93,7 @@ class ReleaseIntegrityVerifierTests(unittest.TestCase):
                 "-RepositoryPath",
                 str(repository),
                 "-ReleaseOnly",
+                *(["-AllowPendingTag"] if allow_pending_tag else []),
             ],
             cwd=repository,
             check=False,
@@ -163,6 +166,51 @@ class ReleaseIntegrityVerifierTests(unittest.TestCase):
                 newline="\n",
             )
             result = self.verify(repository)
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("requires a clean tracked worktree and index", result.stdout)
+
+    def test_pending_tag_is_tolerated_only_while_the_tag_is_absent(self) -> None:
+        """A released commit under review has no tag yet, and never can.
+
+        Branch protection makes the release commit reach the default branch only
+        after review, and the tag can only be created once it is there. On a pull
+        request the checked-out commit is a synthetic merge that no tag will ever
+        name, so the tag rule is unevaluable rather than violated. The switch says
+        so without lowering anything else, and it must not silence a tag that does
+        exist and is wrong.
+        """
+        with tempfile.TemporaryDirectory() as directory:
+            repository = self.create_repository(Path(directory), "released")
+            tolerated = self.verify(repository, allow_pending_tag=True)
+            self.assertEqual(
+                tolerated.returncode, 0, msg=tolerated.stdout + tolerated.stderr
+            )
+            self.assertIn("the tag remains outstanding", tolerated.stdout)
+            self.assertNotIn("Release integrity confirmed", tolerated.stdout)
+
+            # Sin el interruptor, el mismo estado sigue siendo un fallo.
+            strict = self.verify(repository)
+            self.assertNotEqual(strict.returncode, 0)
+
+            # Y con una etiqueta ligera presente, el interruptor no la perdona.
+            self.tag(repository, annotated=False)
+            lightweight = self.verify(repository, allow_pending_tag=True)
+
+        self.assertNotEqual(lightweight.returncode, 0)
+        self.assertIn("lightweight tags are not accepted", lightweight.stdout)
+
+    def test_pending_tag_still_requires_a_clean_tracked_state(self) -> None:
+        """The switch excuses the missing tag, not an unreviewed working tree."""
+        with tempfile.TemporaryDirectory() as directory:
+            repository = self.create_repository(Path(directory), "released")
+            release_notes = repository / "release-notes.txt"
+            release_notes.write_text(
+                release_notes.read_text(encoding="utf-8") + "Uncommitted.\n",
+                encoding="utf-8",
+                newline="\n",
+            )
+            result = self.verify(repository, allow_pending_tag=True)
 
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("requires a clean tracked worktree and index", result.stdout)

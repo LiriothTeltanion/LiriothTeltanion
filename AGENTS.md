@@ -48,6 +48,20 @@ The root `README.md` is rendered publicly on Kevin's GitHub profile.
   stable, verified evidence.
 - Never move, delete or reuse a published tag. Correct release mistakes forward
   with a new patch version and tag the exact finalized release commit.
+- Publishing a version takes four steps, in this order. `main` is protected, so
+  the release commit cannot be pushed straight to it:
+  1. Open the work as a pull request with `release.status` set to
+     `release-candidate`. The verifier checks that `v<version>` is still free.
+  2. Merge it, then flip `release.status` to `released`, mark the CHANGELOG
+     entry `released`, regenerate both READMEs and open a second pull request.
+     Its CI runs `verify-profile.ps1 -AllowPendingTag`, because on a pull
+     request the tag cannot exist yet and the checked-out commit is a synthetic
+     merge that no tag will ever name. Everything else stays strict.
+  3. Merge that, then create the annotated tag on the resulting `main` commit
+     and push it. The tag push re-runs the workflow with the rule enforced.
+  4. The run for the merge itself is red in the gap between steps 3 and 4, and
+     goes green when re-run after the tag lands. That gap is real: `main` does
+     claim a release that is not tagged yet. Close it in minutes, not days.
 - Scheduled automation may detect and report project-fact drift, but it must not
   rewrite, commit or push public profile content without Kevin's review.
 

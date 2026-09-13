@@ -1,7 +1,14 @@
 [CmdletBinding()]
 param(
     [string]$RepositoryPath = "",
-    [switch]$ReleaseOnly
+    [switch]$ReleaseOnly,
+    # A released profile must be tagged, and the tag can only be created once the
+    # commit is on the default branch. Under branch protection that commit has to
+    # pass review first, so on a pull request the tag cannot exist yet and the
+    # checked-out commit is a synthetic merge that no tag will ever name. This
+    # switch reports that window instead of failing it. Tag integrity stays a
+    # push-time gate: every other release rule is still enforced here.
+    [switch]$AllowPendingTag
 )
 
 Set-StrictMode -Version 2.0
@@ -209,7 +216,10 @@ else {
             $tagReference = "refs/tags/$releaseTag"
             & git -C $RepositoryPath show-ref --verify --quiet $tagReference 2>$null
             $releasedTagExists = $LASTEXITCODE -eq 0
-            if (-not $releasedTagExists) {
+            if (-not $releasedTagExists -and $AllowPendingTag) {
+                Warn "Released profile $profileVersion has no local tag '$releaseTag' yet; tag integrity is verified when the commit is pushed, not while it is under review."
+            }
+            elseif (-not $releasedTagExists) {
                 Fail "Released profile $profileVersion requires the matching annotated local tag '$releaseTag'."
             }
             else {
@@ -272,8 +282,11 @@ else {
                 }
             }
 
-            if ($script:failureCount -eq $releaseFailureCountBefore) {
+            if ($releasedTagExists -and $script:failureCount -eq $releaseFailureCountBefore) {
                 Pass "Release integrity confirmed: annotated $releaseTag, commit $headCommit, clean tracked state and exact tagged released metadata agree."
+            }
+            elseif ($script:failureCount -eq $releaseFailureCountBefore) {
+                Pass "Release metadata for $profileVersion is internally consistent and the tracked state is clean; the tag remains outstanding."
             }
         }
     }
