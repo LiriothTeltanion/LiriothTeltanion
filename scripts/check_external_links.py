@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import json
 import re
 import socket
 import ssl
@@ -85,6 +86,34 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
+def retired_urls() -> set[str]:
+    """Return addresses the profile itself records as retired.
+
+    A deployment that has been switched off is documented on purpose, so its
+    old address stays in the data as history. Checking it would keep this audit
+    permanently red for being accurate, which is how a real broken link went
+    unnoticed here for a month among the noise.
+
+    Example:
+        >>> isinstance(retired_urls(), set)
+        True
+    """
+    profile = ROOT / "profile.json"
+    if not profile.is_file():
+        return set()
+    data = json.loads(profile.read_text(encoding="utf-8"))
+    retired: set[str] = set()
+    for project in data.get("projects", []):
+        if not isinstance(project, dict):
+            continue
+        sync = project.get("portfolio_sync")
+        if isinstance(sync, dict):
+            former = sync.get("historical_former_demo_url")
+            if isinstance(former, str) and former:
+                retired.add(former)
+    return retired
+
+
 def extract_urls(paths: Iterable[Path]) -> list[str]:
     """Return sorted, de-duplicated HTTP(S) URLs from public profile sources."""
     urls: set[str] = set()
@@ -94,7 +123,10 @@ def extract_urls(paths: Iterable[Path]) -> list[str]:
         content = path.read_text(encoding="utf-8")
         for match in URL_PATTERN.finditer(content):
             urls.add(match.group(0).rstrip(".,;:"))
-    return sorted(urls, key=str.casefold)
+    skipped = urls & retired_urls()
+    for url in sorted(skipped, key=str.casefold):
+        print(f"[SKIP] {url} — recorded as a retired deployment, not checked")
+    return sorted(urls - skipped, key=str.casefold)
 
 
 def classify_status(url: str, status: int) -> str:

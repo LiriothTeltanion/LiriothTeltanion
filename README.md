@@ -94,9 +94,9 @@ Five import families become one deduplicated, source-aware listening history. Mi
   <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/ivrit-sheli-2-mobile.png" />
   <source media="(max-width: 640px)" srcset="./assets/ivrit-sheli-2-mobile.png" />
   <source media="(prefers-reduced-motion: reduce)" srcset="./assets/ivrit-sheli-2-dashboard.png" />
-  <img src="./assets/ivrit-sheli-product-tour.gif" width="100%" alt="Archived Ivrit Sheli 2.2.0 product tour captured at runtime build 66d68a3c44ac; these frames are not visual proof of the live 2.4.0 deployment at commit 03bf84b9268f" />
+  <img src="./assets/ivrit-sheli-product-tour.gif" width="100%" alt="Archived Ivrit Sheli 2.2.0 product tour captured at runtime build 66d68a3c44ac; these frames are not visual proof of the 2.12.3 source" />
 </picture>
-<p><strong>Archived Ivrit Sheli 2.2.0 interface:</strong> These frames document the deployment captured on 2026-07-18 and do not claim visual proof of the newer release implementation 03bf84b9268f.</p>
+<p><strong>Archived Ivrit Sheli 2.2.0 interface:</strong> These frames document the deployment captured on 2026-07-18 and do not claim visual proof of the 2.12.3 source.</p>
 <p><strong>2.12.3 evidence:</strong> 387 backend + 859 frontend = 1246 tests · staging demo on render-free, checked 2026-09-12 · tenant RLS · Alembic · non-root Docker · redacted structured JSON logs. The retired Railway 2.4.0 deployment is offline; its release implementation commit was <code>03bf84b9268f</code>.</p>
 <p><strong>OAuth boundary:</strong> Historical 2.4.0 production evidence verified identity-only Google sign-in, reload continuity, logout and signed-out persistence on 2026-07-21. It does not prove current hosted availability, a live GitHub session, re-login after logout, provider connector calls, two-real-user isolation or backup restoration.</p>
 <p><strong>Publication boundary:</strong> the 2.12.3 source is a private candidate; the latest Git tag and GitHub release remain v2.12.2.</p>

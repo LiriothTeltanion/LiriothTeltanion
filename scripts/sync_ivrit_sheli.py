@@ -652,7 +652,7 @@ def apply_manifest(profile: Mapping[str, Any], manifest: Mapping[str, Any]) -> d
         existing_media.get("current_release_visual_proof") is True
         and existing_media.get("version") == source_version
     )
-    if media.get("current_release_visual_proof") is True and not retain_current_profile_media:
+    if not retain_current_profile_media:
         media.update(
             {
                 "current_release_visual_proof": False,

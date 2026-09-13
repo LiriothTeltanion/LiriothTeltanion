@@ -59,28 +59,51 @@ class IvritSheliSyncTests(unittest.TestCase):
         self.assertEqual(updated["projects"][0], original["projects"][0])
         self.assertEqual(updated["projects"][2:], original["projects"][2:])
         self.assertNotEqual(updated_ivrit["solution"], original_ivrit["solution"])
-        self.assertEqual(updated_ivrit["status"], "Live v2.4.0 dual-mode full-stack product")
-        self.assertEqual(updated_ivrit["release_evidence"]["total_tests"], 213)
-        self.assertEqual(updated_ivrit["portfolio_sync"]["backend_tests"], 151)
-        self.assertEqual(updated_ivrit["portfolio_sync"]["frontend_tests"], 62)
-        self.assertTrue(updated_ivrit["portfolio_sync"]["postgresql_ready"])
+        manifest = valid_manifest()
+        self.assertEqual(
+            updated_ivrit["status"],
+            build_profile.ivrit_status_line(
+                manifest["source_version"],
+                manifest["source_status"],
+                manifest["durable_demo"]["status"],
+                manifest["durable_demo"]["provider"],
+            ),
+        )
+        self.assertEqual(
+            updated_ivrit["release_evidence"]["total_tests"],
+            manifest["tests"]["total_unique"],
+        )
+        self.assertEqual(
+            updated_ivrit["portfolio_sync"]["backend_tests"],
+            manifest["tests"]["backend_unique"],
+        )
+        self.assertEqual(
+            updated_ivrit["portfolio_sync"]["frontend_tests"],
+            manifest["tests"]["frontend"],
+        )
+        self.assertTrue(updated_ivrit["portfolio_sync"]["demo_currently_available"])
         self.assertFalse(
             updated_ivrit["portfolio_sync"][
-                "github_live_successful_session_verified"
+                "github_successful_session_verified_at_release"
             ]
         )
         self.assertEqual(
             updated_ivrit["portfolio_sync"]["release_state"],
-            "2.4.0-live-and-published",
+            manifest["publication"]["release_state"],
         )
         self.assertEqual(updated_ivrit["media"]["version"], "2.2.0")
         self.assertFalse(updated_ivrit["media"]["current_release_visual_proof"])
 
         readme = build_profile.render_profile(updated, "compact")
-        self.assertIn("151 backend + 62 frontend = 213 passing tests", readme)
-        self.assertIn("PostgreSQL 17 ready", readme)
+        tests = manifest["tests"]
+        self.assertIn(
+            f"{tests['backend_unique']} backend + {tests['frontend']} frontend = "
+            f"{tests['total_unique']} tests",
+            readme,
+        )
+        self.assertIn(manifest["durable_demo"]["provider"], readme)
         self.assertIn("interaction history, not visual proof", readme)
-        self.assertIn("a live GitHub account session", readme)
+        self.assertIn("a live GitHub session", readme)
 
     def test_new_live_version_archives_older_profile_media(self) -> None:
         source_profile = copy.deepcopy(self.profile)
@@ -97,24 +120,26 @@ class IvritSheliSyncTests(unittest.TestCase):
             project for project in updated["projects"] if project["name"] == "Ivrit Sheli"
         )
 
+        manifest = valid_manifest()
         self.assertEqual(updated_ivrit["media"]["version"], "2.2.0")
         self.assertFalse(updated_ivrit["media"]["current_release_visual_proof"])
-        self.assertIn("not visual proof of the live 2.4.0", updated_ivrit["media"]["alt"])
+        self.assertIn(
+            f"not visual proof of the {manifest['source_version']}",
+            updated_ivrit["media"]["alt"],
+        )
         self.assertEqual(
             updated_ivrit["portfolio_sync"]["visual_proof_state"],
-            "live-english-journey-verified",
+            manifest["visual_proof"]["state"],
         )
 
     def test_current_upstream_screenshots_do_not_promote_profile_owned_media(self) -> None:
         manifest = valid_manifest()
         manifest["visual_proof"] = {
-            "state": "live-english-journey-verified",
+            "state": "Upstream screenshots are current for the reviewed source.",
             "social_preview_version": "2.2.0",
-            "readme_screenshot_version": "2.4.0",
-            "readme_screenshots_match_source_version": True,
-            "interactive_browser_qa": (
-                "verified-english-entry-and-read-only-tour"
-            ),
+            "readme_screenshot_source_version": manifest["source_version"],
+            "readme_screenshot_status": "verified-current",
+            "interactive_browser_qa": "Reviewed browser pass over the candidate.",
         }
 
         updated = sync_ivrit_sheli.apply_manifest(self.profile, manifest)
@@ -122,47 +147,58 @@ class IvritSheliSyncTests(unittest.TestCase):
             project for project in updated["projects"] if project["name"] == "Ivrit Sheli"
         )
 
-        self.assertTrue(
-            updated_ivrit["portfolio_sync"][
-                "readme_screenshots_match_source_version"
-            ]
+        self.assertEqual(
+            updated_ivrit["portfolio_sync"]["readme_screenshot_status"],
+            "verified-current",
         )
         self.assertFalse(updated_ivrit["media"]["current_release_visual_proof"])
         self.assertEqual(updated_ivrit["media"]["version"], "2.2.0")
 
-    def test_new_same_version_release_commit_expires_profile_captures(self) -> None:
+    def test_profile_media_stay_current_only_for_the_synchronized_version(self) -> None:
         manifest = valid_manifest()
-        reviewed_commit = str(
-            manifest["deployment"]["release_implementation_commit"]
-        )
         source_profile = copy.deepcopy(self.profile)
         source_ivrit = next(
             project
             for project in source_profile["projects"]
             if project["name"] == "Ivrit Sheli"
         )
-        source_ivrit["media"]["version"] = "2.4.0"
-        source_ivrit["media"]["captured_release_commit"] = reviewed_commit
+        reviewed_commit = str(source_ivrit["media"]["captured_release_commit"])
+        source_ivrit["media"]["version"] = manifest["source_version"]
         source_ivrit["media"]["current_release_visual_proof"] = True
-        manifest["deployment"]["release_implementation_commit"] = "a" * 40
 
         updated = sync_ivrit_sheli.apply_manifest(source_profile, manifest)
         updated_ivrit = next(
             project for project in updated["projects"] if project["name"] == "Ivrit Sheli"
         )
+        self.assertTrue(updated_ivrit["media"]["current_release_visual_proof"])
 
-        self.assertFalse(updated_ivrit["media"]["current_release_visual_proof"])
-        self.assertIn("not visual proof", updated_ivrit["media"]["alt"])
+        stale_profile = copy.deepcopy(source_profile)
+        stale_ivrit = next(
+            project
+            for project in stale_profile["projects"]
+            if project["name"] == "Ivrit Sheli"
+        )
+        stale_ivrit["media"]["version"] = "2.2.0"
+
+        archived = sync_ivrit_sheli.apply_manifest(stale_profile, manifest)
+        archived_ivrit = next(
+            project for project in archived["projects"] if project["name"] == "Ivrit Sheli"
+        )
+        self.assertFalse(archived_ivrit["media"]["current_release_visual_proof"])
+        self.assertIn("not visual proof", archived_ivrit["media"]["alt"])
         self.assertEqual(
-            updated_ivrit["media"]["captured_release_commit"],
-            reviewed_commit,
+            archived_ivrit["media"]["captured_release_commit"], reviewed_commit
         )
 
     def test_manifest_rejects_unknown_fields_injection_and_identity_drift(self) -> None:
-        extra = valid_manifest()
-        extra["unreviewed"] = "claim"
-        with self.assertRaisesRegex(ValueError, "unexpected unreviewed"):
-            sync_ivrit_sheli.validate_manifest(extra)
+        tolerated = valid_manifest()
+        tolerated["unreviewed"] = "claim"
+        sync_ivrit_sheli.validate_manifest(tolerated)
+
+        incomplete = valid_manifest()
+        del incomplete["durable_demo"]
+        with self.assertRaisesRegex(ValueError, "missing required fields: durable_demo"):
+            sync_ivrit_sheli.validate_manifest(incomplete)
 
         wrong_repository = valid_manifest()
         wrong_repository["repository_url"] = "https://github.com/example/other"
@@ -174,10 +210,12 @@ class IvritSheliSyncTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "unsafe Markdown"):
             sync_ivrit_sheli.validate_manifest(unsafe_summary)
 
-        wrong_demo = valid_manifest()
-        wrong_demo["demo_url"] = "https://example.com"
-        with self.assertRaisesRegex(ValueError, "Unexpected live demo URL"):
-            sync_ivrit_sheli.validate_manifest(wrong_demo)
+        retired_demo = valid_manifest()
+        retired_demo["durable_demo"]["url"] = retired_demo["historical_deployment"][
+            "former_demo_url"
+        ]
+        with self.assertRaisesRegex(ValueError, "retired deployment URL"):
+            sync_ivrit_sheli.validate_manifest(retired_demo)
 
     def test_manifest_rejects_arithmetic_readiness_and_optimistic_oauth(self) -> None:
         wrong_total = valid_manifest()
@@ -185,43 +223,38 @@ class IvritSheliSyncTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Total tests must equal"):
             sync_ivrit_sheli.validate_manifest(wrong_total)
 
-        unready = valid_manifest()
-        unready["deployment"]["postgresql_ready"] = False
-        with self.assertRaisesRegex(ValueError, "postgresql_ready must be true"):
-            sync_ivrit_sheli.validate_manifest(unready)
+        unreachable = valid_manifest()
+        unreachable["privacy"]["durable_demo_currently_available"] = False
+        with self.assertRaisesRegex(ValueError, "marked currently available"):
+            sync_ivrit_sheli.validate_manifest(unreachable)
 
-        optimistic_oauth = valid_manifest()
-        optimistic_oauth["oauth"]["github_live_successful_session_verified"] = True
-        with self.assertRaisesRegex(ValueError, "must remain false until explicitly reviewed"):
-            sync_ivrit_sheli.validate_manifest(optimistic_oauth)
+        unknown_state = valid_manifest()
+        unknown_state["durable_demo"]["status"] = "probably-fine"
+        with self.assertRaisesRegex(ValueError, "refusing to label it"):
+            sync_ivrit_sheli.validate_manifest(unknown_state)
 
-        optimistic_media = valid_manifest()
-        optimistic_media["visual_proof"]["readme_screenshots_match_source_version"] = True
-        with self.assertRaisesRegex(ValueError, "Screenshots marked current"):
-            sync_ivrit_sheli.validate_manifest(optimistic_media)
+        optimistic_release = valid_manifest()
+        optimistic_release["publication"]["source_version_tagged"] = True
+        with self.assertRaisesRegex(ValueError, "must be both, at that version"):
+            sync_ivrit_sheli.validate_manifest(optimistic_release)
 
     def test_same_version_remote_cannot_regress_reviewed_publication(self) -> None:
         reviewed = sync_ivrit_sheli.validate_manifest(valid_manifest())
         incoming = valid_manifest()
-        incoming["publication"] = {
-            "latest_git_tag": "v2.1.0",
-            "latest_github_release": "v2.1.0",
-            "source_version_tagged": False,
-            "source_version_github_release_published": False,
-            "release_state": "2.4.0-deployment-ahead-of-github-release",
-        }
+        incoming["durable_demo"]["status"] = "unavailable"
+        incoming["privacy"]["durable_demo_currently_available"] = False
 
-        with self.assertRaisesRegex(ValueError, "regress.*publication state"):
+        with self.assertRaisesRegex(ValueError, "downgrade.*demo state"):
             sync_ivrit_sheli.prevent_publication_regression(reviewed, incoming)
 
     def test_same_version_remote_cannot_replace_reviewed_release_commit(self) -> None:
         reviewed = sync_ivrit_sheli.validate_manifest(valid_manifest())
         incoming = valid_manifest()
-        incoming["deployment"]["release_implementation_commit"] = "b" * 40
+        incoming["historical_deployment"]["release_implementation_commit"] = "b" * 40
         incoming = sync_ivrit_sheli.validate_manifest(incoming)
 
         with self.assertRaisesRegex(
-            ValueError, "reviewed same-version release implementation commit"
+            ValueError, "reviewed release implementation commit"
         ):
             sync_ivrit_sheli.prevent_publication_regression(reviewed, incoming)
 
@@ -311,7 +344,7 @@ class IvritSheliSyncTests(unittest.TestCase):
         request = captured["request"]
         self.assertEqual(
             manifest["publication"]["release_state"],
-            "2.4.0-live-and-published",
+            valid_manifest()["publication"]["release_state"],
         )
         self.assertEqual(
             request.get_header("Cache-control"),
