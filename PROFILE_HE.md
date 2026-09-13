@@ -1,6 +1,6 @@
 # Kevin Cusnir · Lirioth Teltanion ✨
 
-<!-- canonical-project-facts: profile=2.6.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.4.0; ivrit_live=2.4.0; ivrit_backend=151; ivrit_frontend=62; ivrit_total=213; ivrit_postgresql_ready=true; ivrit_google_signin_live=true; ivrit_github_session_live=false; ivrit_media=2.2.0; ivrit_media_current=false; ivrit_capture_commit=66d68a3c44ac2500fb400eef88d5f77da0c1c1e1; novafit=4.2.0 -->
+<!-- canonical-project-facts: profile=2.6.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.12.3; ivrit_status=private-candidate; ivrit_published=v2.12.2; ivrit_backend=387; ivrit_frontend=859; ivrit_total=1246; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.2.0; ivrit_media_current=false; ivrit_capture_commit=66d68a3c44ac2500fb400eef88d5f77da0c1c1e1; novafit=4.2.0 -->
 
 [English](./README.md) · [Español](./PROFILE_ES.md) · **עברית**
 
@@ -22,12 +22,13 @@
 
 ### א Ivrit Sheli
 
-**Ivrit Sheli 2.4.0** הוא מוצר Full-Stack תלת־לשוני ללימוד עברית מתוך מצבים אמיתיים. הוא שומר על מצב מקומי ופרטי עם SQLite ומוסיף React 19, ‏TypeScript, ‏FastAPI, ‏PostgreSQL 17, ‏Alembic ו־Docker עם גבולות אימות מפורשים. בסיס האיכות המאומת כולל **151 בדיקות backend ועוד 62 בדיקות frontend — בסך הכול 213 בדיקות אוטומטיות**. הממשק פועל באנגלית, בספרדית ובעברית עם RTL; הסיור הציבורי ב־Railway משתמש בנתונים סינתטיים ומשאיר קריאות ספק בתשלום כבויות כברירת מחדל.
+**Ivrit Sheli 2.12.3** הוא מוצר Full-Stack תלת־לשוני ללימוד עברית מתוך מצבים אמיתיים. הוא שומר על מצב מקומי ופרטי עם SQLite ומוסיף React 19, ‏TypeScript, ‏FastAPI, ‏PostgreSQL 17, ‏Alembic ו־Docker עם גבולות אימות מפורשים. בסיס האיכות המאומת כולל **387 בדיקות backend ועוד 859 בדיקות frontend — בסך הכול 1246 בדיקות אוטומטיות**. הממשק פועל באנגלית, בספרדית ובעברית עם RTL; הסיור הציבורי משתמש בנתונים סינתטיים ומשאיר קריאות ספק בתשלום כבויות כברירת מחדל.
 
-- [פתיחת הדמו הציבורי ב־Railway](https://ivritsheli-production.up.railway.app)
+- [פתיחת הדמו הציבורי](https://ivrit-sheli.onrender.com)
 - [קוד מקור והוראות הרצה](https://github.com/LiriothTeltanion/IvritSheli)
-- Railway מדווח על **2.4.0** ב־production, עם health live/ready ו־PostgreSQL מוכנים; הפריסה, תג ה־Git וה־GitHub Release תואמים ל־v2.4.0. ‏Google Sign-In, שמירת session, ‏onboarding, ‏logout והישארות מחוץ לחשבון לאחר רענון אומתו. session חי ומוצלח עם GitHub OAuth והתחברות מחדש לאחר logout עדיין ממתינים לאימות E2E.
-- ה־GIF והצילומים המסוננים הקיימים מתעדים את ממשק **2.2.0** הארכיוני, runtime ‏`66d68a3c44ac`; הם אינם מוצגים כראיה חזותית לממשק החי של 2.4.0. אין בהם היסטוריית לימוד פרטית, tokens או רשומות production.
+- הדמו רץ על **Render**, תוכנית `render-free`, באזור פרנקפורט, בתור **staging של פיילוט פרטי ולא production**. נבדק ב־12 בספטמבר 2026: health live ו־ready עם PostgreSQL מוכן, מילון של 240 ערכים, ‏CSP מחמירה וכניסה עם Google באמצעות PKCE. התוכנית החינמית נכנסת לשינה, ולכן הטעינה הראשונה עשויה לקחת דקות.
+- **2.12.3 הוא מועמד פרטי**: הגרסה האחרונה שפורסמה היא v2.12.2, ותג ה־Git וה־GitHub Release תואמים לה. ‏session חי ומוצלח עם GitHub OAuth והתחברות מחדש לאחר logout עדיין ממתינים לאימות E2E.
+- הפריסה ההיסטורית ב־**Railway כבויה**. ה־GIF והצילומים המסוננים מתעדים את ממשק **2.2.0** הארכיוני, runtime ‏`66d68a3c44ac`; הם אינם ראיה חזותית לממשק 2.12.3. אין בהם היסטוריית לימוד פרטית, tokens או רשומות production.
 
 ### 💙 NovaFit
 

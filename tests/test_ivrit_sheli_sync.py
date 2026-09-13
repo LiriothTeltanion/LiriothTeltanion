@@ -15,108 +15,18 @@ ROOT = Path(__file__).resolve().parent.parent
 
 
 def valid_manifest() -> dict[str, object]:
-    """Return the complete current Ivrit Sheli public manifest contract."""
-    return {
-        "schema": "ivrit-sheli-portfolio-project-v2",
-        "slug": "ivrit-sheli",
-        "name": "Ivrit Sheli — העברית שלי",
-        "source_version": "2.4.0",
-        "live_version": "2.4.0",
-        "status": "production",
-        "default_branch": "main",
-        "repository_url": "https://github.com/LiriothTeltanion/IvritSheli",
-        "demo_url": "https://ivritsheli-production.up.railway.app",
-        "summary": (
-            "A private-first trilingual Hebrew-learning product with a guided contest "
-            "tour, 48 reviewed visual concepts, local SQLite, authenticated PostgreSQL, "
-            "native RTL and accessible motion."
-        ),
-        "languages": ["en", "es", "he"],
-        "stack": [
-            "React 19",
-            "TypeScript",
-            "FastAPI",
-            "Python",
-            "PostgreSQL 17",
-            "SQLite",
-            "Docker",
-            "Railway",
-        ],
-        "tests": {
-            "version": "2.4.0",
-            "backend_unique": 151,
-            "frontend": 62,
-            "frontend_files": 16,
-            "total_unique": 213,
-            "ordinary_backend_passed": 150,
-            "ordinary_backend_skipped": 1,
-            "postgresql_gate_passed": 3,
-            "evidence": "TEST_REPORT.md",
-        },
-        "deployment": {
-            "version": "2.4.0",
-            "provider": "Railway",
-            "runtime": "Docker",
-            "database": "PostgreSQL 17",
-            "status": "verified-live",
-            "release_implementation_commit": (
-                "03bf84b9268ff8be528c0fab3c670f9652ee23b0"
-            ),
-            "verified_on": "2026-07-21",
-            "environment": "production",
-            "health_live": True,
-            "health_ready": True,
-            "postgresql_ready": True,
-            "dictionary_ready": True,
-            "dictionary_entries": 48,
-            "english_entry_verified": True,
-            "read_only_tour_verified": True,
-        },
-        "publication": {
-            "latest_git_tag": "v2.4.0",
-            "latest_github_release": "v2.4.0",
-            "source_version_tagged": True,
-            "source_version_github_release_published": True,
-            "release_state": "2.4.0-live-and-published",
-        },
-        "visual_proof": {
-            "state": "live-english-journey-verified",
-            "social_preview_version": "2.2.0",
-            "readme_screenshot_version": "2.1.x",
-            "readme_screenshots_match_source_version": False,
-            "interactive_browser_qa": (
-                "verified-english-entry-and-read-only-tour"
-            ),
-        },
-        "oauth": {
-            "providers": ["Google", "GitHub"],
-            "source_contract_tested": True,
-            "google_live_configured": True,
-            "google_live_sign_in_verified": True,
-            "github_live_successful_session_verified": False,
-            "authenticated_session_refresh_verified": True,
-            "onboarding_persistence_across_reload_verified": True,
-            "logout_verified": True,
-            "signed_out_reload_verified": True,
-            "relogin_after_logout_verified": False,
-            "boundary": (
-                "Identity-only Google sign-in, onboarding/session persistence across "
-                "reload, logout and signed-out persistence after reload are verified in "
-                "production. Re-login after logout, a live GitHub account session, live "
-                "OpenAI or Google Workspace connector calls, two-real-user isolation and "
-                "backup restoration remain unverified; Google sign-in grants no Gmail, "
-                "Drive or Calendar scope."
-            ),
-        },
-        "privacy": {
-            "local_first": True,
-            "public_demo_data": "synthetic",
-            "public_demo_mutations": "server-blocked",
-            "self_service_export_in_source": True,
-            "self_service_deletion_in_source": True,
-            "contains_secrets": False,
-        },
-    }
+    """Return the reviewed Ivrit Sheli manifest as the fixture baseline.
+
+    This used to be a literal copy of the contract, which is how the fixture
+    quietly aged into a shape the project had already left behind. Reading the
+    reviewed snapshot keeps the tests measuring the contract that is actually
+    in force, without reaching the network.
+    """
+    return json.loads(
+        (ROOT / "data" / "project-snapshots" / "ivrit-sheli.json").read_text(
+            encoding="utf-8"
+        )
+    )
 
 
 class IvritSheliSyncTests(unittest.TestCase):
