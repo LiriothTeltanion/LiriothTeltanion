@@ -48,6 +48,9 @@ The root `README.md` is rendered publicly on Kevin's GitHub profile.
   stable, verified evidence.
 - Never move, delete or reuse a published tag. Correct release mistakes forward
   with a new patch version and tag the exact finalized release commit.
+- The verifier runs strict only on a push to `main` or to a tag. Work branches
+  and pull requests get `-AllowPendingTag`, so an ordinary change does not have
+  to bump the version just to stop the tag rule from firing.
 - Publishing a version takes four steps, in this order. `main` is protected, so
   the release commit cannot be pushed straight to it:
   1. Open the work as a pull request with `release.status` set to
@@ -56,7 +59,10 @@ The root `README.md` is rendered publicly on Kevin's GitHub profile.
      entry `released`, regenerate both READMEs and open a second pull request.
      Its CI runs `verify-profile.ps1 -AllowPendingTag`, because on a pull
      request the tag cannot exist yet and the checked-out commit is a synthetic
-     merge that no tag will ever name. Everything else stays strict.
+     merge that no tag will ever name. The switch excuses only those two
+     unevaluable states — a missing tag, and a tag that names another commit.
+     A dirty worktree, a lightweight tag, a `profile.json` that differs from the
+     tagged one and unfinalized tagged metadata stay fatal everywhere.
   3. Merge that, then create the annotated tag on the resulting `main` commit
      and push it. The tag push re-runs the workflow with the rule enforced.
   4. The run for the merge itself is red in the gap between steps 3 and 4, and

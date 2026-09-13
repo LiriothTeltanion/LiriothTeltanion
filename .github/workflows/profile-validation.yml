@@ -50,15 +50,17 @@ jobs:
           python scripts/validate_profile.py --readme README.md --max-lines 300 --mode compact --check-localized
           python scripts/validate_profile.py --readme README_EXPANDED.md --max-lines 300 --mode expanded
 
-      # En una pull request la etiqueta de publicacion todavia no puede existir:
-      # el commit llega a main despues de la revision y solo entonces se etiqueta.
-      # Ademas el commit revisado es una fusion sintetica que ninguna etiqueta va
-      # a nombrar. Al empujar, la regla vuelve a ser obligatoria.
+      # Que la etiqueta de publicacion nombre ESTE commit solo se puede responder
+      # en main una vez subida la etiqueta. En una rama de trabajo o en una pull
+      # request la pregunta no tiene respuesta: el commit revisado es una fusion
+      # sintetica, y la etiqueta aun no existe o apunta a main. Ahi se avisa; en
+      # main y en la propia etiqueta la regla es obligatoria. Todo lo demas del
+      # contrato de publicacion sigue siendo obligatorio en los cuatro sitios.
       - name: Run PowerShell profile verifier
         shell: pwsh
         run: >-
           ./tools/profile/verify-profile.ps1
-          ${{ github.event_name == 'pull_request' && '-AllowPendingTag' || '' }}
+          ${{ (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref_type == 'tag')) && '' || '-AllowPendingTag' }}
 
       - name: Run profile tooling tests
         shell: pwsh

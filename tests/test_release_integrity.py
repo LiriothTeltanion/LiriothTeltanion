@@ -200,6 +200,56 @@ class ReleaseIntegrityVerifierTests(unittest.TestCase):
         self.assertNotEqual(lightweight.returncode, 0)
         self.assertIn("lightweight tags are not accepted", lightweight.stdout)
 
+    def test_pending_tag_tolerates_a_tag_that_names_another_commit(self) -> None:
+        """Every branch after a release sits ahead of its own tag.
+
+        Once a version is tagged, any later commit that has not bumped the
+        version still carries the released profile.json while HEAD has moved on.
+        Off the default branch that mismatch is the normal state, not a defect,
+        so it must not block ordinary work. The content check still runs: the
+        working profile.json has to be byte-identical to the tagged one.
+        """
+        with tempfile.TemporaryDirectory() as directory:
+            repository = self.create_repository(Path(directory), "released")
+            self.tag(repository, annotated=True)
+            (repository / "release-notes.txt").write_text(
+                "Unrelated later work.\n", encoding="utf-8", newline="\n"
+            )
+            self.git(repository, "add", "--all")
+            self.git(repository, "commit", "-m", "test: work after the tag")
+
+            tolerated = self.verify(repository, allow_pending_tag=True)
+            self.assertEqual(
+                tolerated.returncode, 0, msg=tolerated.stdout + tolerated.stderr
+            )
+            self.assertIn("commit identity is verified on push", tolerated.stdout)
+            self.assertNotIn("Release integrity confirmed", tolerated.stdout)
+
+            # En main, ese mismo estado sigue siendo un fallo.
+            strict = self.verify(repository)
+            self.assertNotEqual(strict.returncode, 0)
+            self.assertIn("but the checked-out commit is", strict.stdout)
+
+    def test_pending_tag_does_not_excuse_edited_release_metadata(self) -> None:
+        """Touching a released profile.json without bumping is still fatal."""
+        with tempfile.TemporaryDirectory() as directory:
+            repository = self.create_repository(Path(directory), "released")
+            self.tag(repository, annotated=True)
+            profile_path = repository / "profile.json"
+            profile = json.loads(profile_path.read_text(encoding="utf-8"))
+            profile["release"]["summary"] = "Edited after the tag was published."
+            profile_path.write_text(
+                json.dumps(profile, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+                newline="\n",
+            )
+            self.git(repository, "add", "--all")
+            self.git(repository, "commit", "-m", "test: edit a published profile")
+            result = self.verify(repository, allow_pending_tag=True)
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("not byte-equivalent", result.stdout)
+
     def test_pending_tag_still_requires_a_clean_tracked_state(self) -> None:
         """The switch excuses the missing tag, not an unreviewed working tree."""
         with tempfile.TemporaryDirectory() as directory:
