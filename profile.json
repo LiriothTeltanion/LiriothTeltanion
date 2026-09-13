@@ -3,7 +3,7 @@
   "release": {
     "title": "Profile 2.7.0 — Current Deployment Edition",
     "tag": "v2.7.0",
-    "status": "release-candidate",
+    "status": "released",
     "prepared_on": "2026-09-13",
     "baseline": "Profile 2.6.0 — Living Archive Clarity Edition",
     "summary": "A correctness release. The Ivrit Sheli synchronizer was pinned to a manifest schema the project had already moved past, so it stopped reading and the profile kept showing July: 2.4.0, 213 tests and a Railway demo that answers 404. It now reads the current contract and states the current position: 2.12.3 as a private candidate with 1246 tests and a staging demo.",
