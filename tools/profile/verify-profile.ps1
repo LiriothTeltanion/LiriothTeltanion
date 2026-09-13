@@ -629,7 +629,16 @@ if ($null -ne $readme) {
 
                 $mediaValue = [System.Net.WebUtility]::HtmlDecode([string](Get-AttributeValue -Match $mediaMatch)).Trim()
                 $srcsetValue = [System.Net.WebUtility]::HtmlDecode([string](Get-AttributeValue -Match $srcsetMatch)).Trim()
-                if ($mediaValue -match '^\s*\(\s*prefers-reduced-motion\s*:\s*reduce\s*\)\s*$' -and
+                # Una lista de medios separada por comas es un OR: basta con que
+                # UNA de sus consultas sea exactamente la de movimiento reducido.
+                # Se sigue rechazando '(max-width: 640px) and (prefers-reduced-
+                # motion: reduce)', que solo cubre pantallas estrechas y por tanto
+                # no es un respaldo general. Esa exigencia no se afloja.
+                $mediaQueries = $mediaValue -split ',' | ForEach-Object { $_.Trim() }
+                $coversReducedMotion = @($mediaQueries | Where-Object {
+                    $_ -match '^\s*\(\s*prefers-reduced-motion\s*:\s*reduce\s*\)\s*$'
+                }).Count -gt 0
+                if ($coversReducedMotion -and
                     -not [string]::IsNullOrWhiteSpace($srcsetValue)) {
                     $hasReducedMotionSource = $true
                     break

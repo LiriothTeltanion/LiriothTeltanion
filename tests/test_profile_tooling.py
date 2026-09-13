@@ -341,6 +341,43 @@ class GeneratedProfileContractTests(unittest.TestCase):
     def setUpClass(cls) -> None:
         cls.data = build_profile.load_profile(ROOT / "profile.json")
 
+    def test_flagship_evidence_is_visible_without_opening_a_toggle(self) -> None:
+        """GitHub renders <details> collapsed, so evidence inside one is invisible.
+
+        Every Ivrit Sheli capture used to live inside the product-tour toggle.
+        A recruiter who merely scrolled the profile saw a picture for Nova Music
+        Lab and nothing at all for the project with the largest test suite. The
+        still frame has to sit outside; the moving tour may stay behind the
+        toggle, because motion should be asked for and evidence should not.
+        """
+        for mode in ("compact", "expanded"):
+            content = build_profile.render_profile(self.data, mode)
+            ivrit = [p for p in self.data["projects"] if p["name"] == "Ivrit Sheli"][0]
+            still = ivrit["media"]["static"]
+            tour = ivrit["media"]["animation"]
+            outside = re.sub(r"(?is)<details\b.*?</details>", "", content)
+            with self.subTest(mode=mode):
+                self.assertIn(still, outside, f"{still} must render without a click")
+                self.assertNotIn(
+                    tour, outside, f"{tour} is motion and belongs behind the toggle"
+                )
+
+    def test_every_picture_source_can_actually_win(self) -> None:
+        """A <source> whose file a broader earlier query already claims is dead.
+
+        Two sources naming the same srcset mean the narrower one can never be
+        chosen: the browser takes the first match. Those lines cost budget in a
+        300-line README and imply a responsive variant that does not exist.
+        """
+        for mode in ("compact", "expanded"):
+            content = build_profile.render_profile(self.data, mode)
+            for picture in re.findall(r"(?is)<picture>(.*?)</picture>", content):
+                files = re.findall(r'<source[^>]*srcset="([^"]+)"', picture)
+                with self.subTest(mode=mode, picture=files):
+                    self.assertEqual(
+                        len(files), len(set(files)), "a source repeats an earlier srcset"
+                    )
+
     def test_compact_profile_keeps_responsive_and_privacy_contracts(self) -> None:
         content = build_profile.render_profile(self.data, "compact")
 

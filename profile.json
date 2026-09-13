@@ -1,18 +1,18 @@
 {
-  "profile_version": "2.8.0",
+  "profile_version": "2.9.0",
   "release": {
-    "title": "Profile 2.8.0 — Live Visual Evidence Edition",
-    "tag": "v2.8.0",
-    "status": "released",
+    "title": "Profile 2.9.0 — Visible Evidence Edition",
+    "tag": "v2.9.0",
+    "status": "release-candidate",
     "prepared_on": "2026-09-13",
-    "baseline": "Profile 2.7.0 — Current Deployment Edition",
-    "summary": "A visual release. The profile described Ivrit Sheli 2.12.3 in words but illustrated it with 2.2.0 captures from an interface that no longer exists, and said so in small print. It now shows the reviewed 2.12.3 frames the project itself publishes, so the picture and the paragraph are the same release.",
+    "baseline": "Profile 2.8.0 — Live Visual Evidence Edition",
+    "summary": "GitHub renders a details block collapsed. Every Ivrit Sheli capture lived inside one, so the flagship full-stack project showed no image at all to anyone who merely scrolled the profile. The still frame now sits outside the toggle; the moving tour stays behind it.",
     "focus": [
-      "The Ivrit Sheli tour, desktop, phone and Hebrew RTL frames are the current 2.12.3 interface",
-      "Every capture is taken from the upstream project's own published proof set, not re-shot here",
-      "The frames are stored in a format the profile's payload verifier actually measures",
-      "The caption claims exactly what upstream reviewed, and names the gates it does not cover",
-      "EN, ES and HE carry the same corrected sentence"
+      "The Ivrit Sheli Today screen is visible without clicking anything",
+      "Motion stays opt-in behind the toggle, so the visible hero is a still frame",
+      "Three dead picture sources removed: they repeated a srcset already claimed",
+      "The OAuth boundary is stated once instead of verbatim twice",
+      "Same 300-line budget, same payload: the change is placement, not weight"
     ],
     "public_data_boundary": "Only public repository facts, deterministic or synthetic demonstration visuals and reviewed sanitized live captures are included; no private learning history, wellness history, runtime database record, secret, provider credential or personal export is published."
   },
@@ -119,7 +119,7 @@
         "static_alt": "Ivrit Sheli 2.12.3 Today screen in Spanish on a dark desktop layout: a saved-progress greeting, a semantic scene card pairing two coffee cups with the Hebrew word shtayim, and daily streak, level and accuracy tiles",
         "mobile_alt": "Ivrit Sheli 2.12.3 Today screen on a phone in the light theme, with the same guided first lesson and progress tiles stacked for one hand",
         "rtl_alt": "Ivrit Sheli 2.12.3 Today screen in Hebrew with a fully mirrored right-to-left layout: the navigation sits on the right and the interface text, level and accuracy tiles are all in Hebrew",
-        "description": "These frames are the reviewed captures IvritSheli publishes for its 2.12.3 source, taken on 2026-08-27 at commit ea8aff866e6a.",
+        "description": "The desktop Today screen in Spanish. The phone layout, the Hebrew RTL frame and the moving tour are one click below.",
         "caption": "Current Ivrit Sheli 2.12.3 interface:",
         "public_data_boundary": "The sanitized live captures use Kevin's isolated account and show his already-public name/avatar plus default recommendations (12 words, one oral practice and 10 minutes); they contain no private study history, credential, token, provider result or production database record.",
         "captured_on": "2026-08-27",
