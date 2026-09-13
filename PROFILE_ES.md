@@ -1,6 +1,6 @@
 # Kevin Cusnir · Lirioth Teltanion ✨
 
-<!-- canonical-project-facts: profile=2.6.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.12.3; ivrit_status=private-candidate; ivrit_published=v2.12.2; ivrit_backend=387; ivrit_frontend=859; ivrit_total=1246; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.2.0; ivrit_media_current=false; ivrit_capture_commit=66d68a3c44ac2500fb400eef88d5f77da0c1c1e1; novafit=4.2.0 -->
+<!-- canonical-project-facts: profile=2.7.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.12.3; ivrit_status=private-candidate; ivrit_published=v2.12.2; ivrit_backend=387; ivrit_frontend=859; ivrit_total=1246; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.2.0; ivrit_media_current=false; ivrit_capture_commit=66d68a3c44ac2500fb400eef88d5f77da0c1c1e1; novafit=4.2.0 -->
 
 [English](./README.md) · **Español** · [עברית](./PROFILE_HE.md)
 

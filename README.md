@@ -1,4 +1,4 @@
-<!-- profile-version: 2.6.0; release-tag: v2.6.0; release-title: Profile 2.6.0 — Living Archive Clarity Edition -->
+<!-- profile-version: 2.7.0; release-tag: v2.7.0; release-title: Profile 2.7.0 — Honest Deployment Edition -->
 
 <a id="top"></a>
 <div align="center">

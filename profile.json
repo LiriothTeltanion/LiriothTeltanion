@@ -1,18 +1,18 @@
 {
-  "profile_version": "2.6.0",
+  "profile_version": "2.7.0",
   "release": {
-    "title": "Profile 2.6.0 — Living Archive Clarity Edition",
-    "tag": "v2.6.0",
-    "status": "released",
-    "prepared_on": "2026-08-09",
-    "baseline": "Profile 2.5.0 — Living Flagship Evidence Edition",
-    "summary": "A recruiter-facing clarity release led by the deployed Nova Music Lab 1.6.0 living archive, current Ivrit Sheli 2.4.0 engineering proof and review-gated multilingual synchronization.",
+    "title": "Profile 2.7.0 — Honest Deployment Edition",
+    "tag": "v2.7.0",
+    "status": "release-candidate",
+    "prepared_on": "2026-09-13",
+    "baseline": "Profile 2.6.0 — Living Archive Clarity Edition",
+    "summary": "A correctness release. The Ivrit Sheli synchronizer had been pinned to a manifest schema the project already left behind, so the profile still advertised 2.4.0, 213 tests and a Railway demo that answers 404. It now reads the current contract and states what is actually true: 2.12.3 as a private candidate with 1246 tests and a staging demo, not a production release.",
     "focus": [
-      "Nova Music Lab 1.6.0 deployed evidence with refreshed desktop, mobile, motion and reduced-motion media",
-      "A clearer public-museum and build-your-own journey for first-time visitors",
-      "Complete Living Artist Atlas navigation, source-aware genres and more legible interpretive boundaries",
-      "Ivrit Sheli 2.4.0 production evidence with 213 verified automated tests",
-      "Exact EN, ES and HE project-fact parity backed by immutable release evidence"
+      "Ivrit Sheli facts read from the current manifest contract instead of a frozen copy",
+      "1246 verified automated tests replacing a figure that understated the work sixfold",
+      "A reachable demo link, with its hosting state named rather than assumed live",
+      "A staging pilot described as staging, not promoted to production",
+      "EN, ES and HE parity restored against the same reviewed evidence"
     ],
     "public_data_boundary": "Only public repository facts, deterministic or synthetic demonstration visuals and reviewed sanitized live captures are included; no private learning history, wellness history, runtime database record, secret, provider credential or personal export is published."
   },
