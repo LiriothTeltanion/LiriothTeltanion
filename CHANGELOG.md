@@ -5,7 +5,7 @@ The profile follows Semantic Versioning: major for a structural identity or
 presentation generation, minor for a contained feature or visual upgrade, and
 patch for a narrow correction.
 
-## [2.7.0] — 2026-09-13 · Honest Deployment Edition — release candidate
+## [2.7.0] — 2026-09-13 · Current Deployment Edition — release candidate
 
 ### Fixed
 
