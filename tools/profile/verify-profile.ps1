@@ -1,7 +1,20 @@
 [CmdletBinding()]
 param(
     [string]$RepositoryPath = "",
-    [switch]$ReleaseOnly
+    [switch]$ReleaseOnly,
+    # Whether the release tag names THIS commit is only answerable on the default
+    # branch after the tag is pushed. Under branch protection the release commit
+    # reaches main only after review, so the tag cannot exist yet; and on a pull
+    # request the checked-out commit is a synthetic merge no tag will ever name.
+    # Off the default branch that question is unevaluable, not violated, and this
+    # switch reports it instead of failing it.
+    #
+    # It excuses exactly two unevaluable states: a tag that does not exist yet,
+    # and a tag that points somewhere other than HEAD. It does NOT excuse a
+    # dirty tracked worktree, a lightweight tag, a profile.json that differs from
+    # the tagged one, or tagged metadata that is not the finalized release. Those
+    # are answerable anywhere, so they stay fatal everywhere.
+    [switch]$AllowPendingTag
 )
 
 Set-StrictMode -Version 2.0
@@ -188,6 +201,7 @@ else {
         }
         else {
             $releaseFailureCountBefore = $script:failureCount
+            $script:tagDescribesHead = $true
 
             $headOutput = & git -C $RepositoryPath rev-parse HEAD 2>$null
             $headExitCode = $LASTEXITCODE
@@ -209,7 +223,10 @@ else {
             $tagReference = "refs/tags/$releaseTag"
             & git -C $RepositoryPath show-ref --verify --quiet $tagReference 2>$null
             $releasedTagExists = $LASTEXITCODE -eq 0
-            if (-not $releasedTagExists) {
+            if (-not $releasedTagExists -and $AllowPendingTag) {
+                Warn "Released profile $profileVersion has no local tag '$releaseTag' yet; tag integrity is verified when the commit is pushed, not while it is under review."
+            }
+            elseif (-not $releasedTagExists) {
                 Fail "Released profile $profileVersion requires the matching annotated local tag '$releaseTag'."
             }
             else {
@@ -231,7 +248,13 @@ else {
                     Fail "Release tag '$releaseTag' could not be resolved to a commit."
                 }
                 elseif (-not [string]::IsNullOrWhiteSpace($headCommit) -and $tagCommit -cne $headCommit) {
-                    Fail "Release tag '$releaseTag' points to $tagCommit, but the checked-out commit is $headCommit."
+                    if ($AllowPendingTag) {
+                        $script:tagDescribesHead = $false
+                        Warn "Release tag '$releaseTag' points to $tagCommit and the checked-out commit is $headCommit; off the default branch that is expected, so commit identity is verified on push."
+                    }
+                    else {
+                        Fail "Release tag '$releaseTag' points to $tagCommit, but the checked-out commit is $headCommit."
+                    }
                 }
 
                 $taggedProfileSpec = "${releaseTag}:profile.json"
@@ -272,8 +295,14 @@ else {
                 }
             }
 
-            if ($script:failureCount -eq $releaseFailureCountBefore) {
+            if ($releasedTagExists -and $script:tagDescribesHead -and $script:failureCount -eq $releaseFailureCountBefore) {
                 Pass "Release integrity confirmed: annotated $releaseTag, commit $headCommit, clean tracked state and exact tagged released metadata agree."
+            }
+            elseif (-not $releasedTagExists -and $script:failureCount -eq $releaseFailureCountBefore) {
+                Pass "Release metadata for $profileVersion is internally consistent and the tracked state is clean; the tag remains outstanding and is verified on push."
+            }
+            elseif ($script:failureCount -eq $releaseFailureCountBefore) {
+                Pass "Release metadata for $profileVersion is internally consistent, the tracked state is clean and profile.json matches the content in '$releaseTag'; only the tag-to-commit link is left for the push-time gate."
             }
         }
     }
