@@ -4,7 +4,9 @@ This folder is a complete, generated replacement for the GitHub profile reposito
 
 ## Included
 
-- recruiter-first `README.md`, validated at no more than 300 lines;
+- recruiter-first `README.md`, validated against a reading budget of prose words
+  (`READING_WORD_BUDGET` in `scripts/validate_profile.py`) and a looser structural
+  line ceiling, so images and markup no longer compete with prose for space;
 - optional expanded README;
 - Spanish and Hebrew summaries;
 - canonical `profile.json`;
@@ -54,8 +56,8 @@ python scripts/sync_nova_music_lab.py --check
 python scripts/sync_ivrit_sheli.py --check
 python scripts/sync_novafit.py --check
 python tools/profile/generate_signature_assets.py --check
-python scripts/validate_profile.py --readme README.md --max-lines 300 --mode compact --check-localized
-python scripts/validate_profile.py --readme README_EXPANDED.md --max-lines 300 --mode expanded
+python scripts/validate_profile.py --readme README.md --mode compact --check-localized
+python scripts/validate_profile.py --readme README_EXPANDED.md --mode expanded
 powershell -ExecutionPolicy Bypass -File tools/profile/verify-profile.ps1
 ```
 

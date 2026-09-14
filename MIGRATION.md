@@ -49,8 +49,8 @@ py -3 scripts/sync_novafit.py --check
 py -3 tools/profile/generate_signature_assets.py --check
 py -3 scripts/build_profile.py --mode compact --output README.md --check
 py -3 scripts/build_profile.py --mode expanded --output README_EXPANDED.md --check
-py -3 scripts/validate_profile.py --readme README.md --max-lines 300 --mode compact --check-localized
-py -3 scripts/validate_profile.py --readme README_EXPANDED.md --max-lines 300 --mode expanded
+py -3 scripts/validate_profile.py --readme README.md --mode compact --check-localized
+py -3 scripts/validate_profile.py --readme README_EXPANDED.md --mode expanded
 py -3 -m unittest discover -s tests -v
 powershell -ExecutionPolicy Bypass -File tools/profile/verify-profile.ps1
 git diff --check

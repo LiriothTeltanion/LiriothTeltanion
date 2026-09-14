@@ -1,18 +1,18 @@
 {
-  "profile_version": "2.9.0",
+  "profile_version": "2.10.0",
   "release": {
-    "title": "Profile 2.9.0 — Visible Evidence Edition",
-    "tag": "v2.9.0",
-    "status": "released",
-    "prepared_on": "2026-09-13",
-    "baseline": "Profile 2.8.0 — Live Visual Evidence Edition",
-    "summary": "GitHub renders a details block collapsed. Every Ivrit Sheli capture lived inside one, so the flagship full-stack project showed no image at all to anyone who merely scrolled the profile. The still frame now sits outside the toggle; the moving tour stays behind it.",
+    "title": "Profile 2.10.0 — Reading Budget Edition",
+    "tag": "v2.10.0",
+    "status": "release-candidate",
+    "prepared_on": "2026-09-14",
+    "baseline": "Profile 2.9.0 — Visible Evidence Edition",
+    "summary": "The profile was capped at 300 physical lines, and 61 percent of them were markup or blank: a picture cost four lines and no reading at all. Reading is now measured in prose words, the line cap becomes a looser structural ceiling, and the room it frees shows NovaFit without a click.",
     "focus": [
-      "The Ivrit Sheli Today screen is visible without clicking anything",
-      "Motion stays opt-in behind the toggle, so the visible hero is a still frame",
-      "Three dead picture sources removed: they repeated a srcset already claimed",
-      "The OAuth boundary is stated once instead of verbatim twice",
-      "Same 300-line budget, same payload: the change is placement, not weight"
+      "A reading budget in prose words replaces lines as the recruiter-attention limit",
+      "Both budgets live as named constants in one file instead of nine copies of 300",
+      "NovaFit's Command Center is visible without opening a toggle",
+      "The visible NovaFit still has alt text describing the still, not the tour",
+      "Same reading length: 1767 words before, and the budget leaves honest headroom"
     ],
     "public_data_boundary": "Only public repository facts, deterministic or synthetic demonstration visuals and reviewed sanitized live captures are included; no private learning history, wellness history, runtime database record, secret, provider credential or personal export is published."
   },
@@ -208,7 +208,8 @@
         "alt": "NovaFit 4.2.0 seeded public demo moving through the Wellness Command Center, Motivation Center, Sport and Data Coach, isolated profiles, English, Spanish and Hebrew, including a Hebrew RTL workspace",
         "description": "A concise recruiter-facing desktop tour demonstrates navigation, motivation design, explainable coaching, profile isolation and multilingual RTL behavior; the static evidence below documents the analytics and twelve-theme system.",
         "caption": "NovaFit 4.2.0 in motion:",
-        "public_data_boundary": "The tour and static fallback use clearly labeled seeded demo profiles and deterministic synthetic records; they contain no real wellness history, runtime database, secret or private export."
+        "public_data_boundary": "The tour and static fallback use clearly labeled seeded demo profiles and deterministic synthetic records; they contain no real wellness history, runtime database, secret or private export.",
+        "static_alt": "NovaFit 4.2.0 Wellness Command Center from the seeded public demo: consistency, tracked days, coverage and step tiles above charts for movement, hydration, mood check-ins and a weekday consistency field"
       },
       "portfolio_sync": {
         "schema": "nova-portfolio-project-v1",

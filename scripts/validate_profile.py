@@ -17,6 +17,12 @@ from typing import Any, Mapping
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_README = ROOT / "README.md"
+# Dos presupuestos distintos, porque miden cosas distintas. Las palabras son el
+# limite de atencion del reclutador. Las lineas son solo un techo estructural:
+# un <picture> gasta cuatro lineas y cero segundos de lectura, asi que medir la
+# lectura en lineas castigaba justo las imagenes, que es lo que mas ayuda.
+READING_WORD_BUDGET = 1900
+STRUCTURAL_LINE_CEILING = 360
 DEFAULT_PROFILE_DATA = ROOT / "profile.json"
 DEFAULT_LOCALIZED_PROFILES = {
     "es": ROOT / "PROFILE_ES.md",
@@ -44,7 +50,18 @@ def build_parser() -> argparse.ArgumentParser:
         description="Validate recruiter-facing GitHub profile structure.",
     )
     parser.add_argument("--readme", type=Path, default=DEFAULT_README)
-    parser.add_argument("--max-lines", type=int, default=300)
+    parser.add_argument(
+        "--max-lines",
+        type=int,
+        default=STRUCTURAL_LINE_CEILING,
+        help="Structural ceiling on physical lines, markup and blank lines included.",
+    )
+    parser.add_argument(
+        "--max-words",
+        type=int,
+        default=READING_WORD_BUDGET,
+        help="Reading budget in prose words, excluding markup and link targets.",
+    )
     parser.add_argument(
         "--mode",
         choices=("compact", "expanded"),
@@ -65,17 +82,58 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
+_HTML_COMMENT = re.compile(r"<!--.*?-->", re.S)
+_HTML_TAG = re.compile(r"<[^>]+>")
+_LINK_TARGET = re.compile(r"\]\([^)]*\)")
+_MARKDOWN_SYMBOLS = re.compile(r"[*_`#>|]+")
+
+
+def reading_words(content: str) -> int:
+    """Count the words a reader actually reads, ignoring markup and link targets.
+
+    Line count is a poor proxy for reading effort: a ``<picture>`` block costs
+    four lines and no attention, while one dense evidence sentence costs a single
+    line and half a minute. This counts prose only. HTML comments, tags, link
+    URLs and Markdown punctuation are dropped; the visible text of a link stays.
+
+    Args:
+        content: Markdown or HTML-bearing profile text.
+
+    Returns:
+        Number of whitespace-separated words left after markup is removed.
+
+    Raises:
+        None.
+
+    Example:
+        >>> reading_words('<picture>\\n  <img src="a.png" alt="x" />\\n</picture>')
+        0
+        >>> reading_words("**Status:** [Open the demo](https://example.com) now")
+        5
+        >>> reading_words("<!-- profile-version: 9.9.9 -->\\nHello world")
+        2
+    """
+    text = _HTML_COMMENT.sub(" ", content)
+    text = _HTML_TAG.sub(" ", text)
+    text = _LINK_TARGET.sub("]", text)
+    text = text.replace("[", " ").replace("]", " ")
+    text = _MARKDOWN_SYMBOLS.sub(" ", text)
+    return sum(1 for token in text.split() if any(ch.isalnum() for ch in token))
+
+
 def validate_profile(
     readme: Path,
-    max_lines: int = 300,
+    max_lines: int = STRUCTURAL_LINE_CEILING,
     mode: str = "compact",
+    max_words: int | None = None,
 ) -> list[str]:
     """Return all profile-quality problems instead of failing at the first one.
 
     Args:
         readme: Markdown profile file.
-        max_lines: Maximum recruiter-facing line count.
+        max_lines: Structural ceiling on physical lines, markup included.
         mode: Generated profile structure to enforce.
+        max_words: Reading budget in prose words; ``None`` disables the check.
 
     Returns:
         List of actionable validation messages.
@@ -97,6 +155,12 @@ def validate_profile(
 
     if len(lines) > max_lines:
         problems.append(f"README has {len(lines)} lines; target is at most {max_lines}.")
+    if max_words is not None:
+        words = reading_words(content)
+        if words > max_words:
+            problems.append(
+                f"README has {words} reading words; the recruiter budget is at most {max_words}."
+            )
     if content.count("# Kevin Cusnir") != 1:
         problems.append("README must contain exactly one main Kevin Cusnir heading.")
     if ".example" in content:
@@ -416,7 +480,7 @@ def main() -> int:
         0
     """
     args = build_parser().parse_args()
-    problems = validate_profile(args.readme, args.max_lines, args.mode)
+    problems = validate_profile(args.readme, args.max_lines, args.mode, args.max_words)
     if args.check_localized:
         problems.extend(validate_localized_profiles(args.profile_data))
     if problems:
@@ -424,8 +488,11 @@ def main() -> int:
         for problem in problems:
             print(f"- {problem}")
         return 1
-    line_count = len(args.readme.read_text(encoding="utf-8").splitlines())
-    _print_success(f"Profile validation passed: {line_count} lines")
+    content = args.readme.read_text(encoding="utf-8")
+    line_count = len(content.splitlines())
+    _print_success(
+        f"Profile validation passed: {line_count} lines, {reading_words(content)} reading words"
+    )
     return 0
 
 

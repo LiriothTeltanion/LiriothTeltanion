@@ -5,6 +5,36 @@ The profile follows Semantic Versioning: major for a structural identity or
 presentation generation, minor for a contained feature or visual upgrade, and
 patch for a narrow correction.
 
+## [2.10.0] — 2026-09-14 · Reading Budget Edition — release candidate
+
+### Changed
+
+- **Reading is measured in words, not lines.** The compact profile was capped at
+  300 physical lines. Counted on 2026-09-13, 87 of them were HTML markup and 97
+  were blank: 61 percent of the budget carried no reading at all. A `<picture>`
+  cost four lines and zero seconds of attention, while one dense evidence
+  sentence cost a single line and half a minute. The cap penalised exactly the
+  images that help a recruiter most.
+- `validate_profile.py` now counts **reading words** — prose only, with HTML
+  comments, tags, link targets and Markdown punctuation removed — against
+  `READING_WORD_BUDGET = 1900`. The profile reads 1767 words today.
+- The line cap stays, as `STRUCTURAL_LINE_CEILING = 360`: a sanity limit on the
+  shape of the file, no longer a proxy for attention.
+- Both budgets are named constants in one file. `300` had been written in nine
+  places — three workflows, three documents, a test and the validator twice. A
+  number copied into nine places goes stale in one of them; that is precisely how
+  the CV's verifier stayed red for two days while its content was correct.
+
+### Fixed
+
+- **NovaFit had no image visible without a click.** Its three captures sat in two
+  collapsed `<details>` blocks, the same fault 2.9.0 fixed for Ivrit Sheli. The
+  Command Center still now sits outside; the moving tour stays behind the toggle.
+- The visible still carries its own `static_alt`, describing the Command Center
+  it shows rather than borrowing the tour's description of motion.
+- The visibility test now covers both projects, so neither can slip back behind
+  a toggle.
+
 ## [2.9.0] — 2026-09-13 · Visible Evidence Edition — released
 
 ### Fixed

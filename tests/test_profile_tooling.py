@@ -350,13 +350,17 @@ class GeneratedProfileContractTests(unittest.TestCase):
         still frame has to sit outside; the moving tour may stay behind the
         toggle, because motion should be asked for and evidence should not.
         """
-        for mode in ("compact", "expanded"):
+        for mode, name in (
+            (mode, name)
+            for mode in ("compact", "expanded")
+            for name in ("Ivrit Sheli", "NovaFit")
+        ):
             content = build_profile.render_profile(self.data, mode)
-            ivrit = [p for p in self.data["projects"] if p["name"] == "Ivrit Sheli"][0]
-            still = ivrit["media"]["static"]
-            tour = ivrit["media"]["animation"]
+            project = [p for p in self.data["projects"] if p["name"] == name][0]
+            still = project["media"]["static"]
+            tour = project["media"]["animation"]
             outside = re.sub(r"(?is)<details\b.*?</details>", "", content)
-            with self.subTest(mode=mode):
+            with self.subTest(mode=mode, project=name):
                 self.assertIn(still, outside, f"{still} must render without a click")
                 self.assertNotIn(
                     tour, outside, f"{tour} is motion and belongs behind the toggle"
@@ -367,7 +371,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
 
         Two sources naming the same srcset mean the narrower one can never be
         chosen: the browser takes the first match. Those lines cost budget in a
-        300-line README and imply a responsive variant that does not exist.
+        line-budgeted README and imply a responsive variant that does not exist.
         """
         for mode in ("compact", "expanded"):
             content = build_profile.render_profile(self.data, mode)
@@ -381,7 +385,12 @@ class GeneratedProfileContractTests(unittest.TestCase):
     def test_compact_profile_keeps_responsive_and_privacy_contracts(self) -> None:
         content = build_profile.render_profile(self.data, "compact")
 
-        self.assertLessEqual(len(content.splitlines()), 300)
+        self.assertLessEqual(
+            len(content.splitlines()), validate_profile.STRUCTURAL_LINE_CEILING
+        )
+        self.assertLessEqual(
+            validate_profile.reading_words(content), validate_profile.READING_WORD_BUDGET
+        )
         # La version se lee del propio perfil: fijarla aqui obliga a tocar este
         # fichero en cada publicacion y no prueba nada sobre la cabecera.
         for expected in (
@@ -683,12 +692,20 @@ class GeneratedProfileContractTests(unittest.TestCase):
 
     def test_both_generated_modes_pass_the_light_validator(self) -> None:
         self.assertEqual(
-            validate_profile.validate_profile(ROOT / "README.md", 300, "compact"),
+            validate_profile.validate_profile(
+                ROOT / "README.md",
+                validate_profile.STRUCTURAL_LINE_CEILING,
+                "compact",
+                validate_profile.READING_WORD_BUDGET,
+            ),
             [],
         )
         self.assertEqual(
             validate_profile.validate_profile(
-                ROOT / "README_EXPANDED.md", 300, "expanded"
+                ROOT / "README_EXPANDED.md",
+                validate_profile.STRUCTURAL_LINE_CEILING,
+                "expanded",
+                validate_profile.READING_WORD_BUDGET,
             ),
             [],
         )
