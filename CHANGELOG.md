@@ -5,7 +5,7 @@ The profile follows Semantic Versioning: major for a structural identity or
 presentation generation, minor for a contained feature or visual upgrade, and
 patch for a narrow correction.
 
-## [2.10.0] — 2026-09-14 · Reading Budget Edition — release candidate
+## [2.10.0] — 2026-09-14 · Reading Budget Edition — released
 
 ### Changed
 

@@ -3,7 +3,7 @@
   "release": {
     "title": "Profile 2.10.0 — Reading Budget Edition",
     "tag": "v2.10.0",
-    "status": "release-candidate",
+    "status": "released",
     "prepared_on": "2026-09-14",
     "baseline": "Profile 2.9.0 — Visible Evidence Edition",
     "summary": "The profile was capped at 300 physical lines, and 61 percent of them were markup or blank: a picture cost four lines and no reading at all. Reading is now measured in prose words, the line cap becomes a looser structural ceiling, and the room it frees shows NovaFit without a click.",
