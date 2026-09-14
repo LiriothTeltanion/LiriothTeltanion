@@ -91,6 +91,7 @@ NOVAFIT_MEDIA_FIELDS = (
     "public_data_boundary",
     "reduced_motion_static",
     "static",
+    "static_alt",
 )
 NOVA_MUSIC_SYNC_FIELDS = (
     "captured_on",
@@ -720,7 +721,7 @@ def _validate_profile_data(data: Mapping[str, Any]) -> None:
         "profile.projects[NovaFit].media",
         NOVAFIT_MEDIA_FIELDS,
     )
-    for field in ("alt", "caption", "description", "public_data_boundary"):
+    for field in ("alt", "caption", "description", "public_data_boundary", "static_alt"):
         _require_text(media[field], f"profile.projects[NovaFit].media.{field}")
     for field in ("animation", "mobile_static", "reduced_motion_static", "static"):
         _require_asset_path(media[field], f"profile.projects[NovaFit].media.{field}")
@@ -1415,7 +1416,13 @@ def _render_novafit_spotlights(project: Mapping[str, Any]) -> list[str]:
     release_audit = sync["release_audit"]
     manifest_source = sync["source"]
     live_demo = project["demo"]
+    # Igual que en Ivrit Sheli desde la 2.9.0: GitHub renderiza <details> cerrado,
+    # asi que la captura fija va fuera y el tour animado se queda dentro.
     return [
+        "<picture>",
+        f'  <img src="./{media["static"]}" width="100%" alt="{media["static_alt"]}" />',
+        "</picture>",
+        "",
         "<details>",
         (
             f"<summary><strong>💙 Open the NovaFit {version} product tour and "

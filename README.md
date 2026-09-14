@@ -1,4 +1,4 @@
-<!-- profile-version: 2.9.0; release-tag: v2.9.0; release-title: Profile 2.9.0 — Visible Evidence Edition -->
+<!-- profile-version: 2.10.0; release-tag: v2.10.0; release-title: Profile 2.10.0 — Reading Budget Edition -->
 
 <a id="top"></a>
 <div align="center">
@@ -111,6 +111,10 @@ Five import families become one deduplicated, source-aware listening history. Mi
 **Problem → solution:** Daily wellness data should remain portable, understandable and private. A local-first Windows wellness intelligence studio with isolated profiles, English, Spanish and Hebrew RTL, efficient motion, explainable analytics, complete verified backups and one-click self-repair.<br>
 **Evidence:** 124 discovered automated tests, 12 themes, EN/ES/HE RTL UX, verified complete backups, 58 public visual assets, one-click verification and strict release audit · **Role signal:** Python application architecture · desktop UX · SQLite migrations · i18n/RTL · analytics · release engineering<br>
 [Open NovaFit live demo](https://liriothteltanion.github.io/NovaFit/) · [NovaFit source](https://github.com/LiriothTeltanion/NovaFit)
+
+<picture>
+  <img src="./assets/novafit-product-tour-static.png" width="100%" alt="NovaFit 4.2.0 Wellness Command Center from the seeded public demo: consistency, tracked days, coverage and step tiles above charts for movement, hydration, mood check-ins and a weekday consistency field" />
+</picture>
 
 <details>
 <summary><strong>💙 Open the NovaFit 4.2.0 product tour and verified evidence</strong></summary>

@@ -91,7 +91,7 @@ Then run both project drift checks and the full profile validation:
 ```powershell
 python scripts/sync_ivrit_sheli.py --check
 python scripts/sync_novafit.py --check
-python scripts/validate_profile.py --readme README.md --max-lines 300 --mode compact --check-localized
+python scripts/validate_profile.py --readme README.md --mode compact --check-localized
 python -m unittest discover -s tests -v
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/profile/verify-profile.ps1
 git diff --check

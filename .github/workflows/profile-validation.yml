@@ -47,8 +47,8 @@ jobs:
       - name: Validate compact, expanded and localized profiles
         shell: pwsh
         run: |
-          python scripts/validate_profile.py --readme README.md --max-lines 300 --mode compact --check-localized
-          python scripts/validate_profile.py --readme README_EXPANDED.md --max-lines 300 --mode expanded
+          python scripts/validate_profile.py --readme README.md --mode compact --check-localized
+          python scripts/validate_profile.py --readme README_EXPANDED.md --mode expanded
 
       # Que la etiqueta de publicacion nombre ESTE commit solo se puede responder
       # en main una vez subida la etiqueta. En una rama de trabajo o en una pull
