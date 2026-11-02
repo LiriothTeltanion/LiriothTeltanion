@@ -29,6 +29,15 @@ class ScanAddedLinesTest(unittest.TestCase):
         self.assertEqual(wh.scan_added_lines("tool.py", "+# Fix the catalog so the tests pass\n"), [])
 
 
+class StaleAfterDaysTest(unittest.TestCase):
+    def test_dependabot_majors_get_a_month_of_margin(self):
+        self.assertEqual(wh.stale_after_days({"user": {"login": "dependabot[bot]"}}), 35)
+
+    def test_other_pull_requests_keep_two_weeks(self):
+        self.assertEqual(wh.stale_after_days({"user": {"login": "LiriothTeltanion"}}), 14)
+        self.assertEqual(wh.stale_after_days({}), 14)
+
+
 class RenderTest(unittest.TestCase):
     def test_clean_week_reads_green(self):
         text = wh.render([wh.RepoReport("CV", ci="green")], 8)
