@@ -149,6 +149,9 @@ def check_repo(gh: GitHub, repo: str, since: dt.datetime, now: dt.datetime) -> R
         w["id"]: w["path"]
         for w in gh.get(f"{base}/actions/workflows?per_page=100").get("workflows", [])
         if w.get("state") == "active"
+        # This check exits red whenever it finds something, so counting its own
+        # last run would keep it red forever.
+        and not w["path"].endswith("/weekly-health.yml")
     }
     runs = gh.get(f"{base}/actions/runs?branch=main&per_page=50&exclude_pull_requests=true").get("workflow_runs", [])
     latest: dict[int, dict] = {}
