@@ -1,4 +1,4 @@
-<!-- profile-version: 2.10.0; release-tag: v2.10.0; release-title: Profile 2.10.0 — Reading Budget Edition -->
+<!-- profile-version: 2.11.0; release-tag: v2.11.0; release-title: Profile 2.11.0 — Painted Scenes Edition -->
 
 <a id="top"></a>
 <div align="center">
@@ -37,9 +37,9 @@ I’m **Kevin Cusnir**, born in **San Cristóbal, Venezuela** and now based in *
 | What I can prove publicly | Strongest evidence |
 |---|---|
 | React and TypeScript product work | Nova Music Lab, Ivrit Sheli and Christopher Rodríguez Portfolio |
-| Full-stack, Python and data persistence | Ivrit Sheli v2.12.3 with FastAPI/PostgreSQL; NovaFit v4.2.0 with Python/SQLite |
+| Full-stack, Python and data persistence | Ivrit Sheli v2.13.0 with FastAPI/PostgreSQL; NovaFit v4.2.0 with Python/SQLite |
 | Data, accessibility and multilingual UX | Honest source-aware analytics; EN/ES/HE, RTL, keyboard and reduced-motion work |
-| Delivery discipline | 1246-test full-stack proof, Docker, CI, live deployments, bundle budgets and release checks |
+| Delivery discipline | 1530-test full-stack proof, Docker, CI, live deployments, bundle budgets and release checks |
 
 **Review path:** **30 seconds**: Read the snapshot and role positioning · **2 minutes**: Open Nova Music Lab and Ivrit Sheli · **5 minutes**: Inspect tests, CI, security architecture and recent releases · **15 minutes**: Run Ivrit Sheli or NovaFit, or explore the live music museum.
 
@@ -81,28 +81,28 @@ Five import families become one deduplicated, source-aware listening history. Mi
 
 ### א Ivrit Sheli
 
-**Status:** 2.12.3 private candidate · staging demo on render-free · **Stack:** React 19 · TypeScript · FastAPI · Python · PostgreSQL 17 · SQLite · Alembic · Docker<br>
-**Problem → solution:** Hebrew learners need focused practice, progress and multilingual guidance without surrendering private study data or depending on a fragile cloud service. The 2.12.3 source of a trilingual Hebrew-learning PWA with 240 exact semantic scenes, clearer counting visuals, Alphabet Studio and deterministic coaching, published on main and running as a private-pilot staging service on Render Free. The latest tagged source release remains v2.12.2.<br>
-**Evidence:** 387 backend + 859 frontend = 1246 tests on the 2.12.3 source; a staging demo verified on 2026-09-12 at render-free; the published release remains v2.12.2 while 2.12.3 is a private candidate. Historical 2.4.0 production evidence verified identity-only Google sign-in, reload continuity, logout and signed-out persistence on 2026-07-21. It does not prove current hosted availability, a live GitHub session, re-login after logout, provider connector calls, two-real-user isolation or backup restoration. · **Role signal:** Full-stack architecture · backend security · PostgreSQL ownership · integration testing · multilingual RTL UX<br>
+**Status:** 2.13.0 private candidate · staging demo on render-free · **Stack:** React 19 · TypeScript · FastAPI · Python · PostgreSQL 17 · SQLite · Alembic · Docker<br>
+**Problem → solution:** Hebrew learners need focused practice, progress and multilingual guidance without surrendering private study data or depending on a fragile cloud service. Private 2.13.0 candidate: painted gouache settings for 157 of 165 paintable scenes, one family of animated adults across all 240 exact scenes, and profile-saved theme and language. Free Render staging for a private pilot.<br>
+**Evidence:** 434 backend + 1096 frontend = 1530 tests on the 2.13.0 source; a staging demo verified on 2026-11-02 at render-free; the published release remains v2.12.2 while 2.13.0 is a private candidate. Historical 2.4.0 production evidence verified identity-only Google sign-in, reload continuity, logout and signed-out persistence on 2026-07-21. It does not prove current hosted availability, a live GitHub session, re-login after logout, provider connector calls, two-real-user isolation or backup restoration. · **Role signal:** Full-stack architecture · backend security · PostgreSQL ownership · integration testing · multilingual RTL UX<br>
 [Open Ivrit Sheli live demo](https://ivrit-sheli.onrender.com) · [Ivrit Sheli source](https://github.com/LiriothTeltanion/IvritSheli)
 
 <picture>
-  <source media="(max-width: 640px)" srcset="./assets/ivrit-sheli-2123-today-phone.png" />
-  <img src="./assets/ivrit-sheli-2123-today-desktop.png" width="100%" alt="Ivrit Sheli 2.12.3 Today screen in Spanish on a dark desktop layout: a saved-progress greeting, a semantic scene card pairing two coffee cups with the Hebrew word shtayim, and daily streak, level and accuracy tiles" />
+  <source media="(max-width: 640px)" srcset="./assets/ivrit-sheli-2130-today-phone.png" />
+  <img src="./assets/ivrit-sheli-2130-today-desktop.png" width="100%" alt="Ivrit Sheli 2.13.0 Today screen in English on a dark desktop layout: a Shalom greeting over a painted evening street, the painted word card for ani maskim (I agree), and daily streak, level and accuracy tiles" />
 </picture>
-<p><strong>Current Ivrit Sheli 2.12.3 interface:</strong> The desktop Today screen in Spanish. The phone layout, the Hebrew RTL frame and the moving tour are one click below. <strong>Visual evidence boundary:</strong> These are the reviewed captures the project publishes for its 2.12.3 source, taken on 2026-08-27 at commit ea8aff866e6a. The full browser matrix, provider verification and deployment remain separate gates upstream.</p>
+<p><strong>Current Ivrit Sheli 2.13.0 interface:</strong> The desktop Today screen in English, now over painted scenes. The phone layout, the Hebrew RTL frame and a ten-second tour of the painted word scenes are one click below. <strong>Visual evidence boundary:</strong> These are the reviewed captures the project publishes for its 2.13.0 source, taken on 2026-11-02 at commit 1ff60b9ec910. The full browser matrix, provider verification and deployment remain separate gates upstream.</p>
 
 <details>
-<summary><strong>א Open the current Ivrit Sheli 2.12.3 product tour and verified full-stack proof</strong></summary>
-<p><strong>Public-data boundary:</strong> The sanitized live captures use Kevin's isolated account and show his already-public name/avatar plus default recommendations (12 words, one oral practice and 10 minutes); they contain no private study history, credential, token, provider result or production database record.</p>
+<summary><strong>א Open the current Ivrit Sheli 2.13.0 product tour and verified full-stack proof</strong></summary>
+<p><strong>Public-data boundary:</strong> The captures use a fresh, generic local learner: no personal name, account, avatar, study history, credential, token, provider result or production database record. The capture tool refuses to write a frame otherwise.</p>
 <picture>
-  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/ivrit-sheli-2123-today-phone.png" />
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/ivrit-sheli-2123-today-desktop.png" />
-  <img src="./assets/ivrit-sheli-2123-tour.gif" width="100%" alt="Ivrit Sheli 2.12.3 product tour moving through the Today screen, the semantic scene cards and the guided first lesson" />
+  <source media="(max-width: 640px) and (prefers-reduced-motion: reduce)" srcset="./assets/ivrit-sheli-2130-today-phone.png" />
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/ivrit-sheli-2130-today-desktop.png" />
+  <img src="./assets/ivrit-sheli-2130-tour.gif" width="100%" alt="Ivrit Sheli 2.13.0 ten-second tour that plays once: the English Today screen, twelve painted word scenes, the Alphabet Studio, the linked dictionary and the Hebrew right-to-left Today screen" />
 </picture>
-<p><strong>2.12.3 evidence:</strong> 387 backend + 859 frontend = 1246 tests · staging demo on render-free, checked 2026-09-12 · tenant RLS · Alembic · non-root Docker · redacted structured JSON logs. The retired Railway 2.4.0 deployment is offline; its release implementation commit was <code>03bf84b9268f</code>.</p>
-<p><strong>Publication boundary:</strong> the 2.12.3 source is a private candidate; the latest Git tag and GitHub release remain v2.12.2.</p>
-<p><a href="https://github.com/LiriothTeltanion/IvritSheli">Inspect the Ivrit Sheli source</a> · <a href="https://github.com/LiriothTeltanion/IvritSheli/blob/main/TEST_REPORT.md">Review the test contract</a> · <a href="./data/project-snapshots/ivrit-sheli.json">Inspect the reviewed upstream project snapshot</a> · <a href="./assets/ivrit-sheli-2123-today-hebrew-rtl.png">Open the current Hebrew RTL frame</a> · <a href="https://ivrit-sheli.onrender.com">Open the staging deployment</a></p>
+<p><strong>2.13.0 evidence:</strong> 434 backend + 1096 frontend = 1530 tests · staging demo on render-free, checked 2026-11-02 · tenant RLS · Alembic · non-root Docker · redacted structured JSON logs. The retired Railway 2.4.0 deployment is offline; its release implementation commit was <code>03bf84b9268f</code>.</p>
+<p><strong>Publication boundary:</strong> the 2.13.0 source is a private candidate; the latest Git tag and GitHub release remain v2.12.2.</p>
+<p><a href="https://github.com/LiriothTeltanion/IvritSheli">Inspect the Ivrit Sheli source</a> · <a href="https://github.com/LiriothTeltanion/IvritSheli/blob/main/TEST_REPORT.md">Review the test contract</a> · <a href="./data/project-snapshots/ivrit-sheli.json">Inspect the reviewed upstream project snapshot</a> · <a href="./assets/ivrit-sheli-2130-today-hebrew-rtl.png">Open the current Hebrew RTL frame</a> · <a href="https://ivrit-sheli.onrender.com">Open the staging deployment</a></p>
 </details>
 
 ### 💙 NovaFit
