@@ -189,7 +189,7 @@ class ReleaseIntegrityVerifierTests(unittest.TestCase):
             self.assertIn("the tag remains outstanding", tolerated.stdout)
             self.assertNotIn("Release integrity confirmed", tolerated.stdout)
 
-            # Sin el interruptor, el mismo estado sigue siendo un fallo.
+            # Without the switch, the same state is still a failure.
             strict = self.verify(repository)
             self.assertNotEqual(strict.returncode, 0)
 
