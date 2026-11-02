@@ -11,14 +11,14 @@ patch for a narrow correction.
 
 - **Ivrit Sheli shows its 2.13.0 interface.** The desktop Today screen, the phone
   layout, the Hebrew RTL frame and the tour are the reviewed 2.13.0 captures the
-  project publishes, taken on 2026-11-02 at commit `ed08c188a2e5` from a clean
-  tree. The 2.12.3 frames stay in `assets/` as history.
+  project publishes, taken on 2026-11-02 at commit `1ff60b9ec910` from a clean
+  tree, in English with the Hebrew RTL frame. The 2.12.3 frames stay in `assets/` as history.
 - The tour now plays once in ten seconds and includes the painted word scenes, so
   the image shows what changed in 2.13.0 rather than only the dashboards.
 - Captures use a fresh, generic local learner: the public-data boundary now says
   so instead of describing Kevin's isolated live account.
-- Facts synchronized from the upstream manifest: 434 backend + 1094 frontend =
-  1528 tests, and the staging service rechecked on 2026-11-02 after a manual
+- Facts synchronized from the upstream manifest: 434 backend + 1096 frontend =
+  1530 tests, and the staging service rechecked on 2026-11-02 after a manual
   redeploy of 2.13.0. Spanish and Hebrew profiles carry the same facts; the new
   Hebrew sentences have not had a native-speaker review yet.
 
