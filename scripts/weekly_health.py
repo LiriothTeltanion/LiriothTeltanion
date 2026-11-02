@@ -43,6 +43,9 @@ REPOS = (
 )
 FAILED_CONCLUSIONS = {"failure", "timed_out", "startup_failure"}
 STALE_PR_DAYS = 14
+# Major Dependabot updates are reviewed one per week on purpose, so a batch of
+# five or six stays open for a month. They turn red only after this margin.
+STALE_DEPENDABOT_PR_DAYS = 35
 # Commits a person reviewed whose findings are known false positives. The
 # commit that added this scanner contains its own example key and path.
 REVIEWED_COMMITS = {
@@ -94,6 +97,19 @@ def looks_spanish(text: str) -> bool:
     spanish = len(SPANISH_WORDS.findall(text))
     english = len(ENGLISH_WORDS.findall(text))
     return spanish >= 3 and spanish > english * 1.2
+
+
+def stale_after_days(pr: dict) -> int:
+    """Days an open pull request may wait before it needs attention.
+
+    >>> stale_after_days({"user": {"login": "dependabot[bot]"}})
+    35
+    >>> stale_after_days({"user": {"login": "LiriothTeltanion"}})
+    14
+    """
+    if pr.get("user", {}).get("login") == "dependabot[bot]":
+        return STALE_DEPENDABOT_PR_DAYS
+    return STALE_PR_DAYS
 
 
 def scan_added_lines(filename: str, patch: str) -> list[str]:
@@ -182,7 +198,7 @@ def check_repo(gh: GitHub, repo: str, since: dt.datetime, now: dt.datetime) -> R
         created = dt.datetime.fromisoformat(pr["created_at"].replace("Z", "+00:00"))
         age = (now - created).days
         label = f"PR #{pr['number']} \"{pr['title']}\" open for {age} days"
-        if age >= STALE_PR_DAYS:
+        if age >= stale_after_days(pr):
             report.problems.append(label)
         else:
             report.notes.append(label)
