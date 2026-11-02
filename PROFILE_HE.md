@@ -1,6 +1,6 @@
 # Kevin Cusnir · Lirioth Teltanion ✨
 
-<!-- canonical-project-facts: profile=2.11.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.13.0; ivrit_status=private-candidate; ivrit_published=v2.12.2; ivrit_backend=434; ivrit_frontend=1096; ivrit_total=1530; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.13.0; ivrit_media_current=true; ivrit_capture_commit=1ff60b9ec910eb4cf212922ebfef3a203e790ea7; novafit=4.2.0 -->
+<!-- canonical-project-facts: profile=2.11.1; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.13.0; ivrit_status=published-source-release; ivrit_published=v2.13.0; ivrit_backend=434; ivrit_frontend=1096; ivrit_total=1530; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.13.0; ivrit_media_current=true; ivrit_capture_commit=1ff60b9ec910eb4cf212922ebfef3a203e790ea7; novafit=4.2.0 -->
 
 [English](./README.md) · [Español](./PROFILE_ES.md) · **עברית**
 
@@ -26,8 +26,8 @@
 
 - [פתיחת הדמו הציבורי](https://ivrit-sheli.onrender.com)
 - [קוד מקור והוראות הרצה](https://github.com/LiriothTeltanion/IvritSheli)
-- הדמו רץ על **Render**, תוכנית `render-free`, באזור פרנקפורט, בתור **staging של פיילוט פרטי ולא production**. נבדק שוב ב־2 בנובמבר 2026, לאחר פריסה ידנית של 2.13.0: גרסה וקומיט נכונים, PostgreSQL מוכן, מילון של 240 ערכים, ‏CSP מחמירה ו־HSTS. ההפניה ל־Google עם PKCE מתחילה כראוי; כניסה מלאה בפריסה הזו עדיין לא נבדקה. התוכנית החינמית נכנסת לשינה, ולכן הטעינה הראשונה עשויה לקחת דקות.
-- **2.13.0 הוא מועמד פרטי**: הגרסה האחרונה שפורסמה היא v2.12.2, ותג ה־Git וה־GitHub Release תואמים לה. ‏session חי ומוצלח עם GitHub OAuth והתחברות מחדש לאחר logout עדיין ממתינים לאימות E2E.
+- הדמו רץ על **Render**, תוכנית `render-free`, באזור פרנקפורט, בתור **staging של פיילוט פרטי ולא production**. נפרס ידנית ב־2 בנובמבר 2026 עם 2.13.0 (קומיט ‏`9d64fc7`) ונבדק שוב ב־3 בנובמבר 2026: גרסה וקומיט נכונים, PostgreSQL מוכן, מילון של 240 ערכים, ‏CSP מחמירה ו־HSTS. כניסה עם Google הושלמה ידנית בפריסה הזו. התוכנית החינמית נכנסת לשינה, ולכן הטעינה הראשונה עשויה לקחת דקות.
+- **2.13.0 היא הגרסה שפורסמה**: קוד המקור, תג ה־Git וה־GitHub Release תואמים ל־v2.13.0. ‏session חי ומוצלח עם GitHub OAuth והתחברות מחדש לאחר logout עדיין ממתינים לאימות E2E.
 - ה־GIF והצילומים הם **הצילומים המאומתים של 2.13.0** שהפרויקט עצמו מפרסם, שצולמו ב־2 בנובמבר 2026 בקומיט ‏`1ff60b9ec910` עם לומד מקומי כללי, בלי שם או התקדמות אישית. הם עברו בדיקת פרטיות, בדיקת hash ובדיקת זהות בתים לפני הפרסום. מטריצת הדפדפן המלאה ואימות הספקים נותרו שערים נפרדים. אין בהם היסטוריית לימוד פרטית, tokens או רשומות production. הפריסה ההיסטורית ב־**Railway כבויה**.
 
 ### 💙 NovaFit

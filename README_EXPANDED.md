@@ -1,4 +1,4 @@
-<!-- profile-version: 2.11.0; release-tag: v2.11.0; release-title: Profile 2.11.0 — Painted Scenes Edition -->
+<!-- profile-version: 2.11.1; release-tag: v2.11.1; release-title: Profile 2.11.1 — Ivrit Sheli Release Edition -->
 
 <a id="top"></a>
 <div align="center">
@@ -81,9 +81,9 @@ Five import families become one deduplicated, source-aware listening history. Mi
 
 ### א Ivrit Sheli
 
-**Status:** 2.13.0 private candidate · staging demo on render-free · **Stack:** React 19 · TypeScript · FastAPI · Python · PostgreSQL 17 · SQLite · Alembic · Docker<br>
-**Problem → solution:** Hebrew learners need focused practice, progress and multilingual guidance without surrendering private study data or depending on a fragile cloud service. Private 2.13.0 candidate: painted gouache settings for 157 of 165 paintable scenes, one family of animated adults across all 240 exact scenes, and profile-saved theme and language. Free Render staging for a private pilot.<br>
-**Evidence:** 434 backend + 1096 frontend = 1530 tests on the 2.13.0 source; a staging demo verified on 2026-11-02 at render-free; the published release remains v2.12.2 while 2.13.0 is a private candidate. Historical 2.4.0 production evidence verified identity-only Google sign-in, reload continuity, logout and signed-out persistence on 2026-07-21. It does not prove current hosted availability, a live GitHub session, re-login after logout, provider connector calls, two-real-user isolation or backup restoration. · **Role signal:** Full-stack architecture · backend security · PostgreSQL ownership · integration testing · multilingual RTL UX<br>
+**Status:** 2.13.0 published source release · staging demo on render-free · **Stack:** React 19 · TypeScript · FastAPI · Python · PostgreSQL 17 · SQLite · Alembic · Docker<br>
+**Problem → solution:** Hebrew learners need focused practice, progress and multilingual guidance without surrendering private study data or depending on a fragile cloud service. Published 2.13.0 source release: painted gouache settings for 157 of 165 paintable scenes, one family of animated adults across all 240 exact scenes, and profile-saved theme and language. Free Render staging for a private pilot.<br>
+**Evidence:** 434 backend + 1096 frontend = 1530 tests on the 2.13.0 source; a staging demo verified on 2026-11-03 at render-free; published as v2.13.0. Historical 2.4.0 production evidence verified identity-only Google sign-in, reload continuity, logout and signed-out persistence on 2026-07-21. It does not prove current hosted availability, a live GitHub session, re-login after logout, provider connector calls, two-real-user isolation or backup restoration. · **Role signal:** Full-stack architecture · backend security · PostgreSQL ownership · integration testing · multilingual RTL UX<br>
 [Open Ivrit Sheli live demo](https://ivrit-sheli.onrender.com) · [Ivrit Sheli source](https://github.com/LiriothTeltanion/IvritSheli)
 
 <picture>
@@ -100,8 +100,8 @@ Five import families become one deduplicated, source-aware listening history. Mi
   <source media="(prefers-reduced-motion: reduce)" srcset="./assets/ivrit-sheli-2130-today-desktop.png" />
   <img src="./assets/ivrit-sheli-2130-tour.gif" width="100%" alt="Ivrit Sheli 2.13.0 ten-second tour that plays once: the English Today screen, twelve painted word scenes, the Alphabet Studio, the linked dictionary and the Hebrew right-to-left Today screen" />
 </picture>
-<p><strong>2.13.0 evidence:</strong> 434 backend + 1096 frontend = 1530 tests · staging demo on render-free, checked 2026-11-02 · tenant RLS · Alembic · non-root Docker · redacted structured JSON logs. The retired Railway 2.4.0 deployment is offline; its release implementation commit was <code>03bf84b9268f</code>.</p>
-<p><strong>Publication boundary:</strong> the 2.13.0 source is a private candidate; the latest Git tag and GitHub release remain v2.12.2.</p>
+<p><strong>2.13.0 evidence:</strong> 434 backend + 1096 frontend = 1530 tests · staging demo on render-free, checked 2026-11-03 · tenant RLS · Alembic · non-root Docker · redacted structured JSON logs. The retired Railway 2.4.0 deployment is offline; its release implementation commit was <code>03bf84b9268f</code>.</p>
+<p><strong>Publication boundary:</strong> the source, Git tag and GitHub Release agree on v2.13.0.</p>
 <p><a href="https://github.com/LiriothTeltanion/IvritSheli">Inspect the Ivrit Sheli source</a> · <a href="https://github.com/LiriothTeltanion/IvritSheli/blob/main/TEST_REPORT.md">Review the test contract</a> · <a href="./data/project-snapshots/ivrit-sheli.json">Inspect the reviewed upstream project snapshot</a> · <a href="./assets/ivrit-sheli-2130-today-hebrew-rtl.png">Open the current Hebrew RTL frame</a> · <a href="https://ivrit-sheli.onrender.com">Open the staging deployment</a></p>
 </details>
 

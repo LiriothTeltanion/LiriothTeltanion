@@ -247,10 +247,11 @@ class IvritSheliSyncTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "refusing to label it"):
             sync_ivrit_sheli.validate_manifest(unknown_state)
 
-        optimistic_release = valid_manifest()
-        optimistic_release["publication"]["source_version_tagged"] = True
+        half_release = valid_manifest()
+        tagged = half_release["publication"]["source_version_tagged"]
+        half_release["publication"]["source_version_tagged"] = not tagged
         with self.assertRaisesRegex(ValueError, "must be both, at that version"):
-            sync_ivrit_sheli.validate_manifest(optimistic_release)
+            sync_ivrit_sheli.validate_manifest(half_release)
 
     def test_same_version_remote_cannot_regress_reviewed_publication(self) -> None:
         reviewed = sync_ivrit_sheli.validate_manifest(valid_manifest())

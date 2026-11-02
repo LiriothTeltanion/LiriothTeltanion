@@ -427,7 +427,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
             "Current Ivrit Sheli 2.13.0 interface",
             "the reviewed captures the project publishes for its 2.13.0 source",
             "a live GitHub session",
-            "the latest Git tag and GitHub release remain v2.12.2",
+            "the source, Git tag and GitHub Release agree on v2.13.0",
             "https://ivrit-sheli.onrender.com",
             "[א Ivrit Sheli live](https://ivrit-sheli.onrender.com)",
             "Open Ivrit Sheli live demo",
@@ -526,7 +526,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
         )
         self.assertEqual(
             projects["Ivrit Sheli"]["status"],
-            "2.13.0 private candidate · staging demo on render-free",
+            "2.13.0 published source release · staging demo on render-free",
         )
         self.assertEqual(projects["Ivrit Sheli"]["release_evidence"]["version"], "2.13.0")
         self.assertEqual(projects["Ivrit Sheli"]["release_evidence"]["total_tests"], 1530)

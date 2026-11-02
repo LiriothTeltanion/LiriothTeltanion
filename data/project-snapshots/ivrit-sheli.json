@@ -3,18 +3,18 @@
   "slug": "ivrit-sheli",
   "name": "Ivrit Sheli — העברית שלי",
   "source_version": "2.13.0",
-  "source_status": "private-candidate",
-  "latest_published_release": "v2.12.2",
+  "source_status": "published-source-release",
+  "latest_published_release": "v2.13.0",
   "default_branch": "main",
   "repository_url": "https://github.com/LiriothTeltanion/IvritSheli",
   "durable_demo": {
     "url": "https://ivrit-sheli.onrender.com",
     "status": "staging-verified",
     "provider": "render-free",
-    "last_checked_on": "2026-11-02",
-    "boundary": "A free Render service runs the private candidate source as staging for a private pilot, not as production. Redeployed by hand from main at 7a4756a on 2026-11-02 and rechecked that day: /version reporting 2.13.0 at that commit, /health/ready with postgresql true and a 240-entry dictionary, the strict CSP and HSTS headers, painted scenes served under img-src 'self', and a Google OAuth redirect that starts correctly; a completed sign-in on this deploy has not been run. It runs in Frankfurt since 2026-09-12, when /health/live answered in 0.149 s and the session cookie was Secure, HttpOnly and SameSite=lax. The free plan sleeps after 15 minutes and the wake-up varies (38.6 s and 218 s on the same day), so a first request can take minutes: wait before concluding it is down. The human Hebrew-content and first-learner gates remain open, no v2.12.3 or v2.13.0 tag exists, and the historical Railway service is offline."
+    "last_checked_on": "2026-11-03",
+    "boundary": "A free Render service runs the 2.13.0 source as staging for a private pilot, not as production. Redeployed by hand from main at 9d64fc7 on 2026-11-02 and checked that day: /version reporting 2.13.0 at that commit, /health/ready with postgresql true and a 240-entry dictionary, the strict CSP and HSTS headers, painted scenes served under img-src 'self', and a Google sign-in completed by hand. Rechecked on 2026-11-03. It runs in Frankfurt since 2026-09-12, when /health/live answered in 0.149 s and the session cookie was Secure, HttpOnly and SameSite=lax. The free plan sleeps after 15 minutes and the wake-up varies (38.6 s and 218 s on the same day), so a first request can take minutes: wait before concluding it is down. The human Hebrew-content and first-learner gates remain open, and the historical Railway service is offline."
   },
-  "summary": "Private 2.13.0 candidate: painted gouache settings for 157 of 165 paintable scenes, one family of animated adults across all 240 exact scenes, and profile-saved theme and language. Free Render staging for a private pilot.",
+  "summary": "Published 2.13.0 source release: painted gouache settings for 157 of 165 paintable scenes, one family of animated adults across all 240 exact scenes, and profile-saved theme and language. Free Render staging for a private pilot.",
   "languages": [
     "en",
     "es",
@@ -36,7 +36,7 @@
   ],
   "tests": {
     "version": "2.13.0",
-    "scope": "private-candidate-local-verification",
+    "scope": "published-source-release-local-verification",
     "backend_unique": 434,
     "frontend": 1096,
     "frontend_files": 58,
@@ -68,15 +68,15 @@
     "current_http_status": 404
   },
   "publication": {
-    "latest_git_tag": "v2.12.2",
-    "latest_github_release": "v2.12.2",
-    "source_version_tagged": false,
-    "source_version_github_release_published": false,
-    "release_state": "2.13.0-private-candidate-staging-verified"
+    "latest_git_tag": "v2.13.0",
+    "latest_github_release": "v2.13.0",
+    "source_version_tagged": true,
+    "source_version_github_release_published": true,
+    "release_state": "2.13.0-published-source-release-staging-verified"
   },
   "candidate": {
     "version": "2.13.0",
-    "published": false,
+    "published": true,
     "coverage": "Structured A0-A2 with an explicitly experimental B1/B2 Lab",
     "reviewed_concepts": 240,
     "learner_experiences": [
@@ -96,14 +96,14 @@
     "alphabet_progress_persistent": true,
     "public_google_scope": "openid profile",
     "local_mode_without_account": true,
-    "verification": "Private 2.13.0 local illustration pilot. TEST_REPORT.md records checks actually run for this source; historical 2.12.3 hosting and README screenshots are not current-candidate evidence.",
-    "release_gate": "The 2.13.0 candidate is local and unpublished. Human visual recognition, Hebrew acceptance, the mother pilot, current provider checks and isolated staging verification remain separate gates."
+    "verification": "Published 2.13.0 source release. TEST_REPORT.md records checks actually run for this source; historical 2.12.3 hosting and README screenshots are not current evidence.",
+    "release_gate": "Kevin approved the 2.13.0 source release with human visual recognition, the native-speaker review of the new Hebrew strings and the first-learner pilot still open. Staging is a private pilot, not production."
   },
   "visual_proof": {
-    "state": "Private 2.13.0 candidate: 240 exact semantic scenes; 157 of 165 paintable scenes on painted settings, one shared family of adults. README proof (five WebP captures and a non-looping tour GIF) captured locally from a clean commit on 2026-11-02.",
-    "social_preview_version": "2.12.2",
+    "state": "Published 2.13.0 source release: 240 exact semantic scenes; 157 of 165 paintable scenes on painted settings, one shared family of adults. README proof (five WebP captures and a non-looping tour GIF) captured locally from a clean commit on 2026-11-02.",
+    "social_preview_version": "2.13.0",
     "readme_screenshot_source_version": "2.13.0",
-    "readme_screenshot_status": "candidate",
+    "readme_screenshot_status": "verified-current",
     "interactive_browser_qa": "The 240-scene catalog includes the six-scene 2.13.0 local pilot. The 2.13.0 README proof was captured from a fresh generic local learner on 2026-11-02 and reviewed in colour and grayscale; the 2.12.3 and 2.12.2 sets stay preserved as history. See docs/LIVING_SCENES_PILOT.md for scoped browser verification."
   },
   "oauth": {

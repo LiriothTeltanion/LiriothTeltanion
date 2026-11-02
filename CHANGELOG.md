@@ -5,6 +5,18 @@ The profile follows Semantic Versioning: major for a structural identity or
 presentation generation, minor for a contained feature or visual upgrade, and
 patch for a narrow correction.
 
+## [2.11.1] — 2026-11-03 · Ivrit Sheli Release Edition — release candidate
+
+### Changed
+
+- **Ivrit Sheli 2.13.0 is published.** The spotlight now reads it as the `v2.13.0`
+  GitHub source release, with the tag and the GitHub Release in agreement, instead
+  of a private candidate behind `v2.12.2`.
+- Facts synchronized from the upstream manifest: the staging service runs
+  `9d64fc7`, the same 2.13.0 product, was rechecked on 2026-11-03, and a Google
+  sign-in was completed on it by hand. Spanish and Hebrew carry the same facts; the
+  new Hebrew sentences have not had a native-speaker review yet.
+
 ## [2.11.0] — 2026-11-02 · Painted Scenes Edition — released
 
 ### Changed
