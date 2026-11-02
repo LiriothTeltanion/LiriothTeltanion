@@ -43,6 +43,11 @@ REPOS = (
 )
 FAILED_CONCLUSIONS = {"failure", "timed_out", "startup_failure"}
 STALE_PR_DAYS = 14
+# Commits a person reviewed whose findings are known false positives. The
+# commit that added this scanner contains its own example key and path.
+REVIEWED_COMMITS = {
+    ("LiriothTeltanion", "b535961be52f243903d82587c293e61d26465ef9"),
+}
 
 SECRET_PATTERNS = {
     "private key": re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH |DSA |PGP )?PRIVATE KEY-----"),
@@ -187,6 +192,8 @@ def check_repo(gh: GitHub, repo: str, since: dt.datetime, now: dt.datetime) -> R
         subject = commit["commit"]["message"].splitlines()[0]
         if looks_spanish(subject):
             report.problems.append(f"Spanish commit subject {commit['sha'][:7]}: \"{subject[:70]}\"")
+        if (repo, commit["sha"]) in REVIEWED_COMMITS:
+            continue
         detail = gh.get(f"{base}/commits/{commit['sha']}")
         for changed in detail.get("files", []):
             for finding in scan_added_lines(changed["filename"], changed.get("patch", "")):
