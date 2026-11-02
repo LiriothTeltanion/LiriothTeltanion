@@ -399,9 +399,9 @@ class GeneratedProfileContractTests(unittest.TestCase):
             "nova-music-live-preview-mobile.jpg",
             "nova-music-product-tour.gif",
             "nova-music-product-tour-static.jpg",
-            "ivrit-sheli-2123-tour.gif",
-            "ivrit-sheli-2123-today-phone.png",
-            "ivrit-sheli-2123-today-hebrew-rtl.png",
+            "ivrit-sheli-2130-tour.gif",
+            "ivrit-sheli-2130-today-phone.png",
+            "ivrit-sheli-2130-today-hebrew-rtl.png",
             "novafit-product-tour.gif",
             "novafit-product-tour-static.png",
             "novafit-trust-system-mobile.svg",
@@ -485,10 +485,10 @@ class GeneratedProfileContractTests(unittest.TestCase):
         )
         self.assertLess(
             content.index("nova-music-live-preview.jpg"),
-            content.index("ivrit-sheli-2123-tour.gif"),
+            content.index("ivrit-sheli-2130-tour.gif"),
         )
         self.assertLess(
-            content.index("ivrit-sheli-2123-tour.gif"),
+            content.index("ivrit-sheli-2130-tour.gif"),
             content.index("novafit-product-tour.gif"),
         )
 

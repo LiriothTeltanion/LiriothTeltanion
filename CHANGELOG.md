@@ -5,6 +5,23 @@ The profile follows Semantic Versioning: major for a structural identity or
 presentation generation, minor for a contained feature or visual upgrade, and
 patch for a narrow correction.
 
+## [2.11.0] — 2026-11-02 · Painted Scenes Edition — release candidate
+
+### Changed
+
+- **Ivrit Sheli shows its 2.13.0 interface.** The desktop Today screen, the phone
+  layout, the Hebrew RTL frame and the tour are the reviewed 2.13.0 captures the
+  project publishes, taken on 2026-11-02 at commit `ed08c188a2e5` from a clean
+  tree. The 2.12.3 frames stay in `assets/` as history.
+- The tour now plays once in ten seconds and includes the painted word scenes, so
+  the image shows what changed in 2.13.0 rather than only the dashboards.
+- Captures use a fresh, generic local learner: the public-data boundary now says
+  so instead of describing Kevin's isolated live account.
+- Facts synchronized from the upstream manifest: 434 backend + 1092 frontend =
+  1526 tests, and the staging service rechecked on 2026-11-02 after a manual
+  redeploy of 2.13.0. Spanish and Hebrew profiles carry the same facts; the new
+  Hebrew sentences have not had a native-speaker review yet.
+
 ## [2.10.0] — 2026-09-14 · Reading Budget Edition — released
 
 ### Changed

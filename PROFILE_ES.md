@@ -1,6 +1,6 @@
 # Kevin Cusnir · Lirioth Teltanion ✨
 
-<!-- canonical-project-facts: profile=2.10.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.12.3; ivrit_status=private-candidate; ivrit_published=v2.12.2; ivrit_backend=387; ivrit_frontend=859; ivrit_total=1246; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.12.3; ivrit_media_current=true; ivrit_capture_commit=ea8aff866e6a069ee4d51d7e2872af146eaa1d88; novafit=4.2.0 -->
+<!-- canonical-project-facts: profile=2.11.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.13.0; ivrit_status=private-candidate; ivrit_published=v2.12.2; ivrit_backend=434; ivrit_frontend=1092; ivrit_total=1526; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.13.0; ivrit_media_current=true; ivrit_capture_commit=ed08c188a2e5bba4e4bff144a6712140050a6bc7; novafit=4.2.0 -->
 
 [English](./README.md) · **Español** · [עברית](./PROFILE_HE.md)
 
@@ -22,13 +22,13 @@ Nací en **San Cristóbal, Venezuela**, y actualmente vivo en **Beersheba, Israe
 
 ### א Ivrit Sheli
 
-**Ivrit Sheli 2.12.3** es un producto full-stack trilingüe para aprender hebreo desde situaciones reales. Conserva un modo local privado con SQLite y añade React 19/TypeScript, FastAPI, PostgreSQL 17, Alembic, Docker y una experiencia autenticada con límites explícitos. Su base verificada suma **387 pruebas de backend + 859 de frontend = 1246 pruebas automatizadas**. La interfaz funciona en inglés, español y hebreo con RTL; el recorrido público usa datos sintéticos y mantiene desactivadas por defecto las llamadas pagadas a proveedores.
+**Ivrit Sheli 2.13.0** es un producto full-stack trilingüe para aprender hebreo desde situaciones reales. Cada palabra se enseña con una escena pintada y animada: 156 de las 165 escenas que admiten fondo pintado ya lo tienen, con versión de noche para el tema oscuro, y una misma familia de personas aparece en las 240. Conserva un modo local privado con SQLite y añade React 19/TypeScript, FastAPI, PostgreSQL 17, Alembic, Docker y una experiencia autenticada con límites explícitos. Su base verificada suma **434 pruebas de backend + 1092 de frontend = 1526 pruebas automatizadas**. La interfaz funciona en inglés, español y hebreo con RTL; el recorrido público usa datos sintéticos y mantiene desactivadas por defecto las llamadas pagadas a proveedores.
 
 - [Abrir el demo público](https://ivrit-sheli.onrender.com)
 - [Código fuente y guía de ejecución](https://github.com/LiriothTeltanion/IvritSheli)
-- El demo corre en **Render**, plan `render-free`, región Frankfurt, como **staging de un piloto privado, no como producción**. Comprobado el 12 sep 2026: health live y ready con PostgreSQL preparado, diccionario de 240 entradas, CSP estricta y acceso con Google usando PKCE. El plan gratuito duerme, así que la primera carga puede tardar minutos.
-- **2.12.3 es candidato privado**: la última versión publicada sigue siendo v2.12.2, y la etiqueta Git y el GitHub Release coinciden en esa. Una sesión live exitosa con GitHub OAuth y el reingreso después del logout siguen pendientes de verificación E2E.
-- El GIF y las capturas son las **revisadas de la 2.12.3** que publica el propio proyecto, tomadas el 27 ago 2026 en el commit `ea8aff866e6a`. Pasaron revisión de privacidad, de hashes y de identidad de bytes antes de publicarse. La matriz completa de navegador y la verificación de proveedores siguen siendo puertas aparte. No contienen historial privado, tokens ni registros de producción. El despliegue histórico de **Railway está apagado**.
+- El demo corre en **Render**, plan `render-free`, región Frankfurt, como **staging de un piloto privado, no como producción**. Comprobado de nuevo el 2 nov 2026, tras redesplegarlo a mano con la 2.13.0: versión y commit correctos, PostgreSQL preparado, diccionario de 240 entradas, CSP estricta y HSTS. La redirección a Google con PKCE arranca bien; un inicio de sesión completo en este despliegue sigue pendiente. El plan gratuito duerme, así que la primera carga puede tardar minutos.
+- **2.13.0 es candidato privado**: la última versión publicada sigue siendo v2.12.2, y la etiqueta Git y el GitHub Release coinciden en esa. Una sesión live exitosa con GitHub OAuth y el reingreso después del logout siguen pendientes de verificación E2E.
+- El GIF y las capturas son las **revisadas de la 2.13.0** que publica el propio proyecto, tomadas el 2 nov 2026 en el commit `ed08c188a2e5` con un aprendiz local genérico, sin nombre ni progreso personal. Pasaron revisión de privacidad, de hashes y de identidad de bytes antes de publicarse. La matriz completa de navegador y la verificación de proveedores siguen siendo puertas aparte. No contienen historial privado, tokens ni registros de producción. El despliegue histórico de **Railway está apagado**.
 
 ### 💙 NovaFit
 
