@@ -27,8 +27,6 @@ LiriothTeltanion/
 │   ├── OPTIONAL-DYNAMIC-VISUALS.md # Opt-in contribution-snake guide
 │   └── snake.yml                   # Inactive workflow template
 ├── preview/                        # Tracked visual-review archive
-├── prompts/
-│   └── CODEX_PROFILE.md            # Reusable focused-edit prompt
 ├── scripts/
 │   ├── build_profile.py            # Compact/expanded README generator
 │   ├── check_external_links.py     # Conservative scheduled URL audit
@@ -46,7 +44,6 @@ LiriothTeltanion/
 │       └── verify-profile.ps1      # Repository/profile validator
 ├── .gitattributes
 ├── .gitignore                      # Portable local-only exclusions
-├── AGENTS.md                       # Persistent maintenance rules
 ├── README.md                       # Public GitHub profile
 ├── README_EXPANDED.md              # Generated expanded profile variant
 ├── PROFILE_ES.md                   # Spanish profile summary
