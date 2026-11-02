@@ -3,7 +3,7 @@
   "release": {
     "title": "Profile 2.11.1 — Ivrit Sheli Release Edition",
     "tag": "v2.11.1",
-    "status": "release-candidate",
+    "status": "released",
     "prepared_on": "2026-11-03",
     "baseline": "Profile 2.11.0 — Painted Scenes Edition",
     "summary": "A narrow correction. Ivrit Sheli 2.13.0 is now a published GitHub source release (v2.13.0) rather than a private candidate, and its staging service was rechecked on 2026-11-03 after a Google sign-in was completed on it. The profile states both.",
