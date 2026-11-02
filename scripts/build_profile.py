@@ -1361,10 +1361,10 @@ def _render_ivrit_spotlight(project: Mapping[str, Any]) -> list[str]:
             f"of the {sync['source_version']} interface."
         )
         rtl_label = "Open the archived Hebrew RTL frame"
-    # El fotograma fijo va FUERA del desplegable. Un `<details>` lo renderiza
-    # GitHub cerrado, asi que mientras estuvo dentro el proyecto insignia no
-    # ensenaba ni una imagen a quien solo recorre la pagina. El tour animado se
-    # queda dentro: el movimiento se pide, la prueba visual no.
+    # The still frame goes OUTSIDE the disclosure. GitHub renders a `<details>`
+    # closed, so while it sat inside, the flagship project showed no image at all
+    # to someone just scrolling the page. The animated tour stays inside: motion
+    # is opt-in, the visual proof is not.
     return [
         "<picture>",
         f'  <source media="(max-width: 640px)" srcset="./{media["mobile_static"]}" />',
@@ -1416,8 +1416,8 @@ def _render_novafit_spotlights(project: Mapping[str, Any]) -> list[str]:
     release_audit = sync["release_audit"]
     manifest_source = sync["source"]
     live_demo = project["demo"]
-    # Igual que en Ivrit Sheli desde la 2.9.0: GitHub renderiza <details> cerrado,
-    # asi que la captura fija va fuera y el tour animado se queda dentro.
+    # Same as Ivrit Sheli since 2.9.0: GitHub renders <details> closed, so the
+    # still capture goes outside and the animated tour stays inside.
     return [
         "<picture>",
         f'  <img src="./{media["static"]}" width="100%" alt="{media["static_alt"]}" />',
@@ -1432,10 +1432,10 @@ def _render_novafit_spotlights(project: Mapping[str, Any]) -> list[str]:
         f"> **Public-data boundary:** {media['public_data_boundary']}",
         "",
         "<picture>",
-        # El contrato de NovaFit obliga a que las tres variantes sean el mismo
-        # fichero canonico, asi que emitirlas en tres lineas repetia el mismo
-        # srcset tres veces. Una lista de medios separada por comas es un OR y
-        # dice lo mismo en una: pantalla estrecha o movimiento reducido -> fijo.
+        # NovaFit's contract requires the three variants to be the same canonical
+        # file, so emitting them on three lines repeated the same srcset three times.
+        # A comma-separated media list is an OR and says the same thing in one line:
+        # narrow screen or reduced motion -> still.
         (
             '  <source media="(max-width: 640px), (prefers-reduced-motion: reduce)" '
             f'srcset="./{media["static"]}" />'

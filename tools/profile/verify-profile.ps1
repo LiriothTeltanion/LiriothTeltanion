@@ -629,11 +629,11 @@ if ($null -ne $readme) {
 
                 $mediaValue = [System.Net.WebUtility]::HtmlDecode([string](Get-AttributeValue -Match $mediaMatch)).Trim()
                 $srcsetValue = [System.Net.WebUtility]::HtmlDecode([string](Get-AttributeValue -Match $srcsetMatch)).Trim()
-                # Una lista de medios separada por comas es un OR: basta con que
-                # UNA de sus consultas sea exactamente la de movimiento reducido.
-                # Se sigue rechazando '(max-width: 640px) and (prefers-reduced-
-                # motion: reduce)', que solo cubre pantallas estrechas y por tanto
-                # no es un respaldo general. Esa exigencia no se afloja.
+                # A comma-separated media list is an OR: it is enough for ONE of its queries
+                # to be exactly the reduced-motion one. '(max-width: 640px) and
+                # (prefers-reduced-motion: reduce)' is still rejected, because it only covers
+                # narrow screens and is therefore not a general fallback. That requirement
+                # is not relaxed.
                 $mediaQueries = $mediaValue -split ',' | ForEach-Object { $_.Trim() }
                 $coversReducedMotion = @($mediaQueries | Where-Object {
                     $_ -match '^\s*\(\s*prefers-reduced-motion\s*:\s*reduce\s*\)\s*$'
