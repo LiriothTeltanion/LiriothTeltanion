@@ -30,7 +30,7 @@ repository structure.
 
 ## Safe editing cycle
 
-1. Read `AGENTS.md` and check `git status`.
+1. Check `git status`.
 2. Inspect the exact README section and every asset it references.
 3. Define the smallest coherent change.
 4. Before a major README restructure, create a local backup:

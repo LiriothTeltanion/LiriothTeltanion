@@ -935,13 +935,6 @@ catch {
     Fail "Raster and payload validation could not be completed: $($_.Exception.Message)"
 }
 
-if (Test-Path -LiteralPath (Join-Path $RepositoryPath "AGENTS.md") -PathType Leaf) {
-    Pass "AGENTS.md is available to Codex."
-}
-else {
-    Fail "AGENTS.md is missing."
-}
-
 Write-Host ""
 if ($script:failureCount -gt 0) {
     Write-Host "PROFILE VERIFICATION FAILED ($($script:failureCount) failure(s), $($script:warningCount) warning(s))" -ForegroundColor Red

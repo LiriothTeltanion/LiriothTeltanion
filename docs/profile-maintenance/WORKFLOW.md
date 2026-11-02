@@ -19,11 +19,10 @@ git remote get-url origin
 ## Start a session
 
 1. Open the repository root.
-2. Read `AGENTS.md`.
-3. Check `git status --short --branch` before touching files.
-4. Inspect the relevant README sections and referenced assets.
-5. Define one concrete outcome and the smallest set of files it requires.
-6. Preserve any pre-existing worktree changes that are outside that scope.
+2. Check `git status --short --branch` before touching files.
+3. Inspect the relevant README sections and referenced assets.
+4. Define one concrete outcome and the smallest set of files it requires.
+5. Preserve any pre-existing worktree changes that are outside that scope.
 
 Do not pull, switch branches, commit or push merely to begin a maintenance
 session. Those are separate actions that require an explicit reason and, for

@@ -13,3 +13,11 @@ __pycache__/
 
 # Checksum-verified downloads used by deterministic visual generators.
 .cache/
+
+# Local-only notes for coding assistants. They stay on Kevin's machines and are
+# not published.
+/AGENTS.md
+/CLAUDE.md
+/GEMINI.md
+/.github/copilot-instructions.md
+/prompts/CODEX_PROFILE.md
