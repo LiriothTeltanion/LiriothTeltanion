@@ -17,8 +17,8 @@ patch for a narrow correction.
   the image shows what changed in 2.13.0 rather than only the dashboards.
 - Captures use a fresh, generic local learner: the public-data boundary now says
   so instead of describing Kevin's isolated live account.
-- Facts synchronized from the upstream manifest: 434 backend + 1092 frontend =
-  1526 tests, and the staging service rechecked on 2026-11-02 after a manual
+- Facts synchronized from the upstream manifest: 434 backend + 1094 frontend =
+  1528 tests, and the staging service rechecked on 2026-11-02 after a manual
   redeploy of 2.13.0. Spanish and Hebrew profiles carry the same facts; the new
   Hebrew sentences have not had a native-speaker review yet.
 

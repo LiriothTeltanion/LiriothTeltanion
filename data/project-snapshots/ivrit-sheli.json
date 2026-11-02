@@ -14,7 +14,7 @@
     "last_checked_on": "2026-11-02",
     "boundary": "A free Render service runs the private candidate source as staging for a private pilot, not as production. Redeployed by hand from main at 7a4756a on 2026-11-02 and rechecked that day: /version reporting 2.13.0 at that commit, /health/ready with postgresql true and a 240-entry dictionary, the strict CSP and HSTS headers, painted scenes served under img-src 'self', and a Google OAuth redirect that starts correctly; a completed sign-in on this deploy has not been run. It runs in Frankfurt since 2026-09-12, when /health/live answered in 0.149 s and the session cookie was Secure, HttpOnly and SameSite=lax. The free plan sleeps after 15 minutes and the wake-up varies (38.6 s and 218 s on the same day), so a first request can take minutes: wait before concluding it is down. The human Hebrew-content and first-learner gates remain open, no v2.12.3 or v2.13.0 tag exists, and the historical Railway service is offline."
   },
-  "summary": "Private 2.13.0 candidate: painted gouache settings for 156 of 165 paintable scenes, one family of animated adults across all 240 exact scenes, and profile-saved theme and language. Free Render staging for a private pilot.",
+  "summary": "Private 2.13.0 candidate: painted gouache settings for 157 of 165 paintable scenes, one family of animated adults across all 240 exact scenes, and profile-saved theme and language. Free Render staging for a private pilot.",
   "languages": [
     "en",
     "es",
@@ -38,9 +38,9 @@
     "version": "2.13.0",
     "scope": "private-candidate-local-verification",
     "backend_unique": 434,
-    "frontend": 1092,
+    "frontend": 1094,
     "frontend_files": 58,
-    "total_unique": 1526,
+    "total_unique": 1528,
     "ordinary_backend_passed": 434,
     "ordinary_backend_skipped": 1,
     "postgresql_gate_passed": 0,
@@ -100,7 +100,7 @@
     "release_gate": "The 2.13.0 candidate is local and unpublished. Human visual recognition, Hebrew acceptance, the mother pilot, current provider checks and isolated staging verification remain separate gates."
   },
   "visual_proof": {
-    "state": "Private 2.13.0 candidate: 240 exact semantic scenes; 156 of 165 paintable scenes on painted settings, one shared family of adults. README proof (five WebP captures and a non-looping tour GIF) captured locally from a clean commit on 2026-11-02.",
+    "state": "Private 2.13.0 candidate: 240 exact semantic scenes; 157 of 165 paintable scenes on painted settings, one shared family of adults. README proof (five WebP captures and a non-looping tour GIF) captured locally from a clean commit on 2026-11-02.",
     "social_preview_version": "2.12.2",
     "readme_screenshot_source_version": "2.13.0",
     "readme_screenshot_status": "candidate",

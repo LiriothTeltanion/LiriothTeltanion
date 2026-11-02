@@ -1,6 +1,6 @@
 # Kevin Cusnir · Lirioth Teltanion ✨
 
-<!-- canonical-project-facts: profile=2.11.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.13.0; ivrit_status=private-candidate; ivrit_published=v2.12.2; ivrit_backend=434; ivrit_frontend=1092; ivrit_total=1526; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.13.0; ivrit_media_current=true; ivrit_capture_commit=ed08c188a2e5bba4e4bff144a6712140050a6bc7; novafit=4.2.0 -->
+<!-- canonical-project-facts: profile=2.11.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.13.0; ivrit_status=private-candidate; ivrit_published=v2.12.2; ivrit_backend=434; ivrit_frontend=1094; ivrit_total=1528; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.13.0; ivrit_media_current=true; ivrit_capture_commit=ed08c188a2e5bba4e4bff144a6712140050a6bc7; novafit=4.2.0 -->
 
 [English](./README.md) · [Español](./PROFILE_ES.md) · **עברית**
 
@@ -22,7 +22,7 @@
 
 ### א Ivrit Sheli
 
-**Ivrit Sheli 2.13.0** הוא מוצר Full-Stack תלת־לשוני ללימוד עברית מתוך מצבים אמיתיים. כל מילה נלמדת דרך סצנה מצוירת ומונפשת: ל־156 מתוך 165 הסצנות שמתאימות לרקע מצויר כבר יש רקע כזה, עם גרסת לילה לערכת הנושא הכהה, ואותה משפחה של דמויות מופיעה בכל 240 הסצנות. הוא שומר על מצב מקומי ופרטי עם SQLite ומוסיף React 19, ‏TypeScript, ‏FastAPI, ‏PostgreSQL 17, ‏Alembic ו־Docker עם גבולות אימות מפורשים. בסיס האיכות המאומת כולל **434 בדיקות backend ועוד 1092 בדיקות frontend — בסך הכול 1526 בדיקות אוטומטיות**. הממשק פועל באנגלית, בספרדית ובעברית עם RTL; הסיור הציבורי משתמש בנתונים סינתטיים ומשאיר קריאות ספק בתשלום כבויות כברירת מחדל.
+**Ivrit Sheli 2.13.0** הוא מוצר Full-Stack תלת־לשוני ללימוד עברית מתוך מצבים אמיתיים. כל מילה נלמדת דרך סצנה מצוירת ומונפשת: ל־157 מתוך 165 הסצנות שמתאימות לרקע מצויר כבר יש רקע כזה, עם גרסת לילה לערכת הנושא הכהה, ואותה משפחה של דמויות מופיעה בכל 240 הסצנות. הוא שומר על מצב מקומי ופרטי עם SQLite ומוסיף React 19, ‏TypeScript, ‏FastAPI, ‏PostgreSQL 17, ‏Alembic ו־Docker עם גבולות אימות מפורשים. בסיס האיכות המאומת כולל **434 בדיקות backend ועוד 1094 בדיקות frontend — בסך הכול 1528 בדיקות אוטומטיות**. הממשק פועל באנגלית, בספרדית ובעברית עם RTL; הסיור הציבורי משתמש בנתונים סינתטיים ומשאיר קריאות ספק בתשלום כבויות כברירת מחדל.
 
 - [פתיחת הדמו הציבורי](https://ivrit-sheli.onrender.com)
 - [קוד מקור והוראות הרצה](https://github.com/LiriothTeltanion/IvritSheli)

@@ -1,6 +1,6 @@
 # Kevin Cusnir · Lirioth Teltanion ✨
 
-<!-- canonical-project-facts: profile=2.11.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.13.0; ivrit_status=private-candidate; ivrit_published=v2.12.2; ivrit_backend=434; ivrit_frontend=1092; ivrit_total=1526; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.13.0; ivrit_media_current=true; ivrit_capture_commit=ed08c188a2e5bba4e4bff144a6712140050a6bc7; novafit=4.2.0 -->
+<!-- canonical-project-facts: profile=2.11.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.13.0; ivrit_status=private-candidate; ivrit_published=v2.12.2; ivrit_backend=434; ivrit_frontend=1094; ivrit_total=1528; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.13.0; ivrit_media_current=true; ivrit_capture_commit=ed08c188a2e5bba4e4bff144a6712140050a6bc7; novafit=4.2.0 -->
 
 [English](./README.md) · **Español** · [עברית](./PROFILE_HE.md)
 
@@ -22,7 +22,7 @@ Nací en **San Cristóbal, Venezuela**, y actualmente vivo en **Beersheba, Israe
 
 ### א Ivrit Sheli
 
-**Ivrit Sheli 2.13.0** es un producto full-stack trilingüe para aprender hebreo desde situaciones reales. Cada palabra se enseña con una escena pintada y animada: 156 de las 165 escenas que admiten fondo pintado ya lo tienen, con versión de noche para el tema oscuro, y una misma familia de personas aparece en las 240. Conserva un modo local privado con SQLite y añade React 19/TypeScript, FastAPI, PostgreSQL 17, Alembic, Docker y una experiencia autenticada con límites explícitos. Su base verificada suma **434 pruebas de backend + 1092 de frontend = 1526 pruebas automatizadas**. La interfaz funciona en inglés, español y hebreo con RTL; el recorrido público usa datos sintéticos y mantiene desactivadas por defecto las llamadas pagadas a proveedores.
+**Ivrit Sheli 2.13.0** es un producto full-stack trilingüe para aprender hebreo desde situaciones reales. Cada palabra se enseña con una escena pintada y animada: 157 de las 165 escenas que admiten fondo pintado ya lo tienen, con versión de noche para el tema oscuro, y una misma familia de personas aparece en las 240. Conserva un modo local privado con SQLite y añade React 19/TypeScript, FastAPI, PostgreSQL 17, Alembic, Docker y una experiencia autenticada con límites explícitos. Su base verificada suma **434 pruebas de backend + 1094 de frontend = 1528 pruebas automatizadas**. La interfaz funciona en inglés, español y hebreo con RTL; el recorrido público usa datos sintéticos y mantiene desactivadas por defecto las llamadas pagadas a proveedores.
 
 - [Abrir el demo público](https://ivrit-sheli.onrender.com)
 - [Código fuente y guía de ejecución](https://github.com/LiriothTeltanion/IvritSheli)

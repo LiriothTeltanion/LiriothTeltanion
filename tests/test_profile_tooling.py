@@ -420,7 +420,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
             "58 public visual assets",
             "Download the verified v4.2.0 release",
             "Nova Music Lab source",
-            "434 backend + 1092 frontend = 1526 tests",
+            "434 backend + 1094 frontend = 1528 tests",
             "The retired Railway 2.4.0 deployment is offline",
             "PostgreSQL 17",
             "2.13.0 evidence",
@@ -529,7 +529,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
             "2.13.0 private candidate · staging demo on render-free",
         )
         self.assertEqual(projects["Ivrit Sheli"]["release_evidence"]["version"], "2.13.0")
-        self.assertEqual(projects["Ivrit Sheli"]["release_evidence"]["total_tests"], 1526)
+        self.assertEqual(projects["Ivrit Sheli"]["release_evidence"]["total_tests"], 1528)
         self.assertEqual(projects["Ivrit Sheli"]["portfolio_sync"]["backend_tests"], 434)
         self.assertFalse(
             projects["Ivrit Sheli"]["portfolio_sync"][
@@ -721,13 +721,13 @@ class GeneratedProfileContractTests(unittest.TestCase):
             spanish.write_text(
                 (ROOT / "PROFILE_ES.md")
                 .read_text(encoding="utf-8")
-                .replace("ivrit_total=1526", "ivrit_total=127", 1),
+                .replace("ivrit_total=1528", "ivrit_total=127", 1),
                 encoding="utf-8",
             )
             hebrew.write_text(
                 (ROOT / "PROFILE_HE.md")
                 .read_text(encoding="utf-8")
-                .replace("1526 בדיקות אוטומטיות", "127 בדיקות אוטומטיות", 1),
+                .replace("1528 בדיקות אוטומטיות", "127 בדיקות אוטומטיות", 1),
                 encoding="utf-8",
             )
             problems = validate_profile.validate_localized_profiles(
@@ -738,7 +738,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
             any("canonical project-facts marker" in problem for problem in problems)
         )
         self.assertTrue(
-            any("missing canonical fact token: 1526" in problem for problem in problems)
+            any("missing canonical fact token: 1528" in problem for problem in problems)
         )
 
     def test_builder_check_mode_detects_drift_without_overwriting(self) -> None:

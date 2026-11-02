@@ -11,7 +11,7 @@
       "The Ivrit Sheli desktop, phone, Hebrew RTL and tour frames are the current 2.13.0 interface",
       "The tour plays once and includes the painted word scenes, not only dashboards",
       "Captures come from a fresh generic local learner: no personal name, account or progress",
-      "1526 verified automated tests and the 2026-11-02 staging recheck replace the September figures",
+      "1528 verified automated tests and the 2026-11-02 staging recheck replace the September figures",
       "EN, ES and HE carry the same corrected facts"
     ],
     "public_data_boundary": "Only public repository facts, deterministic or synthetic demonstration visuals and reviewed sanitized live captures are included; no private learning history, wellness history, runtime database record, secret, provider credential or personal export is published."
@@ -91,9 +91,9 @@
       "icon": "א",
       "status": "2.13.0 private candidate · staging demo on render-free",
       "problem": "Hebrew learners need focused practice, progress and multilingual guidance without surrendering private study data or depending on a fragile cloud service.",
-      "solution": "Private 2.13.0 candidate: painted gouache settings for 156 of 165 paintable scenes, one family of animated adults across all 240 exact scenes, and profile-saved theme and language. Free Render staging for a private pilot.",
+      "solution": "Private 2.13.0 candidate: painted gouache settings for 157 of 165 paintable scenes, one family of animated adults across all 240 exact scenes, and profile-saved theme and language. Free Render staging for a private pilot.",
       "stack": "React 19 · TypeScript · FastAPI · Python · PostgreSQL 17 · SQLite · Alembic · Docker",
-      "evidence": "434 backend + 1092 frontend = 1526 tests on the 2.13.0 source; a staging demo verified on 2026-11-02 at render-free; the published release remains v2.12.2 while 2.13.0 is a private candidate. Historical 2.4.0 production evidence verified identity-only Google sign-in, reload continuity, logout and signed-out persistence on 2026-07-21. It does not prove current hosted availability, a live GitHub session, re-login after logout, provider connector calls, two-real-user isolation or backup restoration.",
+      "evidence": "434 backend + 1094 frontend = 1528 tests on the 2.13.0 source; a staging demo verified on 2026-11-02 at render-free; the published release remains v2.12.2 while 2.13.0 is a private candidate. Historical 2.4.0 production evidence verified identity-only Google sign-in, reload continuity, logout and signed-out persistence on 2026-07-21. It does not prove current hosted availability, a live GitHub session, re-login after logout, provider connector calls, two-real-user isolation or backup restoration.",
       "source": "https://github.com/LiriothTeltanion/IvritSheli",
       "demo": "https://ivrit-sheli.onrender.com",
       "role_signal": "Full-stack architecture · backend security · PostgreSQL ownership · integration testing · multilingual RTL UX",
@@ -106,8 +106,8 @@
       "release_evidence": {
         "version": "2.13.0",
         "backend_tests": 434,
-        "frontend_tests": 1092,
-        "total_tests": 1526,
+        "frontend_tests": 1094,
+        "total_tests": 1528,
         "test_report": "https://github.com/LiriothTeltanion/IvritSheli/blob/main/TEST_REPORT.md"
       },
       "media": {
@@ -135,8 +135,8 @@
         "source_status": "private-candidate",
         "latest_published_release": "v2.12.2",
         "backend_tests": 434,
-        "frontend_tests": 1092,
-        "total_tests": 1526,
+        "frontend_tests": 1094,
+        "total_tests": 1528,
         "test_scope": "private-candidate-local-verification",
         "test_report": "https://github.com/LiriothTeltanion/IvritSheli/blob/main/TEST_REPORT.md",
         "demo_url": "https://ivrit-sheli.onrender.com",
@@ -156,7 +156,7 @@
         "source_version_tagged": false,
         "source_version_github_release_published": false,
         "release_state": "2.13.0-private-candidate-staging-verified",
-        "visual_proof_state": "Private 2.13.0 candidate: 240 exact semantic scenes; 156 of 165 paintable scenes on painted settings, one shared family of adults. README proof (five WebP captures and a non-looping tour GIF) captured locally from a clean commit on 2026-11-02.",
+        "visual_proof_state": "Private 2.13.0 candidate: 240 exact semantic scenes; 157 of 165 paintable scenes on painted settings, one shared family of adults. README proof (five WebP captures and a non-looping tour GIF) captured locally from a clean commit on 2026-11-02.",
         "social_preview_version": "2.12.2",
         "readme_screenshot_source_version": "2.13.0",
         "readme_screenshot_status": "candidate",
