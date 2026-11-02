@@ -5,7 +5,7 @@ The profile follows Semantic Versioning: major for a structural identity or
 presentation generation, minor for a contained feature or visual upgrade, and
 patch for a narrow correction.
 
-## [2.11.1] — 2026-11-03 · Ivrit Sheli Release Edition — release candidate
+## [2.11.1] — 2026-11-03 · Ivrit Sheli Release Edition — released
 
 ### Changed
 
