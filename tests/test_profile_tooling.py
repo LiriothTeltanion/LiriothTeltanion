@@ -420,12 +420,12 @@ class GeneratedProfileContractTests(unittest.TestCase):
             "58 public visual assets",
             "Download the verified v4.2.0 release",
             "Nova Music Lab source",
-            "387 backend + 859 frontend = 1246 tests",
+            "434 backend + 1092 frontend = 1526 tests",
             "The retired Railway 2.4.0 deployment is offline",
             "PostgreSQL 17",
-            "2.12.3 evidence",
-            "Current Ivrit Sheli 2.12.3 interface",
-            "the reviewed captures the project publishes for its 2.12.3 source",
+            "2.13.0 evidence",
+            "Current Ivrit Sheli 2.13.0 interface",
+            "the reviewed captures the project publishes for its 2.13.0 source",
             "a live GitHub session",
             "the latest Git tag and GitHub release remain v2.12.2",
             "https://ivrit-sheli.onrender.com",
@@ -526,11 +526,11 @@ class GeneratedProfileContractTests(unittest.TestCase):
         )
         self.assertEqual(
             projects["Ivrit Sheli"]["status"],
-            "2.12.3 private candidate · staging demo on render-free",
+            "2.13.0 private candidate · staging demo on render-free",
         )
-        self.assertEqual(projects["Ivrit Sheli"]["release_evidence"]["version"], "2.12.3")
-        self.assertEqual(projects["Ivrit Sheli"]["release_evidence"]["total_tests"], 1246)
-        self.assertEqual(projects["Ivrit Sheli"]["portfolio_sync"]["backend_tests"], 387)
+        self.assertEqual(projects["Ivrit Sheli"]["release_evidence"]["version"], "2.13.0")
+        self.assertEqual(projects["Ivrit Sheli"]["release_evidence"]["total_tests"], 1526)
+        self.assertEqual(projects["Ivrit Sheli"]["portfolio_sync"]["backend_tests"], 434)
         self.assertFalse(
             projects["Ivrit Sheli"]["portfolio_sync"][
                 "github_successful_session_verified_at_release"
@@ -721,13 +721,13 @@ class GeneratedProfileContractTests(unittest.TestCase):
             spanish.write_text(
                 (ROOT / "PROFILE_ES.md")
                 .read_text(encoding="utf-8")
-                .replace("ivrit_total=1246", "ivrit_total=127", 1),
+                .replace("ivrit_total=1526", "ivrit_total=127", 1),
                 encoding="utf-8",
             )
             hebrew.write_text(
                 (ROOT / "PROFILE_HE.md")
                 .read_text(encoding="utf-8")
-                .replace("1246 בדיקות אוטומטיות", "127 בדיקות אוטומטיות", 1),
+                .replace("1526 בדיקות אוטומטיות", "127 בדיקות אוטומטיות", 1),
                 encoding="utf-8",
             )
             problems = validate_profile.validate_localized_profiles(
@@ -738,7 +738,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
             any("canonical project-facts marker" in problem for problem in problems)
         )
         self.assertTrue(
-            any("missing canonical fact token: 1246" in problem for problem in problems)
+            any("missing canonical fact token: 1526" in problem for problem in problems)
         )
 
     def test_builder_check_mode_detects_drift_without_overwriting(self) -> None:
