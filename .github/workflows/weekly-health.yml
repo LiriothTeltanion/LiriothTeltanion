@@ -7,8 +7,13 @@ name: Weekly GitHub health check
 # turns the run red, and GitHub emails the owner with the report.
 
 on:
+  # GitHub cron runs in UTC and Israel moves between UTC+2 and UTC+3, so both
+  # candidate times are scheduled and the gate step below keeps only the one
+  # that is 06:00 in Jerusalem on that day. Scheduled runs can start a few
+  # minutes late when GitHub is busy.
   schedule:
-    - cron: "34 5 * * 0" # Sunday 07:34 Israel time (05:34 UTC in winter)
+    - cron: "0 3 * * 0" # 06:00 Israel in summer time (UTC+3)
+    - cron: "0 4 * * 0" # 06:00 Israel in winter time (UTC+2)
   workflow_dispatch:
 
 permissions:
@@ -26,17 +31,36 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      - name: Keep only the run that is 06:00 in Israel
+        id: gate
+        env:
+          SCHEDULE: ${{ github.event.schedule }}
+        run: |
+          offset="$(TZ=Asia/Jerusalem date +%z)"
+          run=true
+          if [ -n "$SCHEDULE" ]; then
+            case "$offset|$SCHEDULE" in
+              "+0300|0 3 * * 0" | "+0200|0 4 * * 0") run=true ;;
+              *) run=false ;;
+            esac
+          fi
+          echo "Israel UTC offset $offset, schedule '${SCHEDULE:-manual}', run=$run"
+          echo "run=$run" >> "$GITHUB_OUTPUT"
+
       - name: Check out profile repository
+        if: steps.gate.outputs.run == 'true'
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
 
       - name: Set up Python
+        if: steps.gate.outputs.run == 'true'
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
           python-version: "3.13"
 
       - name: Run the weekly health check
+        if: steps.gate.outputs.run == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/weekly_health.py --days 8
