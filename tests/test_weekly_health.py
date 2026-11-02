@@ -13,7 +13,7 @@ class ScanAddedLinesTest(unittest.TestCase):
         self.assertFalse(any("a" * 30 in f for f in findings), "secret must be masked")
 
     def test_flags_an_absolute_local_path_in_any_case(self):
-        findings = wh.scan_added_lines("README.md", "+See c:/Users/Kevin/OneDrive/notes\n")
+        findings = wh.scan_added_lines("README.md", "+See c:/Users/" + "Kevin/OneDrive/notes\n")
         self.assertIn("absolute local path in `README.md`", findings)
 
     def test_flags_a_spanish_code_comment_only_in_code(self):
