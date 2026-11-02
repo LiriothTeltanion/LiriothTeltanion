@@ -391,8 +391,8 @@ class GeneratedProfileContractTests(unittest.TestCase):
         self.assertLessEqual(
             validate_profile.reading_words(content), validate_profile.READING_WORD_BUDGET
         )
-        # La version se lee del propio perfil: fijarla aqui obliga a tocar este
-        # fichero en cada publicacion y no prueba nada sobre la cabecera.
+        # The version is read from the profile itself: pinning it here would force an
+        # edit to this file on every release and proves nothing about the header.
         for expected in (
             f"profile-version: {self.data['profile_version']}",
             "profile-banner-mobile-static.svg",

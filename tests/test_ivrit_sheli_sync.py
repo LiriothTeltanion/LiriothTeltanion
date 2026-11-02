@@ -145,8 +145,8 @@ class IvritSheliSyncTests(unittest.TestCase):
             "interactive_browser_qa": "Reviewed browser pass over the candidate.",
         }
 
-        # El perfil parte de unas capturas de otra version: que las del proyecto
-        # esten al dia no debe ascender por su cuenta los medios del perfil.
+        # The profile starts from captures of another version: the project's own
+        # being current must not promote the profile's media on its own.
         source_profile = copy.deepcopy(self.profile)
         source_ivrit = next(
             project

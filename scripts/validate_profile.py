@@ -17,10 +17,10 @@ from typing import Any, Mapping
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_README = ROOT / "README.md"
-# Dos presupuestos distintos, porque miden cosas distintas. Las palabras son el
-# limite de atencion del reclutador. Las lineas son solo un techo estructural:
-# un <picture> gasta cuatro lineas y cero segundos de lectura, asi que medir la
-# lectura en lineas castigaba justo las imagenes, que es lo que mas ayuda.
+# Two separate budgets, because they measure different things. Words are the
+# recruiter's attention limit. Lines are only a structural ceiling: a
+# <picture> costs four lines and zero seconds of reading, so measuring reading
+# in lines penalized exactly the images, which are what helps most.
 READING_WORD_BUDGET = 1900
 STRUCTURAL_LINE_CEILING = 360
 DEFAULT_PROFILE_DATA = ROOT / "profile.json"

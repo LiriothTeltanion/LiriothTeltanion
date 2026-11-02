@@ -193,7 +193,7 @@ class ReleaseIntegrityVerifierTests(unittest.TestCase):
             strict = self.verify(repository)
             self.assertNotEqual(strict.returncode, 0)
 
-            # Y con una etiqueta ligera presente, el interruptor no la perdona.
+            # And with a lightweight tag present, the switch does not let it pass.
             self.tag(repository, annotated=False)
             lightweight = self.verify(repository, allow_pending_tag=True)
 
