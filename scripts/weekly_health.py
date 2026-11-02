@@ -8,7 +8,7 @@ repository it reports:
 * CI: the latest completed run of every workflow on ``main``;
 * open pull requests (drafts excluded) and open issues;
 * the commits of the last ``--days`` days: added lines that look like an API
-  key or token, absolute local paths such as ``C:\\Users\\kevin``, and new code
+  key or token, absolute local paths under the owner's Windows user folder, and new code
   comments or commit subjects that look Spanish.
 
 The Markdown report goes to ``$GITHUB_STEP_SUMMARY`` (or stdout). The script
@@ -47,7 +47,7 @@ STALE_PR_DAYS = 14
 SECRET_PATTERNS = {
     "private key": re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH |DSA |PGP )?PRIVATE KEY-----"),
     "GitHub token": re.compile(r"\b(?:ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9]{30,}|\bgithub_pat_[A-Za-z0-9_]{40,}"),
-    "Anthropic key": re.compile(r"\bsk-ant-[A-Za-z0-9_\-]{20,}"),
+    "Anthropic key": re.compile(r"\bsk-" + r"ant-[A-Za-z0-9_\-]{20,}"),
     "OpenAI key": re.compile(r"\bsk-(?:proj-)?[A-Za-z0-9]{32,}"),
     "Google API key": re.compile(r"\bAIza[0-9A-Za-z_\-]{35}"),
     "AWS key": re.compile(r"\b(?:AKIA|ASIA)[0-9A-Z]{16}\b"),
@@ -57,7 +57,8 @@ SECRET_PATTERNS = {
         r"(?!localhost|127\.0\.0\.1|db\b|postgres\b|example|<)[^\s'\"]+"
     ),
 }
-LOCAL_PATH = re.compile(r"(?i)\b[a-z]:[\\/]+users[\\/]+kevin\b")
+# Built from parts so this file does not match its own pattern.
+LOCAL_PATH = re.compile(r"(?i)\b[a-z]:[\\/]+users[\\/]+" + "kev" + r"in\b")
 COMMENT = re.compile(r"^\s*(?:#|//|/?\*|<!--|\{/\*)\s?(.*)")
 SPANISH_WORDS = re.compile(
     r"\b(de|la|el|en|y|que|los|las|se|un|una|del|al|por|con|para|es|lo|su|como|pero|sin|esta|este|son|hay|cada|desde|hasta|antes|ahora|solo)\b",
@@ -70,8 +71,8 @@ CODE_EXTENSIONS = (".py", ".js", ".mjs", ".cjs", ".ts", ".tsx", ".jsx", ".css", 
 def mask(value: str) -> str:
     """Show only the first characters of a suspected secret.
 
-    >>> mask("sk-ant-abcdefghijklmnopqrstuvwxyz")
-    'sk-ant…(33 chars)'
+    >>> mask("abcdefghijklmnopqrstuvwxyz")
+    'abcdef…(26 chars)'
     """
     value = value.strip()
     return value[:6] + f"…({len(value)} chars)"
