@@ -3,7 +3,7 @@
   "release": {
     "title": "Profile 2.11.0 — Painted Scenes Edition",
     "tag": "v2.11.0",
-    "status": "release-candidate",
+    "status": "released",
     "prepared_on": "2026-11-02",
     "baseline": "Profile 2.10.0 — Reading Budget Edition",
     "summary": "A visual release. Ivrit Sheli moved to 2.13.0, where every word is taught by a painted, animated scene, while the profile still showed the flat 2.12.3 interface. It now shows the reviewed 2.13.0 frames and tour the project publishes, with current test counts and the staging check of 2026-11-02.",
