@@ -1,0 +1,42 @@
+name: Weekly GitHub health check
+
+# Every Sunday (the first day of the week in Israel) this checks all of
+# Kevin's public repositories: CI on main, open pull requests and issues, and
+# the last week's commits for secrets, absolute local paths and Spanish code
+# comments. Read-only. A clean week stays green; anything that needs attention
+# turns the run red, and GitHub emails the owner with the report.
+
+on:
+  schedule:
+    - cron: "34 5 * * 0" # Sunday 07:34 Israel time (05:34 UTC in winter)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: weekly-health-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  health:
+    name: Check every public repository
+    if: github.repository == 'LiriothTeltanion/LiriothTeltanion'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out profile repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: "3.13"
+
+      - name: Run the weekly health check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/weekly_health.py --days 8
