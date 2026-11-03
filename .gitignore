@@ -15,9 +15,8 @@ __pycache__/
 .cache/
 
 # Local-only notes for coding assistants. They stay on Kevin's machines and are
-# not published.
-/AGENTS.md
-/CLAUDE.md
+# not published. AGENTS.md and CLAUDE.md are the exception since 2026-11-03:
+# they are published with technical guidance only.
 /GEMINI.md
 /.github/copilot-instructions.md
 /prompts/CODEX_PROFILE.md
