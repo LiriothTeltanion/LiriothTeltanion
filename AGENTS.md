@@ -4,6 +4,10 @@ Guide for every coding agent (Claude Code, Codex, Copilot, Cursor, Gemini)
 and human contributor working in this repository. Read it before your first
 edit. `CLAUDE.md` imports this file.
 
+Local, private context for this repo may exist in `AGENTS.local.md` and
+`CLAUDE.local.md`. They are git-ignored, never committed, and should be read
+when present.
+
 This is the special public profile repository of **Kevin Cusnir**
 (`LiriothTeltanion`), with **Lirioth Teltanion** as his creative identity.
 The root `README.md` renders on his GitHub profile. It is generated from
@@ -197,8 +201,10 @@ pwsh -File tools/profile/backup-readme.ps1               # before a major restru
   If a section above defines a different body format for this repository,
   that one wins.
 
-  Commits written with an AI assistant add the matching `Co-Authored-By:`
-  trailer. Lirioth is never a co-author.
+  Commit authorship: every commit, PR title and PR description is authored
+  by Kevin Cusnir (Lirioth Teltanion). Do not add AI co-author trailers,
+  "Generated with/by" footers, session links or AI tool or model names to
+  Git metadata. (Policy updated 2026-11-04.)
 - **Author identity:** `Kevin Cusnir (Lirioth Teltanion)`.
 - One concern per commit and per pull request. Small vertical slices that can
   ship on their own beat big rewrites.
