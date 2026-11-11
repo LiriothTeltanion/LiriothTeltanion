@@ -1,6 +1,6 @@
 # Kevin Cusnir · Lirioth Teltanion ✨
 
-<!-- canonical-project-facts: profile=2.11.1; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.13.0; ivrit_status=published-source-release; ivrit_published=v2.13.0; ivrit_backend=434; ivrit_frontend=1096; ivrit_total=1530; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.13.0; ivrit_media_current=true; ivrit_capture_commit=1ff60b9ec910eb4cf212922ebfef3a203e790ea7; novafit=4.2.0 -->
+<!-- canonical-project-facts: profile=2.12.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.13.0; ivrit_status=published-source-release; ivrit_published=v2.13.0; ivrit_backend=434; ivrit_frontend=1096; ivrit_total=1530; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.13.0; ivrit_media_current=true; ivrit_capture_commit=1ff60b9ec910eb4cf212922ebfef3a203e790ea7; novafit=4.2.0 -->
 
 [English](./README.md) · [Español](./PROFILE_ES.md) · **עברית**
 
@@ -9,6 +9,18 @@
 נולדתי ב**סן קריסטובל, ונצואלה**, וכיום אני מתגורר ב**באר שבע, ישראל**. אני מפתח עם ניסיון מעשי ב־React, TypeScript, JavaScript, Python, FastAPI, SQL, PostgreSQL, SQLite, המחשת נתונים, בדיקות אוטומטיות, נגישות וממשקים רב־לשוניים.
 
 **Lirioth Teltanion** היא הזהות היצירתית שלי לפרויקטים המחברים הנדסה עם מוזיקה, סיפור חזותי, נתונים ומערכות גנרטיביות.
+
+## אתרים חיים
+
+שלושה אתרים שאפשר לפתוח כבר עכשיו, שבניתי והעליתי בעצמי:
+
+| אתר | מה זה | מה עשיתי |
+|---|---|---|
+| [תיק העבודות של כריסטופר רודריגס](https://liriothteltanion.github.io/ChristopherRodriguezCVOnline/) | אתר דו־לשוני (אנגלית/ספרדית) למורה לאנגלית | עיצוב, פיתוח ב־React + TypeScript + Tailwind, ערכות נושא בהירה/כהה, נגישות ופרסום ב־GitHub Pages |
+| [Nova Music Lab](https://liriothteltanion.github.io/NovaMusicLab/) | מוזיאון אינטראקטיבי להיסטוריה מוזיקלית שפועל כולו בדפדפן | עיצוב מוצר, אפליקציית React + TypeScript, המחשת נתונים, אנגלית/ספרדית/עברית עם תצוגה מימין לשמאל ובדיקות אוטומטיות |
+| [Jetstream89](https://liriothteltanion.github.io/Jetstream89/) | רדיו רוק רטרו־עתידני ואתר לגילוי מוזיקה | קונספט, פיתוח ב־HTML/CSS/JavaScript, ממשק דו־לשוני ופרסום סטטי |
+
+דוגמת Full-Stack: ‏[Ivrit Sheli](https://ivrit-sheli.onrender.com) ‏(React + FastAPI + PostgreSQL). שרת ההדגמה החינמי עשוי לקחת עד דקה להתעורר.
 
 ## פרויקטים מרכזיים
 

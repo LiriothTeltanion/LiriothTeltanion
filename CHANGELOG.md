@@ -5,6 +5,17 @@ The profile follows Semantic Versioning: major for a structural identity or
 presentation generation, minor for a contained feature or visual upgrade, and
 patch for a narrow correction.
 
+## [2.12.0] — 2026-11-11 · Live Websites Edition — release candidate
+
+### Added
+
+- **Live websites section.** The profile now opens with three deployed sites a
+  visitor can open in one click — the Christopher Rodríguez portfolio, Nova Music
+  Lab and Jetstream89 — each with what it is and what I built.
+- Ivrit Sheli is named as the full-stack example, with a note that its free demo
+  server can take up to a minute to wake up.
+- The profile carries the AI-assisted tooling disclosure line.
+
 ## [2.11.1] — 2026-11-03 · Ivrit Sheli Release Edition — released
 
 ### Changed

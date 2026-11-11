@@ -1,16 +1,16 @@
 {
-  "profile_version": "2.11.1",
+  "profile_version": "2.12.0",
   "release": {
-    "title": "Profile 2.11.1 — Ivrit Sheli Release Edition",
-    "tag": "v2.11.1",
-    "status": "released",
-    "prepared_on": "2026-11-03",
-    "baseline": "Profile 2.11.0 — Painted Scenes Edition",
-    "summary": "A narrow correction. Ivrit Sheli 2.13.0 is now a published GitHub source release (v2.13.0) rather than a private candidate, and its staging service was rechecked on 2026-11-03 after a Google sign-in was completed on it. The profile states both.",
+    "title": "Profile 2.12.0 — Live Websites Edition",
+    "tag": "v2.12.0",
+    "status": "release-candidate",
+    "prepared_on": "2026-11-11",
+    "baseline": "Profile 2.11.1 — Ivrit Sheli Release Edition",
+    "summary": "A contained feature. The profile opens with a short Live websites section so a visitor who needs a website can open three deployed sites in one click, with what each is and what Kevin did on it.",
     "focus": [
-      "Ivrit Sheli reads as the published v2.13.0 source release, with the tag and GitHub Release in agreement",
-      "The staging recheck of 2026-11-03 and the completed Google sign-in replace the pending sign-in note",
-      "EN, ES and HE carry the same corrected facts"
+      "A Live websites table sits above the recruiter snapshot: Christopher Rodríguez portfolio, Nova Music Lab and Jetstream89",
+      "Ivrit Sheli is named as the full-stack example, with an honest note that the free demo server can take up to a minute to wake",
+      "The AI-assisted tooling disclosure line now appears in the profile itself"
     ],
     "public_data_boundary": "Only public repository facts, deterministic or synthetic demonstration visuals and reviewed sanitized live captures are included; no private learning history, wellness history, runtime database record, secret, provider credential or personal export is published."
   },

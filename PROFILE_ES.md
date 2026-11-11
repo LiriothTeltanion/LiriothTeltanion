@@ -1,6 +1,6 @@
 # Kevin Cusnir · Lirioth Teltanion ✨
 
-<!-- canonical-project-facts: profile=2.11.1; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.13.0; ivrit_status=published-source-release; ivrit_published=v2.13.0; ivrit_backend=434; ivrit_frontend=1096; ivrit_total=1530; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.13.0; ivrit_media_current=true; ivrit_capture_commit=1ff60b9ec910eb4cf212922ebfef3a203e790ea7; novafit=4.2.0 -->
+<!-- canonical-project-facts: profile=2.12.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.13.0; ivrit_status=published-source-release; ivrit_published=v2.13.0; ivrit_backend=434; ivrit_frontend=1096; ivrit_total=1530; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.13.0; ivrit_media_current=true; ivrit_capture_commit=1ff60b9ec910eb4cf212922ebfef3a203e790ea7; novafit=4.2.0 -->
 
 [English](./README.md) · **Español** · [עברית](./PROFILE_HE.md)
 
@@ -9,6 +9,18 @@
 Nací en **San Cristóbal, Venezuela**, y actualmente vivo en **Beersheba, Israel**. Soy desarrollador con evidencia práctica en React, TypeScript, JavaScript, Python, FastAPI, SQL, PostgreSQL, SQLite, visualización de datos, pruebas automatizadas, accesibilidad y experiencias multilingües.
 
 **Lirioth Teltanion** es mi firma creativa para productos donde la ingeniería se conecta con música, narrativa visual, datos y sistemas generativos.
+
+## Sitios web en vivo
+
+Tres sitios que puedes abrir ahora mismo, construidos y publicados por mí:
+
+| Sitio | Qué es | Qué hice |
+|---|---|---|
+| [Portafolio de Christopher Rodríguez](https://liriothteltanion.github.io/ChristopherRodriguezCVOnline/) | Sitio bilingüe EN/ES para un profesor de inglés | Diseño, desarrollo con React + TypeScript + Tailwind, temas claro/oscuro, accesibilidad y publicación en GitHub Pages |
+| [Nova Music Lab](https://liriothteltanion.github.io/NovaMusicLab/) | Museo interactivo de historia musical que funciona entero en el navegador | Diseño de producto, app en React + TypeScript, visualizaciones de datos, EN/ES/HE con diseño de derecha a izquierda y pruebas automatizadas |
+| [Jetstream89](https://liriothteltanion.github.io/Jetstream89/) | Radio de rock retrofuturista y sitio para descubrir música | Concepto, desarrollo en HTML/CSS/JavaScript, interfaz bilingüe y publicación estática |
+
+Ejemplo full-stack: [Ivrit Sheli](https://ivrit-sheli.onrender.com) (React + FastAPI + PostgreSQL). El servidor gratuito de la demo puede tardar hasta un minuto en despertar.
 
 ## Proyectos principales
 

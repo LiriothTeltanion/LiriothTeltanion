@@ -1,4 +1,4 @@
-<!-- profile-version: 2.11.1; release-tag: v2.11.1; release-title: Profile 2.11.1 — Ivrit Sheli Release Edition -->
+<!-- profile-version: 2.12.0; release-tag: v2.12.0; release-title: Profile 2.12.0 — Live Websites Edition -->
 
 <a id="top"></a>
 <div align="center">
@@ -22,9 +22,25 @@
 
 [Read in English](./README.md) · [Leer en español](./PROFILE_ES.md) · [עברית](./PROFILE_HE.md)
 
-[Snapshot](#-recruiter-snapshot) · [Projects](#-featured-projects) · [Evidence](#-engineering-evidence) · [Global](#-global-communication) · [Contact](#-contact)
+[Websites](#-live-websites) · [Snapshot](#-recruiter-snapshot) · [Projects](#-featured-projects) · [Evidence](#-engineering-evidence) · [Global](#-global-communication) · [Contact](#-contact)
 
 </div>
+
+---
+
+## 🌐 Live websites
+
+Three sites you can open right now, each built and deployed by me:
+
+| Website | What it is | What I did |
+|---|---|---|
+| [Christopher Rodríguez — portfolio](https://liriothteltanion.github.io/ChristopherRodriguezCVOnline/) | Bilingual EN/ES portfolio site for an English teacher | Design, React + TypeScript + Tailwind build, light/dark themes, accessibility and GitHub Pages delivery |
+| [Nova Music Lab](https://liriothteltanion.github.io/NovaMusicLab/) | Interactive music-history museum that runs fully in the browser | Product design, React + TypeScript app, data visualizations, EN/ES/HE with right-to-left layout, automated tests |
+| [Jetstream89](https://liriothteltanion.github.io/Jetstream89/) | Retro-futuristic rock radio and music-discovery site | Concept, HTML/CSS/JavaScript build, bilingual interface and static deployment |
+
+Full-stack example: [Ivrit Sheli](https://ivrit-sheli.onrender.com) (React + FastAPI + PostgreSQL). The free demo server may take up to a minute to wake up.
+
+Built with AI-assisted tooling; I reviewed, tested and can explain every change.
 
 ---
 
