@@ -57,8 +57,8 @@ successful live GitHub session and re-login after logout remain unverified E2E.
 Nova Music Lab release visuals use a strict deployment-attestation boundary. Read
 [`NOVA_MUSIC_LAB_SYNC.md`](./NOVA_MUSIC_LAB_SYNC.md) before refreshing its
 desktop image, mobile image, animated tour, reduced-motion fallback, social
-preview or public claims. **Nova Music Lab 1.6.0 — deployed 2026-08-09** is read
-from its cache-bypassed GitHub Pages manifest; package and media bytes are then
+preview or public claims. The live Nova Music Lab deployment is read from
+its cache-bypassed GitHub Pages manifest. Package and media bytes are then
 verified from the declared immutable commit. The normal audit is read-only; its
 explicit write mode can only stage ignored local evidence from that deployed,
 commit-pinned and checksum-verified manifest while the profile is on a non-main

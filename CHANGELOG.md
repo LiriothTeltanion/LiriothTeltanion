@@ -15,6 +15,8 @@ patch for a narrow correction.
 - Ivrit Sheli is named as the full-stack example, with a note that its free demo
   server can take up to a minute to wake up.
 - The profile carries the AI-assisted tooling disclosure line.
+- The English, Spanish and Hebrew profiles reflect the verified November 2
+  deployment of Nova Music Lab 1.6.0 and retain the original capture date.
 
 ## [2.11.1] — 2026-11-03 · Ivrit Sheli Release Edition — released
 

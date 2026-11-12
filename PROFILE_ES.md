@@ -1,6 +1,6 @@
 # Kevin Cusnir · Lirioth Teltanion ✨
 
-<!-- canonical-project-facts: profile=2.12.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.13.0; ivrit_status=published-source-release; ivrit_published=v2.13.0; ivrit_backend=434; ivrit_frontend=1096; ivrit_total=1530; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.13.0; ivrit_media_current=true; ivrit_capture_commit=1ff60b9ec910eb4cf212922ebfef3a203e790ea7; novafit=4.2.0 -->
+<!-- canonical-project-facts: profile=2.12.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-11-02; nova_commit=286e4e01690d69fd47860d3003b9944660276290; ivrit_source=2.13.0; ivrit_status=published-source-release; ivrit_published=v2.13.0; ivrit_backend=434; ivrit_frontend=1096; ivrit_total=1530; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.13.0; ivrit_media_current=true; ivrit_capture_commit=1ff60b9ec910eb4cf212922ebfef3a203e790ea7; novafit=4.2.0 -->
 
 [English](./README.md) · **Español** · [עברית](./PROFILE_HE.md)
 
@@ -26,11 +26,11 @@ Ejemplo full-stack: [Ivrit Sheli](https://ivrit-sheli.onrender.com) (React + Fas
 
 ### 🎧 Nova Music Lab
 
-**Nova Music Lab 1.6.0**, desplegada el **2026-08-09**, es una aplicación React 19/TypeScript local-first que presenta el archivo musical público de Kevin / Lirioth y permite que cada visitante convierta exportaciones compatibles de su propio historial en un museo privado dentro del navegador. El Living Artist Atlas puede recorrerse por escuchas o de la A a la Z, con biografías legibles, retratos, relaciones, géneros y procedencia transparente. El snapshot público contiene **82.661 reproducciones**, **20.908 canciones** y **6.593 entradas de nombres de artista** —no una afirmación de 6.593 personas únicas—; el **94,2 %** de las reproducciones tiene una familia analítica y 457 entradas cuentan con evidencia detallada separada de la clasificación automática.
+**Nova Music Lab 1.6.0**, desplegada el **2026-11-02**, es una aplicación React 19/TypeScript local-first que presenta el archivo musical público de Kevin / Lirioth y permite que cada visitante convierta exportaciones compatibles de su propio historial en un museo privado dentro del navegador. El Living Artist Atlas puede recorrerse por escuchas o de la A a la Z, con biografías legibles, retratos, relaciones, géneros y procedencia transparente. El snapshot público contiene **82.661 reproducciones**, **20.908 canciones** y **6.593 entradas de nombres de artista** —no una afirmación de 6.593 personas únicas—; el **94,2 %** de las reproducciones tiene una familia analítica y 457 entradas cuentan con evidencia detallada separada de la clasificación automática.
 
 - [Demo pública](https://liriothteltanion.github.io/NovaMusicLab/)
 - [Código fuente](https://github.com/LiriothTeltanion/NovaMusicLab)
-- Evidencia verificada: Pages sirve el commit `eb7b27cd08c1` y la etiqueta del producto apunta al commit `e0d49d294034`; 803 pruebas están aprobadas, existe una omisión intencional de fixture privado, Playwright pasa 18/18 recorridos y también pasan los controles de privacidad, accesibilidad, enlaces, medios y presupuesto de bundle.
+- Pages sirve el commit `286e4e01690d` y la etiqueta del producto apunta a `e0d49d294034`. En la [ejecución del despliegue](https://github.com/LiriothTeltanion/NovaMusicLab/actions/runs/41523673099) pasaron los 18 recorridos de navegador, los controles de privacidad y tamaño del paquete, y la prueba de Pages.
 
 ### א Ivrit Sheli
 

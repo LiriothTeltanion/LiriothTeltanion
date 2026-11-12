@@ -131,8 +131,8 @@
   ],
   "release": {
     "captured_on": "2026-08-09",
-    "commit": "eb7b27cd08c19634ab5c1976facb4b221701ea43",
-    "deployed_on": "2026-08-09",
+    "commit": "286e4e01690d69fd47860d3003b9944660276290",
+    "deployed_on": "2026-11-02",
     "status": "deployed",
     "version": "1.6.0"
   },

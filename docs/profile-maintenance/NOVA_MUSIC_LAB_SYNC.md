@@ -23,7 +23,8 @@ This kept **Profile 2.4.0 — released 2026-07-18** unchanged while its candidat
 was reviewed, and **Profile 2.5.0 — released 2026-08-01** promoted the first
 deployed-manifest evidence package. **Profile 2.6.0 — released 2026-08-09** was
 promoted only after its own complete profile gate. The currently
-accepted upstream evidence is **Nova Music Lab 1.6.0 — deployed 2026-08-09**.
+accepted upstream evidence for the 2.12.0 candidate is **Nova Music Lab 1.6.0 —
+deployed 2026-11-02**. The verified release media was captured on 2026-08-09.
 A tracked private-candidate manifest is never acceptable profile evidence, even
 when its version matches the public app.
 

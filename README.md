@@ -67,7 +67,7 @@ I’m **Kevin Cusnir**, born in **San Cristóbal, Venezuela** and now based in *
 
 **Status:** Deployed v1.6.0 local-first flagship · **Stack:** React 19 · TypeScript · Vite · Dexie/IndexedDB · Recharts · Vitest · Playwright<br>
 **Problem → solution:** Listening exports are fragmented, hard to compare and easy to misrepresent. A local-first music museum where Kevin / Lirioth's public archive demonstrates the experience and visitors can turn supported listening-history exports into their own Living Artist Atlas, source-aware genre evidence and emotional stories while private imports stay in the browser.<br>
-**Evidence:** Deployed on 2026-08-09 with live Pages evidence at commit eb7b27cd08c1 and product tag commit e0d49d294034, with 803 passing tests, 1 intentional private-fixture skip, 18/18 Playwright journeys, privacy audits, bundle budgets and verified GitHub Pages metadata · **Role signal:** Frontend engineering · data visualization · privacy-aware product thinking<br>
+**Evidence:** Pages deployed on 2026-11-02 at 286e4e01690d. The [deployment run](https://github.com/LiriothTeltanion/NovaMusicLab/actions/runs/41523673099) passed 18/18 browser journeys, privacy and bundle checks, and the Pages smoke test. Product tag commit e0d49d294034 · **Role signal:** Frontend engineering · data visualization · privacy-aware product thinking<br>
 [Open Nova Music Lab live demo](https://liriothteltanion.github.io/NovaMusicLab/) · [Nova Music Lab source](https://github.com/LiriothTeltanion/NovaMusicLab)
 
 <a href="https://liriothteltanion.github.io/NovaMusicLab/">
@@ -77,7 +77,7 @@ I’m **Kevin Cusnir**, born in **San Cristóbal, Venezuela** and now based in *
 </picture>
 </a>
 
-**Released product — v1.6.0, deployed 2026-08-09:** the preview was captured from the final private candidate before publication; the live manifest, exact commit and CI verify the working deployment.
+**Released product — v1.6.0, deployed 2026-11-02:** the preview was captured from the final private candidate before publication; the live manifest, exact commit and CI verify the working deployment.
 
 <details>
 <summary><strong>🎧 Open the Nova Music Lab 1.6.0 product tour</strong></summary>
@@ -87,7 +87,7 @@ I’m **Kevin Cusnir**, born in **San Cristóbal, Venezuela** and now based in *
   <img src="./assets/nova-music-product-tour.gif" width="100%" alt="Nova Music Lab 1.6.0 product tour moving from the home museum to the Living Artist Atlas and genre discovery" />
 </picture>
 
-**Release evidence:** candidate media captured 2026-08-09 and included in deployed commit `eb7b27cd08c1`; the static frame above replaces animation when reduced motion is preferred.
+**Release evidence:** candidate media captured 2026-08-09 and included in deployed commit `286e4e01690d`; the static frame above replaces animation when reduced motion is preferred.
 
 Five import families become one deduplicated, source-aware listening history. Missing fields remain visible as gaps, and raw exports stay in the browser.
 
