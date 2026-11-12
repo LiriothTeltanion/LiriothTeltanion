@@ -1,6 +1,6 @@
 # Kevin Cusnir · Lirioth Teltanion ✨
 
-<!-- canonical-project-facts: profile=2.11.1; nova=1.6.0; nova_status=deployed; nova_deployed=2026-08-09; nova_commit=eb7b27cd08c19634ab5c1976facb4b221701ea43; ivrit_source=2.13.0; ivrit_status=published-source-release; ivrit_published=v2.13.0; ivrit_backend=434; ivrit_frontend=1096; ivrit_total=1530; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.13.0; ivrit_media_current=true; ivrit_capture_commit=1ff60b9ec910eb4cf212922ebfef3a203e790ea7; novafit=4.2.0 -->
+<!-- canonical-project-facts: profile=2.12.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-11-12; nova_commit=edf90379a3f0fda482ee8f4d15b9f8386a460d4d; ivrit_source=2.13.0; ivrit_status=published-source-release; ivrit_published=v2.13.0; ivrit_backend=434; ivrit_frontend=1096; ivrit_total=1530; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.13.0; ivrit_media_current=true; ivrit_capture_commit=1ff60b9ec910eb4cf212922ebfef3a203e790ea7; novafit=4.2.0 -->
 
 [English](./README.md) · **Español** · [עברית](./PROFILE_HE.md)
 
@@ -10,15 +10,27 @@ Nací en **San Cristóbal, Venezuela**, y actualmente vivo en **Beersheba, Israe
 
 **Lirioth Teltanion** es mi firma creativa para productos donde la ingeniería se conecta con música, narrativa visual, datos y sistemas generativos.
 
+## Sitios web en vivo
+
+Tres sitios que puedes abrir ahora mismo, construidos y publicados por mí:
+
+| Sitio | Qué es | Qué hice |
+|---|---|---|
+| [Portafolio de Christopher Rodríguez](https://liriothteltanion.github.io/ChristopherRodriguezCVOnline/) | Sitio bilingüe EN/ES para un profesor de inglés | Diseño, desarrollo con React + TypeScript + Tailwind, temas claro/oscuro, accesibilidad y publicación en GitHub Pages |
+| [Nova Music Lab](https://liriothteltanion.github.io/NovaMusicLab/) | Museo interactivo de historia musical que funciona entero en el navegador | Diseño de producto, app en React + TypeScript, visualizaciones de datos, EN/ES/HE con diseño de derecha a izquierda y pruebas automatizadas |
+| [Jetstream89](https://liriothteltanion.github.io/Jetstream89/) | Radio de rock retrofuturista y sitio para descubrir música | Concepto, desarrollo en HTML/CSS/JavaScript, interfaz bilingüe y publicación estática |
+
+Ejemplo full-stack: [Ivrit Sheli](https://ivrit-sheli.onrender.com) (React + FastAPI + PostgreSQL). El servidor gratuito de la demo puede tardar hasta un minuto en despertar.
+
 ## Proyectos principales
 
 ### 🎧 Nova Music Lab
 
-**Nova Music Lab 1.6.0**, desplegada el **2026-08-09**, es una aplicación React 19/TypeScript local-first que presenta el archivo musical público de Kevin / Lirioth y permite que cada visitante convierta exportaciones compatibles de su propio historial en un museo privado dentro del navegador. El Living Artist Atlas puede recorrerse por escuchas o de la A a la Z, con biografías legibles, retratos, relaciones, géneros y procedencia transparente. El snapshot público contiene **82.661 reproducciones**, **20.908 canciones** y **6.593 entradas de nombres de artista** —no una afirmación de 6.593 personas únicas—; el **94,2 %** de las reproducciones tiene una familia analítica y 457 entradas cuentan con evidencia detallada separada de la clasificación automática.
+**Nova Music Lab 1.6.0**, desplegada el **2026-11-12**, es una aplicación React 19/TypeScript local-first que presenta el archivo musical público de Kevin / Lirioth y permite que cada visitante convierta exportaciones compatibles de su propio historial en un museo privado dentro del navegador. El Living Artist Atlas puede recorrerse por escuchas o de la A a la Z, con biografías legibles, retratos, relaciones, géneros y procedencia transparente. El snapshot público contiene **82.661 reproducciones**, **20.908 canciones** y **6.593 entradas de nombres de artista** —no una afirmación de 6.593 personas únicas—; el **94,2 %** de las reproducciones tiene una familia analítica y 457 entradas cuentan con evidencia detallada separada de la clasificación automática.
 
 - [Demo pública](https://liriothteltanion.github.io/NovaMusicLab/)
 - [Código fuente](https://github.com/LiriothTeltanion/NovaMusicLab)
-- Evidencia verificada: Pages sirve el commit `eb7b27cd08c1` y la etiqueta del producto apunta al commit `e0d49d294034`; 803 pruebas están aprobadas, existe una omisión intencional de fixture privado, Playwright pasa 18/18 recorridos y también pasan los controles de privacidad, accesibilidad, enlaces, medios y presupuesto de bundle.
+- Pages sirve el commit `edf90379a3f0` y la etiqueta del producto apunta a `e0d49d294034`. En la [ejecución del despliegue](https://github.com/LiriothTeltanion/NovaMusicLab/actions/runs/43221653133) pasaron los recorridos de navegador, los controles de privacidad y tamaño del paquete, y la prueba de Pages.
 
 ### א Ivrit Sheli
 

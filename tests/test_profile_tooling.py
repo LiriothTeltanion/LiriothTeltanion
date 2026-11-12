@@ -384,6 +384,7 @@ class GeneratedProfileContractTests(unittest.TestCase):
 
     def test_compact_profile_keeps_responsive_and_privacy_contracts(self) -> None:
         content = build_profile.render_profile(self.data, "compact")
+        nova_sync = self.data["projects"][0]["portfolio_sync"]
 
         self.assertLessEqual(
             len(content.splitlines()), validate_profile.STRUCTURAL_LINE_CEILING
@@ -432,7 +433,8 @@ class GeneratedProfileContractTests(unittest.TestCase):
             "[א Ivrit Sheli live](https://ivrit-sheli.onrender.com)",
             "Open Ivrit Sheli live demo",
             "Open the staging deployment",
-            "deployed 2026-08-09",
+            f"deployed {nova_sync['deployed_on']}",
+            f"captured {nova_sync['captured_on']} and included in deployed commit `{nova_sync['commit'][:12]}`",
             "final private candidate before publication",
             "static frame above replaces animation",
         ):
