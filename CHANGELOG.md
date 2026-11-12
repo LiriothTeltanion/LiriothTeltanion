@@ -17,6 +17,8 @@ patch for a narrow correction.
 - The profile carries the AI-assisted tooling disclosure line.
 - The English, Spanish and Hebrew profiles reflect the verified November 2
   deployment of Nova Music Lab 1.6.0 and retain the original capture date.
+- The candidate now points to the verified November 12 Pages deployment of
+  Nova Music Lab 1.6.0; the November 2 deployment remains historical evidence.
 
 ## [2.11.1] — 2026-11-03 · Ivrit Sheli Release Edition — released
 

@@ -1,6 +1,6 @@
 # Kevin Cusnir · Lirioth Teltanion ✨
 
-<!-- canonical-project-facts: profile=2.12.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-11-02; nova_commit=286e4e01690d69fd47860d3003b9944660276290; ivrit_source=2.13.0; ivrit_status=published-source-release; ivrit_published=v2.13.0; ivrit_backend=434; ivrit_frontend=1096; ivrit_total=1530; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.13.0; ivrit_media_current=true; ivrit_capture_commit=1ff60b9ec910eb4cf212922ebfef3a203e790ea7; novafit=4.2.0 -->
+<!-- canonical-project-facts: profile=2.12.0; nova=1.6.0; nova_status=deployed; nova_deployed=2026-11-12; nova_commit=edf90379a3f0fda482ee8f4d15b9f8386a460d4d; ivrit_source=2.13.0; ivrit_status=published-source-release; ivrit_published=v2.13.0; ivrit_backend=434; ivrit_frontend=1096; ivrit_total=1530; ivrit_demo=staging-verified; ivrit_google_signin=true; ivrit_github_session=false; ivrit_media=2.13.0; ivrit_media_current=true; ivrit_capture_commit=1ff60b9ec910eb4cf212922ebfef3a203e790ea7; novafit=4.2.0 -->
 
 [English](./README.md) · [Español](./PROFILE_ES.md) · **עברית**
 
@@ -26,11 +26,11 @@
 
 ### 🎧 Nova Music Lab
 
-**Nova Music Lab 1.6.0**, שנפרסה ב־**2026-11-02**, היא אפליקציית React 19 ו־TypeScript בגישת local-first. היא מציגה את הארכיון המוזיקלי הציבורי של Kevin / Lirioth ומאפשרת לכל מבקר להפוך ייצוא נתמך מהיסטוריית ההאזנה שלו למוזיאון פרטי שנשאר בדפדפן. אפשר לנווט ב־Living Artist Atlas לפי מספר ההשמעות או מא׳ עד ת׳, עם ביוגרפיות קריאות, דיוקנאות, קשרים, ז׳אנרים ומקור נתונים שקוף. ה־snapshot הציבורי כולל **82,661 השמעות**, **20,908 שירים** ו־**6,593 רשומות של שמות אמנים** — בלי לטעון שמדובר ב־6,593 אנשים ייחודיים. ל־**94.2%** מההשמעות קיימת משפחה אנליטית, ול־457 רשומות יש ראיות מפורטות שנשמרות בנפרד מהסיווג האוטומטי.
+**Nova Music Lab 1.6.0**, שנפרסה ב־**2026-11-12**, היא אפליקציית React 19 ו־TypeScript בגישת local-first. היא מציגה את הארכיון המוזיקלי הציבורי של Kevin / Lirioth ומאפשרת לכל מבקר להפוך ייצוא נתמך מהיסטוריית ההאזנה שלו למוזיאון פרטי שנשאר בדפדפן. אפשר לנווט ב־Living Artist Atlas לפי מספר ההשמעות או מא׳ עד ת׳, עם ביוגרפיות קריאות, דיוקנאות, קשרים, ז׳אנרים ומקור נתונים שקוף. ה־snapshot הציבורי כולל **82,661 השמעות**, **20,908 שירים** ו־**6,593 רשומות של שמות אמנים** — בלי לטעון שמדובר ב־6,593 אנשים ייחודיים. ל־**94.2%** מההשמעות קיימת משפחה אנליטית, ול־457 רשומות יש ראיות מפורטות שנשמרות בנפרד מהסיווג האוטומטי.
 
 - [דמו ציבורי](https://liriothteltanion.github.io/NovaMusicLab/)
 - [קוד מקור](https://github.com/LiriothTeltanion/NovaMusicLab)
-- Pages מגיש את commit ‏`286e4e01690d`, ותג המוצר מצביע על ‏`e0d49d294034`. ב[הרצת הפריסה](https://github.com/LiriothTeltanion/NovaMusicLab/actions/runs/41523673099) עברו כל 18 בדיקות הדפדפן, בדיקות הפרטיות וגודל החבילה, ובדיקת התקינות של Pages.
+- Pages מגיש את commit ‏`edf90379a3f0`, ותג המוצר מצביע על ‏`e0d49d294034`. ב[הרצת הפריסה](https://github.com/LiriothTeltanion/NovaMusicLab/actions/runs/43221653133) עברו בדיקות הדפדפן, בדיקות הפרטיות וגודל החבילה, ובדיקת התקינות של Pages.
 
 ### א Ivrit Sheli
 
