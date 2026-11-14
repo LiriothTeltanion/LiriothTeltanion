@@ -74,7 +74,7 @@ Archivo auditado de seis semanas que conserva la progresión desde Python y prog
 
 ## Próxima profundidad
 
-Ivrit Sheli 2.2.0 ya convierte ese objetivo full-stack en evidencia pública y desplegada. La siguiente profundidad es completar el flujo OAuth E2E y operar productos con monitoreo y SLOs claros, simulacros de copia y restauración, pruebas de límites de autorización, controles de costo y abuso, y procedimientos de respuesta ante incidentes.
+Ivrit Sheli 2.13.0 ya convierte ese objetivo full-stack en evidencia pública y desplegada. La siguiente profundidad es completar el flujo OAuth E2E y operar productos con monitoreo y SLOs claros, simulacros de copia y restauración, pruebas de límites de autorización, controles de costo y abuso, y procedimientos de respuesta ante incidentes.
 
 ## Idiomas
 
